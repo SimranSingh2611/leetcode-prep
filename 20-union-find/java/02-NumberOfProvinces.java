@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd scan connected pairs above the symmetric matrix's diagonal and union their cities.
+ * - A successful merge reduces the component count; the remaining components are the provinces.
+ * Time complexity: O(n^2 alpha(n)) conservative amortized DSU bound for n cities.
+ * Space complexity: O(n) auxiliary DSU arrays; excludes the input matrix.
+ */
+
 // 547. Number of Provinces
 // https://leetcode.com/problems/number-of-provinces/
 // Solution preserves the matrix; a DFS solution is also O(n²) time for this representation.

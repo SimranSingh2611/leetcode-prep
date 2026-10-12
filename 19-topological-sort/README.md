@@ -28,9 +28,19 @@ Solve in numbered order. 6 Medium / 4 Hard. The mix reflects genuine pattern fit
 
 **Recognize it:** Determine whether all directed prerequisite constraints can be satisfied; a cycle makes completion impossible.
 
+**Talking points:**
+
+- I'd direct each prerequisite edge toward its dependent course and queue courses with zero
+  indegree.
+- Removing ready courses unlocks others; processing fewer than all courses reveals a cycle.
+
 **Solution:** For each [course, prerequisite], add prerequisite → course and increment the course's indegree. Queue all zero-indegree courses, remove them, and unlock dependents. Completion is possible exactly when the processed count equals numCourses.
 
-**Complexity:** O(V+E) time and O(V+E) adjacency/indegree/queue space.
+**Complexity:**
+
+**Time complexity:** `O(V + E)` for `V` courses and `E` prerequisite edges.
+
+**Space complexity:** `O(V + E)` auxiliary adjacency/indegree/queue storage.
 
 **Java:** [CourseSchedule](./java/01-CourseSchedule.java) — Solution preserves prerequisites. Pay attention to the pair direction; later Course Schedule variants use a different pair convention.
 
@@ -45,9 +55,19 @@ Solve in numbered order. 6 Medium / 4 Hard. The mix reflects genuine pattern fit
 
 **Recognize it:** Return one valid dependency order, not merely whether one exists.
 
+**Talking points:**
+
+- I'd run Kahn's algorithm and append each ready course to the result.
+- Every prerequisite has already been emitted when a course becomes ready; an incomplete order
+  means a cycle.
+
 **Solution:** Run Kahn's algorithm, appending each dequeued course to the result. An indegree-zero course can safely come next because every prerequisite has already been placed. Return an empty array if fewer than all courses are processed.
 
-**Complexity:** O(V+E) time and O(V+E) auxiliary graph/queue space, excluding output.
+**Complexity:**
+
+**Time complexity:** `O(V + E)` for `V` courses and `E` edges.
+
+**Space complexity:** `O(V + E)` auxiliary graph/queue storage, plus `O(V)` output.
 
 **Java:** [CourseScheduleII](./java/02-CourseScheduleII.java) — Solution returns any valid order and leaves input unchanged.
 
@@ -62,9 +82,20 @@ Solve in numbered order. 6 Medium / 4 Hard. The mix reflects genuine pattern fit
 
 **Recognize it:** A node is safe only if every path from it eventually terminates; work backward from terminal nodes.
 
+**Talking points:**
+
+- I'd reverse the edges and begin with terminal nodes, which are immediately safe.
+- A predecessor becomes safe only after all its outgoing neighbors do, leaving cycle-reaching
+  nodes unresolved.
+
 **Solution:** Reverse all edges and track each original node's outgoing count. Terminal nodes are initially safe. Removing a safe node reduces its predecessors' unresolved outgoing counts; a predecessor becomes safe when all of its outgoing neighbors are safe. Nodes trapped in or able to reach a cycle are never removed.
 
-**Complexity:** O(V+E) time and O(V+E) auxiliary space; scanning the final safe flags gives sorted output without sorting.
+**Complexity:**
+
+**Time complexity:** `O(V + E)` for `V` vertices and `E` edges.
+
+**Space complexity:** `O(V + E)` auxiliary reversed graph/counts/queue, plus up to `O(V)`
+output.
 
 **Java:** [FindEventualSafeStates](./java/03-FindEventualSafeStates.java) — Solution preserves graph and returns safe node indices in ascending order.
 
@@ -79,9 +110,21 @@ Solve in numbered order. 6 Medium / 4 Hard. The mix reflects genuine pattern fit
 
 **Recognize it:** A recipe becomes available only after all its ingredients are actually available; supplies seed the process.
 
+**Talking points:**
+
+- I'd map each ingredient to the recipes waiting for it and count their missing ingredients.
+- Available supplies enter a queue; completing a recipe makes its name available to unlock later
+  recipes.
+
 **Solution:** Map each ingredient to recipes waiting on it and count each recipe's missing ingredients. Queue initial supplies, then decrement waiting counts as items become available. When a recipe's count reaches zero, output it and enqueue its name as a newly available ingredient. Unavailable raw ingredients and dependency cycles remain unresolved.
 
-**Complexity:** Expected O(I+R+S) time and space for ingredient references I, recipes R, and supplies S, treating bounded-length names as keys.
+**Complexity:**
+
+**Time complexity:** Expected `O(I + R + S)` for ingredient references `I`, recipes `R` and
+supplies `S`, with bounded-length names.
+
+**Space complexity:** `O(I + R + S)` auxiliary dependency/count/queue storage, plus up to `O(R)`
+output.
 
 **Java:** [FindAllPossibleRecipesFromGivenSupplies](./java/04-FindAllPossibleRecipesFromGivenSupplies.java) — Solution preserves inputs. The queue starts with actual supplies, not every graph node of indegree zero.
 
@@ -96,9 +139,19 @@ Solve in numbered order. 6 Medium / 4 Hard. The mix reflects genuine pattern fit
 
 **Recognize it:** Many indirect prerequisite queries on a DAG; precompute reachability while processing dependencies in order.
 
+**Talking points:**
+
+- I'd propagate each course's known prerequisites through outgoing edges in topological order.
+- A course's prerequisite set is complete before its dependents receive it, allowing constant-
+  time answers after preprocessing.
+
 **Solution:** Here each pair [a,b] means a → b. Keep reach[p][v] indicating that p is a prerequisite of v. For every edge u → v, add u and every known prerequisite of u to v's prerequisites. Kahn's order ensures u's prerequisite set is complete before it is propagated.
 
-**Complexity:** O(V² + EV + Q) time and O(V²+E) auxiliary space for Q queries, excluding output.
+**Complexity:**
+
+**Time complexity:** `O(V^2 + EV + Q)` for `V` courses, `E` edges and `Q` queries.
+
+**Space complexity:** `O(V^2 + E)` auxiliary reachability/graph storage, plus `O(Q)` output.
 
 **Java:** [CourseScheduleIV](./java/05-CourseScheduleIV.java) — Solution assumes the problem's acyclic graph guarantee. Its pair direction differs from Course Schedule I/II.
 
@@ -113,9 +166,21 @@ Solve in numbered order. 6 Medium / 4 Hard. The mix reflects genuine pattern fit
 
 **Recognize it:** Propagate whole ancestor sets through a DAG, then list each node's ancestors in sorted order.
 
+**Talking points:**
+
+- I'd represent ancestor sets with BitSets and propagate them along edges in topological order.
+- Each dependent inherits the current node's ancestors and the node itself; increasing set-bit
+  iteration yields sorted answers.
+
 **Solution:** Represent each ancestor set as a BitSet. On edge u → v, OR u's complete ancestor set into v and set u's bit. Process vertices topologically, so no predecessor information arrives after v is processed. Iterating set bits in increasing index order produces sorted answers.
 
-**Complexity:** O(V+E + EV/w + V²) worst-case time including output enumeration, where w is the machine-word bit width; O(V²/w + V+E) auxiliary machine words, excluding potentially O(V²) output.
+**Complexity:**
+
+**Time complexity:** `O(V + E + E ceil(V / b) + V^2)` worst-case bound including output, with
+`b` bits per machine word.
+
+**Space complexity:** `O(V ceil(V / b) + V + E)` auxiliary machine words, plus potentially
+`O(V^2)` output entries.
 
 **Java:** [AllAncestorsOfANodeInADAG](./java/06-AllAncestorsOfANodeInADAG.java) — Solution uses Java BitSet for compact set unions and preserves edges.
 
@@ -130,9 +195,21 @@ Solve in numbered order. 6 Medium / 4 Hard. The mix reflects genuine pattern fit
 
 **Recognize it:** Strictly increasing moves create an implicit DAG; longest path length becomes the number of dependency layers.
 
+**Talking points:**
+
+- I'd direct each neighbor relation from the smaller value to the larger, creating an acyclic
+  graph.
+- Peeling complete zero-indegree layers gives the longest increasing path length because each
+  cell waits for all smaller predecessors.
+
 **Solution:** Orient each neighboring unequal pair from the smaller value to the larger. A cell's indegree is its count of smaller neighbors. Start with local minima and peel the graph in complete Kahn layers. A cell waits for every smaller predecessor, so its removal layer is one plus the largest predecessor layer, exactly the longest increasing path ending there.
 
-**Complexity:** O(RC) time and O(RC) auxiliary indegree/queue space; edges are generated from four neighbors, not stored explicitly.
+**Complexity:**
+
+**Time complexity:** `O(RC)` for an `R` by `C` matrix.
+
+**Space complexity:** `O(RC)` auxiliary indegree/queue storage; neighbor edges are generated on
+demand.
 
 **Java:** [LongestIncreasingPathInAMatrix](./java/07-LongestIncreasingPathInAMatrix.java) — Solution is iterative and preserves matrix; strict inequality is essential for acyclicity.
 
@@ -147,9 +224,19 @@ Solve in numbered order. 6 Medium / 4 Hard. The mix reflects genuine pattern fit
 
 **Recognize it:** Prerequisite tasks have durations and unlimited parallel execution; the finish time is a weighted DAG critical path.
 
+**Talking points:**
+
+- I'd track each course's earliest finish while processing prerequisites topologically.
+- A dependent finishes after its latest-finishing prerequisite plus its own duration;
+  independent courses can overlap.
+
 **Solution:** Initialize each course's earliest finish to its own duration. Process prerequisites topologically. For edge u → v, update finish[v] with max(finish[v], finish[u]+time[v]). A course can start only after its latest-finishing prerequisite, and independent courses can overlap. The largest finish is the total minimum completion time.
 
-**Complexity:** O(V+E) time and O(V+E) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(V + E)` for `V` courses and `E` edges.
+
+**Space complexity:** `O(V + E)` auxiliary graph/finish/queue storage.
 
 **Java:** [ParallelCoursesIII](./java/08-ParallelCoursesIII.java) — Solution normalizes the problem's 1-based course labels. This is topological ordering plus a one-number-per-node DP; inputs are unchanged.
 
@@ -164,9 +251,21 @@ Solve in numbered order. 6 Medium / 4 Hard. The mix reflects genuine pattern fit
 
 **Recognize it:** Two independent sets of precedence constraints determine row order and column order.
 
+**Talking points:**
+
+- I'd topologically sort row constraints and column constraints separately.
+- Their ranks give each value a unique matrix position; a cycle in either ordering makes
+  construction impossible.
+
 **Solution:** Topologically sort row conditions and column conditions separately. If either has a cycle, no matrix is possible. Otherwise assign each value its row rank and column rank and place it at that unique coordinate. Different values have different row ranks and different column ranks, so no collision occurs.
 
-**Complexity:** O(k + E_row + E_col + k²) time including output initialization; O(k+E_row+E_col) auxiliary space excluding the k×k matrix.
+**Complexity:**
+
+**Time complexity:** `O(k^2 + k + Erow + Ecol)` including initialization of the `k` by `k`
+matrix.
+
+**Space complexity:** `O(k + Erow + Ecol)` auxiliary ordering/graph storage, plus `O(k^2)`
+output.
 
 **Java:** [BuildAMatrixWithConditions](./java/09-BuildAMatrixWithConditions.java) — Solution preserves conditions and returns any valid matrix; an empty matrix signals infeasibility.
 
@@ -181,9 +280,19 @@ Solve in numbered order. 6 Medium / 4 Hard. The mix reflects genuine pattern fit
 
 **Recognize it:** Maximize a color's frequency along a directed path; detect cycles and propagate a vector of best path statistics.
 
+**Talking points:**
+
+- I'd keep the best count of each color for paths ending at every vertex.
+- Topological propagation updates those 26 counts, and an incomplete processed count detects a
+  cycle anywhere in the graph.
+
 **Solution:** Maintain best[v][c], the largest count of color c on any path ending at v. Start each vertex with one count of its own color. In topological order, propagate each of the 26 counts over u → v, adding one if v has that color. Take the largest count seen, but return -1 if Kahn's processed count reveals any cycle.
 
-**Complexity:** O(26(V+E)) time and O(26V+E) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(26(V + E)) = O(V + E)` for a fixed 26-color alphabet.
+
+**Space complexity:** `O(26V + E) = O(V + E)` auxiliary graph/color-table/queue space.
 
 **Java:** [LargestColorValueInADirectedGraph](./java/10-LargestColorValueInADirectedGraph.java) — Solution is a topological-sort + vector-DP stretch problem. Each color's best count may come from a different path; the vector is not one shared physical path.
 

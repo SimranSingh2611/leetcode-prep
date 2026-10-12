@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd label islands with distinct IDs and record their areas.
+ * - For each zero I'd add one and the areas of its distinct neighboring IDs, avoiding double
+ *   counting the same island.
+ * Time complexity: O(n^2) expected for an n by n grid.
+ * Space complexity: O(n^2) auxiliary component-area/stack storage; at most four neighbor IDs
+ *   need deduplication per zero.
+ */
+
 // 827. Making A Large Island
 // https://leetcode.com/problems/making-a-large-island/
 // Solution mutates grid: land 1s become component IDs 2 and above. Iterative traversal handles

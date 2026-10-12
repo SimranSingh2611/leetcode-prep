@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd track only the available five- and ten-dollar bills.
+ * - For a twenty-dollar payment I'd prefer a ten plus a five, preserving fives needed for
+ *   future ten-dollar payments.
+ * Time complexity: O(n) for n payments.
+ * Space complexity: O(1) auxiliary counters.
+ */
+
 // 860. Lemonade Change
 // https://leetcode.com/problems/lemonade-change/
 // Solution assumes the allowed bill denominations 5, 10, and 20 and does not mutate input.

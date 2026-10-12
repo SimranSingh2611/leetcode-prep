@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd turn each range sum into a difference of prefix sums.
+ * - While merging sorted halves, two monotonic pointers count the right-half prefixes whose
+ *   differences lie within the requested bounds.
+ * Time complexity: O(n log(n + 1)) for merge-sort counting.
+ * Space complexity: O(n) auxiliary prefix/merge arrays, including an O(log(n + 1)) recursion
+ *   stack.
+ */
+
 // O(n log n) time and O(n) space using prefix sums plus merge-sort counting.
 class Solution {
     private long[] buffer;

@@ -1,3 +1,16 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd represent ancestor sets with BitSets and propagate them along edges in topological
+ *   order.
+ * - Each dependent inherits the current node's ancestors and the node itself; increasing set-
+ *   bit iteration yields sorted answers.
+ * Time complexity: O(V + E + E ceil(V / b) + V^2) worst-case bound including output, with b
+ *   bits per machine word.
+ * Space complexity: O(V ceil(V / b) + V + E) auxiliary machine words, plus potentially O(V^2)
+ *   output entries.
+ */
+
 // 2192. All Ancestors of a Node in a Directed Acyclic Graph
 // https://leetcode.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/
 // Solution uses Java BitSet for compact set unions and preserves edges.

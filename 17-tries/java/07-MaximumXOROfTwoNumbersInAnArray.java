@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd insert numbers into a binary trie from their highest bit downward.
+ * - For each query bit I'd prefer the opposite branch, since setting a higher XOR bit outweighs
+ *   every lower-bit choice.
+ * Time complexity: O(31n) = O(n) for n nonnegative fixed-width integers.
+ * Space complexity: O(31n) = O(n) auxiliary trie space.
+ */
+
 // 421. Maximum XOR of Two Numbers in an Array
 // https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/
 // Solution is a bitwise-trie extension, not a string trie; inputs are nonnegative and unchanged.

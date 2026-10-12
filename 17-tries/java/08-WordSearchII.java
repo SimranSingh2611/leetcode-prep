@@ -1,3 +1,15 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd backtrack over board paths while following dictionary trie edges.
+ * - Missing prefixes prune whole groups of words, and clearing a found terminal prevents
+ *   duplicate answers.
+ * Time complexity: O(S + RC 3^L) loose worst-case bound for dictionary characters S, board size
+ *   R by C, and longest word length L.
+ * Space complexity: O(S + min(L, RC)) auxiliary trie/stack space, excluding output word
+ *   references.
+ */
+
 // 212. Word Search II
 // https://leetcode.com/problems/word-search-ii/
 // Solution restores board. It builds a fresh trie per call and clears only that private trie's

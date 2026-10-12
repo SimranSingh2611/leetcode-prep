@@ -1,3 +1,15 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd direct each neighbor relation from the smaller value to the larger, creating an acyclic
+ *   graph.
+ * - Peeling complete zero-indegree layers gives the longest increasing path length because each
+ *   cell waits for all smaller predecessors.
+ * Time complexity: O(RC) for an R by C matrix.
+ * Space complexity: O(RC) auxiliary indegree/queue storage; neighbor edges are generated on
+ *   demand.
+ */
+
 // 329. Longest Increasing Path in a Matrix
 // https://leetcode.com/problems/longest-increasing-path-in-a-matrix/
 // Solution is iterative and preserves matrix; strict inequality is essential for acyclicity.

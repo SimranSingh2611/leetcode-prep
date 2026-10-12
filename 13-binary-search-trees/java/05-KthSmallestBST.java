@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd perform inorder traversal and count nodes as they are popped.
+ * - The kth visited value is the kth smallest, so I can stop without building the full sorted
+ *   list.
+ * Time complexity: O(h + k) for tree height h and requested rank k.
+ * Space complexity: O(h) auxiliary traversal stack.
+ */
+
 // 230. Kth Smallest Element in a BST
 // https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 // Solution; k is valid; no mutation.

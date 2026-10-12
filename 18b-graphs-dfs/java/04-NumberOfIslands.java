@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - Each unseen land cell begins an island, so I'd count it and consume its entire component
+ *   with DFS.
+ * - Marking on push ensures multiple neighbors cannot schedule the same cell.
+ * Time complexity: O(RC) for an R by C grid.
+ * Space complexity: O(RC) auxiliary stack in the worst case; the grid stores visited markers.
+ */
+
 // 200. Number of Islands
 // https://leetcode.com/problems/number-of-islands/
 // Solution mutates grid by replacing visited '1' cells with '0'.

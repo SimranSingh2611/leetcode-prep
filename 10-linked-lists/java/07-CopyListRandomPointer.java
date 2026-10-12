@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd first create one clone for each original node and remember the correspondence.
+ * - A second pass wires next and random pointers through that map, handling cycles in random
+ *   links without duplicating nodes.
+ * Time complexity: O(n) expected for the map solution; O(n) for interleaving clones.
+ * Space complexity: Primary: O(n) auxiliary map plus O(n) output clones; interleaving: O(1)
+ *   auxiliary space excluding clones.
+ */
+
 // 138. Copy List with Random Pointer
 // https://leetcode.com/problems/copy-list-with-random-pointer/
 // Solution preserves input throughout; InterleavingSolution temporarily mutates and restores it.

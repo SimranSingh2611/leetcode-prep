@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd track both the total fuel surplus and the surplus from the current start candidate.
+ * - A negative candidate surplus eliminates every start in that segment, so I'd restart after
+ *   it; a nonnegative total makes the final candidate viable.
+ * Time complexity: O(n) for n stations.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // 134. Gas Station
 // https://leetcode.com/problems/gas-station/
 // Solution uses long balances and leaves gas/cost unchanged.

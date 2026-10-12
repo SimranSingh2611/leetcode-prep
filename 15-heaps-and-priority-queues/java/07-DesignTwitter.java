@@ -1,3 +1,15 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd store each user's tweets newest first and merge those lists when building a feed.
+ * - A heap contains one current tweet per candidate user, and each extraction advances only
+ *   that user's list.
+ * Time complexity: Expected O(1) for postTweet, follow, unfollow; getNewsFeed takes O((F + 10)
+ *   log(F + 2)) for F candidate users.
+ * Space complexity: O(T + R + U) persistent storage for tweets T, follow relationships R, and
+ *   stored user records U; O(F) feed workspace plus at most ten answers.
+ */
+
 // 355. Design Twitter
 // https://leetcode.com/problems/design-twitter/
 // Twitter is the design class. Self-follow is ignored to avoid duplicate feed entries; historical

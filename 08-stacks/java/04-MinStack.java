@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd store each value with the minimum at its stack depth.
+ * - Popping restores the previous minimum automatically, so querying the minimum never needs a
+ *   scan.
+ * Time complexity: O(1) per push, pop, top, or getMin, for both supplied designs.
+ * Space complexity: O(n) persistent space for n stack entries; the difference-encoding
+ *   alternative changes entry size, not the bound.
+ */
+
 // 155. Min Stack
 // https://leetcode.com/problems/min-stack/
 // MinStack recommended; DifferenceMinStack is a storage-layout alternative.

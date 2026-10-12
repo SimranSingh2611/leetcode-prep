@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd confirm that a complete group of k nodes exists before changing its links.
+ * - Then I'd reverse that block, reconnect both ends, and leave any shorter final group
+ *   untouched.
+ * Time complexity: O(n) for n nodes.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // 25. Reverse Nodes in k-Group
 // https://leetcode.com/problems/reverse-nodes-in-k-group/
 // Solution mutates links, not node values.

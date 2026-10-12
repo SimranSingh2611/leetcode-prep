@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd maintain the asteroids that survive the processed prefix on a stack.
+ * - Only a positive top and a negative incoming asteroid can collide; each collision removes at
+ *   least one contender.
+ * Time complexity: O(n) amortized overall for n asteroids.
+ * Space complexity: O(n) auxiliary stack, plus up to O(n) output.
+ */
+
 // 735. Asteroid Collision
 // https://leetcode.com/problems/asteroid-collision/
 // Solution; survivor stack, not a monotonic stack.

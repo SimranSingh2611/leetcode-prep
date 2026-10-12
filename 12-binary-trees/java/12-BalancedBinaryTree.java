@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd return a subtree height when balanced and minus one when unbalanced.
+ * - Combining balance checking with height calculation avoids rescanning subtrees, and the
+ *   failure marker propagates immediately.
+ * Time complexity: O(n) for n nodes.
+ * Space complexity: O(h) recursive stack for height h.
+ */
+
 // 110. Balanced Binary Tree
 // https://leetcode.com/problems/balanced-binary-tree/
 // O(n) time, O(h) recursion stack. Input preserved.

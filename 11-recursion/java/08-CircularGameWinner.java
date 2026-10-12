@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd solve the survivor position in a zero-based game of one fewer person.
+ * - Adding k modulo the current size restores the removed rotation; I'd convert to one-based
+ *   indexing only at the end.
+ * Time complexity: O(n) for n players, for both versions.
+ * Space complexity: Primary recursive: O(n) stack; iterative: O(1).
+ */
+
 // 1823. Find the Winner of the Circular Game
 // https://leetcode.com/problems/find-the-winner-of-the-circular-game/
 // Solution recursive; IterativeSolution optimized for stack space.

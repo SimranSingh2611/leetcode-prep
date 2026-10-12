@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd move one pointer by one link and another by two.
+ * - Inside a cycle their relative positions eventually meet; reaching null proves there is no
+ *   cycle.
+ * Time complexity: O(n) for n reachable nodes.
+ * Space complexity: Primary Floyd solution: O(1) auxiliary space; the visited-set alternative
+ *   uses O(n).
+ */
+
 // 141. Linked List Cycle
 // https://leetcode.com/problems/linked-list-cycle/
 // Solution is the optimized Floyd method; no mutation.

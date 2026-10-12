@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd store each character's latest index while expanding the right edge.
+ * - A repeat inside the window moves the left edge just beyond its previous occurrence, and the
+ *   left edge never moves backward.
+ * Time complexity: O(n) for string length n.
+ * Space complexity: O(1) for the primary 128-entry ASCII array; a generalized map uses O(A) for
+ *   A distinct characters.
+ */
+
 import java.util.Arrays;
 
 // O(n) time and O(1) space for the problem's ASCII character set.

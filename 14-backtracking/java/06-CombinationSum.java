@@ -1,3 +1,15 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd choose positive candidates in nondecreasing index order and allow reuse of the chosen
+ *   index.
+ * - Sorting enables an early stop when a candidate exceeds the remaining target, while index
+ *   ordering avoids duplicate combinations.
+ * Time complexity: For n candidates, D = floor(target / minCandidate) and output size Z: a
+ *   loose bound is O(n log(n + 1) + n^(D + 1) + Z).
+ * Space complexity: O(n + D) auxiliary sorted-copy/path/stack, plus O(Z) output.
+ */
+
 // 39. Combination Sum
 // https://leetcode.com/problems/combination-sum/
 // Solution sorts a clone and leaves the caller's candidates unchanged.

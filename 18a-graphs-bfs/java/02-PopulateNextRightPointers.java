@@ -1,3 +1,15 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd process one BFS layer at a time and connect each node to the next node removed from
+ *   that layer.
+ * - The final node points to null; the perfect-tree follow-up traverses existing next links to
+ *   eliminate the queue.
+ * Time complexity: O(n) for n nodes, for both versions.
+ * Space complexity: Primary BFS: O(w) auxiliary queue; perfect-tree alternative: O(1) auxiliary
+ *   space.
+ */
+
 // 116. Populating Next Right Pointers in Each Node
 // https://leetcode.com/problems/populating-next-right-pointers-in-each-node/
 // Both mutate next pointers, not left/right child links. Judge Node has val, left, right, next.

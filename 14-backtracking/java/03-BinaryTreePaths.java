@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd append node values to a shared path builder and copy it only at leaves.
+ * - Restoring the previous builder length after each call keeps sibling paths independent.
+ * Time complexity: O(n + Z) for n nodes and Z total output characters.
+ * Space complexity: O(h + P) auxiliary stack/builder for height h and maximum path character
+ *   length P, plus O(Z) output.
+ */
+
 // 257. Binary Tree Paths
 // https://leetcode.com/problems/binary-tree-paths/
 // Solution restores its path buffer and does not mutate the tree.

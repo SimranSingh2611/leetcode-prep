@@ -1,3 +1,15 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd index each word under every suffix followed by a separator and the full word.
+ * - Searching suffix + separator + prefix reaches only words matching both constraints, and
+ *   cached latest indices resolve ties.
+ * Time complexity: Build: O(sum((L_i + 1)^2)) over word lengths L_i; each query: O(P + Q + 1)
+ *   for prefix/suffix lengths P, Q.
+ * Space complexity: O(sum((L_i + 1)^2)) persistent trie space; O(P + Q + 1) temporary query-
+ *   string space.
+ */
+
 // 745. Prefix and Suffix Search
 // https://leetcode.com/problems/prefix-and-suffix-search/
 // WordFilter is the design class. The 27th child is the separator, and later duplicate words

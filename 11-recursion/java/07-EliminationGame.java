@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - After the first pass, I'd scale the surviving even numbers down to a smaller game.
+ * - Reversing the direction gives a recurrence on half as many values, so each call removes a
+ *   level of work.
+ * Time complexity: O(log(n + 1)) for n values, for both versions.
+ * Space complexity: Primary recursive: O(log(n + 1)) stack; iterative: O(1).
+ */
+
 // 390. Elimination Game
 // https://leetcode.com/problems/elimination-game/
 // Solution recursive; IterativeSolution state-compressed alternative.

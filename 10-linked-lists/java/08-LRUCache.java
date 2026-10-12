@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd combine a hash map for lookup with a doubly linked list ordered by recent use.
+ * - Access moves an entry to the front, and eviction removes the tail entry from both
+ *   structures.
+ * Time complexity: Expected O(1) per get or put.
+ * Space complexity: O(c) persistent storage for cache capacity c.
+ */
+
 // 146. LRU Cache
 // https://leetcode.com/problems/lru-cache/
 // LRUCache design class; explicit doubly linked list.

@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd summarize each subtree with whether it is a BST, its minimum, maximum, and sum.
+ * - Postorder combines valid children when their bounds fit the current value; the iterative
+ *   traversal also handles deep trees.
+ * Time complexity: O(n) expected for n nodes.
+ * Space complexity: O(n) auxiliary summary-map and traversal storage.
+ */
+
 // 1373. Maximum Sum BST in Binary Tree
 // https://leetcode.com/problems/maximum-sum-bst-in-binary-tree/
 // Solution iterative postorder; general-tree input, BST-subtree objective.

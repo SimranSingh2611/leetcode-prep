@@ -1,3 +1,15 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - The first value fixes the root, while the left and right groups must keep valid internal
+ *   reorderings.
+ * - I'd multiply both subtree counts by the number of ways to interleave the groups, then
+ *   exclude the original ordering.
+ * Time complexity: O(n^2) for n values.
+ * Space complexity: O(n^2) auxiliary binomial table and retained partitions, including an O(h)
+ *   stack.
+ */
+
 // 1569. Number of Ways to Reorder Array to Get Same BST
 // https://leetcode.com/problems/number-of-ways-to-reorder-array-to-get-same-bst/
 // Solution; modular combinatorics stretch, input preserved.

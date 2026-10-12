@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd first enforce each child's constraint relative to the left neighbor.
+ * - A reverse pass enforces the right constraint using the maximum of the two requirements,
+ *   giving the smallest valid candy count.
+ * Time complexity: O(n) for n children.
+ * Space complexity: O(n) auxiliary candy-array storage.
+ */
+
 // 135. Candy
 // https://leetcode.com/problems/candy/
 // Solution preserves ratings. A constant-space slope-counting variant is a follow-up, not needed

@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd process the tree with a queue and freeze its size at the start of each level.
+ * - Removing exactly that many nodes keeps newly enqueued children in the next result row.
+ * Time complexity: O(n) for n nodes.
+ * Space complexity: O(w) auxiliary queue for maximum level width w, plus O(n) output.
+ */
+
 // 102. Binary Tree Level Order Traversal
 // https://leetcode.com/problems/binary-tree-level-order-traversal/
 // Solution; input preserved.

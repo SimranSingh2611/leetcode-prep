@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd search eating speeds and test each speed by summing the required hours.
+ * - Higher speeds cannot require more hours, so binary search finds the smallest feasible
+ *   speed.
+ * Time complexity: O(n log(M + 1)) for n piles and maximum pile size M.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // 875. Koko Eating Bananas
 // https://leetcode.com/problems/koko-eating-bananas/
 /*

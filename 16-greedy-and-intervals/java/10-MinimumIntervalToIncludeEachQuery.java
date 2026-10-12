@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd process queries in increasing order and add intervals whose starts have been reached.
+ * - A heap ordered by inclusive length provides the smallest covering interval after expired
+ *   tops are removed; original query indices restore answer order.
+ * Time complexity: O(n log(n + 1) + q log(q + 1)) for n intervals and q queries; each interval
+ *   is inserted and removed at most once.
+ * Space complexity: O(n + q) auxiliary sorted-copy/index/heap storage, plus O(q) output.
+ */
+
 // 1851. Minimum Interval to Include Each Query
 // https://leetcode.com/problems/minimum-interval-to-include-each-query/
 // Solution clones the interval outer array, never edits its rows, and preserves query order in the

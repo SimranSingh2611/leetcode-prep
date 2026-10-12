@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd insert sorted products into a trie and cache the first three suggestions at every
+ *   prefix.
+ * - Then a query follows one path, returning those cached lists for each typed character.
+ * Time complexity: O(nL log(n + 1) + S + Q) for n products, maximum product length L, total
+ *   product characters S, and query length Q.
+ * Space complexity: O(S + n) auxiliary trie/sorted-copy storage, plus O(Q) output references.
+ */
+
 // 1268. Search Suggestions System
 // https://leetcode.com/problems/search-suggestions-system/
 // Solution keeps at most three suggestions per trie node and leaves products unchanged.

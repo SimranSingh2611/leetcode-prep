@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd traverse each island in the second grid and verify every cell is land in the first.
+ * - I'd finish consuming the island even after a mismatch, preventing its remaining cells from
+ *   being counted again.
+ * Time complexity: O(RC) for the two R by C grids.
+ * Space complexity: O(RC) auxiliary DFS stack; marks the second grid in place.
+ */
+
 // 1905. Count Sub Islands
 // https://leetcode.com/problems/count-sub-islands/
 // Solution preserves grid1 and changes visited land in grid2 to zero.

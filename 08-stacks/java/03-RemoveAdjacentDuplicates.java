@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd treat a StringBuilder as the reduced prefix of the string.
+ * - Matching its final character removes a pair; otherwise I'd append, allowing newly adjacent
+ *   duplicates to cancel later.
+ * Time complexity: O(n) amortized for n characters.
+ * Space complexity: O(n) working/output storage.
+ */
+
 // 1047. Remove All Adjacent Duplicates In String
 // https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/
 // Solution; input preserved.

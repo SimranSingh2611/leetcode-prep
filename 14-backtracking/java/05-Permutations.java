@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd choose an unused index at each depth and mark it until that recursive branch returns.
+ * - A length-n path is one permutation; undoing both the mark and append enables the next
+ *   choice.
+ * Time complexity: O(n n!) including permutation copies for n values.
+ * Space complexity: O(n) auxiliary used-array/path/stack, plus O(n n!) output.
+ */
+
 // 46. Permutations
 // https://leetcode.com/problems/permutations/
 // Solution uses a used-index array and does not mutate nums.

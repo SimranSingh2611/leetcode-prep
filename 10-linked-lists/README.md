@@ -28,9 +28,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Reverse links in place while keeping access to the remaining suffix.
 
+**Talking points:**
+
+- I'd save the next node before reversing each current link toward the previous node.
+- That keeps the unprocessed suffix reachable while building the reversed prefix.
+
 **Solution:** Maintain previous/current/next. Save current.next, reverse the link toward previous, then advance. The recursive alternative reverses the suffix and attaches the current node behind it; the iterative version avoids the linear call stack.
 
-**Complexity:** Both O(n) time; iterative O(1) versus recursive O(n) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` nodes, for both versions.
+
+**Space complexity:** Primary iterative: `O(1)` auxiliary space; recursive alternative: `O(n)`
+stack.
 
 **Java:** [ReverseLinkedList](./java/01-ReverseLinkedList.java) — Solution iterative; RecursiveSolution alternative. Both mutate links.
 
@@ -45,9 +55,18 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Two sorted chains can be merged by repeatedly linking their smaller current head.
 
+**Talking points:**
+
+- I'd use a dummy head and append the smaller of the two current nodes.
+- Once one list ends, I'd link the remaining suffix directly, reusing the existing nodes.
+
 **Solution:** Use a dummy head and tail. Link the smaller node, advance only that input, and move the tail. Attach the entire remaining suffix once one input ends.
 
-**Complexity:** O(n+m) time; O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n + m)` for the two list lengths.
+
+**Space complexity:** `O(1)` auxiliary space; reuses input nodes.
 
 **Java:** [MergeTwoSortedLists](./java/02-MergeTwoSortedLists.java) — Solution reuses and relinks input nodes.
 
@@ -62,9 +81,20 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Following next references may revisit the same node identity.
 
+**Talking points:**
+
+- I'd move one pointer by one link and another by two.
+- Inside a cycle their relative positions eventually meet; reaching null proves there is no
+  cycle.
+
 **Solution:** A set records visited nodes directly. Floyd's method uses slow/fast pointers: inside a cycle their relative gap changes by one each step, so they eventually meet. Reaching null proves the list terminates.
 
-**Complexity:** Both O(n) time; HashSetSolution O(n) space, Solution O(1) space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` reachable nodes.
+
+**Space complexity:** Primary Floyd solution: `O(1)` auxiliary space; the visited-set
+alternative uses `O(n)`.
 
 **Java:** [LinkedListCycle](./java/03-LinkedListCycle.java) — Solution is the optimized Floyd method; no mutation.
 
@@ -79,9 +109,18 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Maintain a fixed gap so one pointer reaches the end when another reaches the removal predecessor.
 
+**Talking points:**
+
+- I'd keep a fixed gap between fast and slow pointers starting from a dummy node.
+- When fast reaches null, slow sits before the node to remove, including a removal of the head.
+
 **Solution:** Start both pointers at a dummy node and advance fast by n+1 links. Move both until fast is null. Slow then precedes the nth node from the end, including when that node is the head.
 
-**Complexity:** O(length) time; O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(L)` for list length `L`.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Java:** [RemoveNthFromEnd](./java/04-RemoveNthFromEnd.java) — Solution mutates one link; n is valid per the statement.
 
@@ -96,9 +135,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Alternate nodes from the front and back of a singly linked list without indexing.
 
+**Talking points:**
+
+- I'd find the midpoint, split the list, and reverse the second half.
+- Alternately weaving the two halves creates the requested order; splitting first prevents a
+  cycle through the old middle link.
+
 **Solution:** Find the midpoint with slow/fast pointers, split the list, reverse its second half, then weave the two halves. Splitting first prevents the old middle link from creating a cycle.
 
-**Complexity:** O(n) time; O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` nodes.
+
+**Space complexity:** `O(1)` auxiliary space; rewires input nodes.
 
 **Java:** [ReorderList](./java/05-ReorderList.java) — Solution mutates links and returns void.
 
@@ -113,9 +162,18 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Digits arrive least-significant first as linked nodes, requiring a carry across positions.
 
+**Talking points:**
+
+- I'd add corresponding digits and carry while either list or the carry remains.
+- Each step emits `sum % 10` and carries `sum / 10`, avoiding whole-number conversion.
+
 **Solution:** Walk both lists while either has digits or a carry remains. Add present digits and carry, append sum%10, and carry sum/10. Do not parse whole numbers into a primitive: list length can exceed its capacity.
 
-**Complexity:** O(max(n,m)) time; O(1) auxiliary space excluding the new output list.
+**Complexity:**
+
+**Time complexity:** `O(max(n, m))` for list lengths `n` and `m`.
+
+**Space complexity:** `O(1)` auxiliary state, plus `O(max(n, m))` output nodes.
 
 **Java:** [AddTwoNumbers](./java/06-AddTwoNumbers.java) — Solution preserves both input lists.
 
@@ -130,9 +188,20 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** A deep copy must preserve arbitrary cross-links by node identity.
 
+**Talking points:**
+
+- I'd first create one clone for each original node and remember the correspondence.
+- A second pass wires next and random pointers through that map, handling cycles in random links
+  without duplicating nodes.
+
 **Solution:** First map every original node to a clone, then wire clone next/random links through that map. The optimized method inserts clones beside originals, uses original.random.next to locate random clones, then separates the two lists and restores the input.
 
-**Complexity:** O(n) expected time and O(n) auxiliary map for Solution; O(n) time and O(1) auxiliary space for InterleavingSolution, excluding clones.
+**Complexity:**
+
+**Time complexity:** `O(n)` expected for the map solution; `O(n)` for interleaving clones.
+
+**Space complexity:** Primary: `O(n)` auxiliary map plus `O(n)` output clones; interleaving:
+`O(1)` auxiliary space excluding clones.
 
 **Java:** [CopyListRandomPointer](./java/07-CopyListRandomPointer.java) — Solution preserves input throughout; InterleavingSolution temporarily mutates and restores it.
 
@@ -147,9 +216,18 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** O(1) lookup plus moving/removing known keys in recency order.
 
+**Talking points:**
+
+- I'd combine a hash map for lookup with a doubly linked list ordered by recent use.
+- Access moves an entry to the front, and eviction removes the tail entry from both structures.
+
 **Solution:** A hash map locates each entry's doubly linked node. Sentinel head/tail nodes bound an order from most to least recent. Move accessed/updated entries to the front; when full, evict the tail predecessor from both the list and map.
 
-**Complexity:** O(1) expected get/put; O(capacity) space.
+**Complexity:**
+
+**Time complexity:** Expected `O(1)` per `get` or `put`.
+
+**Space complexity:** `O(c)` persistent storage for cache capacity `c`.
 
 **Java:** [LRUCache](./java/08-LRUCache.java) — LRUCache design class; explicit doubly linked list.
 
@@ -164,9 +242,18 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Reverse fixed-size linked blocks, leaving a short final block untouched.
 
+**Talking points:**
+
+- I'd confirm that a complete group of `k` nodes exists before changing its links.
+- Then I'd reverse that block, reconnect both ends, and leave any shorter final group untouched.
+
 **Solution:** Use a dummy predecessor and first locate the kth node. If absent, stop without mutating that block. Save the block's successor, reverse links until that successor, reconnect the predecessor, and move it to the old block head (now the tail).
 
-**Complexity:** O(n) time; O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` nodes.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Java:** [ReverseNodesKGroup](./java/09-ReverseNodesKGroup.java) — Solution mutates links, not node values.
 
@@ -181,9 +268,20 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Evict by minimum usage count, breaking ties with recency, while retaining O(1) operations.
 
+**Talking points:**
+
+- I'd map keys to records and frequencies to insertion-ordered key buckets.
+- Access promotes a key; eviction takes the oldest key in the minimum-frequency bucket,
+  implementing both tie rules.
+
 **Solution:** Map keys to value/frequency records and frequencies to insertion-ordered key sets. LinkedHashSet supplies linked recency order within each bucket. Access moves a key to the next frequency's newest position. Track the minimum nonempty frequency; evict its oldest key when full.
 
-**Complexity:** O(1) expected get/put; O(capacity) space after removing empty buckets.
+**Complexity:**
+
+**Time complexity:** Expected `O(1)` per `get` or `put`.
+
+**Space complexity:** `O(c)` persistent storage for capacity `c`; empty frequency buckets are
+removed.
 
 **Java:** [LFUCache](./java/10-LFUCache.java) — LFUCache design class; linked-order buckets plus hashing.
 

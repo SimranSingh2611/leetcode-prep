@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - The row-major ordering lets me treat the matrix as one sorted array.
+ * - I'd binary-search virtual indices and map each midpoint to a row and column without
+ *   flattening the data.
+ * Time complexity: O(log(RC + 1)) for R rows and C columns.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // 74. Search a 2D Matrix
 // https://leetcode.com/problems/search-a-2d-matrix/
 /*

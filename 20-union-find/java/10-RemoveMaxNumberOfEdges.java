@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd process shared edges first in separate DSUs for Alice and Bob.
+ * - A successful shared merge benefits both users; after their private edges, unused edges are
+ *   removable if both graphs are connected.
+ * Time complexity: O(n + E alpha(n)) amortized for n vertices and E edges.
+ * Space complexity: O(n) auxiliary storage for the two DSUs.
+ */
+
 // 1579. Remove Max Number of Edges to Keep Graph Fully Traversable
 // https://leetcode.com/problems/remove-max-number-of-edges-to-keep-graph-fully-traversable/
 // Solution preserves edges and always executes both shared-edge unions; it does not hide the second

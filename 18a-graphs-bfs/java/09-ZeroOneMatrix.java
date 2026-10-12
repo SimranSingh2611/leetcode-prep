@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd seed every zero with distance zero and BFS outward from all of them.
+ * - A cell's first assigned distance is its shortest distance to any zero.
+ * Time complexity: O(RC) for an R by C matrix.
+ * Space complexity: O(RC) auxiliary queue, plus O(RC) output distances.
+ */
+
 // 542. 01 Matrix
 // https://leetcode.com/problems/01-matrix/
 // Solution preserves mat and returns a new matrix.

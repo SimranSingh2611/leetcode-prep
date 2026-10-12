@@ -156,9 +156,18 @@ Binary Search checks nums[2]==7, finds it false, and returns -1.
 
 **Why monotonic:** Sorted order makes the predicate false below the target's lower bound and true thereafter. Equality alone is not monotonic.
 
+**Talking points:**
+
+- I'd find the first index whose value is at least the target using false/true endpoints.
+- Then I'd verify equality and check the virtual `n` endpoint before indexing.
+
 **Solution:** Find the first index whose value is at least target, then check equality. If every value is smaller, hi stays at the virtual endpoint n; check the bound before indexing.
 
-**Complexity:** O(log(n+1)) time, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(log(n + 1))` for `n` values.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Java:** [01-BinarySearch.java](./java/01-BinarySearch.java)
 
@@ -180,9 +189,18 @@ Binary Search checks nums[2]==7, finds it false, and returns -1.
 
 **Why monotonic:** Once an element is large enough, every later sorted element is large enough. The virtual n endpoint represents insertion after the array.
 
+**Talking points:**
+
+- I'd use a lower-bound search for the first value at least the target.
+- Its boundary is the insertion position even when the target is absent, including position `n`.
+
 **Solution:** Run the same lower-bound search as problem 1. Here a missing exact match is not failure: the boundary is precisely where the target should be inserted.
 
-**Complexity:** O(log(n+1)) time, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(log(n + 1))` for `n` values.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Java:** [02-SearchInsertPosition.java](./java/02-SearchInsertPosition.java)
 
@@ -204,9 +222,20 @@ Binary Search checks nums[2]==7, finds it false, and returns -1.
 
 **Why monotonic:** Good versions precede bad versions. The statement guarantees a bad version exists, so n is a real known-true endpoint; 0 is only a virtual good endpoint.
 
+**Talking points:**
+
+- Good versions followed by bad versions form a monotonic predicate.
+- I'd keep version zero as a virtual good endpoint and `n` as a known bad endpoint, querying
+  only interior versions.
+
 **Solution:** Ask the API only about interior versions. A bad midpoint becomes hi; a good midpoint becomes lo. Adjacent endpoints isolate the first bad version without querying version 0.
 
-**Complexity:** O(log(n+1)) API calls, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(log(n + 1))` API calls; the same time bound assumes each call costs
+`O(1)`.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Java:** [03-FirstBadVersion.java](./java/03-FirstBadVersion.java)
 
@@ -228,9 +257,19 @@ Binary Search checks nums[2]==7, finds it false, and returns -1.
 
 **Why monotonic:** The last value of each row is smaller than the first value of the next row, so row-major order is globally sorted.
 
+**Talking points:**
+
+- The row-major ordering lets me treat the matrix as one sorted array.
+- I'd binary-search virtual indices and map each midpoint to a row and column without flattening
+  the data.
+
 **Solution:** Apply the lower-bound template to virtual flattened indices, translating each midpoint to row and column without allocating a flattened array. The implementation uses long for the total and flat bounds, then checks equality.
 
-**Complexity:** O(log(rows·cols+1)) time, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(log(RC + 1))` for `R` rows and `C` columns.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Java:** [04-SearchA2DMatrix.java](./java/04-SearchA2DMatrix.java)
 
@@ -252,9 +291,18 @@ Binary Search checks nums[2]==7, finds it false, and returns -1.
 
 **Why monotonic:** Increasing speed cannot increase the required hours. The guarantee h >= piles.length makes M feasible.
 
+**Talking points:**
+
+- I'd search eating speeds and test each speed by summing the required hours.
+- Higher speeds cannot require more hours, so binary search finds the smallest feasible speed.
+
 **Solution:** Search speeds, not pile indices. Zero is an infeasible sentinel and is never passed to the checker. For a positive candidate, sum integer ceiling divisions using long and stop early when hours exceed h.
 
-**Complexity:** O(n·log(M+1)) time, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n log(M + 1))` for `n` piles and maximum pile size `M`.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Java:** [05-KokoEatingBananas.java](./java/05-KokoEatingBananas.java)
 
@@ -276,9 +324,19 @@ Binary Search checks nums[2]==7, finds it false, and returns -1.
 
 **Why monotonic:** With distinct values, the high segment is greater than the last value and the low segment is at most it. An unrotated array gives all true, so the first true is index 0.
 
+**Talking points:**
+
+- I'd compare every candidate with the fixed final array value.
+- With distinct values, the first value no greater than that reference starts the low segment
+  and is the minimum.
+
 **Solution:** Find the start of the low segment. Store the original last value once; do not change the predicate's reference to nums[hi] as hi moves. The final index is the pivot, whose value the judge requests.
 
-**Complexity:** O(log(n+1)) time, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(log(n + 1))` for `n` values.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Java:** [06-FindMinimumInRotatedSortedArray.java](./java/06-FindMinimumInRotatedSortedArray.java)
 
@@ -300,9 +358,19 @@ Binary Search checks nums[2]==7, finds it false, and returns -1.
 
 **Why monotonic:** The full rotated array is not monotonic for nums[i] >= target. Finding the pivot exposes two genuinely sorted segments, each suitable for lower bound.
 
+**Talking points:**
+
+- I'd first find the rotation pivot using the fixed last value.
+- The target's relation to that last value selects a sorted segment, where the same lower-bound
+  loop can check for a match.
+
 **Solution:** First find the pivot using problem 6's predicate. If target <= the fixed last value, search [pivot,n); otherwise search [0,pivot). A segment can be empty, particularly when an unrotated array is queried above its largest element. Virtual endpoints and the final range check handle this safely. Two sequential logarithmic searches are still O(log n).
 
-**Complexity:** O(log(n+1)) time, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(log(n + 1))`; two sequential logarithmic searches keep the same bound.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Java:** [07-SearchInRotatedSortedArray.java](./java/07-SearchInRotatedSortedArray.java)
 
@@ -324,9 +392,21 @@ Binary Search checks nums[2]==7, finds it false, and returns -1.
 
 **Why monotonic:** Timestamps increase, so qualifying writes form a true prefix. The desired write is the last true, not the first true.
 
+**Talking points:**
+
+- I'd append each key's writes to a chronological list.
+- A query searches for the last timestamp no greater than the requested time; no qualifying
+  timestamp returns an empty string.
+
 **Solution:** Keep append-only per-key lists. get uses the maximization variant: a qualifying midpoint becomes lo, otherwise it becomes hi. A missing key or a query earlier than all writes returns an empty string. The existing OutOfOrderTimeMap remains a separate TreeMap follow-up; it is not a hand-written binary search and is not forced into this template.
 
-**Complexity:** For m writes to the queried key and W total writes: expected amortized O(1) set, O(log(m+1)) get, O(W) entry storage, plus stored strings. The TreeMap alternative uses O(log(m+1)) set/get.
+**Complexity:**
+
+**Time complexity:** For `m` writes to a key: expected amortized `O(1)` per `set`, `O(log(m +
+1))` per `get`. The TreeMap alternative uses `O(log(m + 1))` for both.
+
+**Space complexity:** `O(W + C)` persistent storage for `W` entries and `C` stored string
+characters; `O(1)` search state.
 
 **Java:** [08-TimeBasedKeyValueStore.java](./java/08-TimeBasedKeyValueStore.java)
 
@@ -348,9 +428,20 @@ Binary Search checks nums[2]==7, finds it false, and returns -1.
 
 **Why monotonic:** Increasing i raises A-right while reducing j, which lowers B-left. Thus this one inequality is false then true. Testing both cross-inequalities together does not give that monotonic sequence.
 
+**Talking points:**
+
+- I'd binary-search the partition in the smaller array so both left halves contain half the
+  values.
+- The valid boundary makes every left value no greater than every right value, letting the
+  median come from the partition edges.
+
 **Solution:** Let A be the smaller array, m<=n, and H=(m+n+1)/2. Search for the first cut with B[j-1] <= A[i], interpreting an empty B-left as -infinity and an empty A-right as +infinity. hi=m is known true, and the loop never evaluates A[m]. At the boundary, minimality supplies the other required inequality. For odd length return the larger left boundary; for even length average it with the smaller right boundary, promoting before addition.
 
-**Complexity:** O(1+log(min(m,n)+1)) time, O(1) auxiliary space, including at most one argument-swap call. Inputs are unchanged.
+**Complexity:**
+
+**Time complexity:** `O(1 + log(min(m, n) + 1))` for array lengths `m` and `n`.
+
+**Space complexity:** `O(1)` auxiliary space, including at most one argument-swap call.
 
 **Java:** [09-MedianOfTwoSortedArrays.java](./java/09-MedianOfTwoSortedArrays.java)
 
@@ -372,9 +463,20 @@ Binary Search checks nums[2]==7, finds it false, and returns -1.
 
 **Why monotonic:** Increasing the limit cannot increase the minimum number of required parts. For nonnegative inputs, greedily extending each part as far as possible uses the fewest parts.
 
+**Talking points:**
+
+- I'd search a candidate maximum subarray sum and greedily count how many parts it needs.
+- Nonnegative values make feasibility monotonic, and a split into at most `k` parts can be
+  refined to exactly `k`.
+
 **Solution:** Search the smallest feasible maximum sum. The checker starts a new part only when the next value would exceed the candidate limit. At most k parts suffices: with nonnegative numbers, subdividing parts until exactly k are present cannot raise any part's sum, and k<=n ensures enough elements. The bounds also work for all-zero input: lo=-1 and hi=0 are already adjacent.
 
-**Complexity:** O(n·(1+log(S-M+1))) time for S=sum(nums), M=max(nums), including the initial scan; O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n(1 + log(S - M + 1)))` for `S = sum(nums)`, `M = max(nums)`, including
+the initial scan.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Java:** [10-SplitArrayLargestSum.java](./java/10-SplitArrayLargestSum.java)
 
@@ -397,11 +499,21 @@ Binary Search checks nums[2]==7, finds it false, and returns -1.
 **Why monotonic:** The first predicate has a false prefix and true suffix;
 the second has a true prefix and false suffix. Equality alone would not work.
 
+**Talking points:**
+
+- I'd search separately for the first value at least the target and the last value at most it.
+- After verifying presence, those boundaries give the inclusive range without computing
+  overflow-prone `target + 1`.
+
 **Solution:** Find the lower bound and verify presence before searching for
 the final index at most target. Both loops use lo+1<hi and assign mid directly
 to an endpoint. Avoid target+1 so integer-limit targets remain safe.
 
-**Complexity:** O(log(n+1)) time, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(log(n + 1))` for `n` values.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Java:** [11-FindFirstAndLastPosition.java](./java/11-FindFirstAndLastPosition.java)
 
@@ -427,13 +539,23 @@ A falling midpoint becomes hi; a rising midpoint becomes lo. Adjacent values
 must differ, so these are the only cases. At termination, hi=lo+1 is greater
 than both its neighbors. No out-of-range neighbor is actually read.
 
+**Talking points:**
+
+- I'd use the local rising or falling slope to keep an interval that contains a peak.
+- The endpoint-slope invariant justifies discarding half; the goal is any peak, and the slope
+  predicate need not be globally monotonic.
+
 **Solution:** Keep the guide's loop and direct midpoint assignments, proving
 correctness from the two endpoint slopes. The condition is not globally
 monotonic: for [1,2,1,3,5,6,4], it changes false/true/false before becoming
 true again. This implementation returns index 5, although index 1 is also a
 peak. Calling it a first-peak minimization search would therefore be incorrect.
 
-**Complexity:** O(log(n+1)) time, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(log(n + 1))` for `n` values.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Java:** [12-FindPeakElement.java](./java/12-FindPeakElement.java)
 
@@ -456,11 +578,20 @@ peak. Calling it a first-peak minimization search would therefore be incorrect.
 **Why monotonic:** The coins required increase with the row count, so feasible
 counts form a true prefix. Zero rows require zero coins; n+1 rows exceed n coins.
 
+**Talking points:**
+
+- I'd search the largest row count whose triangular number fits the coin budget.
+- Using long arithmetic keeps the midpoint and `k(k + 1)/2` safe near integer limits.
+
 **Solution:** Search the largest feasible row count. Use long bounds, midpoint,
 and triangular-number arithmetic to avoid int overflow even when n is
 Integer.MAX_VALUE. The implementation also handles n=0.
 
-**Complexity:** O(log(n+1)) time, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(log(n + 1))` for `n` coins.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Java:** [13-ArrangingCoins.java](./java/13-ArrangingCoins.java)
 
@@ -484,11 +615,22 @@ Integer.MAX_VALUE. The implementation also handles n=0.
 indices. From the singleton onward that alignment breaks, giving false then
 true. The final index is defined true; the loop never evaluates its partner.
 
+**Talking points:**
+
+- Before the unique element, duplicate pairs align at even/odd positions; after it, that
+  alignment breaks.
+- I'd locate the first broken pair with binary search, using `mid ^ 1` to find the partner
+  index.
+
 **Solution:** XOR with 1 switches an even index to the following odd index and
 an odd index to the previous even index. Find the first mismatch. Every tested
 midpoint is below n-1, so both compared indices are valid.
 
-**Complexity:** O(log(n+1)) time, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(log(n + 1))` for `n` values.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Java:** [14-SingleElementInSortedArray.java](./java/14-SingleElementInSortedArray.java)
 
@@ -511,10 +653,19 @@ midpoint is below n-1, so both compared indices are valid.
 **Why monotonic:** Once a sorted letter is strictly greater than target, all
 later letters also qualify. Duplicates preserve this ordering.
 
+**Talking points:**
+
+- I'd find the first letter strictly greater than the target.
+- If that upper bound is the virtual endpoint `n`, I'd return the first letter for wraparound.
+
 **Solution:** Find the strict upper bound. Equality stays on the false side;
 if no real index qualifies, apply the required wraparound after the search.
 
-**Complexity:** O(log(n+1)) time, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(log(n + 1))` for `n` letters.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Java:** [15-FindSmallestLetterGreaterThanTarget.java](./java/15-FindSmallestLetterGreaterThanTarget.java)
 
@@ -539,11 +690,21 @@ if no real index qualifies, apply the required wraparound after the search.
 **Why monotonic:** Sorted order makes both occurrence predicates monotonic,
 as in problem 11. All occurrences of target form one contiguous block.
 
+**Talking points:**
+
+- I'd find the target's first and last occurrences in the sorted array.
+- Their inclusive count must be strictly greater than half the length; exactly half is
+  insufficient.
+
 **Solution:** Verify presence at the lower bound, then find the last occurrence
 with the maximization loop. Compare the inclusive count with half the array
 length; exactly half is not a majority. The submission method returns boolean.
 
-**Complexity:** O(log(n+1)) time, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(log(n + 1))` for `n` values.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Java:** [16-CheckIfNumberIsMajorityElement.java](./java/16-CheckIfNumberIsMajorityElement.java)
 

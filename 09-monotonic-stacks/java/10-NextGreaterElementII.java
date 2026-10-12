@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd scan two virtual copies of the array to cover wraparound.
+ * - Only the first pass pushes indices; both passes can resolve a pending index with a larger
+ *   value.
+ * Time complexity: O(n) amortized overall for n values.
+ * Space complexity: O(n) auxiliary stack, plus O(n) output.
+ */
+
 // 503. Next Greater Element II
 // https://leetcode.com/problems/next-greater-element-ii/
 // Guide template 1, next strictly greater: pop <; non-increasing values.

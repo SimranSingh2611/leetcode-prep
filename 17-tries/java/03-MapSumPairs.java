@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd store a prefix sum at every trie node and remember each full key's old value.
+ * - Updating a key adds only the value difference along its path, so overwrites do not double
+ *   count.
+ * Time complexity: Expected O(L) per insert for key length L; O(P) per sum for prefix length P.
+ * Space complexity: O(S) persistent trie/key-map storage for total distinct-key characters S.
+ */
+
 // 677. Map Sum Pairs
 // https://leetcode.com/problems/map-sum-pairs/
 // MapSum is the design class. Stored sums use int under the problem's bounds.

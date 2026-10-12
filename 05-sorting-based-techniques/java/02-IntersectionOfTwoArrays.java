@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd sort both arrays and move two pointers toward matching values.
+ * - On a match, I'd emit the value once and skip duplicates so the result stays unique.
+ * Time complexity: O(n log(n + 1) + m log(m + 1)) for array lengths n and m.
+ * Space complexity: O(min(n, m)) temporary/result capacity, plus sorting workspace; O(n + m) is
+ *   a conservative Java total bound.
+ */
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;

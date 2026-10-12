@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd count frequencies, then put values into buckets indexed by their counts.
+ * - Scanning buckets from highest frequency gives the top k without sorting all values.
+ * Time complexity: O(n) expected for bucket sorting; the heap alternative takes O(n log(k +
+ *   1)).
+ * Space complexity: O(n) auxiliary bucket/map space, plus O(k) output.
+ */
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

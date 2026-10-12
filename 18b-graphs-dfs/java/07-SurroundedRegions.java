@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd mark the O cells reachable from the border as safe.
+ * - Every remaining O is enclosed and can flip to X, then I'd restore the safe markers.
+ * Time complexity: O(RC) for an R by C board.
+ * Space complexity: O(RC) auxiliary DFS stack; temporary markers use the board itself.
+ */
+
 // 130. Surrounded Regions
 // https://leetcode.com/problems/surrounded-regions/
 // Solution intentionally modifies board in place and removes all temporary markers before

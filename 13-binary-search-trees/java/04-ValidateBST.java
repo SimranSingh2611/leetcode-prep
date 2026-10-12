@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - A valid strict BST has a strictly increasing inorder traversal.
+ * - I'd iterate with a stack and reject any value no greater than the previous value, using a
+ *   safe sentinel type.
+ * Time complexity: O(n) for n nodes.
+ * Space complexity: O(h) auxiliary traversal stack for height h.
+ */
+
 // 98. Validate Binary Search Tree
 // https://leetcode.com/problems/validate-binary-search-tree/
 // Solution iterative; no mutation.

@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd keep the lengths of alternating runs ending with an upward or downward comparison.
+ * - Each strict comparison extends the opposite state, while equal neighbors reset both
+ *   lengths.
+ * Time complexity: O(n) for n values.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // O(n) time and O(1) space.
 class Solution {
     public int maxTurbulenceSize(int[] arr) {

@@ -57,9 +57,19 @@ Grid values are not universal: Number of Islands uses 1 as land; Number of Close
 
 **Recognize it:** Recolor exactly the component connected to a starting cell through equal-colored neighbors.
 
+**Talking points:**
+
+- I'd explore the starting cell's same-color component using an explicit DFS stack.
+- Recoloring on push prevents duplicate scheduling; an unchanged replacement color needs an
+  immediate return.
+
 **Solution:** Use a LIFO stack to explore the same-color component. Recolor each cell when pushing it, so it cannot be discovered twice. If the replacement color equals the original color, return immediately because recoloring would not mark progress. BfsSolution retains the earlier queue-based alternative.
 
-**Complexity:** O(RC) worst-case time and stack space.
+**Complexity:**
+
+**Time complexity:** `O(RC)` worst case for an `R` by `C` image.
+
+**Space complexity:** `O(RC)` auxiliary DFS stack; recolors the image in place.
 
 **Java:** [FloodFill](./java/01-FloodFill.java) — Solution mutates image in place and returns the same array reference. Primary Solution uses an explicit DFS stack; BfsSolution preserves the earlier BFS alternative.
 
@@ -78,9 +88,20 @@ Grid values are not universal: Number of Islands uses 1 as land; Number of Close
 
 **Recognize it:** Count component edges that touch water or leave the grid; a boundary-accounting traversal warm-up.
 
+**Talking points:**
+
+- I'd traverse the land component and count every edge facing water or the grid boundary.
+- The scan follow-up instead adds four per land cell and subtracts shared edges, avoiding
+  traversal storage.
+
 **Solution:** The primary iterative DFS visits one land component and counts edges facing water or leaving the grid. ScanSolution instead adds four per land cell and subtracts two for each shared top/left edge, removing the need for traversal storage under the single-island contract. BfsSolution retains the earlier traversal for comparison.
 
-**Complexity:** All variants use O(RC) time. DFS/BFS use O(RC) visited/frontier space; ScanSolution uses O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(RC)` for an `R` by `C` grid, for all supplied variants.
+
+**Space complexity:** Primary DFS/BFS: `O(RC)` visited/frontier space; scan alternative: `O(1)`
+auxiliary space.
 
 **Java:** [IslandPerimeter](./java/02-IslandPerimeter.java) — All variants preserve grid. ScanSolution is the space-optimized follow-up and illustrates when a graph model does not require traversal. Primary Solution uses an explicit DFS stack; BfsSolution preserves the earlier BFS alternative.
 
@@ -99,9 +120,19 @@ Grid values are not universal: Number of Islands uses 1 as land; Number of Close
 
 **Recognize it:** Count groups in an explicit undirected adjacency list, including isolated vertices.
 
+**Talking points:**
+
+- I'd scan all vertices and start DFS whenever I find one not yet visited.
+- Every new traversal identifies one component, including isolated vertices and groups
+  disconnected from vertex zero.
+
 **Solution:** Build adjacency lists, scan all vertices, and start an iterative DFS whenever a vertex has not been visited. Each new traversal contributes one component. Starting from only vertex zero would miss disconnected groups.
 
-**Complexity:** O(V+E) time and auxiliary graph/visited/stack space.
+**Complexity:**
+
+**Time complexity:** `O(V + E)` for `V` vertices and `E` edges.
+
+**Space complexity:** `O(V + E)` auxiliary adjacency/visited/stack storage.
 
 **Java:** [ConnectedComponentsInUndirectedGraph](./java/03-ConnectedComponentsInUndirectedGraph.java) — Solution preserves edges. Premium NeetCode 150 selection; vertices with no edges still count.
 
@@ -120,9 +151,20 @@ Grid values are not universal: Number of Islands uses 1 as land; Number of Close
 
 **Recognize it:** Count connected components of four-directional land, not the number of land cells.
 
+**Talking points:**
+
+- Each unseen land cell begins an island, so I'd count it and consume its entire component with
+  DFS.
+- Marking on push ensures multiple neighbors cannot schedule the same cell.
+
 **Solution:** Scan for unseen land. Each such cell begins a new component; increment the count and mark its whole component using an explicit DFS stack. Mark on push, not on pop, so multiple neighbors cannot schedule the same cell. The old BFS implementation is retained as BfsSolution.
 
-**Complexity:** O(RC) time and O(RC) worst-case stack space.
+**Complexity:**
+
+**Time complexity:** `O(RC)` for an `R` by `C` grid.
+
+**Space complexity:** `O(RC)` auxiliary stack in the worst case; the grid stores visited
+markers.
 
 **Java:** [NumberOfIslands](./java/04-NumberOfIslands.java) — Solution mutates grid by replacing visited '1' cells with '0'. Primary Solution uses an explicit DFS stack; BfsSolution preserves the earlier BFS alternative.
 
@@ -141,9 +183,18 @@ Grid values are not universal: Number of Islands uses 1 as land; Number of Close
 
 **Recognize it:** Find every land component and keep the largest number of cells in one component.
 
+**Talking points:**
+
+- I'd DFS from each unseen land cell and count the cells in that component.
+- After consuming it, I'd compare its area with the best found so far.
+
 **Solution:** Scan the grid. Each unseen land cell starts an iterative DFS, which counts its component while marking discovered land as water. Update the largest component area after the stack empties.
 
-**Complexity:** O(RC) time and O(RC) worst-case stack space.
+**Complexity:**
+
+**Time complexity:** `O(RC)` for an `R` by `C` grid.
+
+**Space complexity:** `O(RC)` worst-case auxiliary stack; land is marked in place.
 
 **Java:** [MaxAreaOfIsland](./java/05-MaxAreaOfIsland.java) — Solution destroys land marks by changing visited 1s to 0s; clone the grid first if preservation is required.
 
@@ -162,9 +213,19 @@ Grid values are not universal: Number of Islands uses 1 as land; Number of Close
 
 **Recognize it:** Each nested integer contributes a value multiplied by its depth; recursive calls carry the current depth.
 
+**Talking points:**
+
+- I'd recurse through each nested list with its current depth.
+- An integer contributes its value times that depth, while a sublist contributes its children's
+  recursive total.
+
 **Solution:** Walk each list recursively. An integer contributes value*depth; a nested list contributes the result of traversing its children at depth+1. The returned sum is a complete summary of one list at its specified depth. Top-level integers have depth one.
 
-**Complexity:** O(N) time for all nested elements and O(D) recursive stack space for maximum nesting depth D.
+**Complexity:**
+
+**Time complexity:** `O(N)` for `N` nested elements.
+
+**Space complexity:** `O(D)` recursive stack for maximum nesting depth `D`.
 
 **Java:** [NestedListWeightSum](./java/06-NestedListWeightSum.java) — Solution preserves the nested input. LeetCode supplies NestedInteger; this Premium screenshot problem is a recursive-DFS bridge, not an explicit adjacency-list graph.
 
@@ -183,9 +244,18 @@ Grid values are not universal: Number of Islands uses 1 as land; Number of Close
 
 **Recognize it:** Keep regions connected to the border; capture all other regions. Work from what is definitely safe.
 
+**Talking points:**
+
+- I'd mark the O cells reachable from the border as safe.
+- Every remaining O is enclosed and can flip to X, then I'd restore the safe markers.
+
 **Solution:** Mark every border-connected O as safe using an explicit DFS stack seeded from the boundary. Convert remaining O cells to X, then restore safe markers to O. This traverses what must be preserved instead of testing each enclosed region separately. The retained BfsSolution computes the same result with a queue.
 
-**Complexity:** O(RC) time and O(RC) stack space.
+**Complexity:**
+
+**Time complexity:** `O(RC)` for an `R` by `C` board.
+
+**Space complexity:** `O(RC)` auxiliary DFS stack; temporary markers use the board itself.
 
 **Java:** [SurroundedRegions](./java/07-SurroundedRegions.java) — Solution intentionally modifies board in place and removes all temporary markers before returning. Primary Solution uses an explicit DFS stack; BfsSolution preserves the earlier BFS alternative.
 
@@ -204,9 +274,19 @@ Grid values are not universal: Number of Islands uses 1 as land; Number of Close
 
 **Recognize it:** Count zero-components that never touch the boundary; note that zero means land in this problem.
 
+**Talking points:**
+
+- I'd consume each zero component while remembering whether it touches the border.
+- Even after finding a border cell I'd finish the traversal, so the same open component cannot
+  be counted later.
+
 **Solution:** For each unvisited zero, use iterative DFS to consume its entire component and track whether any cell touches a border. Count the component only if it stays interior. Even after discovering a border cell, finish the traversal so its other cells cannot be counted again.
 
-**Complexity:** O(RC) time and O(RC) worst-case explicit stack space.
+**Complexity:**
+
+**Time complexity:** `O(RC)` for an `R` by `C` grid.
+
+**Space complexity:** `O(RC)` auxiliary DFS stack; visited cells are marked in place.
 
 **Java:** [NumberOfClosedIslands](./java/08-NumberOfClosedIslands.java) — Solution mutates land 0s to water 1s. The land encoding is opposite to Number of Islands.
 
@@ -225,9 +305,18 @@ Grid values are not universal: Number of Islands uses 1 as land; Number of Close
 
 **Recognize it:** Count land cells, not islands, that cannot reach the grid boundary.
 
+**Talking points:**
+
+- I'd erase every land cell reachable from border land.
+- The remaining land cannot escape the grid, so summing it directly gives the enclave area.
+
 **Solution:** Seed an explicit DFS stack with border land and erase all land reachable from those seeds. Every remaining 1 belongs to an enclave, so sum the remaining cells. This shares the boundary-reachability idea with Surrounded Regions but asks for area instead of a transformed board.
 
-**Complexity:** O(RC) time and O(RC) explicit stack space.
+**Complexity:**
+
+**Time complexity:** `O(RC)` for an `R` by `C` grid.
+
+**Space complexity:** `O(RC)` auxiliary DFS stack; marks the grid in place.
 
 **Java:** [NumberOfEnclaves](./java/09-NumberOfEnclaves.java) — Solution mutates boundary-connected land to zero; enclosed land stays one.
 
@@ -246,9 +335,19 @@ Grid values are not universal: Number of Islands uses 1 as land; Number of Close
 
 **Recognize it:** An entire component in grid2 must be contained in land from grid1; one mismatch invalidates the whole component.
 
+**Talking points:**
+
+- I'd traverse each island in the second grid and verify every cell is land in the first.
+- I'd finish consuming the island even after a mismatch, preventing its remaining cells from
+  being counted again.
+
 **Solution:** DFS each island of grid2, checking every visited coordinate against grid1. Accumulate a valid flag but always finish consuming the component even after a mismatch. Since the component is connected, if every cell is land in grid1 they all belong to the same grid1 island.
 
-**Complexity:** O(RC) time and O(RC) explicit stack space.
+**Complexity:**
+
+**Time complexity:** `O(RC)` for the two `R` by `C` grids.
+
+**Space complexity:** `O(RC)` auxiliary DFS stack; marks the second grid in place.
 
 **Java:** [CountSubIslands](./java/10-CountSubIslands.java) — Solution preserves grid1 and changes visited land in grid2 to zero.
 
@@ -267,9 +366,18 @@ Grid values are not universal: Number of Islands uses 1 as land; Number of Close
 
 **Recognize it:** Ask which cells can reach two destinations; reversing reachability avoids a search from every cell.
 
+**Talking points:**
+
+- I'd reverse the water flow and explore uphill or level from each ocean's boundary.
+- Intersecting those two reached sets finds cells that can flow downhill to both oceans.
+
 **Solution:** Run two reverse-flow DFS traversals, one from each ocean's border cells. Reverse moves go uphill or level, because ordinary water flow goes downhill or level. Intersect the reached sets. The primary code uses explicit stacks; BfsSolution retains the queue-based alternative.
 
-**Complexity:** O(RC) time and O(RC) auxiliary space, excluding output.
+**Complexity:**
+
+**Time complexity:** `O(RC)` for an `R` by `C` height grid.
+
+**Space complexity:** `O(RC)` auxiliary reached-set/stack storage, plus up to `O(RC)` output.
 
 **Java:** [PacificAtlanticWaterFlow](./java/11-PacificAtlanticWaterFlow.java) — Solution preserves heights and returns coordinates in row-major order; any order is accepted. Primary Solution uses an explicit DFS stack; BfsSolution preserves the earlier BFS alternative.
 
@@ -288,9 +396,19 @@ Grid values are not universal: Number of Islands uses 1 as land; Number of Close
 
 **Recognize it:** Enumerate every source-to-target path in a DAG; a node may appear in several different answers.
 
+**Talking points:**
+
+- I'd backtrack through each outgoing edge while carrying the current source-to-node path.
+- I'd copy the path at the target and avoid a global visited set, since different paths may
+  share later vertices.
+
 **Solution:** Recursively append each next vertex to a shared path, recurse, and remove it afterward. Copy the path at the target. No cycle guard is needed because the graph is a DAG, but a global visited set would be wrong: distinct prefixes can share the same suffix vertices and still form different paths.
 
-**Complexity:** O(n·2^n) worst-case time including path copying for an n-vertex DAG; O(n) auxiliary path/stack space, excluding potentially exponential output.
+**Complexity:**
+
+**Time complexity:** `O(n 2^n)` worst-case bound including path copies for an `n`-vertex DAG.
+
+**Space complexity:** `O(n)` auxiliary path/stack, plus potentially `O(n 2^n)` output.
 
 **Java:** [AllPathsFromSourceToTarget](./java/12-AllPathsFromSourceToTarget.java) — Solution preserves graph and copies each output path. This is DFS plus backtracking, intentionally connecting 14 to graph traversal.
 
@@ -309,9 +427,21 @@ Grid values are not universal: Number of Islands uses 1 as land; Number of Close
 
 **Recognize it:** Equations define weighted graph edges; multiply edge ratios along any connecting path.
 
+**Talking points:**
+
+- I'd model each equation as two directed edges with reciprocal weights.
+- A query DFS multiplies edge ratios until it reaches the denominator; unknown variables fail
+  even when both names are equal.
+
 **Solution:** For a/b=v, add a→b with weight v and b→a with weight 1/v. For each query, DFS from numerator to denominator while multiplying ratios and marking visited variables. Consistent equations guarantee every valid route yields the same ratio, so this is reachability with accumulated weights, not a shortest-path problem. Unknown variables return -1 even for x/x.
 
-**Complexity:** Expected O(E + Q(V+E)) time and O(V+E) graph plus O(V) per-query visited/recursion space; names have bounded length.
+**Complexity:**
+
+**Time complexity:** Expected `O(V + E + Q(V + E))` for `V` variables, `E` equations and `Q`
+queries, with bounded-length names.
+
+**Space complexity:** `O(V + E)` auxiliary graph and per-query visited/stack, plus `O(Q)`
+output.
 
 **Java:** [EvaluateDivision](./java/13-EvaluateDivision.java) — Solution preserves all inputs and uses recursive DFS on the problem's small equation graph.
 
@@ -330,9 +460,20 @@ Grid values are not universal: Number of Islands uses 1 as land; Number of Close
 
 **Recognize it:** One change can merge neighboring components; compute component sizes once, then evaluate each possible change locally.
 
+**Talking points:**
+
+- I'd label islands with distinct IDs and record their areas.
+- For each zero I'd add one and the areas of its distinct neighboring IDs, avoiding double
+  counting the same island.
+
 **Solution:** Label every island with a distinct ID using iterative DFS and record its area. For each zero, add one plus the areas of its distinct neighboring island IDs. A small set prevents counting the same island from multiple sides. If there are no zeroes, the existing full-grid island is already optimal.
 
-**Complexity:** O(n²) time and O(n²) auxiliary component/stack space; at most four IDs are deduplicated per zero.
+**Complexity:**
+
+**Time complexity:** `O(n^2)` expected for an `n` by `n` grid.
+
+**Space complexity:** `O(n^2)` auxiliary component-area/stack storage; at most four neighbor IDs
+need deduplication per zero.
 
 **Java:** [MakingALargeIsland](./java/14-MakingALargeIsland.java) — Solution mutates grid: land 1s become component IDs 2 and above. Iterative traversal handles large components without recursive stack overflow.
 

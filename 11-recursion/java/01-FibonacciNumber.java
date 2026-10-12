@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd memoize the recursive Fibonacci calls so each index is solved once.
+ * - The recurrence only needs the previous two values, which motivates the constant-space
+ *   iterative follow-up.
+ * Time complexity: Primary memoized: O(n); iterative: O(n); naive recursion: O(2^n) upper
+ *   bound.
+ * Space complexity: Primary: O(n) memo/stack; iterative: O(1); naive: O(n) stack.
+ */
+
 // 509. Fibonacci Number
 // https://leetcode.com/problems/fibonacci-number/
 // Solution memoized; IterativeSolution optimized; NaiveSolution is for small-input tracing only.

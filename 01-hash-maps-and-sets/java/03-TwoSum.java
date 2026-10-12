@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - For each number, I'd look up its complement in a value-to-index map.
+ * - I'd check before inserting the current number so an element cannot pair with itself.
+ * Time complexity: O(n) expected for n values.
+ * Space complexity: O(n) auxiliary map space.
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 

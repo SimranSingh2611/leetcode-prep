@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd prune the left subtree when the current value is below the range, and the right subtree
+ *   when it is above.
+ * - Values inside the range contribute to the sum and require exploring both sides.
+ * Time complexity: O(n) worst case for n nodes; pruning can reduce visits.
+ * Space complexity: O(h) recursive stack for height h.
+ */
+
 // 938. Range Sum of BST
 // https://leetcode.com/problems/range-sum-of-bst/
 // Solution; no mutation.

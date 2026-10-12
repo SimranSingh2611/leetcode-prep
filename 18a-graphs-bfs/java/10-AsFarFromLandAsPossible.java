@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd start BFS from every land cell and expand into water.
+ * - The final layer measures the farthest cell's distance to its nearest land; all-land and
+ *   all-water inputs return failure.
+ * Time complexity: O(n^2) for an n by n grid.
+ * Space complexity: O(n^2) auxiliary visited/queue space.
+ */
+
 // 1162. As Far from Land as Possible
 // https://leetcode.com/problems/as-far-from-land-as-possible/
 // Solution preserves grid using a separate visited matrix.

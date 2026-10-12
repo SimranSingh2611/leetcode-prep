@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd keep decreasing prices paired with their day indices.
+ * - After removing prices at most today's price, the previous greater day's index determines
+ *   the span.
+ * Time complexity: O(1) amortized per next; one call can take O(n) after n prior prices.
+ * Space complexity: O(n) persistent stack space in the worst case.
+ */
+
 // 901. Online Stock Span
 // https://leetcode.com/problems/online-stock-span/
 // Guide template 2, previous strictly greater: pop <=; strictly decreasing prices.

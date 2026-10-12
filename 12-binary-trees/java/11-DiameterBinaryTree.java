@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd compute child heights once in postorder.
+ * - Their sum gives the longest path through the current node in edges, while the returned
+ *   height keeps only one extendable branch.
+ * Time complexity: O(n) for n nodes.
+ * Space complexity: O(h) recursive stack for height h.
+ */
+
 // 543. Diameter of Binary Tree
 // https://leetcode.com/problems/diameter-of-binary-tree/
 // O(n) time, O(h) recursion stack. Input preserved; state resets per call.

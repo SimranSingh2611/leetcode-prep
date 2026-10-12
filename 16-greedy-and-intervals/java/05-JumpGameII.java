@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd group reachable positions into layers representing the current jump count.
+ * - Scanning a whole layer finds the next frontier, and reaching its boundary commits one
+ *   additional jump.
+ * Time complexity: O(n) for n positions.
+ * Space complexity: O(1) auxiliary frontier state.
+ */
+
 // 45. Jump Game II
 // https://leetcode.com/problems/jump-game-ii/
 // Solution assumes LeetCode's guarantee that the last index is reachable.

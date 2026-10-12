@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd keep candidate indices in a deque with decreasing values.
+ * - Expired indices leave the front and dominated values leave the back, so the front is always
+ *   the current maximum.
+ * Time complexity: O(n) amortized overall.
+ * Space complexity: O(k) auxiliary deque space, plus O(n - k + 1) output.
+ */
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.TreeMap;

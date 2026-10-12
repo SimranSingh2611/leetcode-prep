@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd place one queen per row and track occupied columns and both diagonals.
+ * - Each legal placement recurses to the next row, then undoes its marks; complete placements
+ *   become boards.
+ * Time complexity: O(n n! + S n^2) conservative bound for board size n and S solutions.
+ * Space complexity: O(n) auxiliary constraints/path/stack, plus O(S n^2) output boards.
+ */
+
 // 51. N-Queens
 // https://leetcode.com/problems/n-queens/
 // Solution stores column choices and materializes boards only at leaves.

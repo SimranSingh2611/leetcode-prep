@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd record the current subset, then choose only later indices for its next element.
+ * - Undoing each append restores the path, and copying when recording prevents later mutations
+ *   from changing answers.
+ * Time complexity: O(n 2^n) including subset copies for n values.
+ * Space complexity: O(n) auxiliary stack/path, plus O(n 2^n) output.
+ */
+
 // 78. Subsets
 // https://leetcode.com/problems/subsets/
 // Solution leaves nums unchanged and saves independent list copies.

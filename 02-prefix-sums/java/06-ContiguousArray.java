@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd treat zeros as minus one so equal zeros and ones become a zero-sum range.
+ * - Repeated running balances identify valid ranges; keeping the earliest index gives the
+ *   longest one.
+ * Time complexity: O(n) expected for n values.
+ * Space complexity: O(n) auxiliary earliest-index map space.
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 

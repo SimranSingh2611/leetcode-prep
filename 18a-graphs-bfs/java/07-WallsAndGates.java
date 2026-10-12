@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd enqueue all gates before starting BFS.
+ * - Each unfilled room gets its distance when first discovered, making the nearest gate win
+ *   automatically.
+ * Time complexity: O(RC) for an R by C grid.
+ * Space complexity: O(RC) auxiliary queue; the rooms array stores visited distances in place.
+ */
+
 // 286. Walls and Gates
 // https://leetcode.com/problems/walls-and-gates/
 // Solution updates rooms in place. Premium NeetCode 150 and screenshot selection.

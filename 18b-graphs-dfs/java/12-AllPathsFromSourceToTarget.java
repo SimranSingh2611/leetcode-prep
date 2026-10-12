@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd backtrack through each outgoing edge while carrying the current source-to-node path.
+ * - I'd copy the path at the target and avoid a global visited set, since different paths may
+ *   share later vertices.
+ * Time complexity: O(n 2^n) worst-case bound including path copies for an n-vertex DAG.
+ * Space complexity: O(n) auxiliary path/stack, plus potentially O(n 2^n) output.
+ */
+
 // 797. All Paths From Source to Target
 // https://leetcode.com/problems/all-paths-from-source-to-target/
 // Solution preserves graph and copies each output path. This is DFS plus backtracking,

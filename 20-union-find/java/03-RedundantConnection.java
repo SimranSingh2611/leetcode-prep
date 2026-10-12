@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd process edges in their input order and union endpoints that are not already connected.
+ * - The first failed union closes the unique cycle and identifies the required redundant edge
+ *   under the tree-plus-one-edge guarantee.
+ * Time complexity: O(n alpha(n)) amortized for n edges/vertices.
+ * Space complexity: O(n) auxiliary DSU arrays.
+ */
+
 // 684. Redundant Connection
 // https://leetcode.com/problems/redundant-connection/
 // Solution returns a cloned edge and preserves input; labels are 1-based.

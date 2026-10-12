@@ -1,3 +1,15 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd try dictionary prefixes from each start position and memoize how many pieces can cover
+ *   the remaining suffix.
+ * - A candidate qualifies only with at least two pieces, so its own full-word match cannot
+ *   satisfy the test alone.
+ * Time complexity: O(S + sum(L_i^2)) over word lengths L_i and total characters S.
+ * Space complexity: O(S + Lmax) auxiliary trie/memo/stack, plus output references; Lmax is the
+ *   longest word length.
+ */
+
 // 472. Concatenated Words
 // https://leetcode.com/problems/concatenated-words/
 // Solution preserves words. The memoization idea is introduced here; revisit this stretch problem

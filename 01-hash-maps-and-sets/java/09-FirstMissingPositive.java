@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - The missing positive must be in [1, n + 1], so I'd use the input as an index map.
+ * - I'd place each valid value x at x - 1; the first mismatched position gives the answer, and
+ *   a duplicate check prevents endless swaps.
+ * Time complexity: O(n); each successful swap places a value in its final slot.
+ * Space complexity: O(1) auxiliary space; mutates the input.
+ */
+
 import java.util.HashSet;
 import java.util.Set;
 

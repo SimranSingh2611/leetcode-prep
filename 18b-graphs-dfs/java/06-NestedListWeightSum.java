@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd recurse through each nested list with its current depth.
+ * - An integer contributes its value times that depth, while a sublist contributes its
+ *   children's recursive total.
+ * Time complexity: O(N) for N nested elements.
+ * Space complexity: O(D) recursive stack for maximum nesting depth D.
+ */
+
 // 339. Nested List Weight Sum
 // https://leetcode.com/problems/nested-list-weight-sum/
 // Solution preserves the nested input. LeetCode supplies NestedInteger; this Premium screenshot

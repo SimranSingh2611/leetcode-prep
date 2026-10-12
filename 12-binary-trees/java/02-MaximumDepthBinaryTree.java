@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd return zero for null and one plus the larger child depth otherwise.
+ * - Each call summarizes its subtree; BFS is an alternative that counts complete levels.
+ * Time complexity: O(n) for n nodes, for both versions.
+ * Space complexity: Primary DFS: O(h) stack; BFS alternative: O(w) queue for maximum actual
+ *   level width w.
+ */
+
 // 104. Maximum Depth of Binary Tree
 // https://leetcode.com/problems/maximum-depth-of-binary-tree/
 // Solution recursive; BreadthFirstSolution avoids stack-depth risk, not always less memory.

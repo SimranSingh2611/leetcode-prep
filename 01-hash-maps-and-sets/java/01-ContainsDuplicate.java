@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd scan once and keep a set of values already seen.
+ * - A repeated value lets me return immediately; the set replaces checking every pair.
+ * Time complexity: O(n) expected for n values.
+ * Space complexity: O(n) auxiliary space for the set.
+ */
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;

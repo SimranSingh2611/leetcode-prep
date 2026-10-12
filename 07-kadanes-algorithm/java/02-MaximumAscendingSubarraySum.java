@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd maintain the sum of the strictly ascending run ending at the current position.
+ * - A larger next value extends that run; otherwise I'd restart and update the global maximum.
+ * Time complexity: O(n) for n values.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // O(n) time and O(1) space.
 class Solution {
     public int maxAscendingSum(int[] nums) {

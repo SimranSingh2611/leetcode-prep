@@ -1,3 +1,15 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd map each ingredient to the recipes waiting for it and count their missing ingredients.
+ * - Available supplies enter a queue; completing a recipe makes its name available to unlock
+ *   later recipes.
+ * Time complexity: Expected O(I + R + S) for ingredient references I, recipes R and supplies S,
+ *   with bounded-length names.
+ * Space complexity: O(I + R + S) auxiliary dependency/count/queue storage, plus up to O(R)
+ *   output.
+ */
+
 // 2115. Find All Possible Recipes from Given Supplies
 // https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies/
 // Solution preserves inputs. The queue starts with actual supplies, not every graph node of

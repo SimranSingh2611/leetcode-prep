@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd reverse the water flow and explore uphill or level from each ocean's boundary.
+ * - Intersecting those two reached sets finds cells that can flow downhill to both oceans.
+ * Time complexity: O(RC) for an R by C height grid.
+ * Space complexity: O(RC) auxiliary reached-set/stack storage, plus up to O(RC) output.
+ */
+
 // 417. Pacific Atlantic Water Flow
 // https://leetcode.com/problems/pacific-atlantic-water-flow/
 // Solution preserves heights and returns coordinates in row-major order; any order is accepted.

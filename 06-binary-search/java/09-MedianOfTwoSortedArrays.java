@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd binary-search the partition in the smaller array so both left halves contain half the
+ *   values.
+ * - The valid boundary makes every left value no greater than every right value, letting the
+ *   median come from the partition edges.
+ * Time complexity: O(1 + log(min(m, n) + 1)) for array lengths m and n.
+ * Space complexity: O(1) auxiliary space, including at most one argument-swap call.
+ */
+
 // 4. Median of Two Sorted Arrays
 // https://leetcode.com/problems/median-of-two-sorted-arrays/
 /*

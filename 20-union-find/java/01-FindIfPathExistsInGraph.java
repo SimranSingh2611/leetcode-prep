@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd union the endpoints of every undirected edge.
+ * - A path exists exactly when the source and destination have the same final representative.
+ * Time complexity: O(n + E alpha(n)) amortized for n vertices and E edges; alpha is the inverse
+ *   Ackermann function.
+ * Space complexity: O(n) auxiliary DSU arrays.
+ */
+
 // 1971. Find if Path Exists in Graph
 // https://leetcode.com/problems/find-if-path-exists-in-graph/
 // Solution uses iterative path halving and union by size; inputs are unchanged.

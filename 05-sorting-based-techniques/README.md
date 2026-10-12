@@ -30,12 +30,21 @@ Keywords are clues, not guarantees. Prove the structural condition before choosi
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd merge from the back of `nums1`, choosing the larger remaining value.
+- That direction uses the reserved space without overwriting values that still need comparison.
+
 **Solution:** Fill `nums1` from the back. Compare the largest unmerged values in
 `nums1` and `nums2`, write the larger into the final open position, and move the
 corresponding pointer. Working backward prevents unread values in `nums1` from
 being overwritten.
 
-**Complexity:** `O(m + n)` time and `O(1)` extra space.
+**Complexity:**
+
+**Time complexity:** `O(m + n)` for the two populated lengths.
+
+**Space complexity:** `O(1)` auxiliary space; writes into `nums1`.
 
 **Potential interviewer follow-ups:**
 
@@ -46,12 +55,22 @@ being overwritten.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd sort both arrays and move two pointers toward matching values.
+- On a match, I'd emit the value once and skip duplicates so the result stays unique.
+
 **Solution:** Sort both arrays and advance two pointers. Move the pointer holding
 the smaller value; when values match, add the value once and advance both,
 skipping duplicates. This is a useful sorting alternative to the more direct
 hash-set solution.
 
-**Complexity:** `O(n log n + m log m)` time and sorting-dependent auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n log(n + 1) + m log(m + 1))` for array lengths `n` and `m`.
+
+**Space complexity:** `O(min(n, m))` temporary/result capacity, plus sorting workspace; `O(n +
+m)` is a conservative Java total bound.
 
 **Potential interviewer follow-ups:**
 
@@ -62,13 +81,23 @@ hash-set solution.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd count values in `arr1` and emit the ones named by `arr2` in that order.
+- Then I'd scan the remaining counts from smallest to largest; the bounded value range makes
+  sorting unnecessary.
+
 **Solution:** Count the values in `arr1`. Emit each value in the order specified
 by `arr2`, repeating it according to its count, then emit all remaining values in
 ascending order. A counting array is best for a small value range; otherwise use
 a frequency map plus sorting or a custom comparator.
 
-**Complexity:** `O(n + R)` with counting over range `R`, or `O(n log n)` with
-comparison sorting; `O(R)` or `O(k)` space.
+**Complexity:**
+
+**Time complexity:** `O(n + m + R)` for array lengths `n`, `m` and value range `R = 1001`.
+
+**Space complexity:** `O(R)` auxiliary counters; the primary implementation rewrites `arr1` in
+place. With fixed `R`, this is `O(1)`.
 
 **Potential interviewer follow-ups:**
 
@@ -79,12 +108,22 @@ comparison sorting; `O(R)` or `O(k)` space.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd maintain separate regions for zeros, ones, unclassified values, and twos.
+- After moving a two to the right, I'd inspect the swapped-in value before advancing the middle
+  pointer.
+
 **Solution:** Use the Dutch National Flag partition: `[0, low)` contains zeros,
 `[low, mid)` ones, and `(high, n)` twos. Swap a zero toward `low`, advance past a
 one, and swap a two toward `high` without advancing `mid`, because the incoming
 value has not yet been classified.
 
-**Complexity:** `O(n)` time and `O(1)` space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` colors.
+
+**Space complexity:** `O(1)` auxiliary space; mutates the input.
 
 **Potential interviewer follow-ups:**
 
@@ -95,12 +134,21 @@ value has not yet been classified.
 
 **Source:** Blind 75 + NeetCode 150
 
+**Talking points:**
+
+- I'd sort by start and extend the last merged interval whenever the next range overlaps.
+- A gap finalizes the previous range; touching closed endpoints merge as well.
+
 **Solution:** Sort intervals by start. Keep the last merged interval; if the next
 start is no greater than its end, extend the end, otherwise append a new interval.
 Sorting ensures that once a gap appears, no later interval can overlap the
 current merged interval from the left.
 
-**Complexity:** `O(n log n)` time and `O(n)` output space.
+**Complexity:**
+
+**Time complexity:** `O(n log(n + 1))` for `n` intervals.
+
+**Space complexity:** `O(n)` Java object-sort workspace and up to `O(n)` output.
 
 **Potential interviewer follow-ups:**
 
@@ -111,12 +159,23 @@ current merged interval from the left.
 
 **Source:** Blind 75 + NeetCode 150
 
+**Talking points:**
+
+- I'd keep compatible intervals in earliest-finish order.
+- An earlier finish leaves at least as much room for future intervals, so counting rejected
+  ranges minimizes removals.
+
 **Solution:** Sort by end time and greedily keep the interval that finishes
 earliest. Each early finish leaves the most room for later intervals. Count every
 interval whose start is before the last kept end as a removal, which is equivalent
 to maximizing the number retained.
 
-**Complexity:** `O(n log n)` time and sorting-dependent auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n log(n + 1))` for `n` intervals.
+
+**Space complexity:** `O(n)` worst-case Java object-sort workspace; the greedy scan uses `O(1)`
+state.
 
 **Potential interviewer follow-ups:**
 
@@ -127,12 +186,22 @@ to maximizing the number retained.
 
 **Source:** NeetCode 150
 
+**Talking points:**
+
+- I'd compare squared distances, since square roots do not change their order.
+- Sorting by that key gives the first `k` points; quickselect is a useful follow-up when a full
+  ordering is unnecessary.
+
 **Solution:** Compute squared distance `x^2 + y^2`; square roots are unnecessary
 because they preserve ordering. Sort points by that key and return the first `k`.
 This is the clean baseline; a size-`k` heap or quickselect is preferable when
 `k` is much smaller than `n`.
 
-**Complexity:** `O(n log n)` time and sorting-dependent auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n log(n + 1))` for the primary sorting solution.
+
+**Space complexity:** `O(n)` worst-case object-sort workspace, plus `O(k)` output references.
 
 **Potential interviewer follow-ups:**
 
@@ -143,13 +212,23 @@ This is the clean baseline; a size-`k` heap or quickselect is preferable when
 
 **Source:** NeetCode 150
 
+**Talking points:**
+
+- The smallest remaining card must begin a group, so I'd consume consecutive values from it.
+- A missing required value proves failure; an ordered frequency map keeps the next group start
+  available.
+
 **Solution:** Count every card, process values from smallest upward, and whenever
 the smallest remaining value has count `c`, consume `c` copies of each of the
 next `groupSize` values. Starting anywhere later would strand the minimum card,
 which makes the greedy choice forced. A sorted map can avoid repeatedly scanning
 dead keys.
 
-**Complexity:** `O(n log n)` time and `O(n)` space.
+**Complexity:**
+
+**Time complexity:** `O(n log(n + 1))` for `n` cards.
+
+**Space complexity:** `O(n)` auxiliary ordered-map space.
 
 **Potential interviewer follow-ups:**
 
@@ -160,14 +239,25 @@ dead keys.
 
 **Source:** Blind 75 + NeetCode 150
 
-**Solution:** Perform pairwise divide-and-conquer merging: merge adjacent list
-pairs, then merge the results in rounds until one list remains. Each node
-participates in one merge per level and there are `log k` levels. A min-heap of
-the current list heads is the standard online alternative.
+**Talking points:**
 
-**Complexity:** `O(N log k)` time for `N` total nodes, plus `O(k)` temporary list
-references for iterative rounds (or `O(log k)` call-stack space for recursive
-divide and conquer), excluding the returned links.
+- I'd recursively divide the list array and merge the two sorted results at each level.
+- Each node participates in at most one merge per level, so the list-count logarithm controls
+  the work.
+
+**Solution:** Recursively divide the list array into two index ranges, then
+merge their returned sorted lists by rewiring existing nodes. Each node
+participates in at most one merge per level and there are `log k` levels. The
+primary implementation uses an `O(log(k + 1))` divide-and-conquer call stack;
+iterative merging rounds and a min-heap of current list heads are alternatives.
+
+**Complexity:**
+
+**Time complexity:** `O(k + N log(k + 1))` for `k` lists and `N` total nodes, including empty-
+list traversal.
+
+**Space complexity:** `O(log(k + 1))` recursive stack for the primary solution, reusing input
+nodes; the heap alternative uses `O(k)`.
 
 **Potential interviewer follow-ups:**
 
@@ -178,12 +268,23 @@ divide and conquer), excluding the returned links.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd merge-sort indices while counting right-half values that move ahead of each left-half
+  value.
+- Original indices let me write every count back in input order; equal values must not count as
+  smaller.
+
 **Solution:** Merge-sort `(value, originalIndex)` pairs. During a merge, count
 how many right-half elements have moved ahead of each left-half element; add that
 number to the left element's answer. Preserve original indices so the counts can
 be written back in input order.
 
-**Complexity:** `O(n log n)` time and `O(n)` space.
+**Complexity:**
+
+**Time complexity:** `O(n log(n + 1))` for `n` values.
+
+**Space complexity:** `O(n)` auxiliary index/buffer/count storage, plus `O(n)` output.
 
 **Potential interviewer follow-ups:**
 

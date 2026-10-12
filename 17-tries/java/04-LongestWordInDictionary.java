@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd build a trie and require every prefix along a candidate's path to end a word.
+ * - Among qualifying words I'd keep the longest, then use lexicographic order to break ties.
+ * Time complexity: O(S) for total input characters S, including candidate walks and tie
+ *   comparisons.
+ * Space complexity: O(S) auxiliary trie space.
+ */
+
 // 720. Longest Word in Dictionary
 // https://leetcode.com/problems/longest-word-in-dictionary/
 // Solution preserves words and uses iterative traversal. LeetCode currently labels this Medium.

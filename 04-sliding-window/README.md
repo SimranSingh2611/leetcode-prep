@@ -29,12 +29,22 @@ Keywords are clues, not guarantees. Prove the structural condition before choosi
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd compute the first length-`k` sum and slide by adding the entering value and subtracting
+  the leaving one.
+- All windows have the same size, so maximizing their sum also maximizes their average.
+
 **Solution:** Sum the first `k` elements. For every later index, add the entering
 value and subtract the value leaving at `i - k`, then update the largest sum.
 Divide by `k` only once at the end; maximizing the sum and average is equivalent
 because every candidate has the same length.
 
-**Complexity:** `O(n)` time and `O(1)` space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` values.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Potential interviewer follow-ups:**
 
@@ -45,12 +55,23 @@ because every candidate has the same length.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd keep a set of values from the allowed index-distance window.
+- Before checking the next value, I'd expire anything too far behind; a match then satisfies
+  both duplication and distance.
+
 **Solution:** Maintain a set containing at most the previous `k` values. Before
 adding `nums[right]`, remove the element that has just fallen more than `k`
 indices behind; membership now answers whether the same value occurs within the
 allowed distance. A last-seen-index map is an equally direct alternative.
 
-**Complexity:** `O(n)` expected time and `O(min(n, k))` space.
+**Complexity:**
+
+**Time complexity:** `O(n)` expected for `n` values.
+
+**Space complexity:** `O(min(n, k + 1))` auxiliary space, including the current value during
+insertion.
 
 **Potential interviewer follow-ups:**
 
@@ -61,12 +82,21 @@ allowed distance. A last-seen-index map is an equally direct alternative.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd maintain the sum of the next or previous `abs(k)` elements, depending on the sign.
+- Modulo indexing slides that window around the circle; `k = 0` produces zeros.
+
 **Solution:** Treat the array as circular, choose the initial `|k|`-element
 window on the correct side of each index, and slide it using modulo indexing.
 For positive `k` the window contains following elements; for negative `k` it
 contains preceding elements; for zero every answer is zero.
 
-**Complexity:** `O(n)` time and `O(n)` output space.
+**Complexity:**
+
+**Time complexity:** `O(n)` under the guarantee `abs(k) < n`.
+
+**Space complexity:** `O(1)` auxiliary state, plus `O(n)` output.
 
 **Potential interviewer follow-ups:**
 
@@ -77,12 +107,23 @@ contains preceding elements; for zero every answer is zero.
 
 **Source:** Blind 75 + NeetCode 150
 
+**Talking points:**
+
+- I'd store each character's latest index while expanding the right edge.
+- A repeat inside the window moves the left edge just beyond its previous occurrence, and the
+  left edge never moves backward.
+
 **Solution:** Expand the right edge and track the latest index of every character.
 On a repeat inside the current window, jump `left` to one position after that
 earlier occurrence, using `max` so `left` never moves backward. Every window
 after adjustment contains unique characters.
 
-**Complexity:** `O(n)` time and `O(k)` space for `k` distinct characters.
+**Complexity:**
+
+**Time complexity:** `O(n)` for string length `n`.
+
+**Space complexity:** `O(1)` for the primary 128-entry ASCII array; a generalized map uses
+`O(A)` for `A` distinct characters.
 
 **Potential interviewer follow-ups:**
 
@@ -93,13 +134,24 @@ after adjustment contains unique characters.
 
 **Source:** Blind 75 + NeetCode 150
 
+**Talking points:**
+
+- I'd compare the window length minus its most frequent character count with the replacement
+  budget.
+- A running maximum frequency supports the longest-length calculation even when that maximum
+  becomes stale during shrinking.
+
 **Solution:** Track frequencies in the window and the highest frequency seen.
 The window is feasible when `windowLength - maxFrequency <= k`; otherwise move
 the left edge and decrement its character. The recorded maximum frequency may
 be stale, but it never causes the best answer to shrink and remains sufficient
 for finding the maximum length.
 
-**Complexity:** `O(n)` time and `O(1)` space for a fixed alphabet.
+**Complexity:**
+
+**Time complexity:** `O(n)` for string length `n`.
+
+**Space complexity:** `O(1)` for 26 uppercase-letter counters.
 
 **Potential interviewer follow-ups:**
 
@@ -110,12 +162,22 @@ for finding the maximum length.
 
 **Source:** NeetCode 150
 
+**Talking points:**
+
+- A permutation must occupy a window exactly as long as the first string.
+- I'd slide that fixed window over the second string and compare its 26-letter counts with the
+  required counts.
+
 **Solution:** A permutation must occupy a window exactly as long as the pattern.
 Maintain character counts for that fixed-size window and compare them with the
 pattern counts after each slide. An optimized version tracks how many alphabet
 positions currently have equal counts, making each comparison constant time.
 
-**Complexity:** `O(n + m)` time and `O(1)` space for lowercase English letters.
+**Complexity:**
+
+**Time complexity:** `O(n + m)` for the two string lengths.
+
+**Space complexity:** `O(1)` for fixed lowercase-letter counters.
 
 **Potential interviewer follow-ups:**
 
@@ -126,12 +188,22 @@ positions currently have equal counts, making each comparison constant time.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- Positive values make the window sum monotonic as either boundary moves.
+- I'd expand until the target is met, then shrink repeatedly while recording the shortest valid
+  window.
+
 **Solution:** Because all values are positive, expanding right can only increase
 the sum and removing from the left can only decrease it. Add each right value,
 then shrink from the left while the target is still met, recording the shortest
 valid length before each removal.
 
-**Complexity:** `O(n)` time and `O(1)` space.
+**Complexity:**
+
+**Time complexity:** `O(n)` amortized overall; each pointer advances at most `n` times.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Potential interviewer follow-ups:**
 
@@ -142,13 +214,21 @@ valid length before each removal.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd frame this as the longest window with at most two distinct fruit types.
+- When a third type appears, I'd shrink and update counts until the window is valid again.
+
 **Solution:** This is the longest subarray containing at most two distinct values.
 Expand right while counting fruit types; whenever more than two types are present,
 decrement and possibly remove the leftmost type until the window is valid again.
 Update the best length for each valid window.
 
-**Complexity:** `O(n)` time and `O(1)` effective space because the map holds at
-most three types during adjustment.
+**Complexity:**
+
+**Time complexity:** `O(n)` expected for `n` fruits.
+
+**Space complexity:** `O(1)` auxiliary space; at most three types are tracked during adjustment.
 
 **Potential interviewer follow-ups:**
 
@@ -159,13 +239,25 @@ most three types during adjustment.
 
 **Source:** Blind 75 + NeetCode 150
 
+**Talking points:**
+
+- I'd count the required characters, expand until they are all covered, then shrink to the
+  smallest valid window.
+- When shrinking removes a required occurrence, I'd resume expansion; storing only the best
+  endpoints delays output copying.
+
 **Solution:** Count required characters and track how many required character
 types currently meet their target. Expand right until all requirements are met,
 then repeatedly shrink left while preserving validity, updating the best range.
 When removing a needed character drops it below its target, the window becomes
 invalid and expansion resumes.
 
-**Complexity:** `O(|s| + |t|)` time and `O(k)` space for the character set.
+**Complexity:**
+
+**Time complexity:** `O(n + m)` for source length `n` and target length `m`.
+
+**Space complexity:** `O(1)` ASCII counter state for the primary solution, plus up to `O(n)`
+returned substring storage; a generalized map uses `O(A)` counters.
 
 **Potential interviewer follow-ups:**
 
@@ -176,12 +268,22 @@ invalid and expansion resumes.
 
 **Source:** NeetCode 150
 
+**Talking points:**
+
+- I'd keep candidate indices in a deque with decreasing values.
+- Expired indices leave the front and dominated values leave the back, so the front is always
+  the current maximum.
+
 **Solution:** Keep indices in a deque with values in decreasing order. Remove
 indices that leave the window from the front and remove smaller or equal values
 from the back before appending the new index, since they can never become a
 future maximum. The front is then the maximum for every complete window.
 
-**Complexity:** `O(n)` time and `O(k)` space; each index is added and removed once.
+**Complexity:**
+
+**Time complexity:** `O(n)` amortized overall.
+
+**Space complexity:** `O(k)` auxiliary deque space, plus `O(n - k + 1)` output.
 
 **Potential interviewer follow-ups:**
 

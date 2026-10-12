@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd propagate each course's known prerequisites through outgoing edges in topological
+ *   order.
+ * - A course's prerequisite set is complete before its dependents receive it, allowing
+ *   constant-time answers after preprocessing.
+ * Time complexity: O(V^2 + EV + Q) for V courses, E edges and Q queries.
+ * Space complexity: O(V^2 + E) auxiliary reachability/graph storage, plus O(Q) output.
+ */
+
 // 1462. Course Schedule IV
 // https://leetcode.com/problems/course-schedule-iv/
 // Solution assumes the problem's acyclic graph guarantee. Its pair direction differs from Course

@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd scan the second array with a stack of values awaiting their next greater value.
+ * - Each larger arrival resolves smaller tops, and a map answers the first array's queries
+ *   afterward.
+ * Time complexity: O(n + m) expected for second-array length n and first-array length m.
+ * Space complexity: O(n) auxiliary stack/map storage, plus O(m) output.
+ */
+
 // 496. Next Greater Element I
 // https://leetcode.com/problems/next-greater-element-i/
 // Guide template 1, next strictly greater: pop <; non-increasing values.

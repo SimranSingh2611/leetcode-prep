@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd encode each string as its length, a separator, and its payload.
+ * - The decoder consumes exactly that length, so empty strings and separators inside the
+ *   payload stay unambiguous.
+ * Time complexity: O(C) for either operation, where C is the encoded character count.
+ * Space complexity: O(C) output/buffer storage for either operation.
+ */
+
 import java.util.ArrayList;
 import java.util.List;
 

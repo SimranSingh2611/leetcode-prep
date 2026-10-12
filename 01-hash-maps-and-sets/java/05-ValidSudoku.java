@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd check each filled cell against its row, column, and box.
+ * - A duplicate in any of those three groups invalidates the board; this checks existing
+ *   entries without solving it.
+ * Time complexity: O(1) for the fixed 9-by-9 board; O(n^2) for an n-by-n generalization.
+ * Space complexity: O(1) for the fixed board; O(n^2) for generalized tracking sets.
+ */
+
 // O(81) time and O(81) space for the fixed 9-by-9 board.
 class Solution {
     public boolean isValidSudoku(char[][] board) {

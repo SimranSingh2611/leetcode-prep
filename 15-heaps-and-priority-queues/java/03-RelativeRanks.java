@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd heap athlete indices by score and extract them in descending order.
+ * - Writing each medal or rank at its original index preserves the requested answer order.
+ * Time complexity: O(n log(n + 1)) for n athletes.
+ * Space complexity: O(n) auxiliary heap; O(n) result references plus rank-label characters.
+ */
+
 // 506. Relative Ranks
 // https://leetcode.com/problems/relative-ranks/
 // Solution leaves scores unchanged. This is a warm-up, not a case where a heap asymptotically beats

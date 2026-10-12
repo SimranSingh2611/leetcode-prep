@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd accumulate a number, sign, and result for the current parentheses level.
+ * - At an opening parenthesis I'd save the outer context; at a closing one I'd combine the
+ *   completed inner result with it.
+ * Time complexity: O(n) for expression length n.
+ * Space complexity: O(d) auxiliary stack for nesting depth d; O(n) worst case.
+ */
+
 // 224. Basic Calculator
 // https://leetcode.com/problems/basic-calculator/
 // Solution; handles +, -, parentheses, spaces, and valid unary minus.

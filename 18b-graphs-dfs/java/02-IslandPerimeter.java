@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd traverse the land component and count every edge facing water or the grid boundary.
+ * - The scan follow-up instead adds four per land cell and subtracts shared edges, avoiding
+ *   traversal storage.
+ * Time complexity: O(RC) for an R by C grid, for all supplied variants.
+ * Space complexity: Primary DFS/BFS: O(RC) visited/frontier space; scan alternative: O(1)
+ *   auxiliary space.
+ */
+
 // 463. Island Perimeter
 // https://leetcode.com/problems/island-perimeter/
 // All variants preserve grid. ScanSolution is the space-optimized follow-up and illustrates when

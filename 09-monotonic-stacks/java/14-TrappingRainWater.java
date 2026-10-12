@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd use a stack to recognize basin bottoms as a right wall arrives.
+ * - Popping a bottom exposes its left wall, letting me add the newly enclosed water layer.
+ * Time complexity: O(n) amortized overall for n heights.
+ * Space complexity: O(n) auxiliary stack; the two-pointer solution in pattern 03 uses O(1).
+ */
+
 // 42. Trapping Rain Water
 // https://leetcode.com/problems/trapping-rain-water/
 // Guide template 3, merged greater boundaries: pop <=; strictly decreasing heights.

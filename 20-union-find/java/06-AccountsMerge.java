@@ -1,3 +1,15 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd map each email to its first account and union accounts sharing that email.
+ * - Grouping unique emails by final representative reconstructs each person, and sorted sets
+ *   supply the required email order.
+ * Time complexity: Expected O(A + T alpha(A) + U log(U + 1)) for accounts A, email occurrences
+ *   T, and unique emails U, treating names/emails as bounded-length keys.
+ * Space complexity: O(A + U) auxiliary DSU/maps/sets, excluding output; string character costs
+ *   apply when lengths are unbounded.
+ */
+
 // 721. Accounts Merge
 // https://leetcode.com/problems/accounts-merge/
 // Solution preserves accounts and returns groups in unspecified order, with each group's emails

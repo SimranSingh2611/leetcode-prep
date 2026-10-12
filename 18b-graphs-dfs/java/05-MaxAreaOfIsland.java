@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd DFS from each unseen land cell and count the cells in that component.
+ * - After consuming it, I'd compare its area with the best found so far.
+ * Time complexity: O(RC) for an R by C grid.
+ * Space complexity: O(RC) worst-case auxiliary stack; land is marked in place.
+ */
+
 // 695. Max Area of Island
 // https://leetcode.com/problems/max-area-of-island/
 // Solution destroys land marks by changing visited 1s to 0s; clone the grid first if preservation

@@ -1,3 +1,16 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd schedule blocks of cooldown plus one slots, selecting distinct tasks with the largest
+ *   remaining counts.
+ * - Unfinished tasks return only after the block; the final block counts actual tasks rather
+ *   than trailing idle slots.
+ * Time complexity: O(N log(U + 1)) for N tasks and U distinct types; the formula alternative
+ *   takes O(N + U). Both are O(N) when U <= 26.
+ * Space complexity: O(U) auxiliary heap/counts/pending storage; O(1) under the fixed 26-letter
+ *   alphabet.
+ */
+
 // 621. Task Scheduler
 // https://leetcode.com/problems/task-scheduler/
 // Solution demonstrates heap scheduling. FormulaSolution is a simpler counting follow-up, not an

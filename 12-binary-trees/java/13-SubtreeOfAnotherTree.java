@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd try each node in the larger tree as a possible subtree root.
+ * - An exact paired comparison must match values and null positions, since a matching value
+ *   sequence alone is insufficient.
+ * Time complexity: O(nm) worst case for larger-tree size n and candidate-tree size m.
+ * Space complexity: O(h1 + h2) is a safe recursive-stack bound for the two tree heights.
+ */
+
 // 572. Subtree of Another Tree
 // https://leetcode.com/problems/subtree-of-another-tree/
 // O(n*m) worst-case time, O(hRoot + hSubRoot) stack. Inputs preserved.

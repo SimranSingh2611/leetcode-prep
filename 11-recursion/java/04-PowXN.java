@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd compute the half-power once, square it, and multiply by the base for an odd exponent.
+ * - I'd promote the exponent before negating it so the minimum integer is handled safely.
+ * Time complexity: O(log(abs(n) + 1)) for exponent n, for both versions.
+ * Space complexity: Primary recursive: O(log(abs(n) + 1)) stack; iterative: O(1).
+ */
+
 // 50. Pow(x, n)
 // https://leetcode.com/problems/powx-n/
 // Solution recursive; IterativeSolution optimized for stack space.

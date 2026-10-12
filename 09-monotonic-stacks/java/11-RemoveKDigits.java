@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd remove a larger earlier digit whenever a smaller new digit arrives and deletions
+ *   remain.
+ * - Any leftover deletions come from the end, then I'd strip leading zeros and return zero if
+ *   nothing remains.
+ * Time complexity: O(n) amortized for n digits.
+ * Space complexity: O(n) stack/buffer/output storage.
+ */
+
 // 402. Remove K Digits
 // https://leetcode.com/problems/remove-k-digits/
 // Guide template 4 adaptation: pop > while deletion budget remains, then push.

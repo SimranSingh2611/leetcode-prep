@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd maintain increasing bar heights and finalize a bar when a smaller height arrives.
+ * - Its popped position supplies the height, while the new stack top and current index delimit
+ *   the maximal width.
+ * Time complexity: O(n) amortized overall for n bars.
+ * Space complexity: O(n) auxiliary stack space.
+ */
+
 // 84. Largest Rectangle in Histogram
 // https://leetcode.com/problems/largest-rectangle-in-histogram/
 // Guide template 6, merged smaller boundaries: pop >; non-decreasing heights.

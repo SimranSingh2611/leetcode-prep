@@ -1,3 +1,15 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd count the required characters, expand until they are all covered, then shrink to the
+ *   smallest valid window.
+ * - When shrinking removes a required occurrence, I'd resume expansion; storing only the best
+ *   endpoints delays output copying.
+ * Time complexity: O(n + m) for source length n and target length m.
+ * Space complexity: O(1) ASCII counter state for the primary solution, plus up to O(n) returned
+ *   substring storage; a generalized map uses O(A) counters.
+ */
+
 // O(|s| + |t|) time and O(1) space for the problem's ASCII character set.
 class Solution {
     public String minWindow(String s, String t) {

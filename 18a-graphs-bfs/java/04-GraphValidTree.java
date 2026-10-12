@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd require exactly n - 1 edges, then BFS to check that all vertices are connected.
+ * - Connectivity plus that edge count proves the graph is a tree, so I can avoid a separate
+ *   cycle detector.
+ * Time complexity: O(n + E) for n vertices and E edges; a failing edge count returns in O(1).
+ * Space complexity: O(n + E) auxiliary adjacency/visited/queue storage.
+ */
+
 // 261. Graph Valid Tree
 // https://leetcode.com/problems/graph-valid-tree/
 // Solution preserves edges. This Premium NeetCode 150 exercise uses an undirected graph.

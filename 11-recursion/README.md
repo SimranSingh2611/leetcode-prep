@@ -28,9 +28,20 @@ Solve in numbered order. 3 Easy / 5 Medium. The mix reflects genuine pattern fit
 
 **Recognize it:** The current value is the sum of two smaller-index values, with overlapping subproblems.
 
+**Talking points:**
+
+- I'd memoize the recursive Fibonacci calls so each index is solved once.
+- The recurrence only needs the previous two values, which motivates the constant-space
+  iterative follow-up.
+
 **Solution:** Naive recursion follows the definition but recomputes the same indices. The primary recursive solution memoizes each index. The iterative alternative retains only the previous two values because no earlier state will be used again.
 
-**Complexity:** Naive O(2^n) upper-bound time and O(n) stack; memoized O(n) time/space; iterative O(n) time and O(1) space.
+**Complexity:**
+
+**Time complexity:** Primary memoized: `O(n)`; iterative: `O(n)`; naive recursion: `O(2^n)`
+upper bound.
+
+**Space complexity:** Primary: `O(n)` memo/stack; iterative: `O(1)`; naive: `O(n)` stack.
 
 **Java:** [FibonacciNumber](./java/01-FibonacciNumber.java) — Solution memoized; IterativeSolution optimized; NaiveSolution is for small-input tracing only.
 
@@ -45,9 +56,20 @@ Solve in numbered order. 3 Easy / 5 Medium. The mix reflects genuine pattern fit
 
 **Recognize it:** A positive number is a power of two if repeatedly dividing by two reaches one exactly.
 
+**Talking points:**
+
+- I'd reject nonpositive values and repeatedly divide even values by two.
+- Reaching one proves success; an odd value above one proves failure, and the bitwise follow-up
+  checks for one set bit.
+
 **Solution:** Reject nonpositive inputs. One is the successful base case; an odd value greater than one fails. Otherwise recurse on n/2. The bitwise alternative checks that a positive value has exactly one set bit.
 
-**Complexity:** Recursive O(log n) time and stack; bitwise O(1) fixed-word time/space.
+**Complexity:**
+
+**Time complexity:** Recursive: `O(log(n + 1))` for positive `n`; bitwise alternative: `O(1)`
+fixed-word operations.
+
+**Space complexity:** Recursive: `O(log(n + 1))` stack; bitwise: `O(1)`.
 
 **Java:** [PowerOfTwo](./java/02-PowerOfTwo.java) — Solution teaches recursion; BitwiseSolution is the optimized alternative.
 
@@ -62,9 +84,19 @@ Solve in numbered order. 3 Easy / 5 Medium. The mix reflects genuine pattern fit
 
 **Recognize it:** The same decreasing-input contract must work for division by a non-binary base.
 
+**Talking points:**
+
+- I'd recurse on `n / 3` only when `n` is positive and divisible by three.
+- One is the successful base case; an iterative version makes the same reductions without stack
+  frames.
+
 **Solution:** Reject nonpositive n, succeed at one, and recurse only when n is divisible by three. The iterative version performs the same reduction without stack frames. Unlike powers of two, a one-set-bit test is not applicable.
 
-**Complexity:** Both O(log base 3 n) time; recursive O(log n) stack versus iterative O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(log(n + 1))` for positive `n`, for both versions.
+
+**Space complexity:** Primary recursive: `O(log(n + 1))` stack; iterative: `O(1)`.
 
 **Java:** [PowerOfThree](./java/03-PowerOfThree.java) — Solution recursive; IterativeSolution removes stack space.
 
@@ -79,9 +111,18 @@ Solve in numbered order. 3 Easy / 5 Medium. The mix reflects genuine pattern fit
 
 **Recognize it:** Exponentiation can halve the exponent instead of performing n multiplications.
 
+**Talking points:**
+
+- I'd compute the half-power once, square it, and multiply by the base for an odd exponent.
+- I'd promote the exponent before negating it so the minimum integer is handled safely.
+
 **Solution:** Compute the half-power once, square it, and multiply by x for odd exponents. Convert the exponent to long before negating Integer.MIN_VALUE. For negative exponents invert x. Iterative binary exponentiation keeps the same logarithmic work with constant auxiliary space.
 
-**Complexity:** O(log |n|) time; recursive O(log |n|) stack versus iterative O(1) space.
+**Complexity:**
+
+**Time complexity:** `O(log(abs(n) + 1))` for exponent `n`, for both versions.
+
+**Space complexity:** Primary recursive: `O(log(abs(n) + 1))` stack; iterative: `O(1)`.
 
 **Java:** [PowXN](./java/04-PowXN.java) — Solution recursive; IterativeSolution optimized for stack space.
 
@@ -96,9 +137,19 @@ Solve in numbered order. 3 Easy / 5 Medium. The mix reflects genuine pattern fit
 
 **Recognize it:** Only one ancestor chain of a recursively generated row determines the requested symbol.
 
+**Talking points:**
+
+- I'd trace the requested symbol back to its parent in the preceding row.
+- Odd positions copy the parent and even positions flip it, so I can avoid constructing the
+  rows.
+
 **Solution:** The kth symbol's parent is at (k+1)/2 in the preceding row. Odd positions copy the parent; even positions flip it. Recurse until the first row rather than generating exponentially long rows.
 
-**Complexity:** O(n) time and stack for row n; no row strings constructed.
+**Complexity:**
+
+**Time complexity:** `O(n)` for row number `n`.
+
+**Space complexity:** `O(n)` recursive stack.
 
 **Java:** [KthSymbolGrammar](./java/05-KthSymbolGrammar.java) — Solution; k is a valid 1-based position.
 
@@ -113,9 +164,19 @@ Solve in numbered order. 3 Easy / 5 Medium. The mix reflects genuine pattern fit
 
 **Recognize it:** A generated string consists of a previous string, a middle bit, and an inverted reversed copy.
 
+**Talking points:**
+
+- I'd locate the requested bit relative to the current string's middle.
+- The left half recurses unchanged; the right half reflects the index and inverts the bit,
+  avoiding the exponential string.
+
 **Solution:** At level n, the middle position is 2^(n-1). Return one there; recurse unchanged into the left half. In the right half, reflect k to length-k+1 in the previous string and invert its returned bit. Level one contains zero.
 
-**Complexity:** O(n) time and stack; no O(2^n) string materialization.
+**Complexity:**
+
+**Time complexity:** `O(n)` for level `n`.
+
+**Space complexity:** `O(n)` recursive stack.
 
 **Java:** [FindKthBit](./java/06-FindKthBit.java) — Solution; uses the statement's n<=20 bound for int shifts.
 
@@ -130,9 +191,19 @@ Solve in numbered order. 3 Easy / 5 Medium. The mix reflects genuine pattern fit
 
 **Recognize it:** After eliminating every other value, the remaining sequence is a scaled/reflected smaller instance.
 
+**Talking points:**
+
+- After the first pass, I'd scale the surviving even numbers down to a smaller game.
+- Reversing the direction gives a recurrence on half as many values, so each call removes a
+  level of work.
+
 **Solution:** After the left-to-right pass, survivors are 2,4,...,2*floor(n/2). The next direction reverses the reduced problem, giving f(n)=2*(floor(n/2)+1-f(floor(n/2))). Base f(1)=1. The iterative alternative tracks the first surviving value, spacing, remaining count, and direction.
 
-**Complexity:** O(log n) time; recursive O(log n) stack versus iterative O(1) space.
+**Complexity:**
+
+**Time complexity:** `O(log(n + 1))` for `n` values, for both versions.
+
+**Space complexity:** Primary recursive: `O(log(n + 1))` stack; iterative: `O(1)`.
 
 **Java:** [EliminationGame](./java/07-EliminationGame.java) — Solution recursive; IterativeSolution state-compressed alternative.
 
@@ -147,9 +218,19 @@ Solve in numbered order. 3 Easy / 5 Medium. The mix reflects genuine pattern fit
 
 **Recognize it:** Removing one person leaves the same circular problem with shifted numbering.
 
+**Talking points:**
+
+- I'd solve the survivor position in a zero-based game of one fewer person.
+- Adding `k` modulo the current size restores the removed rotation; I'd convert to one-based
+  indexing only at the end.
+
 **Solution:** Use a zero-based survivor recurrence: winner(1)=0 and winner(n)=(winner(n-1)+k)%n. Add one only at the outer boundary. The iterative version builds the same recurrence from size one upward without recursive frames.
 
-**Complexity:** O(n) time; recursive O(n) stack versus iterative O(1) space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` players, for both versions.
+
+**Space complexity:** Primary recursive: `O(n)` stack; iterative: `O(1)`.
 
 **Java:** [CircularGameWinner](./java/08-CircularGameWinner.java) — Solution recursive; IterativeSolution optimized for stack space.
 

@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd compare squared distances, since square roots do not change their order.
+ * - Sorting by that key gives the first k points; quickselect is a useful follow-up when a full
+ *   ordering is unnecessary.
+ * Time complexity: O(n log(n + 1)) for the primary sorting solution.
+ * Space complexity: O(n) worst-case object-sort workspace, plus O(k) output references.
+ */
+
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 

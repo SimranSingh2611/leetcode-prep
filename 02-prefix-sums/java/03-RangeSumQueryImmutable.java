@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd build a prefix array with a leading zero.
+ * - Then an inclusive range sum is prefix[right + 1] - prefix[left], including ranges starting
+ *   at zero.
+ * Time complexity: Construction: O(n); each sumRange: O(1).
+ * Space complexity: O(n) persistent prefix storage; O(1) additional space per query.
+ */
+
 // LeetCode's required class. O(n) construction, O(1) query, O(n) space.
 class NumArray {
     private final long[] prefix;

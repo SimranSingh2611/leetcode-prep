@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd store the product to the left of each position in the result.
+ * - A backward pass multiplies in the suffix product, handling zeros without division.
+ * Time complexity: O(n) for two passes.
+ * Space complexity: O(1) auxiliary space, plus O(n) output.
+ */
+
 // Recommended: O(n) time and O(1) auxiliary space, excluding the result.
 class Solution {
     public int[] productExceptSelf(int[] nums) {

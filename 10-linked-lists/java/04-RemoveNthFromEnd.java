@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd keep a fixed gap between fast and slow pointers starting from a dummy node.
+ * - When fast reaches null, slow sits before the node to remove, including a removal of the
+ *   head.
+ * Time complexity: O(L) for list length L.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // 19. Remove Nth Node From End of List
 // https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 // Solution mutates one link; n is valid per the statement.

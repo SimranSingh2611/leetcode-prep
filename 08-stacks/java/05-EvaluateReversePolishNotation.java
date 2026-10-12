@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd push numbers and apply each operator to the top two operands.
+ * - I'd pop the right operand first so subtraction and division retain their order.
+ * Time complexity: O(n) for n bounded-length tokens.
+ * Space complexity: O(n) auxiliary operand-stack space.
+ */
+
 // 150. Evaluate Reverse Polish Notation
 // https://leetcode.com/problems/evaluate-reverse-polish-notation/
 // Solution; valid RPN input assumed.

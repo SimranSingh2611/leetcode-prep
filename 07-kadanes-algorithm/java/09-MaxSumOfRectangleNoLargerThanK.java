@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd fix pairs of boundaries along the smaller dimension and compress each band into a 1D
+ *   array.
+ * - An ordered set of prefix sums finds the best compressed subarray at most k; ordinary Kadane
+ *   alone cannot enforce that limit.
+ * Time complexity: O(a^2 b log(b + 1)) for a = min(R, C) and b = max(R, C).
+ * Space complexity: O(b) auxiliary compressed-array and ordered-set space.
+ */
+
 import java.util.TreeSet;
 
 // O(min(m,n)^2 * max(m,n) * log(max(m,n))) time and O(max(m,n)) space.

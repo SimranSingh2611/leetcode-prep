@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd record each character's final occurrence and extend the current piece's end as I scan.
+ * - Reaching that end is the earliest safe cut, maximizing the number of pieces.
+ * Time complexity: O(n) for string length n.
+ * Space complexity: O(1) auxiliary last-occurrence state for 26 letters, plus output partition
+ *   lengths.
+ */
+
 // 763. Partition Labels
 // https://leetcode.com/problems/partition-labels/
 // Solution preserves s and returns partition lengths.

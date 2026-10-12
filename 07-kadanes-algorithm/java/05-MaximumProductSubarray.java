@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd carry both the maximum and minimum products ending at each position.
+ * - A negative value can turn the minimum into the next maximum, so both states must be
+ *   computed from the previous pair.
+ * Time complexity: O(n) for n values.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // Recommended: O(n) time and O(1) space with max/min ending states.
 class Solution {
     public int maxProduct(int[] nums) {

@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd compare corresponding nodes, requiring both their values and structures to match.
+ * - Two nulls match, one null fails, and matching nodes recurse on both child pairs.
+ * Time complexity: O(n) worst case for n compared node positions.
+ * Space complexity: O(h) recursive stack for the maximum compared depth.
+ */
+
 // 100. Same Tree
 // https://leetcode.com/problems/same-tree/
 // Solution; input preserved.

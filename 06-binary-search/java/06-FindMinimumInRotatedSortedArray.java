@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd compare every candidate with the fixed final array value.
+ * - With distinct values, the first value no greater than that reference starts the low segment
+ *   and is the minimum.
+ * Time complexity: O(log(n + 1)) for n values.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // 153. Find Minimum in Rotated Sorted Array
 // https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
 /*

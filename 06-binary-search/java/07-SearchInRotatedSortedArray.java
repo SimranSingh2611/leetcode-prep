@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd first find the rotation pivot using the fixed last value.
+ * - The target's relation to that last value selects a sorted segment, where the same lower-
+ *   bound loop can check for a match.
+ * Time complexity: O(log(n + 1)); two sequential logarithmic searches keep the same bound.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // 33. Search in Rotated Sorted Array
 // https://leetcode.com/problems/search-in-rotated-sorted-array/
 /*

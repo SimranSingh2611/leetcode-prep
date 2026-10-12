@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd put the numbers in a set and start a run only when its predecessor is absent.
+ * - Each distinct number belongs to one scanned run, which explains why the nested loops still
+ *   do linear work.
+ * Time complexity: O(n) expected for n input values.
+ * Space complexity: O(n) auxiliary set space.
+ */
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;

@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd count ancestor prefix sums so currentSum - target identifies paths ending at the
+ *   current node.
+ * - I'd query before inserting and remove the current prefix on return, preventing sibling
+ *   branches from sharing path history.
+ * Time complexity: O(n) expected for n nodes.
+ * Space complexity: O(h) active prefix-map and recursion space for height h.
+ */
+
 // 437. Path Sum III
 // https://leetcode.com/problems/path-sum-iii/
 // O(n) expected time, O(h) active prefix map and recursion stack. Input preserved.

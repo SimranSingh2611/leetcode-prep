@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd activate cells in increasing elevation and union them with active neighbors.
+ * - The first elevation connecting the two endpoints is the minimum water level; unique
+ *   elevations allow direct indexing instead of sorting.
+ * Time complexity: O(n^2 alpha(n^2)) amortized for an n by n grid.
+ * Space complexity: O(n^2) auxiliary position/active/DSU storage.
+ */
+
 // 778. Swim in Rising Water
 // https://leetcode.com/problems/swim-in-rising-water/
 // Solution preserves grid and relies on the problem's unique bounded elevation range.

@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - Positive values make the window sum monotonic as either boundary moves.
+ * - I'd expand until the target is met, then shrink repeatedly while recording the shortest
+ *   valid window.
+ * Time complexity: O(n) amortized overall; each pointer advances at most n times.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // O(n) time and O(1) space; relies on every nums value being positive.
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {

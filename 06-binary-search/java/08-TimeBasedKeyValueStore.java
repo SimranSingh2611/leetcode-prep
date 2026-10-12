@@ -1,3 +1,15 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd append each key's writes to a chronological list.
+ * - A query searches for the last timestamp no greater than the requested time; no qualifying
+ *   timestamp returns an empty string.
+ * Time complexity: For m writes to a key: expected amortized O(1) per set, O(log(m + 1)) per
+ *   get. The TreeMap alternative uses O(log(m + 1)) for both.
+ * Space complexity: O(W + C) persistent storage for W entries and C stored string characters;
+ *   O(1) search state.
+ */
+
 // 981. Time Based Key-Value Store
 // https://leetcode.com/problems/time-based-key-value-store/
 import java.util.ArrayList;

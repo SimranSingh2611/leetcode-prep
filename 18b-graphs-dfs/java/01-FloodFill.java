@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd explore the starting cell's same-color component using an explicit DFS stack.
+ * - Recoloring on push prevents duplicate scheduling; an unchanged replacement color needs an
+ *   immediate return.
+ * Time complexity: O(RC) worst case for an R by C image.
+ * Space complexity: O(RC) auxiliary DFS stack; recolors the image in place.
+ */
+
 // 733. Flood Fill
 // https://leetcode.com/problems/flood-fill/
 // Solution mutates image in place and returns the same array reference.

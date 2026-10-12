@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd union stones sharing a row or column using maps to one representative per coordinate.
+ * - Each connected group can lose all but one stone, so the answer is the stone count minus the
+ *   component count.
+ * Time complexity: O(n alpha(n)) expected amortized for n stones.
+ * Space complexity: O(n) auxiliary DSU and row/column maps.
+ */
+
 // 947. Most Stones Removed with Same Row or Column
 // https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/
 // Solution keeps row and column maps separate and preserves stones.

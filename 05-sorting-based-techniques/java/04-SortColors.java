@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd maintain separate regions for zeros, ones, unclassified values, and twos.
+ * - After moving a two to the right, I'd inspect the swapped-in value before advancing the
+ *   middle pointer.
+ * Time complexity: O(n) for n colors.
+ * Space complexity: O(1) auxiliary space; mutates the input.
+ */
+
 // Recommended: one pass, O(n) time and O(1) space.
 class Solution {
     public void sortColors(int[] nums) {

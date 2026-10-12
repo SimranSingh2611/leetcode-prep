@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd find the midpoint, split the list, and reverse the second half.
+ * - Alternately weaving the two halves creates the requested order; splitting first prevents a
+ *   cycle through the old middle link.
+ * Time complexity: O(n) for n nodes.
+ * Space complexity: O(1) auxiliary space; rewires input nodes.
+ */
+
 // 143. Reorder List
 // https://leetcode.com/problems/reorder-list/
 // Solution mutates links and returns void.

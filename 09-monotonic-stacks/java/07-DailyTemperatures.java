@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd stack unresolved day indices in non-increasing temperature order.
+ * - A warmer day resolves colder tops, and its index difference gives their waiting times.
+ * Time complexity: O(n) amortized overall for n days.
+ * Space complexity: O(n) auxiliary stack, plus O(n) output.
+ */
+
 // 739. Daily Temperatures
 // https://leetcode.com/problems/daily-temperatures/
 // Guide template 1, next strictly greater: pop <; non-increasing temperatures.

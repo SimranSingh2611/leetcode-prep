@@ -64,9 +64,19 @@ Decide whether the answer counts edges, cells, or words. A tree remains acyclic,
 
 **Recognize it:** Group nodes by their distance from the root; the number of children is not fixed at two.
 
+**Talking points:**
+
+- I'd use BFS and snapshot the queue size for each level.
+- Processing exactly that many nodes groups their values together while leaving their children
+  for the next level.
+
 **Solution:** Queue the root and freeze the current queue size for each level. Remove exactly that many nodes, append their values to one result row, and enqueue their children for the next row. This is the simplest layer-boundary exercise.
 
-**Complexity:** O(n) time, O(w) auxiliary queue space for maximum width w, excluding O(n) output.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` nodes.
+
+**Space complexity:** `O(w)` auxiliary queue for maximum level width `w`, plus `O(n)` output.
 
 **Java:** [NaryTreeLevelOrderTraversal](./java/01-NaryTreeLevelOrderTraversal.java) — Solution preserves the N-ary tree. LeetCode supplies Node with val and children.
 
@@ -85,9 +95,21 @@ Decide whether the answer counts edges, cells, or words. A tree remains acyclic,
 
 **Recognize it:** Connect neighbors on each depth level of a perfect binary tree; compare explicit BFS with reusing the level links.
 
+**Talking points:**
+
+- I'd process one BFS layer at a time and connect each node to the next node removed from that
+  layer.
+- The final node points to null; the perfect-tree follow-up traverses existing next links to
+  eliminate the queue.
+
 **Solution:** The main solution processes one BFS layer at a time, connecting the previously removed node to the current node and terminating each layer with null. The optimized alternative walks a level using existing next links and stitches its children's next level without a queue. The latter relies on the perfect-tree guarantee.
 
-**Complexity:** Both O(n) time. BFS uses O(w) auxiliary queue space; ConstantSpaceSolution uses O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` nodes, for both versions.
+
+**Space complexity:** Primary BFS: `O(w)` auxiliary queue; perfect-tree alternative: `O(1)`
+auxiliary space.
 
 **Java:** [PopulateNextRightPointers](./java/02-PopulateNextRightPointers.java) — Both mutate next pointers, not left/right child links. Judge Node has val, left, right, next.
 
@@ -106,9 +128,19 @@ Decide whether the answer counts edges, cells, or words. A tree remains acyclic,
 
 **Recognize it:** Copy a graph with cycles/shared neighbors while preserving identity relationships.
 
+**Talking points:**
+
+- I'd map each original node object to exactly one clone before exploring its neighbors.
+- BFS then copies each edge through that map, preventing repeated clones and infinite traversal
+  around cycles.
+
 **Solution:** A map links each original node object to its unique copy. BFS creates a copy when an original node is first discovered, then appends copied neighbors to the current copy's adjacency list. Storing a copy before exploring edges prevents infinite recursion/repeated copies on cycles.
 
-**Complexity:** Expected O(V+E) time and O(V) auxiliary map/queue space, excluding the O(V+E) cloned graph.
+**Complexity:**
+
+**Time complexity:** `O(V + E)` expected for reachable vertices `V` and edges `E`.
+
+**Space complexity:** `O(V)` auxiliary map/queue, plus `O(V + E)` cloned output.
 
 **Java:** [CloneGraph](./java/03-CloneGraph.java) — Solution uses IdentityHashMap to make object identity explicit. LeetCode supplies Node with val and neighbors; input is unchanged.
 
@@ -127,9 +159,20 @@ Decide whether the answer counts edges, cells, or words. A tree remains acyclic,
 
 **Recognize it:** An undirected graph is a tree exactly when it is connected and has n-1 edges.
 
+**Talking points:**
+
+- I'd require exactly `n - 1` edges, then BFS to check that all vertices are connected.
+- Connectivity plus that edge count proves the graph is a tree, so I can avoid a separate cycle
+  detector.
+
 **Solution:** Reject an edge count other than n-1, build adjacency lists, then BFS from vertex 0. If all n vertices are reached, the edge-count condition rules out cycles. Mark nodes when enqueuing. This keeps cycle reasoning separate from the traversal mechanics.
 
-**Complexity:** O(n+E) time and auxiliary space; the early edge-count rejection is O(1).
+**Complexity:**
+
+**Time complexity:** `O(n + E)` for `n` vertices and `E` edges; a failing edge count returns in
+`O(1)`.
+
+**Space complexity:** `O(n + E)` auxiliary adjacency/visited/queue storage.
 
 **Java:** [GraphValidTree](./java/04-GraphValidTree.java) — Solution preserves edges. This Premium NeetCode 150 exercise uses an undirected graph.
 
@@ -148,9 +191,18 @@ Decide whether the answer counts edges, cells, or words. A tree remains acyclic,
 
 **Recognize it:** Find the nearest food cell through equally costly four-directional grid moves.
 
+**Talking points:**
+
+- I'd BFS from the starting cell through non-wall neighbors, marking cells when queued.
+- BFS explores increasing move counts, so the first food reached gives the shortest path.
+
 **Solution:** Find the starting '*' cell and BFS through non-wall cells. 'X' blocks movement, 'O' is traversable, and '#' is a food goal. Mark cells on enqueue; the first dequeued food cell gives the minimum number of moves. Multiple food cells require no special ordering.
 
-**Complexity:** O(RC) time and auxiliary visited/queue space.
+**Complexity:**
+
+**Time complexity:** `O(RC)` for an `R` by `C` grid.
+
+**Space complexity:** `O(RC)` auxiliary visited/queue space.
 
 **Java:** [ShortestPathToGetFood](./java/05-ShortestPathToGetFood.java) — Solution preserves grid using a separate visited matrix. Premium screenshot selection.
 
@@ -169,9 +221,19 @@ Decide whether the answer counts edges, cells, or words. A tree remains acyclic,
 
 **Recognize it:** The shortest open-cell route allows eight directions, and its length counts cells rather than edges.
 
+**Talking points:**
+
+- I'd reject a blocked endpoint, then BFS through zero cells in all eight directions.
+- Distance starts at one because the path counts cells, and marking on enqueue prevents repeated
+  visits.
+
 **Solution:** Reject a blocked start or end. BFS over zero cells with all eight neighboring offsets, marking on enqueue. Start the distance at one because the starting cell counts. The first arrival at the bottom-right cell is shortest.
 
-**Complexity:** O(n²) time and auxiliary visited/queue space.
+**Complexity:**
+
+**Time complexity:** `O(n^2)` for an `n` by `n` grid.
+
+**Space complexity:** `O(n^2)` auxiliary visited/queue space.
 
 **Java:** [ShortestPathInBinaryMatrix](./java/06-ShortestPathInBinaryMatrix.java) — Solution preserves grid. A one-cell open grid returns 1.
 
@@ -190,9 +252,20 @@ Decide whether the answer counts edges, cells, or words. A tree remains acyclic,
 
 **Recognize it:** Fill each room with its distance to the nearest of several gates: every gate is a distance-zero source.
 
+**Talking points:**
+
+- I'd enqueue all gates before starting BFS.
+- Each unfilled room gets its distance when first discovered, making the nearest gate win
+  automatically.
+
 **Solution:** Queue all gates first. BFS only into unfilled rooms (Integer.MAX_VALUE), assigning neighbor distance current+1 before enqueueing. Walls remain -1 and unreachable rooms retain infinity. The room value acts as the visited marker.
 
-**Complexity:** O(RC) time and O(RC) auxiliary queue space.
+**Complexity:**
+
+**Time complexity:** `O(RC)` for an `R` by `C` grid.
+
+**Space complexity:** `O(RC)` auxiliary queue; the rooms array stores visited distances in
+place.
 
 **Java:** [WallsAndGates](./java/07-WallsAndGates.java) — Solution updates rooms in place. Premium NeetCode 150 and screenshot selection.
 
@@ -211,9 +284,19 @@ Decide whether the answer counts edges, cells, or words. A tree remains acyclic,
 
 **Recognize it:** Multiple sources spread simultaneously in unit-time steps; ask when the last reachable target is reached.
 
+**Talking points:**
+
+- I'd start BFS from every rotten orange and count the fresh ones.
+- Each layer is one minute; any fresh oranges remaining after the frontier disappears are
+  unreachable.
+
 **Solution:** Enqueue every initially rotten orange before BFS and count fresh oranges. Each BFS layer represents one minute. Mark fresh neighbors rotten when enqueued and decrement the fresh count. If the frontier disappears while fresh oranges remain, return -1.
 
-**Complexity:** O(RC) time and O(RC) queue space.
+**Complexity:**
+
+**Time complexity:** `O(RC)` for an `R` by `C` grid.
+
+**Space complexity:** `O(RC)` auxiliary queue; mutates the grid to mark newly rotten oranges.
 
 **Java:** [RottingOranges](./java/08-RottingOranges.java) — Solution mutates grid by changing newly rotten oranges from 1 to 2.
 
@@ -232,9 +315,18 @@ Decide whether the answer counts edges, cells, or words. A tree remains acyclic,
 
 **Recognize it:** Every cell needs its distance to the closest zero; zero cells are simultaneous sources.
 
+**Talking points:**
+
+- I'd seed every zero with distance zero and BFS outward from all of them.
+- A cell's first assigned distance is its shortest distance to any zero.
+
 **Solution:** Initialize all distances to -1, set zeros to distance 0, and enqueue all zeros. BFS assigns each unvisited neighbor its predecessor distance plus one. Unlike Walls and Gates, every cell is traversable; the result is a separate distance matrix.
 
-**Complexity:** O(RC) time; O(RC) queue space plus O(RC) returned distances.
+**Complexity:**
+
+**Time complexity:** `O(RC)` for an `R` by `C` matrix.
+
+**Space complexity:** `O(RC)` auxiliary queue, plus `O(RC)` output distances.
 
 **Java:** [ZeroOneMatrix](./java/09-ZeroOneMatrix.java) — Solution preserves mat and returns a new matrix.
 
@@ -253,9 +345,19 @@ Decide whether the answer counts edges, cells, or words. A tree remains acyclic,
 
 **Recognize it:** Maximize the distance to the nearest land cell: the last reached water layer is the answer.
 
+**Talking points:**
+
+- I'd start BFS from every land cell and expand into water.
+- The final layer measures the farthest cell's distance to its nearest land; all-land and all-
+  water inputs return failure.
+
 **Solution:** Enqueue all land cells at distance zero, then spread into water. The final BFS layer gives the largest nearest-land distance. Reject all-land and all-water grids because the problem requires both cell types.
 
-**Complexity:** O(n²) time and auxiliary queue/visited space.
+**Complexity:**
+
+**Time complexity:** `O(n^2)` for an `n` by `n` grid.
+
+**Space complexity:** `O(n^2)` auxiliary visited/queue space.
 
 **Java:** [AsFarFromLandAsPossible](./java/10-AsFarFromLandAsPossible.java) — Solution preserves grid using a separate visited matrix.
 
@@ -274,9 +376,19 @@ Decide whether the answer counts edges, cells, or words. A tree remains acyclic,
 
 **Recognize it:** Distance is measured from an arbitrary tree node, so moves must include parents as well as children.
 
+**Talking points:**
+
+- I'd first record parent links so the tree can be traversed in both directions.
+- A BFS from the target over child and parent links leaves exactly the distance-`k` nodes after
+  `k` layers.
+
 **Solution:** First traverse the tree to map each node to its parent. Then BFS from the target over left, right, and parent links, with identity-based visited tracking. After k complete layers, the queue contains exactly the nodes at distance k.
 
-**Complexity:** O(n) time and auxiliary parent/visited/queue space, excluding output.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` nodes.
+
+**Space complexity:** `O(n)` auxiliary parent/visited/queue storage, plus up to `O(n)` output.
 
 **Java:** [AllNodesDistanceKInBinaryTree](./java/11-AllNodesDistanceKInBinaryTree.java) — Solution preserves the tree and uses the actual target node reference, not just its value.
 
@@ -295,9 +407,19 @@ Decide whether the answer counts edges, cells, or words. A tree remains acyclic,
 
 **Recognize it:** Infection spreads one tree edge per minute from an arbitrary starting node; find the farthest distance.
 
+**Talking points:**
+
+- I'd build parent links and locate the infection's starting node.
+- BFS over the resulting undirected tree spreads infection one edge per minute, so the final
+  layer gives the total time.
+
 **Solution:** Build parent links and locate the uniquely valued start node using an initial BFS. A second BFS treats the tree as an undirected graph. The final layer number is the time until all nodes are infected. Iterative traversals avoid overflow on a highly skewed tree.
 
-**Complexity:** O(n) time and auxiliary parent/visited/queue space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` nodes.
+
+**Space complexity:** `O(n)` auxiliary parent/visited/queue storage.
 
 **Java:** [TimeForBinaryTreeToBeInfected](./java/12-TimeForBinaryTreeToBeInfected.java) — Solution preserves the tree. The problem guarantees unique values and that start exists.
 
@@ -316,9 +438,22 @@ Decide whether the answer counts edges, cells, or words. A tree remains acyclic,
 
 **Recognize it:** Words are states; changing one letter is one equal-cost edge. Find the shortest transformation length.
 
+**Talking points:**
+
+- I'd BFS through words differing by one letter, generating neighbors by replacing each
+  position.
+- Removing words from the dictionary when queued prevents repeat work; the first end-word
+  arrival minimizes transformations.
+
 **Solution:** BFS from beginWord, generating neighbors by replacing each position with each lowercase letter. Keep remaining dictionary words in a set and remove a word as soon as it is enqueued. The first arrival at endWord has the minimum number of transformations; the returned length counts words, including both ends.
 
-**Complexity:** For N dictionary words of length L, O(26 · N · L²) worst-case time for neighbor String construction/hashing; O(NL) retained strings and O(N) queue entries, plus O(L) temporary character storage.
+**Complexity:**
+
+**Time complexity:** `O(26 N L^2)` worst-case bound for `N` dictionary words of length `L`,
+including constructed-string hashing.
+
+**Space complexity:** `O(NL)` retained candidate strings plus `O(N)` queue references and `O(L)`
+character workspace; `O(NL)` overall.
 
 **Java:** [WordLadder](./java/13-WordLadder.java) — Solution copies wordList into a set and leaves the input list unchanged.
 
@@ -337,9 +472,22 @@ Decide whether the answer counts edges, cells, or words. A tree remains acyclic,
 
 **Recognize it:** Position alone is not a complete state: two visits with different remaining obstacle budgets have different options.
 
+**Talking points:**
+
+- I'd BFS over position and remaining obstacle budget, since visits to the same cell can have
+  different futures.
+- A state spends budget when entering an obstacle; the dominance follow-up skips visits already
+  reached no later with at least as much budget.
+
 **Solution:** BFS over (row, column, remaining eliminations). Entering an obstacle spends one unit; reject negative budgets and mark each three-dimensional state on enqueue. The alternative records only the greatest budget seen per cell and enqueues a new visit only when it improves that budget. Because BFS discovers candidates in nondecreasing distance, an already discovered visit with at least as much budget dominates the new one. Both use a safe Manhattan-distance shortcut when the budget is sufficiently large.
 
-**Complexity:** Both have O(RC(K+1)) worst-case time. Solution uses O(RC(K+1)) visited and queue space. DominanceSolution reduces visited storage to O(RC), but its queue can still require O(RC(K+1)) space; do not claim O(RC) total space.
+**Complexity:**
+
+**Time complexity:** `O(RC(K + 1))` worst case for either version, with grid dimensions `R`, `C`
+and budget `K`.
+
+**Space complexity:** Primary: `O(RC(K + 1))` visited/queue; dominance version uses `O(RC)`
+visited storage but still has an `O(RC(K + 1))` worst-case queue bound.
 
 **Java:** [ShortestPathWithObstacleElimination](./java/14-ShortestPathWithObstacleElimination.java) — Both preserve grid. DominanceSolution optimizes visited storage; neither changes the distance objective. The start and destination are guaranteed empty.
 

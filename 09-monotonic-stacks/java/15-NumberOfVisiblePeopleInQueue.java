@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd keep a decreasing-height stack while scanning people from left to right.
+ * - Each popped person sees the new person, and the nearest taller survivor sees them too while
+ *   blocking everyone behind it.
+ * Time complexity: O(n) amortized overall for n people.
+ * Space complexity: O(n) auxiliary stack, plus O(n) output counts.
+ */
+
 // 1944. Number of Visible People in a Queue
 // https://leetcode.com/problems/number-of-visible-people-in-a-queue/
 // Guide template 3, merged next >= and previous >: process inside AND after while.

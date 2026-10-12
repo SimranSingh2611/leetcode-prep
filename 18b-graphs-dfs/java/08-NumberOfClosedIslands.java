@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd consume each zero component while remembering whether it touches the border.
+ * - Even after finding a border cell I'd finish the traversal, so the same open component
+ *   cannot be counted later.
+ * Time complexity: O(RC) for an R by C grid.
+ * Space complexity: O(RC) auxiliary DFS stack; visited cells are marked in place.
+ */
+
 // 1254. Number of Closed Islands
 // https://leetcode.com/problems/number-of-closed-islands/
 // Solution mutates land 0s to water 1s. The land encoding is opposite to Number of Islands.

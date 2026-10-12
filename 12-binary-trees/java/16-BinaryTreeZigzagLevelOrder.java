@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd keep normal BFS traversal order and alternate how values are placed into each level's
+ *   array.
+ * - Writing at index i or size - 1 - i creates the zigzag without changing child enqueue order.
+ * Time complexity: O(n) for n nodes.
+ * Space complexity: O(w) auxiliary queue for maximum level width w, plus O(n) output.
+ */
+
 // 103. Binary Tree Zigzag Level Order Traversal
 // https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
 // O(n) time, O(w) auxiliary space plus O(n) output. Input preserved.

@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd discard earlier buildings no taller than each new building to their right.
+ * - Those buildings lose their ocean view; surviving indices form the answer in original order.
+ * Time complexity: O(n) amortized overall for n buildings.
+ * Space complexity: O(n) auxiliary stack, plus up to O(n) output.
+ */
+
 // 1762. Buildings With an Ocean View
 // https://leetcode.com/problems/buildings-with-an-ocean-view/
 // Guide template 1, next greater-or-equal: pop <=; strictly decreasing heights.

@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd insert words normally, but let a dot in a search branch over every existing child.
+ * - A match must end at a terminal node, so matching a prefix of a longer word is insufficient.
+ * Time complexity: addWord: O(L); search: O(V) visited-node work, loosely bounded by O(L 26^d)
+ *   for d dots in a length-L pattern.
+ * Space complexity: O(S) persistent trie storage and O(L) recursive search stack.
+ */
+
 // 211. Design Add and Search Words Data Structure
 // https://leetcode.com/problems/design-add-and-search-words-data-structure/
 // WordDictionary is the required design class; '.' matches exactly one character.

@@ -1,3 +1,16 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd BFS through words differing by one letter, generating neighbors by replacing each
+ *   position.
+ * - Removing words from the dictionary when queued prevents repeat work; the first end-word
+ *   arrival minimizes transformations.
+ * Time complexity: O(26 N L^2) worst-case bound for N dictionary words of length L, including
+ *   constructed-string hashing.
+ * Space complexity: O(NL) retained candidate strings plus O(N) queue references and O(L)
+ *   character workspace; O(NL) overall.
+ */
+
 // 127. Word Ladder
 // https://leetcode.com/problems/word-ladder/
 // Solution copies wordList into a set and leaves the input list unchanged.

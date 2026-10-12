@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd erase every land cell reachable from border land.
+ * - The remaining land cannot escape the grid, so summing it directly gives the enclave area.
+ * Time complexity: O(RC) for an R by C grid.
+ * Space complexity: O(RC) auxiliary DFS stack; marks the grid in place.
+ */
+
 // 1020. Number of Enclaves
 // https://leetcode.com/problems/number-of-enclaves/
 // Solution mutates boundary-connected land to zero; enclosed land stays one.

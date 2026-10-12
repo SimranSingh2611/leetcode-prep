@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd track the earliest index of each prefix remainder modulo k.
+ * - Equal remainders identify a multiple of k; I'd also require the index gap to be at least
+ *   two.
+ * Time complexity: O(n) expected for n values.
+ * Space complexity: O(min(n + 1, k)) auxiliary space for positive k; O(n) if extending the
+ *   implementation to k = 0.
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 

@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd move inward while tracking the maximum wall seen from each side.
+ * - The side with the lower current boundary can be settled immediately because the opposite
+ *   boundary is already high enough.
+ * Time complexity: O(n) for n heights.
+ * Space complexity: O(1) auxiliary space; the boundary-array alternative uses O(n).
+ */
+
 // Recommended: O(n) time and O(1) space.
 class Solution {
     public int trap(int[] height) {

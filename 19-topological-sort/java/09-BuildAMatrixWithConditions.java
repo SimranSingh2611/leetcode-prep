@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd topologically sort row constraints and column constraints separately.
+ * - Their ranks give each value a unique matrix position; a cycle in either ordering makes
+ *   construction impossible.
+ * Time complexity: O(k^2 + k + Erow + Ecol) including initialization of the k by k matrix.
+ * Space complexity: O(k + Erow + Ecol) auxiliary ordering/graph storage, plus O(k^2) output.
+ */
+
 // 2392. Build a Matrix With Conditions
 // https://leetcode.com/problems/build-a-matrix-with-conditions/
 // Solution preserves conditions and returns any valid matrix; an empty matrix signals

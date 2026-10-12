@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd search separately for the first value at least the target and the last value at most
+ *   it.
+ * - After verifying presence, those boundaries give the inclusive range without computing
+ *   overflow-prone target + 1.
+ * Time complexity: O(log(n + 1)) for n values.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // 34. Find First and Last Position of Element in Sorted Array
 // https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
 /*

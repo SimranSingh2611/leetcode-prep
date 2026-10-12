@@ -1,3 +1,15 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd recursively divide the list array and merge the two sorted results at each level.
+ * - Each node participates in at most one merge per level, so the list-count logarithm controls
+ *   the work.
+ * Time complexity: O(k + N log(k + 1)) for k lists and N total nodes, including empty-list
+ *   traversal.
+ * Space complexity: O(log(k + 1)) recursive stack for the primary solution, reusing input
+ *   nodes; the heap alternative uses O(k).
+ */
+
 import java.util.PriorityQueue;
 
 /* LeetCode supplies:

@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd reject a blocked endpoint, then BFS through zero cells in all eight directions.
+ * - Distance starts at one because the path counts cells, and marking on enqueue prevents
+ *   repeated visits.
+ * Time complexity: O(n^2) for an n by n grid.
+ * Space complexity: O(n^2) auxiliary visited/queue space.
+ */
+
 // 1091. Shortest Path in Binary Matrix
 // https://leetcode.com/problems/shortest-path-in-binary-matrix/
 // Solution preserves grid. A one-cell open grid returns 1.

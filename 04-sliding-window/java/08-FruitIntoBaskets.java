@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd frame this as the longest window with at most two distinct fruit types.
+ * - When a third type appears, I'd shrink and update counts until the window is valid again.
+ * Time complexity: O(n) expected for n fruits.
+ * Space complexity: O(1) auxiliary space; at most three types are tracked during adjustment.
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 

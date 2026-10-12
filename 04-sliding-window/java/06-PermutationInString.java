@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - A permutation must occupy a window exactly as long as the first string.
+ * - I'd slide that fixed window over the second string and compare its 26-letter counts with
+ *   the required counts.
+ * Time complexity: O(n + m) for the two string lengths.
+ * Space complexity: O(1) for fixed lowercase-letter counters.
+ */
+
 // O(|s1| + |s2|) time and O(1) space for lowercase English letters.
 class Solution {
     public boolean checkInclusion(String s1, String s2) {

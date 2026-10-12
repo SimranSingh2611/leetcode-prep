@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd choose LED positions in increasing index order so each selection appears once.
+ * - Only selections producing a valid hour and minute become formatted answers.
+ * Time complexity: A fixed bound of O(2^10) search states, so O(1) with ten LEDs.
+ * Space complexity: O(10) stack, hence O(1) auxiliary space, excluding the fixed-size output
+ *   set.
+ */
+
 // 401. Binary Watch
 // https://leetcode.com/problems/binary-watch/
 // Solution uses choose/recurse without mutable shared path state.

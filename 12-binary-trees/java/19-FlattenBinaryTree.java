@@ -1,3 +1,15 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - For a node with a left subtree, I'd attach its old right subtree to the left subtree's
+ *   rightmost node.
+ * - Then I'd move the left subtree to the right and continue, preserving preorder while
+ *   rewiring in place.
+ * Time complexity: O(n) amortized overall; predecessor scans traverse disjoint original right-
+ *   spine segments.
+ * Space complexity: O(1) auxiliary space; rewires the input tree.
+ */
+
 // 114. Flatten Binary Tree to Linked List
 // https://leetcode.com/problems/flatten-binary-tree-to-linked-list/
 // O(n) amortized time, O(1) auxiliary space. Mutates the original node links.

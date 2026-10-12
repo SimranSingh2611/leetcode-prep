@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd model each equation as two directed edges with reciprocal weights.
+ * - A query DFS multiplies edge ratios until it reaches the denominator; unknown variables fail
+ *   even when both names are equal.
+ * Time complexity: Expected O(V + E + Q(V + E)) for V variables, E equations and Q queries,
+ *   with bounded-length names.
+ * Space complexity: O(V + E) auxiliary graph and per-query visited/stack, plus O(Q) output.
+ */
+
 // 399. Evaluate Division
 // https://leetcode.com/problems/evaluate-division/
 // Solution preserves all inputs and uses recursive DFS on the problem's small equation graph.

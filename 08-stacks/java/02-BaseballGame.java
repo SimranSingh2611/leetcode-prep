@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd keep the currently valid scores on a stack.
+ * - Cancel, double, and sum operations depend only on the latest scores, so the stack directly
+ *   models the history.
+ * Time complexity: O(n) for n operations, with bounded-length score tokens.
+ * Space complexity: O(n) auxiliary score-stack space.
+ */
+
 // 682. Baseball Game
 // https://leetcode.com/problems/baseball-game/
 // Solution; input preserved.

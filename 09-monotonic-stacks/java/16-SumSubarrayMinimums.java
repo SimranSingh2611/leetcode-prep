@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd count how many subarrays choose each value as their minimum using its left and right
+ *   boundaries.
+ * - One boundary must be strict and the other non-strict so equal minima are assigned exactly
+ *   once.
+ * Time complexity: O(n) amortized overall for n values.
+ * Space complexity: O(n) auxiliary boundary/stack space.
+ */
+
 // 907. Sum of Subarray Minimums
 // https://leetcode.com/problems/sum-of-subarray-minimums/
 // Guide template 6, merged next <= and previous <: pop >=; strictly increasing values.

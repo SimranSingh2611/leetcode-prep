@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd return one extendable branch gain from each subtree, ignoring negative child gains.
+ * - At each node I'd separately test a complete path using both children; a negative initial
+ *   best preserves all-negative answers.
+ * Time complexity: O(n) for n nodes.
+ * Space complexity: O(h) recursive stack for height h.
+ */
+
 // 124. Binary Tree Maximum Path Sum
 // https://leetcode.com/problems/binary-tree-maximum-path-sum/
 // Solution resets state on every call; tree/Kadane-style hybrid.

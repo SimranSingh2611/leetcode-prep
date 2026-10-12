@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd copy ranges before the new interval, merge its contiguous overlap block, then copy the
+ *   suffix.
+ * - Already sorted disjoint intervals make the scan linear, and touching closed endpoints count
+ *   as overlap.
+ * Time complexity: O(n) for n existing intervals.
+ * Space complexity: O(1) scan state, plus O(n) result/buffer storage.
+ */
+
 // 57. Insert Interval
 // https://leetcode.com/problems/insert-interval/
 // Solution does not mutate either input and copies emitted intervals to avoid output/input

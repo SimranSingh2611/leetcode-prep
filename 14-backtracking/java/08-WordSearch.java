@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd try matching paths from each possible starting cell using DFS.
+ * - I'd mark each cell only for the current path and restore it on return, since cells may be
+ *   reused by other candidate paths.
+ * Time complexity: O(RC 3^L) loose worst-case bound for R rows, C columns and word length L;
+ *   the first step allows four directions.
+ * Space complexity: O(min(L, RC)) recursive stack; the board provides visited markers.
+ */
+
 // 79. Word Search
 // https://leetcode.com/problems/word-search/
 // Solution temporarily mutates board but restores every cell before returning.

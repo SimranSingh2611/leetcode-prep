@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd scan once for each ordered pair of major and minor characters, treating them as plus
+ *   one and minus one.
+ * - The candidate must contain a minor character, and a negative balance can restart only when
+ *   another minor remains.
+ * Time complexity: O(A^2 n) for string length n and alphabet size A; O(n) with fixed A = 26.
+ * Space complexity: O(A) frequency storage; O(1) for lowercase English letters.
+ */
+
 // O(A^2 * n) time and O(A) space; A = 26 for lowercase English letters.
 class Solution {
     public int largestVariance(String s) {

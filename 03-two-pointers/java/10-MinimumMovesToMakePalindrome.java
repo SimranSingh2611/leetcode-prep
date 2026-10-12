@@ -1,3 +1,15 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd match the leftmost character with its rightmost available partner and bubble that
+ *   partner to the right edge.
+ * - If no partner exists, that character belongs in the center, so I'd move it inward and
+ *   retry.
+ * Time complexity: O(n^2) worst case for string length n.
+ * Space complexity: O(n) for Java's mutable character-array copy; the swap logic itself uses
+ *   O(1) state.
+ */
+
 // O(n^2) time and O(n) space for Java's mutable character array.
 class Solution {
     public int minMovesToMakePalindrome(String s) {

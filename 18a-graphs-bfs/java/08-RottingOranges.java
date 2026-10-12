@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd start BFS from every rotten orange and count the fresh ones.
+ * - Each layer is one minute; any fresh oranges remaining after the frontier disappears are
+ *   unreachable.
+ * Time complexity: O(RC) for an R by C grid.
+ * Space complexity: O(RC) auxiliary queue; mutates the grid to mark newly rotten oranges.
+ */
+
 // 994. Rotting Oranges
 // https://leetcode.com/problems/rotting-oranges/
 // Solution mutates grid by changing newly rotten oranges from 1 to 2.

@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd sort by start and extend the last merged interval whenever the next range overlaps.
+ * - A gap finalizes the previous range; touching closed endpoints merge as well.
+ * Time complexity: O(n log(n + 1)) for n intervals.
+ * Space complexity: O(n) Java object-sort workspace and up to O(n) output.
+ */
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

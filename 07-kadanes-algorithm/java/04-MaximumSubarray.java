@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd track the best nonempty subarray sum ending at the current index.
+ * - At each value I'd choose between extending that sum and restarting, then update the best
+ *   sum seen anywhere.
+ * Time complexity: O(n) for n values.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // Recommended Kadane recurrence: O(n) time and O(1) space.
 class Solution {
     public int maxSubArray(int[] nums) {

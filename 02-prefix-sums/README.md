@@ -28,11 +28,20 @@ Keywords are clues, not guarantees. Prove the structural condition before choosi
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd carry a running total from left to right.
+- Writing it back into each position builds the prefix sums in place.
+
 **Solution:** Traverse left to right and add each value to the accumulated sum.
 Store that total at the current index or in a separate result array. This is the
 basic recurrence behind every prefix-sum problem: `prefix[i] = prefix[i-1] + nums[i]`.
 
-**Complexity:** `O(n)` time and `O(1)` extra space when updating the input.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` values.
+
+**Space complexity:** `O(1)` auxiliary space; the input becomes the result.
 
 **Potential interviewer follow-ups:**
 
@@ -43,12 +52,22 @@ basic recurrence behind every prefix-sum problem: `prefix[i] = prefix[i-1] + num
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd compute the total once, then track the sum strictly to the left.
+- At each index the right sum is `total - left - current`; I'd check before adding the current
+  value to the left sum.
+
 **Solution:** Compute the total sum, then scan while maintaining the sum strictly
 to the left. At index `i`, the right sum is `total - left - nums[i]`. Return the
 first index where the two sides match, then add the current value to `left` only
 after checking it.
 
-**Complexity:** `O(n)` time and `O(1)` space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for two scans.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Potential interviewer follow-ups:**
 
@@ -59,12 +78,22 @@ after checking it.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd build a prefix array with a leading zero.
+- Then an inclusive range sum is `prefix[right + 1] - prefix[left]`, including ranges starting
+  at zero.
+
 **Solution:** Build a prefix array with a leading zero, where `prefix[i + 1]`
 contains the sum through `nums[i]`. An inclusive query `[left, right]` is then
 `prefix[right + 1] - prefix[left]`. The leading zero removes special handling
 for ranges beginning at index zero.
 
-**Complexity:** `O(n)` construction, `O(1)` per query, and `O(n)` space.
+**Complexity:**
+
+**Time complexity:** Construction: `O(n)`; each `sumRange`: `O(1)`.
+
+**Space complexity:** `O(n)` persistent prefix storage; `O(1)` additional space per query.
 
 **Potential interviewer follow-ups:**
 
@@ -75,12 +104,21 @@ for ranges beginning at index zero.
 
 **Source:** Blind 75 + NeetCode 150
 
+**Talking points:**
+
+- I'd store the product to the left of each position in the result.
+- A backward pass multiplies in the suffix product, handling zeros without division.
+
 **Solution:** In a forward pass, place the product of everything to the left of
 `i` into the result. In a backward pass, multiply it by a running suffix product
 containing everything to the right. This naturally handles zeros and never uses
 division.
 
-**Complexity:** `O(n)` time and `O(1)` auxiliary space excluding the output.
+**Complexity:**
+
+**Time complexity:** `O(n)` for two passes.
+
+**Space complexity:** `O(1)` auxiliary space, plus `O(n)` output.
 
 **Potential interviewer follow-ups:**
 
@@ -91,13 +129,23 @@ division.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd count earlier prefix sums in a map seeded with zero once.
+- For each current sum, the frequency of `current - k` counts all matching subarrays ending
+  here; I'd query before inserting.
+
 **Solution:** Maintain the current prefix sum and a frequency map of all earlier
 prefix sums, initially `{0: 1}`. A subarray ending here sums to `k` for every
 earlier prefix equal to `current - k`, so add that frequency before recording
 the current prefix. Frequencies—not mere membership—are required to count all
 subarrays.
 
-**Complexity:** `O(n)` expected time and `O(n)` space.
+**Complexity:**
+
+**Time complexity:** `O(n)` expected for `n` values.
+
+**Space complexity:** `O(n)` auxiliary prefix-frequency space.
 
 **Potential interviewer follow-ups:**
 
@@ -108,12 +156,22 @@ subarrays.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd treat zeros as minus one so equal zeros and ones become a zero-sum range.
+- Repeated running balances identify valid ranges; keeping the earliest index gives the longest
+  one.
+
 **Solution:** Treat every `0` as `-1`, so a range containing equal zeros and ones
 has sum zero. Store the earliest index at which each running balance occurred.
 When the same balance appears again, the values between the two positions cancel;
 using the earliest position maximizes the length.
 
-**Complexity:** `O(n)` time and `O(n)` space.
+**Complexity:**
+
+**Time complexity:** `O(n)` expected for `n` values.
+
+**Space complexity:** `O(n)` auxiliary earliest-index map space.
 
 **Potential interviewer follow-ups:**
 
@@ -124,12 +182,23 @@ using the earliest position maximizes the length.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd track the earliest index of each prefix remainder modulo `k`.
+- Equal remainders identify a multiple of `k`; I'd also require the index gap to be at least
+  two.
+
 **Solution:** Prefix sums with the same remainder modulo `k` differ by a multiple
 of `k`. Map each remainder to its earliest index, seeding remainder zero at index
 `-1`, and accept a repeat only when the index gap is at least two. Keeping the
 earliest occurrence provides the greatest chance of meeting the length rule.
 
-**Complexity:** `O(n)` time and `O(min(n, |k|))` space in the usual nonzero-`k` case.
+**Complexity:**
+
+**Time complexity:** `O(n)` expected for `n` values.
+
+**Space complexity:** `O(min(n + 1, k))` auxiliary space for positive `k`; `O(n)` if extending
+the implementation to `k = 0`.
 
 **Potential interviewer follow-ups:**
 
@@ -140,12 +209,22 @@ earliest occurrence provides the greatest chance of meeting the length rule.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd build a padded 2D prefix-sum table.
+- Each rectangle query subtracts the strips above and left, then adds back their double-
+  subtracted overlap.
+
 **Solution:** Build a padded 2D prefix table. The sum of a rectangle is its
 bottom-right prefix minus the areas above and left, plus the top-left overlap
 that was subtracted twice. Padding the table with row zero and column zero keeps
 the inclusion-exclusion formula uniform at boundaries.
 
-**Complexity:** `O(mn)` construction, `O(1)` per query, and `O(mn)` space.
+**Complexity:**
+
+**Time complexity:** Construction: `O(RC)` for `R` rows and `C` columns; each query: `O(1)`.
+
+**Space complexity:** `O(RC)` persistent table space; `O(1)` additional query space.
 
 **Potential interviewer follow-ups:**
 
@@ -156,13 +235,24 @@ the inclusion-exclusion formula uniform at boundaries.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd turn each range sum into a difference of prefix sums.
+- While merging sorted halves, two monotonic pointers count the right-half prefixes whose
+  differences lie within the requested bounds.
+
 **Solution:** Form prefix sums, so every range becomes a difference of two
 prefixes. During merge sort, for each prefix in the left half, advance two
 pointers over the sorted right half to count differences in `[lower, upper]`.
 Then merge the halves. This counts valid cross-half pairs without enumerating
 all pairs.
 
-**Complexity:** `O(n log n)` time and `O(n)` space.
+**Complexity:**
+
+**Time complexity:** `O(n log(n + 1))` for merge-sort counting.
+
+**Space complexity:** `O(n)` auxiliary prefix/merge arrays, including an `O(log(n + 1))`
+recursion stack.
 
 **Potential interviewer follow-ups:**
 
@@ -173,14 +263,24 @@ all pairs.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd keep candidate prefix indices in increasing prefix-sum order in a deque.
+- The front produces valid shortest ranges, while a newer smaller prefix dominates an older
+  larger one; this also handles negative values.
+
 **Solution:** Compute prefix sums and maintain indices in a deque whose prefix
 values are strictly increasing. Pop from the front while the current prefix minus
 the oldest prefix reaches `k`, updating the shortest length; pop from the back
 while the current prefix is no larger, because the current index dominates that
 older candidate. This works even when values are negative.
 
-**Complexity:** `O(n)` time and `O(n)` space; each index enters and leaves the
-deque at most once.
+**Complexity:**
+
+**Time complexity:** `O(n)` amortized overall; each index enters and leaves the deque at most
+once.
+
+**Space complexity:** `O(n)` auxiliary prefix-array and deque space.
 
 **Potential interviewer follow-ups:**
 

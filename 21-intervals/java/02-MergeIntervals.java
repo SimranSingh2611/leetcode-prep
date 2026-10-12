@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd sort by start and merge into the last output range while the next range overlaps.
+ * - A gap finalizes the previous range; taking the maximum end also handles nested intervals.
+ * Time complexity: O(n log(n + 1)) for n intervals.
+ * Space complexity: O(n) auxiliary outer-array copy/object-sort workspace, plus O(n) output.
+ */
+
 // 56. Merge Intervals
 // https://leetcode.com/problems/merge-intervals/
 // O(n log n) time; O(n) auxiliary space plus output. Preserves input and copies output rows.

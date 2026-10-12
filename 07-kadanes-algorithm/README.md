@@ -29,12 +29,22 @@ Keywords are clues, not guarantees. Prove the structural condition before choosi
 
 **Source:** Blind 75 + NeetCode 150
 
+**Talking points:**
+
+- I'd track the cheapest earlier buying price while scanning selling days.
+- Each day contributes one candidate profit, and keeping the best profit covers every legal buy-
+  before-sell pair.
+
 **Solution:** Scan prices while tracking the smallest earlier price. At each day,
 compute the profit from selling today after buying at that minimum and update the
 best profit. This is Kadane-like: carry forward only the best state needed by
 future positions instead of enumerating every transaction pair.
 
-**Complexity:** `O(n)` time and `O(1)` space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` prices.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Potential interviewer follow-ups:**
 
@@ -45,12 +55,21 @@ future positions instead of enumerating every transaction pair.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd maintain the sum of the strictly ascending run ending at the current position.
+- A larger next value extends that run; otherwise I'd restart and update the global maximum.
+
 **Solution:** Maintain the sum of the strictly ascending run ending at the
 current element. Extend it when the current value exceeds the previous value;
 otherwise restart with the current value. Update the global maximum after each
 step. This makes Kadane's extend-or-restart decision explicit.
 
-**Complexity:** `O(n)` time and `O(1)` space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` values.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Potential interviewer follow-ups:**
 
@@ -61,12 +80,22 @@ step. This makes Kadane's extend-or-restart decision explicit.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd keep the smallest earlier value as a potential first element.
+- I'd update the difference only when the current value is strictly larger, preserving the
+  required index and value ordering.
+
 **Solution:** Track the smallest value seen before the current position. If the
 current value is larger, use their difference to update the answer; then update
 the running minimum. The ordering constraint `i < j` is preserved because the
 candidate minimum comes only from earlier positions.
 
-**Complexity:** `O(n)` time and `O(1)` space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` values.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Potential interviewer follow-ups:**
 
@@ -77,12 +106,22 @@ candidate minimum comes only from earlier positions.
 
 **Source:** Blind 75 + NeetCode 150
 
+**Talking points:**
+
+- I'd track the best nonempty subarray sum ending at the current index.
+- At each value I'd choose between extending that sum and restarting, then update the best sum
+  seen anywhere.
+
 **Solution:** Let `current` be the maximum sum of a nonempty subarray ending at
 the current index. Set it to `max(nums[i], current + nums[i])`, then update the
 global best. The recurrence decides whether the earlier suffix helps or whether
 the optimal ending-here subarray should restart now.
 
-**Complexity:** `O(n)` time and `O(1)` space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` values.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Potential interviewer follow-ups:**
 
@@ -93,12 +132,22 @@ the optimal ending-here subarray should restart now.
 
 **Source:** Blind 75 + NeetCode 150
 
+**Talking points:**
+
+- I'd carry both the maximum and minimum products ending at each position.
+- A negative value can turn the minimum into the next maximum, so both states must be computed
+  from the previous pair.
+
 **Solution:** Track both the maximum and minimum products ending at each position,
 because multiplying by a negative value swaps their roles. For each value, choose
 among starting fresh, extending the previous maximum, and extending the previous
 minimum. Zero naturally acts as a possible restart.
 
-**Complexity:** `O(n)` time and `O(1)` space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` values.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Potential interviewer follow-ups:**
 
@@ -109,12 +158,23 @@ minimum. Zero naturally acts as a possible restart.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- The answer either stays inside the array or wraps around by excluding a minimum-sum middle
+  segment.
+- I'd run maximum and minimum Kadane states together, with an all-negative check to avoid
+  choosing an empty wrapped range.
+
 **Solution:** The answer is either an ordinary non-wrapping maximum subarray or
 the total sum minus the minimum subarray, which represents keeping the two ends.
 Run maximum and minimum Kadane states together. If the maximum element is negative,
 return the ordinary maximum so the wrapped formula does not select an empty range.
 
-**Complexity:** `O(n)` time and `O(1)` space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` values.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Potential interviewer follow-ups:**
 
@@ -125,12 +185,23 @@ return the ordinary maximum so the wrapped formula does not select an empty rang
 
 **Source:** Supplemental
 
-**Solution:** Track both the maximum and minimum subarray sums ending at each
-position. The largest absolute answer is the greater of the maximum positive sum
-and the absolute value of the minimum negative sum. Equivalently, it is the
-difference between the largest and smallest prefix sums.
+**Talking points:**
 
-**Complexity:** `O(n)` time and `O(1)` space.
+- Every subarray sum is a difference between two prefix sums.
+- I'd track the smallest and largest prefixes; their difference is the greatest absolute
+  subarray sum, regardless of which appears first.
+
+**Solution:** The primary implementation tracks the current prefix sum and
+the smallest and largest prefix sums seen, including the initial zero. Their
+difference is the largest absolute subarray sum: either ordering of those two
+prefixes gives that magnitude. Equivalently, run maximum and minimum Kadane states
+and compare the best positive sum with the magnitude of the best negative sum.
+
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` values.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Potential interviewer follow-ups:**
 
@@ -141,12 +212,21 @@ difference between the largest and smallest prefix sums.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd keep the lengths of alternating runs ending with an upward or downward comparison.
+- Each strict comparison extends the opposite state, while equal neighbors reset both lengths.
+
 **Solution:** Maintain lengths `up` and `down` for turbulent subarrays ending at
 the current index. If the current value is greater than the previous one, set
 `up = down + 1` and reset `down`; if smaller, do the symmetric update; equality
 resets both to one. This is Kadane-style rolling state over alternating relations.
 
-**Complexity:** `O(n)` time and `O(1)` space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` values.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Potential interviewer follow-ups:**
 
@@ -157,14 +237,24 @@ resets both to one. This is Kadane-style rolling state over alternating relation
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd fix pairs of boundaries along the smaller dimension and compress each band into a 1D
+  array.
+- An ordered set of prefix sums finds the best compressed subarray at most `k`; ordinary Kadane
+  alone cannot enforce that limit.
+
 **Solution:** Fix pairs of boundaries along the smaller matrix dimension and
 compress the cells between them into a 1D sum array. For that array, find the
 largest subarray sum at most `k` by storing prefix sums in an ordered set and
 querying the smallest earlier prefix at least `currentPrefix - k`. Repeat for all
 boundary pairs, optionally stopping if the exact value `k` is found.
 
-**Complexity:** `O(min(m,n)^2 * max(m,n) * log(max(m,n)))` time and
-`O(max(m,n))` space after orienting the matrix advantageously.
+**Complexity:**
+
+**Time complexity:** `O(a^2 b log(b + 1))` for `a = min(R, C)` and `b = max(R, C)`.
+
+**Space complexity:** `O(b)` auxiliary compressed-array and ordered-set space.
 
 **Potential interviewer follow-ups:**
 
@@ -175,6 +265,13 @@ boundary pairs, optionally stopping if the exact value `k` is found.
 
 **Source:** Supplemental
 
+**Talking points:**
+
+- I'd scan once for each ordered pair of major and minor characters, treating them as plus one
+  and minus one.
+- The candidate must contain a minor character, and a negative balance can restart only when
+  another minor remains.
+
 **Solution:** For every ordered pair of distinct characters `(major, minor)`,
 scan the string as if `major` contributes `+1`, `minor` contributes `-1`, and all
 others are ignored. Use a Kadane-like reset when the running balance is negative
@@ -182,8 +279,12 @@ and another `minor` remains, but update the answer only after the substring has
 included at least one `minor`. Considering ordered pairs covers both majority
 directions.
 
-**Complexity:** `O(A^2 n)` time and `O(A)` space for alphabet size `A`; with
-lowercase English letters, this is effectively `O(n)` time.
+**Complexity:**
+
+**Time complexity:** `O(A^2 n)` for string length `n` and alphabet size `A`; `O(n)` with fixed
+`A = 26`.
+
+**Space complexity:** `O(A)` frequency storage; `O(1)` for lowercase English letters.
 
 **Potential interviewer follow-ups:**
 

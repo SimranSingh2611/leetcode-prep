@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd store the left spine of the remaining inorder traversal.
+ * - Each next pops the smallest pending node and pushes its right subtree's left spine; each
+ *   node is pushed and popped once.
+ * Time complexity: Constructor: O(h); next: O(1) amortized, O(h) worst case; hasNext: O(1).
+ * Space complexity: O(h) persistent traversal stack for tree height h.
+ */
+
 // 173. Binary Search Tree Iterator
 // https://leetcode.com/problems/binary-search-tree-iterator/
 // BSTIterator design class; assumes no concurrent tree mutation.

@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd map keys to records and frequencies to insertion-ordered key buckets.
+ * - Access promotes a key; eviction takes the oldest key in the minimum-frequency bucket,
+ *   implementing both tie rules.
+ * Time complexity: Expected O(1) per get or put.
+ * Space complexity: O(c) persistent storage for capacity c; empty frequency buckets are
+ *   removed.
+ */
+
 // 460. LFU Cache
 // https://leetcode.com/problems/lfu-cache/
 // LFUCache design class; linked-order buckets plus hashing.

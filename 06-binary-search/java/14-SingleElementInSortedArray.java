@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - Before the unique element, duplicate pairs align at even/odd positions; after it, that
+ *   alignment breaks.
+ * - I'd locate the first broken pair with binary search, using mid ^ 1 to find the partner
+ *   index.
+ * Time complexity: O(log(n + 1)) for n values.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // 540. Single Element in a Sorted Array
 // https://leetcode.com/problems/single-element-in-a-sorted-array/
 /*

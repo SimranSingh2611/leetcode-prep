@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd treat each first-array value as the start of a sorted row of pair sums.
+ * - A min-heap merges those rows by emitting a pair and advancing only its row; only the first
+ *   min(k, n) rows need seeds.
+ * Time complexity: O((h + p) log(h + 1)), where h = min(k, n), p = min(k, nm), and array
+ *   lengths are n, m.
+ * Space complexity: O(h) auxiliary heap, plus O(p) output pairs.
+ */
+
 // 373. Find K Pairs with Smallest Sums
 // https://leetcode.com/problems/find-k-pairs-with-smallest-sums/
 // Solution uses long pair sums in comparisons and leaves both arrays unchanged.

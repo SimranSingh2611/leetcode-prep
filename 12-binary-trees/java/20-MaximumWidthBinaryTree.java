@@ -1,3 +1,15 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd BFS with conceptual complete-tree positions so gaps between actual nodes contribute to
+ *   width.
+ * - Subtracting the first position at each level preserves those gaps while keeping indices
+ *   small.
+ * Time complexity: O(n) for n actual nodes.
+ * Space complexity: O(w) auxiliary queue, where w is the maximum number of actual nodes on a
+ *   level, rather than its width including gaps.
+ */
+
 // 662. Maximum Width of Binary Tree
 // https://leetcode.com/problems/maximum-width-of-binary-tree/
 // O(n) time, O(w) queue for maximum number of actual nodes on a level.

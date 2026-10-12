@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd reject fewer than n - 1 cables, then count connected components with DSU.
+ * - Connecting c components needs c - 1 moves, and the edge-count condition guarantees enough
+ *   redundant cables.
+ * Time complexity: O(n + E alpha(n)) amortized for n computers and E cables.
+ * Space complexity: O(n) auxiliary DSU arrays.
+ */
+
 // 1319. Number of Operations to Make Network Connected
 // https://leetcode.com/problems/number-of-operations-to-make-network-connected/
 // Solution does not mutate connections.

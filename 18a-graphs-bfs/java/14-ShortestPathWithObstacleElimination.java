@@ -1,3 +1,16 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd BFS over position and remaining obstacle budget, since visits to the same cell can have
+ *   different futures.
+ * - A state spends budget when entering an obstacle; the dominance follow-up skips visits
+ *   already reached no later with at least as much budget.
+ * Time complexity: O(RC(K + 1)) worst case for either version, with grid dimensions R, C and
+ *   budget K.
+ * Space complexity: Primary: O(RC(K + 1)) visited/queue; dominance version uses O(RC) visited
+ *   storage but still has an O(RC(K + 1)) worst-case queue bound.
+ */
+
 // 1293. Shortest Path in a Grid with Obstacles Elimination
 // https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/
 // Both preserve grid. DominanceSolution optimizes visited storage; neither changes the distance

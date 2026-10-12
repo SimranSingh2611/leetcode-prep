@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd build a padded 2D prefix-sum table.
+ * - Each rectangle query subtracts the strips above and left, then adds back their double-
+ *   subtracted overlap.
+ * Time complexity: Construction: O(RC) for R rows and C columns; each query: O(1).
+ * Space complexity: O(RC) persistent table space; O(1) additional query space.
+ */
+
 // LeetCode's required class. O(rows * cols) construction and O(1) query.
 class NumMatrix {
     private final long[][] prefix;

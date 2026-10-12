@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd search the largest row count whose triangular number fits the coin budget.
+ * - Using long arithmetic keeps the midpoint and k(k + 1)/2 safe near integer limits.
+ * Time complexity: O(log(n + 1)) for n coins.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // 441. Arranging Coins
 // https://leetcode.com/problems/arranging-coins/
 /*

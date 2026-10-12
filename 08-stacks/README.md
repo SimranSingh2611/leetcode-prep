@@ -28,9 +28,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Closing delimiters must match the most recent unclosed opening delimiter.
 
+**Talking points:**
+
+- I'd push the expected closing bracket for each opener.
+- Every closer must match the stack top, and the stack must finish empty; counts alone cannot
+  enforce nesting.
+
 **Solution:** Push the expected closing character for each opener. On a closer, require it to equal the stack top, then pop. The stack must be empty at the end; merely counting bracket types does not enforce nesting.
 
-**Complexity:** O(n) time, O(n) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` characters.
+
+**Space complexity:** `O(n)` auxiliary stack space.
 
 **Java:** [ValidParentheses](./java/01-ValidParentheses.java) — Solution; input preserved.
 
@@ -45,9 +55,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Operations cancel or reuse the most recent valid scores.
 
+**Talking points:**
+
+- I'd keep the currently valid scores on a stack.
+- Cancel, double, and sum operations depend only on the latest scores, so the stack directly
+  models the history.
+
 **Solution:** Maintain valid scores in a stack. C removes the last score, D doubles it, and + sums the last two. Temporarily pop one value for +, then restore it before pushing the new score.
 
-**Complexity:** O(n) time and O(n) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` operations, with bounded-length score tokens.
+
+**Space complexity:** `O(n)` auxiliary score-stack space.
 
 **Java:** [BaseballGame](./java/02-BaseballGame.java) — Solution; input preserved.
 
@@ -62,9 +82,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Deleting a neighboring equal pair can expose another pair.
 
+**Talking points:**
+
+- I'd treat a StringBuilder as the reduced prefix of the string.
+- Matching its final character removes a pair; otherwise I'd append, allowing newly adjacent
+  duplicates to cancel later.
+
 **Solution:** Treat a StringBuilder as a character stack. If the next character equals its final character, remove that final character; otherwise append. The builder always contains the fully reduced processed prefix.
 
-**Complexity:** O(n) time, O(n) working/output storage.
+**Complexity:**
+
+**Time complexity:** `O(n)` amortized for `n` characters.
+
+**Space complexity:** `O(n)` working/output storage.
 
 **Java:** [RemoveAdjacentDuplicates](./java/03-RemoveAdjacentDuplicates.java) — Solution; input preserved.
 
@@ -79,9 +109,20 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** A stack must also return its minimum after arbitrary pops.
 
+**Talking points:**
+
+- I'd store each value with the minimum at its stack depth.
+- Popping restores the previous minimum automatically, so querying the minimum never needs a
+  scan.
+
 **Solution:** Store each value together with the minimum at that depth. Popping automatically restores the previous minimum. A second design stores long differences from the current minimum; negative differences mark a new minimum and let pop restore the old one.
 
-**Complexity:** Both designs O(1) per operation and O(n) space. The difference design stores one long per entry instead of value/min pairs; it does not improve asymptotic space.
+**Complexity:**
+
+**Time complexity:** `O(1)` per `push`, `pop`, `top`, or `getMin`, for both supplied designs.
+
+**Space complexity:** `O(n)` persistent space for `n` stack entries; the difference-encoding
+alternative changes entry size, not the bound.
 
 **Java:** [MinStack](./java/04-MinStack.java) — MinStack recommended; DifferenceMinStack is a storage-layout alternative.
 
@@ -96,9 +137,18 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Each operator consumes the two most recent unevaluated operands.
 
+**Talking points:**
+
+- I'd push numbers and apply each operator to the top two operands.
+- I'd pop the right operand first so subtraction and division retain their order.
+
 **Solution:** Push numbers. On an operator, pop the right operand first and the left second, compute the result, and push it. Java integer division truncates toward zero as required.
 
-**Complexity:** O(n) time, O(n) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` bounded-length tokens.
+
+**Space complexity:** `O(n)` auxiliary operand-stack space.
 
 **Java:** [EvaluateReversePolishNotation](./java/05-EvaluateReversePolishNotation.java) — Solution; valid RPN input assumed.
 
@@ -113,9 +163,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Parent-directory navigation cancels the last retained path component.
 
+**Talking points:**
+
+- I'd process path components with a stack: skip empty names and dots, and let double dots
+  remove the previous component.
+- Every other name is literal, then I'd join the surviving components under the root slash.
+
 **Solution:** Split an absolute Unix path by /. Ignore empty components and '.', pop a component for '..' if available, and retain every other name literally. Join the retained components with a leading slash.
 
-**Complexity:** O(n) time and O(n) auxiliary/output storage.
+**Complexity:**
+
+**Time complexity:** `O(n)` for path length `n`.
+
+**Space complexity:** `O(n)` auxiliary split/stack storage and up to `O(n)` output.
 
 **Java:** [SimplifyPath](./java/06-SimplifyPath.java) — Solution; Unix absolute-path rules, not filesystem access.
 
@@ -130,9 +190,20 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Nested repetition brackets require suspending an outer string while decoding an inner one.
 
+**Talking points:**
+
+- I'd save the outer text and repeat count whenever a bracket starts a nested segment.
+- Closing the bracket expands that segment into its saved parent; nested copying needs to be
+  included in the runtime.
+
 **Solution:** On [, save the outer builder and repeat count, then start a fresh builder. On ], append the completed inner string the saved number of times to the outer builder. Keep multidigit count parsing separate from text.
 
-**Complexity:** O(n + sum of intermediate expansion lengths) time, O(n+L) peak storage for input length n and decoded length L. Deep repeated copying can exceed O(n+L) time.
+**Complexity:**
+
+**Time complexity:** `O(n + X)`, where `n` is encoded length and `X` is the sum of intermediate
+expansion lengths; a loose bound is `O(n(L + 1))` for decoded length `L`.
+
+**Space complexity:** `O(n + L)` peak stack/builder/output storage.
 
 **Java:** [DecodeString](./java/07-DecodeString.java) — Solution; iterative context stacks avoid recursive parsing depth.
 
@@ -147,9 +218,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** A new left-moving asteroid may repeatedly collide with recent right-moving survivors.
 
+**Talking points:**
+
+- I'd maintain the asteroids that survive the processed prefix on a stack.
+- Only a positive top and a negative incoming asteroid can collide; each collision removes at
+  least one contender.
+
 **Solution:** Maintain surviving asteroids. Collisions occur only when the top is positive and the incoming value is negative. Pop smaller opponents, remove both for equal magnitudes, or discard the incoming asteroid if the top is larger.
 
-**Complexity:** O(n) amortized time; each asteroid is pushed/popped at most once. O(n) space.
+**Complexity:**
+
+**Time complexity:** `O(n)` amortized overall for `n` asteroids.
+
+**Space complexity:** `O(n)` auxiliary stack, plus up to `O(n)` output.
 
 **Java:** [AsteroidCollision](./java/08-AsteroidCollision.java) — Solution; survivor stack, not a monotonic stack.
 
@@ -164,9 +245,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Parentheses suspend a partial sum and its sign; unary minus must also work.
 
+**Talking points:**
+
+- I'd accumulate a number, sign, and result for the current parentheses level.
+- At an opening parenthesis I'd save the outer context; at a closing one I'd combine the
+  completed inner result with it.
+
 **Solution:** Track result, current number, and sign. Commit a number at + or -. At (, save the outer result and sign and reset the inner context. At ), finish the inner expression and combine it with the saved signed outer context.
 
-**Complexity:** O(n) time; O(depth) stack space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for expression length `n`.
+
+**Space complexity:** `O(d)` auxiliary stack for nesting depth `d`; `O(n)` worst case.
 
 **Java:** [BasicCalculator](./java/09-BasicCalculator.java) — Solution; handles +, -, parentheses, spaces, and valid unary minus.
 
@@ -181,9 +272,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Pop highest frequency, breaking ties by most recent insertion.
 
+**Talking points:**
+
+- I'd track each value's frequency and a stack of values at each frequency level.
+- Popping from the maximum-frequency stack also implements the most-recent tie break.
+
 **Solution:** Map each value to its count and each frequency to a stack of values that reached it. Push records the new frequency level; pop removes from the maximum-frequency stack and decrements the value's count. Lower-frequency records remain as the history needed when higher levels are removed.
 
-**Complexity:** O(1) expected time per operation; O(n) space for n currently stacked occurrences, plus active maps.
+**Complexity:**
+
+**Time complexity:** Expected amortized `O(1)` per `push` or `pop`.
+
+**Space complexity:** `O(n)` persistent space for `n` currently stored occurrences and their
+frequency history.
 
 **Java:** [MaximumFrequencyStack](./java/10-MaximumFrequencyStack.java) — FreqStack design class; grouping-by-frequency hybrid.
 

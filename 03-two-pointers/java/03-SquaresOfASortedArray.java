@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - The largest remaining square comes from one of the two endpoints.
+ * - I'd compare their magnitudes and fill the result from right to left, avoiding another sort.
+ * Time complexity: O(n) for n values.
+ * Space complexity: O(1) auxiliary pointer state, plus O(n) output.
+ */
+
 // O(n) time and O(n) output space.
 class Solution {
     public int[] sortedSquares(int[] nums) {

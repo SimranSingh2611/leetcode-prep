@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd store one trie edge per lowercase character and mark complete word endings.
+ * - Exact search requires a terminal marker, while prefix search succeeds as soon as the whole
+ *   prefix path exists.
+ * Time complexity: Each insert, search, or startsWith: O(L) for argument length L.
+ * Space complexity: O(S) persistent trie space for total inserted characters S; O(1) traversal
+ *   state per operation.
+ */
+
 // 208. Implement Trie (Prefix Tree)
 // https://leetcode.com/problems/implement-trie-prefix-tree/
 // Trie is the required design class. The implementation assumes lowercase English letters.

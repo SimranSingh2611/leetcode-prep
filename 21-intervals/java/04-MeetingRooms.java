@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd sort meetings by start and check every adjacent pair for a conflict.
+ * - A start strictly before the preceding end fails; meetings that touch at endpoints can both
+ *   be attended.
+ * Time complexity: O(n log(n + 1)) for n meetings.
+ * Space complexity: O(n) auxiliary cloned-array/object-sort storage.
+ */
+
 // 252. Meeting Rooms
 // https://leetcode.com/problems/meeting-rooms/
 // LeetCode Premium. O(n log n) time; O(n) auxiliary copy/sort space. Preserves input.

@@ -1,3 +1,15 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd track row, column, and box digits with bit masks.
+ * - Choosing the empty cell with the fewest legal digits prunes the search; each tried digit is
+ *   marked and undone on failure.
+ * Time complexity: O(E 9^E) loose bound for E empty cells, including each minimum-candidate
+ *   scan; the completed-board case costs O(1).
+ * Space complexity: O(E + 1) auxiliary empty-cell/stack storage and fixed masks; the board is
+ *   solved in place.
+ */
+
 // 37. Sudoku Solver
 // https://leetcode.com/problems/sudoku-solver/
 // Solution fills board in place; assumes the problem's valid puzzle with a unique solution.

@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd BFS from the starting cell through non-wall neighbors, marking cells when queued.
+ * - BFS explores increasing move counts, so the first food reached gives the shortest path.
+ * Time complexity: O(RC) for an R by C grid.
+ * Space complexity: O(RC) auxiliary visited/queue space.
+ */
+
 // 1730. Shortest Path to Get Food
 // https://leetcode.com/problems/shortest-path-to-get-food/
 // Solution preserves grid using a separate visited matrix. Premium screenshot selection.

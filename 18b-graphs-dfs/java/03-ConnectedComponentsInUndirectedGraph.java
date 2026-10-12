@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd scan all vertices and start DFS whenever I find one not yet visited.
+ * - Every new traversal identifies one component, including isolated vertices and groups
+ *   disconnected from vertex zero.
+ * Time complexity: O(V + E) for V vertices and E edges.
+ * Space complexity: O(V + E) auxiliary adjacency/visited/stack storage.
+ */
+
 // 323. Number of Connected Components in an Undirected Graph
 // https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/
 // Solution preserves edges. Premium NeetCode 150 selection; vertices with no edges still count.

@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd find the first letter strictly greater than the target.
+ * - If that upper bound is the virtual endpoint n, I'd return the first letter for wraparound.
+ * Time complexity: O(log(n + 1)) for n letters.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // 744. Find Smallest Letter Greater Than Target
 // https://leetcode.com/problems/find-smallest-letter-greater-than-target/
 /*

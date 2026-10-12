@@ -28,9 +28,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Repeated insertions followed by the kth-largest query; only the k largest values matter.
 
+**Talking points:**
+
+- I'd keep only the largest `k` values seen so far in a min-heap.
+- After an insertion, removing any excess smallest value leaves the kth largest at the root.
+
 **Solution:** Retain at most k elements in a min-heap. After insertion, remove the smallest if size exceeds k. Once at least k values have been seen, the root is exactly the kth largest, including duplicates.
 
-**Complexity:** Construction O(n log(k+1)); add O(log(k+1)); O(k) storage.
+**Complexity:**
+
+**Time complexity:** Construction: `O(n log(k + 1))` for `n` initial values; each `add`:
+`O(log(k + 1))`.
+
+**Space complexity:** `O(k)` persistent heap storage.
 
 **Java:** [KthLargestInAStream](./java/01-KthLargestInAStream.java) — KthLargest is the judge's required design class; the input array is unchanged.
 
@@ -45,9 +55,18 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Repeatedly remove the two current largest stones, then possibly insert a replacement.
 
+**Talking points:**
+
+- I'd repeatedly remove the two heaviest stones from a max-heap.
+- Equal weights vanish; otherwise their difference returns to the heap for the next round.
+
 **Solution:** Use a max-heap. Poll the heaviest two stones; if their weights differ, push the difference back. Continue until at most one remains.
 
-**Complexity:** O(n log n) time, O(n) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n log(n + 1))` for `n` stones.
+
+**Space complexity:** `O(n)` auxiliary heap space.
 
 **Java:** [LastStoneWeight](./java/02-LastStoneWeight.java) — Solution uses reverseOrder rather than subtraction in its comparator and preserves stones.
 
@@ -62,9 +81,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Assign descending ranks while preserving each athlete's original index: a simple heap warm-up.
 
+**Talking points:**
+
+- I'd heap athlete indices by score and extract them in descending order.
+- Writing each medal or rank at its original index preserves the requested answer order.
+
 **Solution:** Put athlete indices into a max-heap ordered by score. Pop them in rank order and write the medal/rank into the original index. A sorting solution is equally appropriate here; the heap is for learning repeated extraction.
 
-**Complexity:** O(n log n) time, O(n) auxiliary heap space plus output.
+**Complexity:**
+
+**Time complexity:** `O(n log(n + 1))` for `n` athletes.
+
+**Space complexity:** `O(n)` auxiliary heap; `O(n)` result references plus rank-label
+characters.
 
 **Java:** [RelativeRanks](./java/03-RelativeRanks.java) — Solution leaves scores unchanged. This is a warm-up, not a case where a heap asymptotically beats sorting.
 
@@ -79,9 +108,21 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Find one rank rather than a full ordering; contrast a top-k heap with selection.
 
+**Talking points:**
+
+- I'd retain the largest `k` values in a min-heap, whose root is the required rank.
+- Quickselect is a follow-up that partitions around index `n - k` and avoids maintaining an
+  ordered candidate set.
+
 **Solution:** The main solution retains the k largest values in a min-heap. Quickselect instead partitions in place around a randomized pivot and continues only into the side containing sorted index n-k. A three-way partition groups duplicate values, avoiding repeated work on an all-equal array.
 
-**Complexity:** Heap: O(n log(k+1)) time, O(k) space. Iterative randomized quickselect: expected O(n), worst O(n²) time, O(1) auxiliary space; it mutates nums.
+**Complexity:**
+
+**Time complexity:** Primary heap: `O(n log(k + 1))`; randomized quickselect: expected `O(n)`,
+worst-case `O(n^2)`.
+
+**Space complexity:** Primary: `O(k)` auxiliary heap; iterative quickselect: `O(1)` auxiliary
+space and mutates the input.
 
 **Java:** [KthLargestElementInAnArray](./java/04-KthLargestElementInAnArray.java) — Solution preserves nums. QuickselectSolution is the expected-time and auxiliary-space improvement, with a quadratic worst-case caveat.
 
@@ -96,9 +137,20 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Each element of the first sorted array defines a sorted stream of pair sums with the second array.
 
+**Talking points:**
+
+- I'd treat each first-array value as the start of a sorted row of pair sums.
+- A min-heap merges those rows by emitting a pair and advancing only its row; only the first
+  `min(k, n)` rows need seeds.
+
 **Solution:** Seed a min-heap with (i,0) for the first min(k,n) rows. Pop the smallest pair, output it, and push (i,j+1) from that same row. Later rows need not be seeded: their first values cannot outrank all first k seeded row heads.
 
-**Complexity:** For p = min(k, n·m) emitted pairs and h = min(k,n), O((h+p) log(h+1)) time; O(h) auxiliary space, excluding output.
+**Complexity:**
+
+**Time complexity:** `O((h + p) log(h + 1))`, where `h = min(k, n)`, `p = min(k, nm)`, and array
+lengths are `n`, `m`.
+
+**Space complexity:** `O(h)` auxiliary heap, plus `O(p)` output pairs.
 
 **Java:** [FindKPairsWithSmallestSums](./java/05-FindKPairsWithSmallestSums.java) — Solution uses long pair sums in comparisons and leaves both arrays unchanged.
 
@@ -113,9 +165,22 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Repeatedly schedule the most frequent currently eligible task under a cooldown constraint.
 
+**Talking points:**
+
+- I'd schedule blocks of cooldown plus one slots, selecting distinct tasks with the largest
+  remaining counts.
+- Unfinished tasks return only after the block; the final block counts actual tasks rather than
+  trailing idle slots.
+
 **Solution:** Process blocks of n+1 slots. Take up to n+1 different tasks with the highest remaining counts, decrement them, then reinsert unfinished tasks only after the block. A non-final block costs n+1 slots; the final block costs its actual task count. The optimized formula uses the maximum frequency f and the number m of tasks tied at f: max(total, (f-1)(n+1)+m).
 
-**Complexity:** With U distinct tasks: heap O(N log(U+1)) time and O(U) space; formula O(N+U) time and O(U) space. Here U≤26, so both are linear in N; the formula has less simulation overhead.
+**Complexity:**
+
+**Time complexity:** `O(N log(U + 1))` for `N` tasks and `U` distinct types; the formula
+alternative takes `O(N + U)`. Both are `O(N)` when `U <= 26`.
+
+**Space complexity:** `O(U)` auxiliary heap/counts/pending storage; `O(1)` under the fixed
+26-letter alphabet.
 
 **Java:** [TaskScheduler](./java/06-TaskScheduler.java) — Solution demonstrates heap scheduling. FormulaSolution is a simpler counting follow-up, not an asymptotic improvement under a fixed 26-letter alphabet.
 
@@ -130,9 +195,21 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Merge a small prefix of multiple already time-ordered user feeds, rather than sorting every historical tweet.
 
+**Talking points:**
+
+- I'd store each user's tweets newest first and merge those lists when building a feed.
+- A heap contains one current tweet per candidate user, and each extraction advances only that
+  user's list.
+
 **Solution:** Store each user's tweets as a newest-first linked list. For a news-feed query, put the head of the user's list and each followed user's list into a max-heap by timestamp. Pop up to ten tweets and advance only the list just consumed. Follow relationships use sets.
 
-**Complexity:** postTweet/follow/unfollow: expected O(1). With F candidate users, getNewsFeed is O((F+10) log(F+2)) time using individual heap insertions and O(F) temporary space. Persistent storage is O(tweets + follow relationships).
+**Complexity:**
+
+**Time complexity:** Expected `O(1)` for `postTweet`, `follow`, `unfollow`; `getNewsFeed` takes
+`O((F + 10) log(F + 2))` for `F` candidate users.
+
+**Space complexity:** `O(T + R + U)` persistent storage for tweets `T`, follow relationships
+`R`, and stored user records `U`; `O(F)` feed workspace plus at most ten answers.
 
 **Java:** [DesignTwitter](./java/07-DesignTwitter.java) — Twitter is the design class. Self-follow is ignored to avoid duplicate feed entries; historical tweets are retained.
 
@@ -147,9 +224,21 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Choose the most frequent remaining character without repeating the immediately previous character.
 
+**Talking points:**
+
+- I'd choose the most frequent available character from a max-heap.
+- Holding the previous character outside the heap for one step prevents adjacent duplicates;
+  leftover held copies with no alternative mean failure.
+
 **Solution:** Keep remaining character counts in a max-heap. After using a character, hold it outside the heap for one iteration. Choose the next character, then reinsert the previous one if it still has copies. If a held character remains when the heap empties, no valid arrangement exists.
 
-**Complexity:** O(n log(U+1)) time and O(U) auxiliary space for U distinct characters, excluding output; U≤26 here.
+**Complexity:**
+
+**Time complexity:** `O(n log(U + 1))` for length `n` and `U` distinct characters; `O(n)` with
+`U <= 26`.
+
+**Space complexity:** `O(U)` auxiliary heap/counts, plus `O(n)` output buffer; auxiliary space
+is `O(1)` for 26 letters.
 
 **Java:** [ReorganizeString](./java/08-ReorganizeString.java) — Solution returns any valid arrangement or an empty string. Heap entries are mutated only after removal.
 
@@ -164,9 +253,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Maintain the middle boundary while values arrive in arbitrary order.
 
+**Talking points:**
+
+- I'd split the stream between a max-heap for the lower half and a min-heap for the upper half.
+- Rebalancing keeps their sizes equal or leaves one extra lower value, so their roots determine
+  the median.
+
 **Solution:** Use a max-heap for the lower half and a min-heap for the upper half. Insert into the appropriate half, then rebalance so the lower half has either equal size or one extra element. The median is the lower root or the mean of both roots.
 
-**Complexity:** addNum O(log n), findMedian O(1), O(n) storage.
+**Complexity:**
+
+**Time complexity:** Each `addNum`: `O(log(n + 1))`; `findMedian`: `O(1)` for `n` stored values.
+
+**Space complexity:** `O(n)` persistent heap storage.
 
 **Java:** [FindMedianFromDataStream](./java/09-FindMedianFromDataStream.java) — MedianFinder is the required design class. The average promotes to long before addition to prevent int overflow.
 
@@ -181,9 +280,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Maintain one candidate from each sorted list; improve the covered range by advancing its minimum endpoint.
 
+**Talking points:**
+
+- I'd keep one current element per list in a min-heap and track their maximum.
+- The current minimum and maximum define a covering range; advancing the minimum's list is the
+  only move that can raise the lower endpoint.
+
 **Solution:** A min-heap holds one element per list and a separate variable tracks their maximum. Evaluate [minimum, maximum], then advance the list that supplied the minimum. Advancing any other list cannot raise the lower endpoint and may only raise the upper endpoint. Stop when one list is exhausted.
 
-**Complexity:** O(N log(k+1)) time for N total elements and k lists; O(k) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(N log(k + 1))` for `N` total elements across `k` lists.
+
+**Space complexity:** `O(k)` auxiliary heap space.
 
 **Java:** [SmallestRangeCoveringElementsFromKLists](./java/10-SmallestRangeCoveringElementsFromKLists.java) — Solution compares widths as long and breaks equal-width ties by smaller left endpoint; lists are unchanged.
 

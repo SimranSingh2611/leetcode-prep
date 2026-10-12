@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd find the target's first and last occurrences in the sorted array.
+ * - Their inclusive count must be strictly greater than half the length; exactly half is
+ *   insufficient.
+ * Time complexity: O(log(n + 1)) for n values.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // 1150. Check If a Number Is Majority Element in a Sorted Array
 // https://leetcode.com/problems/check-if-a-number-is-majority-element-in-a-sorted-array/
 /*

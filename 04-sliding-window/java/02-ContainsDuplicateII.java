@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd keep a set of values from the allowed index-distance window.
+ * - Before checking the next value, I'd expire anything too far behind; a match then satisfies
+ *   both duplication and distance.
+ * Time complexity: O(n) expected for n values.
+ * Space complexity: O(min(n, k + 1)) auxiliary space, including the current value during
+ *   insertion.
+ */
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;

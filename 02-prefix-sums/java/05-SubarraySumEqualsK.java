@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd count earlier prefix sums in a map seeded with zero once.
+ * - For each current sum, the frequency of current - k counts all matching subarrays ending
+ *   here; I'd query before inserting.
+ * Time complexity: O(n) expected for n values.
+ * Space complexity: O(n) auxiliary prefix-frequency space.
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 

@@ -39,9 +39,18 @@ The selection and ordering follow your screenshot of the [NeetCode 150](https://
 
 **Recognize it:** One new closed interval is inserted into ranges already sorted by start and non-overlapping. Its overlaps form a contiguous block.
 
+**Talking points:**
+
+- I'd copy the prefix before the new interval, merge its overlap block, then copy the suffix.
+- The existing sorted disjoint ranges make this one pass; touching closed endpoints must merge.
+
 **Solution:** Copy the prefix whose ends are strictly before the new start. Expand the new interval while the next start is at most its evolving end, emit the merged range, then copy the suffix. The sorted/disjoint guarantee makes each completed prefix range final; no sorting is needed.
 
-**Complexity:** O(n) time and O(n) total space for the result/buffer; O(1) scanning state beyond that storage.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` existing intervals.
+
+**Space complexity:** `O(n)` result/buffer storage, with `O(1)` scan state beyond it.
 
 **Java:** [InsertInterval](./java/01-InsertInterval.java) — Preserves both inputs and returns independent interval rows.
 
@@ -58,9 +67,19 @@ The selection and ordering follow your screenshot of the [NeetCode 150](https://
 
 **Recognize it:** Unordered ranges must become a disjoint union; preserve coverage rather than the original range identities.
 
+**Talking points:**
+
+- I'd sort by start and merge into the last output range while the next range overlaps.
+- A gap finalizes the previous range; taking the maximum end also handles nested intervals.
+
 **Solution:** Sort by start. If the next start is no greater than the last merged end, extend that end; otherwise start a new output range. Once a gap appears, sorted future starts cannot fill it, so the previous merged range is final. Nested ranges require taking the maximum end, not simply assigning the next end.
 
-**Complexity:** O(n log n) time, O(n) auxiliary space for the outer-array copy and object sorting, plus O(n) output storage.
+**Complexity:**
+
+**Time complexity:** `O(n log(n + 1))` for `n` intervals.
+
+**Space complexity:** `O(n)` auxiliary outer-array copy/object-sort workspace, plus `O(n)`
+output.
 
 **Java:** [MergeIntervals](./java/02-MergeIntervals.java) — Sorts a cloned outer array and copies output rows, preserving the input and avoiding aliases.
 
@@ -77,9 +96,20 @@ The selection and ordering follow your screenshot of the [NeetCode 150](https://
 
 **Recognize it:** Minimize removals, equivalently maximize the number of compatible intervals retained. Touching endpoints are allowed.
 
+**Talking points:**
+
+- I'd sort by end and keep each interval compatible with the last one retained.
+- Earliest finish leaves the most room for later choices; touching endpoints are compatible for
+  this question.
+
 **Solution:** Sort by end and keep each range whose start is at least the last retained end. Otherwise count a removal. Replacing any optimal solution's first interval with the earliest-finishing one leaves at least as much room for its remaining choices; repeat that exchange argument on the suffix.
 
-**Complexity:** O(n log n) time and O(n) auxiliary space for the cloned outer array and object sorting; O(1) scan state.
+**Complexity:**
+
+**Time complexity:** `O(n log(n + 1))` for `n` intervals.
+
+**Space complexity:** `O(n)` auxiliary cloned-array/object-sort storage; the scan uses `O(1)`
+state.
 
 **Java:** [NonOverlappingIntervals](./java/03-NonOverlappingIntervals.java) — Preserves input; safe comparisons also handle negative endpoints.
 
@@ -96,9 +126,19 @@ The selection and ordering follow your screenshot of the [NeetCode 150](https://
 
 **Recognize it:** Decide whether one person can attend every meeting, rather than removing meetings or counting rooms.
 
+**Talking points:**
+
+- I'd sort meetings by start and check every adjacent pair for a conflict.
+- A start strictly before the preceding end fails; meetings that touch at endpoints can both be
+  attended.
+
 **Solution:** Sort by start and reject when a meeting starts strictly before the preceding meeting ends. If every adjacent pair is compatible, the entire ordered schedule is compatible. Meetings ending exactly when the next begins cause no conflict.
 
-**Complexity:** O(n log n) time and O(n) auxiliary space for the cloned outer array and object sorting.
+**Complexity:**
+
+**Time complexity:** `O(n log(n + 1))` for `n` meetings.
+
+**Space complexity:** `O(n)` auxiliary cloned-array/object-sort storage.
 
 **Java:** [MeetingRooms](./java/04-MeetingRooms.java) — LeetCode signature `canAttendMeetings(int[][] intervals)`; preserves input. Empty/single-meeting schedules return true.
 
@@ -115,9 +155,19 @@ The selection and ordering follow your screenshot of the [NeetCode 150](https://
 
 **Recognize it:** Every meeting must take place; find the maximum number occurring simultaneously, which is the minimum number of rooms.
 
+**Talking points:**
+
+- I'd sort meetings by start and heap the end times of active meetings.
+- Removing every meeting ending by the next start makes heap size equal current overlap; its
+  maximum is the minimum room count.
+
 **Solution:** Sort by start and maintain a min-heap of active meeting end times. Before adding a meeting, remove every end at or before its start. The heap then contains exactly the meetings overlapping the new one. Record its maximum size after each insertion. That size is both a necessary room count and sufficient because any freed room can be reused.
 
-**Complexity:** O(n log n) time and O(n) auxiliary space for sorting/copying and the heap.
+**Complexity:**
+
+**Time complexity:** `O(n log(n + 1))` for `n` meetings.
+
+**Space complexity:** `O(n)` auxiliary sorted-copy/heap storage.
 
 **Java:** [MeetingRoomsII](./java/05-MeetingRoomsII.java) — LeetCode signature `minMeetingRooms(int[][] intervals)`; preserves input and returns 0 for no meetings.
 
@@ -134,9 +184,22 @@ The selection and ordering follow your screenshot of the [NeetCode 150](https://
 
 **Recognize it:** Many point queries ask for the smallest covering interval. Queries may be processed offline, then restored to their original order.
 
+**Talking points:**
+
+- I'd sweep sorted queries while adding intervals that have started to a min-heap ordered by
+  inclusive length.
+- After discarding expired tops, the root is the shortest covering interval; saved query indices
+  restore the original answer order.
+
 **Solution:** Sort intervals by start and query indices by query value. Add intervals whose start is at most the current query to a heap ordered by inclusive length. Remove expired entries from the top until it is valid or the heap is empty. The top is then the smallest covering interval; expired entries deeper in the heap can wait until they reach the top. Increasing queries ensure expired intervals never become valid again.
 
-**Complexity:** O(n log n + q log q) time: each interval enters and leaves the heap at most once, and each query peeks once. O(n + q) auxiliary space, excluding the q returned answers.
+**Complexity:**
+
+**Time complexity:** `O(n log(n + 1) + q log(q + 1))` for `n` intervals and `q` queries; each
+interval enters/leaves the heap at most once.
+
+**Space complexity:** `O(n + q)` auxiliary copied-array/query-index/heap storage, plus `O(q)`
+output.
 
 **Java:** [MinimumIntervalToIncludeEachQuery](./java/06-MinimumIntervalToIncludeEachQuery.java) — Preserves intervals and queries; writes answers by original query index. Inclusive lengths fit int under the problem's endpoint bounds.
 

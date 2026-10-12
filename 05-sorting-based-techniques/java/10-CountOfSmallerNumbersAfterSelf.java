@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd merge-sort indices while counting right-half values that move ahead of each left-half
+ *   value.
+ * - Original indices let me write every count back in input order; equal values must not count
+ *   as smaller.
+ * Time complexity: O(n log(n + 1)) for n values.
+ * Space complexity: O(n) auxiliary index/buffer/count storage, plus O(n) output.
+ */
+
 import java.util.ArrayList;
 import java.util.List;
 

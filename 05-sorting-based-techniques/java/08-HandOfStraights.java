@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - The smallest remaining card must begin a group, so I'd consume consecutive values from it.
+ * - A missing required value proves failure; an ordered frequency map keeps the next group
+ *   start available.
+ * Time complexity: O(n log(n + 1)) for n cards.
+ * Space complexity: O(n) auxiliary ordered-map space.
+ */
+
 import java.util.TreeMap;
 
 // O(n log n) time and O(n) space.

@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd insert dictionary roots into a trie and follow each sentence word from its first
+ *   letter.
+ * - The first terminal encountered is its shortest replacement; a missing edge leaves the
+ *   original word unchanged.
+ * Time complexity: O(D + T) for dictionary character count D and sentence length T.
+ * Space complexity: O(D) auxiliary trie and O(T) sentence-split/output storage.
+ */
+
 // 648. Replace Words
 // https://leetcode.com/problems/replace-words/
 // Solution assumes the problem's lowercase words and single-space sentence formatting; dictionary

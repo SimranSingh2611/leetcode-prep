@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd reverse the edges and begin with terminal nodes, which are immediately safe.
+ * - A predecessor becomes safe only after all its outgoing neighbors do, leaving cycle-reaching
+ *   nodes unresolved.
+ * Time complexity: O(V + E) for V vertices and E edges.
+ * Space complexity: O(V + E) auxiliary reversed graph/counts/queue, plus up to O(V) output.
+ */
+
 // 802. Find Eventual Safe States
 // https://leetcode.com/problems/find-eventual-safe-states/
 // Solution preserves graph and returns safe node indices in ascending order.

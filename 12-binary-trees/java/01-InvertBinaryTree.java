@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd invert the two child subtrees recursively and swap their returned roots.
+ * - Null is the base case, and each node's swap completes its part of the transformation.
+ * Time complexity: O(n) for n nodes.
+ * Space complexity: O(h) recursive stack for height h; O(n) on a chain.
+ */
+
 // 226. Invert Binary Tree
 // https://leetcode.com/problems/invert-binary-tree/
 // Solution mutates the tree.

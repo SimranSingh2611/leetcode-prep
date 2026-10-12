@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd visit right children before left children in DFS.
+ * - The first node reached at each depth is the visible one, so I'd record only previously
+ *   unseen depths.
+ * Time complexity: O(n) for n nodes.
+ * Space complexity: O(h) auxiliary stack and O(h) output for tree height h.
+ */
+
 // 199. Binary Tree Right Side View
 // https://leetcode.com/problems/binary-tree-right-side-view/
 // Solution; input preserved.

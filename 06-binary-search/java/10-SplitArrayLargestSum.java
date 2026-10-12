@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd search a candidate maximum subarray sum and greedily count how many parts it needs.
+ * - Nonnegative values make feasibility monotonic, and a split into at most k parts can be
+ *   refined to exactly k.
+ * Time complexity: O(n(1 + log(S - M + 1))) for S = sum(nums), M = max(nums), including the
+ *   initial scan.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // 410. Split Array Largest Sum
 // https://leetcode.com/problems/split-array-largest-sum/
 /*

@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd sort, fix the first two values, and search the remaining pair with two pointers.
+ * - I'd skip duplicates at every level and use a wider type for four-value sums.
+ * Time complexity: O(n^3) for n values.
+ * Space complexity: O(1) pointer state, plus sorting workspace and O(r) output for r
+ *   quadruples; a conservative Java auxiliary bound including sorting is O(n).
+ */
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

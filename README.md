@@ -8,9 +8,20 @@ The old combined graph directory is a navigation page.
 
 Each pattern folder contains a recognition guide and a numbered problem list; its
 `java/` folder contains a solution index and one independent file per problem.
-Every new problem includes a LeetCode link, recognition cue, solution explanation,
-time/space analysis, Java implementation, and interviewer follow-ups with hints.
-Selected files include alternate implementations with their actual trade-offs.
+Every exercise includes two short **Talking points** to open an interview
+discussion, followed by a solution explanation and separate **Time complexity**
+and **Space complexity** notes. These quick notes also appear at the top of each
+Java file. Problems retain their LeetCode links, recognition cues, implementations,
+and interviewer follow-ups. Selected files include alternate implementations with
+their actual trade-offs.
+
+Complexity notes describe the primary Java implementation and label alternatives
+where relevant. Auxiliary space excludes the input and returned output; output
+storage, recursion stacks, sorting workspace, and persistent design-class storage
+are called out explicitly. Hash-based bounds are expected, and amortized bounds
+describe a sequence of operations. Unless defined locally, `n` is the input size,
+`h` is tree height, `w` is maximum actual level width, `R`/`C` are grid dimensions,
+and `V`/`E` are graph vertex/edge counts.
 
 [How to recognize the patterns](./PATTERN_RECOGNITION.md) · [Testing instructions](./tests/README.md)
 

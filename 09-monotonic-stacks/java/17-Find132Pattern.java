@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd track prefix minima and candidate peaks in a decreasing stack.
+ * - After removing peaks no greater than the current value, a surviving peak with an earlier
+ *   smaller prefix forms the required 1-3-2 order.
+ * Time complexity: O(n) amortized overall for n values.
+ * Space complexity: O(n) auxiliary prefix-minimum and stack space.
+ */
+
 // 456. 132 Pattern
 // https://leetcode.com/problems/132-pattern/
 // Guide template 2, previous strictly greater: pop <=; inspect top AFTER popping.

@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd keep unresolved indices in non-decreasing value order.
+ * - A smaller incoming value resolves each larger top as its next smaller answer; equal values
+ *   remain pending.
+ * Time complexity: O(n) amortized overall for n values.
+ * Space complexity: O(n) auxiliary stack, plus O(n) output indices.
+ */
+
 // Next Smaller — standalone template exercise (no LeetCode problem ID).
 // https://leetcode.com/discuss/post/2347639/a-comprehensive-guide-and-template-for-m-irii/
 // Guide template 4: pop >; non-decreasing values from bottom to top.

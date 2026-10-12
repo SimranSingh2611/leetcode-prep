@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd turn each row into histogram heights of consecutive ones ending there.
+ * - Running Largest Rectangle in Histogram for every row considers every rectangle at its
+ *   bottom boundary.
+ * Time complexity: O(RC) for R rows and C columns.
+ * Space complexity: O(C) auxiliary histogram/stack space.
+ */
+
 // 85. Maximal Rectangle
 // https://leetcode.com/problems/maximal-rectangle/
 // Guide template 6 per row: merged next < / previous <= with pop >.

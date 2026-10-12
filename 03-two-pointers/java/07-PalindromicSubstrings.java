@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd expand around every character and every gap as a palindrome center.
+ * - Each successful expansion counts one palindrome, covering both odd and even lengths.
+ * Time complexity: O(n^2) worst case for string length n.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // O(n^2) time and O(1) space.
 class Solution {
     public int countSubstrings(String s) {

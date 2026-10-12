@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - Good versions followed by bad versions form a monotonic predicate.
+ * - I'd keep version zero as a virtual good endpoint and n as a known bad endpoint, querying
+ *   only interior versions.
+ * Time complexity: O(log(n + 1)) API calls; the same time bound assumes each call costs O(1).
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // 278. First Bad Version
 // https://leetcode.com/problems/first-bad-version/
 /* LeetCode supplies VersionControl and boolean isBadVersion(int version). */

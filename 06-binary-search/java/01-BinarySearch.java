@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd find the first index whose value is at least the target using false/true endpoints.
+ * - Then I'd verify equality and check the virtual n endpoint before indexing.
+ * Time complexity: O(log(n + 1)) for n values.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // 704. Binary Search
 // https://leetcode.com/problems/binary-search/
 /*

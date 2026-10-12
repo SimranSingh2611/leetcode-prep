@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd anchor a line at each point and count matching slopes to the other points.
+ * - Reduced integer slope pairs with consistent signs avoid floating-point grouping errors.
+ * Time complexity: O(n^2) expected with fixed-width coordinates; GCD arithmetic is treated as
+ *   bounded.
+ * Space complexity: O(n) auxiliary slope-map space, reused for each anchor.
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 

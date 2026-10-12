@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd union equivalent letters while always choosing the smallest letter as representative.
+ * - Replacing each base-string character with its representative gives the lexicographically
+ *   smallest valid result.
+ * Time complexity: O(P + B) with the fixed 26-letter alphabet, for P equivalence pairs and base
+ *   length B.
+ * Space complexity: O(1) auxiliary DSU state, plus O(B) output buffer.
+ */
+
 // 1061. Lexicographically Smallest Equivalent String
 // https://leetcode.com/problems/lexicographically-smallest-equivalent-string/
 // Solution deliberately chooses the minimum root instead of union by size. For large universes, use

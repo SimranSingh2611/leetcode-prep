@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd sort cars from farthest to nearest and compare their arrival times.
+ * - A car ahead absorbs faster fleets behind it; unresolved fleet leaders stay on the stack.
+ * Time complexity: O(n log(n + 1)) for n cars, for both supplied solutions.
+ * Space complexity: O(n) sorting/copy/stack storage for the primary solution; the alternative
+ *   uses O(1) scan state after O(n) sorting storage.
+ */
+
 // 853. Car Fleet
 // https://leetcode.com/problems/car-fleet/
 // Guide template 1, next >= adaptation on arrival times: pop <=, then push index.

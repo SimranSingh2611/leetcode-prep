@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd build parent links and locate the infection's starting node.
+ * - BFS over the resulting undirected tree spreads infection one edge per minute, so the final
+ *   layer gives the total time.
+ * Time complexity: O(n) for n nodes.
+ * Space complexity: O(n) auxiliary parent/visited/queue storage.
+ */
+
 // 2385. Amount of Time for Binary Tree to Be Infected
 // https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/
 // Solution preserves the tree. The problem guarantees unique values and that start exists.

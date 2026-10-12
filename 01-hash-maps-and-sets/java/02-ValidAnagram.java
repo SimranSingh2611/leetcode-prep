@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd count letters in one string and subtract the counts from the other.
+ * - Equal lengths and zero final counts prove the strings are anagrams; lowercase letters need
+ *   only 26 counters.
+ * Time complexity: O(n + m) for string lengths n and m.
+ * Space complexity: O(1) for the primary 26-counter solution; O(k) for a map over k distinct
+ *   characters.
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 

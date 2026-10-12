@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd first union all equalities to establish the complete equivalence classes.
+ * - Then every inequality must connect different representatives; checking too early could miss
+ *   a later equality chain.
+ * Time complexity: O(E alpha(26) + 26) = O(E + 1) for E equations over fixed lowercase
+ *   variables.
+ * Space complexity: O(26) = O(1) auxiliary DSU space.
+ */
+
 // 990. Satisfiability of Equality Equations
 // https://leetcode.com/problems/satisfiability-of-equality-equations/
 // Solution performs two passes and leaves equations unchanged.

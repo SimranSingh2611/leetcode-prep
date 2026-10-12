@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd use a lower-bound search for the first value at least the target.
+ * - Its boundary is the insertion position even when the target is absent, including position
+ *   n.
+ * Time complexity: O(log(n + 1)) for n values.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // 35. Search Insert Position
 // https://leetcode.com/problems/search-insert-position/
 /*

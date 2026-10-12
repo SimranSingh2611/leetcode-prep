@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd direct each prerequisite edge toward its dependent course and queue courses with zero
+ *   indegree.
+ * - Removing ready courses unlocks others; processing fewer than all courses reveals a cycle.
+ * Time complexity: O(V + E) for V courses and E prerequisite edges.
+ * Space complexity: O(V + E) auxiliary adjacency/indegree/queue storage.
+ */
+
 // 207. Course Schedule
 // https://leetcode.com/problems/course-schedule/
 // Solution preserves prerequisites. Pay attention to the pair direction; later Course Schedule

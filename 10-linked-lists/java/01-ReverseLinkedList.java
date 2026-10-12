@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd save the next node before reversing each current link toward the previous node.
+ * - That keeps the unprocessed suffix reachable while building the reversed prefix.
+ * Time complexity: O(n) for n nodes, for both versions.
+ * Space complexity: Primary iterative: O(1) auxiliary space; recursive alternative: O(n) stack.
+ */
+
 // 206. Reverse Linked List
 // https://leetcode.com/problems/reverse-linked-list/
 // Solution iterative; RecursiveSolution alternative. Both mutate links.

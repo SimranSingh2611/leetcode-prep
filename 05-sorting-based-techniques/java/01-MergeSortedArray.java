@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd merge from the back of nums1, choosing the larger remaining value.
+ * - That direction uses the reserved space without overwriting values that still need
+ *   comparison.
+ * Time complexity: O(m + n) for the two populated lengths.
+ * Space complexity: O(1) auxiliary space; writes into nums1.
+ */
+
 // O(m + n) time and O(1) space.
 class Solution {
     public void merge(int[] nums1, int m, int[] nums2, int n) {

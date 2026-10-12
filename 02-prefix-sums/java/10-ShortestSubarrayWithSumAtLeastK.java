@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd keep candidate prefix indices in increasing prefix-sum order in a deque.
+ * - The front produces valid shortest ranges, while a newer smaller prefix dominates an older
+ *   larger one; this also handles negative values.
+ * Time complexity: O(n) amortized overall; each index enters and leaves the deque at most once.
+ * Space complexity: O(n) auxiliary prefix-array and deque space.
+ */
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 

@@ -1,3 +1,15 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd retain the largest k values in a min-heap, whose root is the required rank.
+ * - Quickselect is a follow-up that partitions around index n - k and avoids maintaining an
+ *   ordered candidate set.
+ * Time complexity: Primary heap: O(n log(k + 1)); randomized quickselect: expected O(n), worst-
+ *   case O(n^2).
+ * Space complexity: Primary: O(k) auxiliary heap; iterative quickselect: O(1) auxiliary space
+ *   and mutates the input.
+ */
+
 // 215. Kth Largest Element in an Array
 // https://leetcode.com/problems/kth-largest-element-in-an-array/
 // Solution preserves nums. QuickselectSolution is the expected-time and auxiliary-space

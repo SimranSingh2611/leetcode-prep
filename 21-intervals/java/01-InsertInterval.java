@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd copy the prefix before the new interval, merge its overlap block, then copy the suffix.
+ * - The existing sorted disjoint ranges make this one pass; touching closed endpoints must
+ *   merge.
+ * Time complexity: O(n) for n existing intervals.
+ * Space complexity: O(n) result/buffer storage, with O(1) scan state beyond it.
+ */
+
 // 57. Insert Interval
 // https://leetcode.com/problems/insert-interval/
 // Solution does not mutate either input and copies emitted intervals to avoid output/input

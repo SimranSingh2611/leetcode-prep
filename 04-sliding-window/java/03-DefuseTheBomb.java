@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd maintain the sum of the next or previous abs(k) elements, depending on the sign.
+ * - Modulo indexing slides that window around the circle; k = 0 produces zeros.
+ * Time complexity: O(n) under the guarantee abs(k) < n.
+ * Space complexity: O(1) auxiliary state, plus O(n) output.
+ */
+
 // O(n) time and O(n) output space. The problem guarantees |k| < n.
 class Solution {
     public int[] decrypt(int[] code, int k) {

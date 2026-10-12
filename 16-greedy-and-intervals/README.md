@@ -30,9 +30,20 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Match small demands with the smallest adequate resources to preserve larger resources for harder demands.
 
+**Talking points:**
+
+- I'd sort children by greed and cookies by size, then serve the least demanding unsatisfied
+  child first.
+- Using the smallest adequate cookie preserves larger cookies for later children, making the
+  greedy choice safe.
+
 **Solution:** Sort greed factors and cookie sizes, then scan cookies in ascending order. Give a cookie to the least demanding unsatisfied child whenever it is large enough. Using a larger cookie for that child cannot improve the remaining opportunities.
 
-**Complexity:** O(n log n + m log m) time; O(n+m) auxiliary space because both inputs are cloned before sorting.
+**Complexity:**
+
+**Time complexity:** `O(n log(n + 1) + m log(m + 1))` for `n` children and `m` cookies.
+
+**Space complexity:** `O(n + m)` auxiliary cloned-array and sorting storage.
 
 **Java:** [AssignCookies](./java/01-AssignCookies.java) — Solution preserves both arrays; sorting them in place would remove the clone storage.
 
@@ -47,9 +58,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Process customers in fixed order while preserving the small bills needed by future customers.
 
+**Talking points:**
+
+- I'd track only the available five- and ten-dollar bills.
+- For a twenty-dollar payment I'd prefer a ten plus a five, preserving fives needed for future
+  ten-dollar payments.
+
 **Solution:** Track $5 and $10 counts. A $10 payment needs one five. For $20, prefer one ten plus one five; otherwise use three fives. A ten can only help with a twenty, while fives are also needed for tens, so preserving fives is safe.
 
-**Complexity:** O(n) time, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` payments.
+
+**Space complexity:** `O(1)` auxiliary counters.
 
 **Java:** [LemonadeChange](./java/02-LemonadeChange.java) — Solution assumes the allowed bill denominations 5, 10, and 20 and does not mutate input.
 
@@ -64,9 +85,18 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Build a palindrome from a multiset of characters; positions in the original string are irrelevant.
 
+**Talking points:**
+
+- I'd use every available character pair to build the two sides of a palindrome.
+- If any count is odd, one leftover character can fill the center.
+
 **Solution:** Use every available pair of each character. If any character has an odd count, one leftover character can occupy the center. All pairs are independently useful, so there is no conflicting choice to optimize.
 
-**Complexity:** O(n) time and O(1) auxiliary space for the problem's English-letter alphabet.
+**Complexity:**
+
+**Time complexity:** `O(n)` for string length `n`.
+
+**Space complexity:** `O(1)` auxiliary counts for the fixed English-letter alphabet.
 
 **Java:** [LongestPalindrome](./java/03-LongestPalindrome.java) — Solution uses a fixed ASCII frequency array; this is not longest palindromic substring or subsequence.
 
@@ -81,9 +111,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Reachability in an array where each reachable position extends a forward range.
 
+**Talking points:**
+
+- I'd track the furthest reachable index while scanning.
+- An index beyond that frontier proves failure; a reachable index can extend the frontier with
+  its jump length.
+
 **Solution:** Maintain the furthest reachable index. If the next index lies beyond that frontier, it can never be reached. Otherwise extend the frontier with i+nums[i]. Since every intermediate forward jump length is allowed, all indices up to the frontier remain reachable.
 
-**Complexity:** O(n) time, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` positions.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Java:** [JumpGame](./java/04-JumpGame.java) — Solution leaves nums unchanged; the problem's bounds keep index sums within int.
 
@@ -98,9 +138,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Minimum jumps with a reachable-prefix structure; each jump defines the next layer of reachable indices.
 
+**Talking points:**
+
+- I'd group reachable positions into layers representing the current jump count.
+- Scanning a whole layer finds the next frontier, and reaching its boundary commits one
+  additional jump.
+
 **Solution:** Scan all positions reachable with the current number of jumps and record the furthest next position. When the scan reaches the current layer's end, commit one jump and advance the layer boundary. This compresses BFS levels without explicitly storing edges.
 
-**Complexity:** O(n) time, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` positions.
+
+**Space complexity:** `O(1)` auxiliary frontier state.
 
 **Java:** [JumpGameII](./java/05-JumpGameII.java) — Solution assumes LeetCode's guarantee that the last index is reachable.
 
@@ -115,9 +165,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Choose a circular starting point; a negative running balance eliminates a whole block of candidate starts.
 
+**Talking points:**
+
+- I'd track both the total fuel surplus and the surplus from the current start candidate.
+- A negative candidate surplus eliminates every start in that segment, so I'd restart after it;
+  a nonnegative total makes the final candidate viable.
+
 **Solution:** Accumulate the overall surplus and the surplus since the current candidate start. If the latter becomes negative at i, no station between the candidate and i can succeed: the candidate's earlier prefix balances were nonnegative, so starting later cannot repair this failing segment. Restart at i+1. A nonnegative total makes the final candidate feasible.
 
-**Complexity:** O(n) time, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` stations.
+
+**Space complexity:** `O(1)` auxiliary space.
 
 **Java:** [GasStation](./java/06-GasStation.java) — Solution uses long balances and leaves gas/cost unchanged.
 
@@ -132,9 +192,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Split into as many contiguous pieces as possible while each character appears in only one piece.
 
+**Talking points:**
+
+- I'd record each character's final occurrence and extend the current piece's end as I scan.
+- Reaching that end is the earliest safe cut, maximizing the number of pieces.
+
 **Solution:** Record each character's last occurrence. While scanning a piece, extend its required end to the latest last occurrence of any character seen. Cut as soon as the current index reaches that end: no character in the piece appears later, and waiting longer could only reduce the number of pieces.
 
-**Complexity:** O(n) time, O(1) auxiliary space for 26 letters, excluding output.
+**Complexity:**
+
+**Time complexity:** `O(n)` for string length `n`.
+
+**Space complexity:** `O(1)` auxiliary last-occurrence state for 26 letters, plus output
+partition lengths.
 
 **Java:** [PartitionLabels](./java/07-PartitionLabels.java) — Solution preserves s and returns partition lengths.
 
@@ -149,9 +219,20 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Insert one interval into an already sorted, disjoint interval list; only a contiguous block can overlap it.
 
+**Talking points:**
+
+- I'd copy ranges before the new interval, merge its contiguous overlap block, then copy the
+  suffix.
+- Already sorted disjoint intervals make the scan linear, and touching closed endpoints count as
+  overlap.
+
 **Solution:** Copy intervals ending before the new start. Merge every interval starting at or before the evolving new end. Emit that merged interval, then copy the untouched suffix. Closed endpoints that touch count as overlap.
 
-**Complexity:** O(n) time and O(n) output space; O(1) working state excluding the result and its copied intervals.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` existing intervals.
+
+**Space complexity:** `O(1)` scan state, plus `O(n)` result/buffer storage.
 
 **Java:** [InsertInterval](./java/08-InsertInterval.java) — Solution does not mutate either input and copies emitted intervals to avoid output/input aliasing.
 
@@ -166,9 +247,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Minimize assignments under local comparisons with both neighbors; a one-directional greedy pass is insufficient.
 
+**Talking points:**
+
+- I'd first enforce each child's constraint relative to the left neighbor.
+- A reverse pass enforces the right constraint using the maximum of the two requirements, giving
+  the smallest valid candy count.
+
 **Solution:** Give everyone one candy. Scan left to right to enforce increasing ratings relative to the left neighbor. Scan right to left to enforce the right-neighbor constraint, taking the maximum with the amount already required by the left. Each child receives the minimum amount satisfying both directional lower bounds.
 
-**Complexity:** O(n) time, O(n) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` children.
+
+**Space complexity:** `O(n)` auxiliary candy-array storage.
 
 **Java:** [Candy](./java/09-Candy.java) — Solution preserves ratings. A constant-space slope-counting variant is a follow-up, not needed for the clear two-pass proof.
 
@@ -183,9 +274,20 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Offline point queries over intervals: as queries increase, intervals become eligible by start and expire by end.
 
+**Talking points:**
+
+- I'd process queries in increasing order and add intervals whose starts have been reached.
+- A heap ordered by inclusive length provides the smallest covering interval after expired tops
+  are removed; original query indices restore answer order.
+
 **Solution:** Sort intervals by start and queries with their original indices. For each query, insert intervals whose starts are no greater than the query into a min-heap by length. Remove expired intervals while they reach the root; any expired intervals buried deeper cannot affect the current minimum. The surviving root is the shortest covering interval.
 
-**Complexity:** O(n log n + q log q + (n+q) log(n+1)) time; O(n+q) auxiliary space including sorted copies and the heap, excluding the answer array.
+**Complexity:**
+
+**Time complexity:** `O(n log(n + 1) + q log(q + 1))` for `n` intervals and `q` queries; each
+interval is inserted and removed at most once.
+
+**Space complexity:** `O(n + q)` auxiliary sorted-copy/index/heap storage, plus `O(q)` output.
 
 **Java:** [MinimumIntervalToIncludeEachQuery](./java/10-MinimumIntervalToIncludeEachQuery.java) — Solution clones the interval outer array, never edits its rows, and preserves query order in the returned answers. Requires heaps from 15.
 

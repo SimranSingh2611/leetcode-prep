@@ -1,3 +1,12 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd swap the two endpoint characters and move inward.
+ * - The outer positions are final after each swap, so the array can be reversed in place.
+ * Time complexity: O(n) for n characters.
+ * Space complexity: O(1) auxiliary space.
+ */
+
 // O(n) time and O(1) space.
 class Solution {
     public void reverseString(char[] s) {

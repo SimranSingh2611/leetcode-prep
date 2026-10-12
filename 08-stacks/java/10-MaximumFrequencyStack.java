@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd track each value's frequency and a stack of values at each frequency level.
+ * - Popping from the maximum-frequency stack also implements the most-recent tie break.
+ * Time complexity: Expected amortized O(1) per push or pop.
+ * Space complexity: O(n) persistent space for n currently stored occurrences and their
+ *   frequency history.
+ */
+
 // 895. Maximum Frequency Stack
 // https://leetcode.com/problems/maximum-frequency-stack/
 // FreqStack design class; grouping-by-frequency hybrid.

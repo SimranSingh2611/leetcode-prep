@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd sort, fix one value, and solve the remaining two-sum problem with inward pointers.
+ * - Skipping equal fixed values and equal pair endpoints ensures each triple appears once.
+ * Time complexity: O(n^2) for n values.
+ * Space complexity: O(1) pointer state, plus sorting workspace and O(r) output for r triples; a
+ *   conservative Java auxiliary bound including sorting is O(n).
+ */
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

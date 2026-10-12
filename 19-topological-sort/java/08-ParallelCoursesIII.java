@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd track each course's earliest finish while processing prerequisites topologically.
+ * - A dependent finishes after its latest-finishing prerequisite plus its own duration;
+ *   independent courses can overlap.
+ * Time complexity: O(V + E) for V courses and E edges.
+ * Space complexity: O(V + E) auxiliary graph/finish/queue storage.
+ */
+
 // 2050. Parallel Courses III
 // https://leetcode.com/problems/parallel-courses-iii/
 // Solution normalizes the problem's 1-based course labels. This is topological ordering plus a

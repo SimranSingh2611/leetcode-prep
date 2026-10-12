@@ -28,9 +28,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Comparing a target with the node decides which subtree can contain it.
 
+**Talking points:**
+
+- I'd use the BST ordering to choose just one child at each step.
+- A matching node is already the root of the requested subtree; falling off the tree means
+  absence.
+
 **Solution:** Walk left for smaller targets and right for larger ones until finding the key or null. Return the matching node, which is the root of the requested subtree.
 
-**Complexity:** O(h) time, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(h)` for height `h`: `O(log n)` when balanced, `O(n)` when skewed.
+
+**Space complexity:** `O(1)` auxiliary space for the iterative walk.
 
 **Java:** [SearchBST](./java/01-SearchBST.java) — Solution iterative; no mutation.
 
@@ -45,9 +55,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** An inclusive numeric range lets you discard subtrees entirely.
 
+**Talking points:**
+
+- I'd prune the left subtree when the current value is below the range, and the right subtree
+  when it is above.
+- Values inside the range contribute to the sum and require exploring both sides.
+
 **Solution:** If a node is below low, its left subtree is also too small; visit only right. If above high, visit only left. Otherwise include it and explore both children.
 
-**Complexity:** O(n) worst-case time, O(h) call stack; pruning may visit fewer nodes.
+**Complexity:**
+
+**Time complexity:** `O(n)` worst case for `n` nodes; pruning can reduce visits.
+
+**Space complexity:** `O(h)` recursive stack for height `h`.
 
 **Java:** [RangeSumBST](./java/02-RangeSumBST.java) — Solution; no mutation.
 
@@ -62,9 +82,18 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Sorted values can be partitioned around a median to guarantee balanced subtree sizes.
 
+**Talking points:**
+
+- I'd choose the middle array element as the root and recurse on the two index ranges.
+- Repeated median choices keep the tree balanced without allocating subarray copies.
+
 **Solution:** Choose the middle value as root and recursively build from the left/right index ranges. Index boundaries avoid copying subarrays. Repeated median choices keep height logarithmic.
 
-**Complexity:** O(n) time, O(log n) call stack, plus O(n) output nodes.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` values.
+
+**Space complexity:** `O(log(n + 1))` recursive stack, plus `O(n)` output nodes.
 
 **Java:** [SortedArrayToBST](./java/03-SortedArrayToBST.java) — Solution preserves the input; multiple valid balanced outputs exist.
 
@@ -79,9 +108,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Every node must satisfy all ancestor bounds; checking only its children is insufficient.
 
+**Talking points:**
+
+- A valid strict BST has a strictly increasing inorder traversal.
+- I'd iterate with a stack and reject any value no greater than the previous value, using a safe
+  sentinel type.
+
 **Solution:** An inorder traversal of a strict BST is strictly increasing. Iterate with a stack and reject any value<=the previous value. Store the previous value as long to handle Integer.MIN_VALUE without sentinel collision.
 
-**Complexity:** O(n) time, O(h) auxiliary stack.
+**Complexity:**
+
+**Time complexity:** `O(n)` for `n` nodes.
+
+**Space complexity:** `O(h)` auxiliary traversal stack for height `h`.
 
 **Java:** [ValidateBST](./java/04-ValidateBST.java) — Solution iterative; no mutation.
 
@@ -96,9 +135,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Inorder visits BST values in rank order, so you can stop after k visits.
 
+**Talking points:**
+
+- I'd perform inorder traversal and count nodes as they are popped.
+- The kth visited value is the kth smallest, so I can stop without building the full sorted
+  list.
+
 **Solution:** Perform iterative inorder traversal and decrement k whenever popping a node. Return when it becomes zero. Do not materialize the full sorted traversal when only one rank is needed.
 
-**Complexity:** O(h+k) time, O(h) auxiliary stack.
+**Complexity:**
+
+**Time complexity:** `O(h + k)` for tree height `h` and requested rank `k`.
+
+**Space complexity:** `O(h)` auxiliary traversal stack.
 
 **Java:** [KthSmallestBST](./java/05-KthSmallestBST.java) — Solution; k is valid; no mutation.
 
@@ -113,9 +162,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Both target values on one side imply their ancestor must be on that side.
 
+**Talking points:**
+
+- I'd move left if both targets are smaller, and right if both are larger.
+- The first split point, including a target equal to the current node, is their lowest common
+  ancestor.
+
 **Solution:** Walk left if both values are smaller and right if both are larger. Otherwise the current node is their split point or one target itself. Unlike general-tree LCA, no traversal of both subtrees is needed.
 
-**Complexity:** O(h) time, O(1) auxiliary space.
+**Complexity:**
+
+**Time complexity:** `O(h)` for height `h`: `O(log n)` balanced, `O(n)` skewed.
+
+**Space complexity:** `O(1)` auxiliary space for the iterative walk.
 
 **Java:** [LowestCommonAncestorBST](./java/06-LowestCommonAncestorBST.java) — Solution; distinct target nodes are guaranteed present.
 
@@ -130,9 +189,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Delete a key while preserving whole-subtree ordering.
 
+**Talking points:**
+
+- I'd locate the key using BST ordering and directly replace nodes with zero or one child.
+- For two children, I'd copy the inorder successor's value and delete that successor from the
+  right subtree.
+
 **Solution:** Search recursively. A node with zero or one child is replaced by that child. For two children, copy the inorder successor's value from the right subtree, then delete that successor from the right subtree. Its position has at most one child.
 
-**Complexity:** O(h) time and O(h) stack.
+**Complexity:**
+
+**Time complexity:** `O(h)` for tree height `h`.
+
+**Space complexity:** `O(h)` recursive stack.
 
 **Java:** [DeleteNodeBST](./java/07-DeleteNodeBST.java) — Solution mutates values and links.
 
@@ -147,9 +216,20 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Produce sorted values lazily instead of storing a full traversal.
 
+**Talking points:**
+
+- I'd store the left spine of the remaining inorder traversal.
+- Each `next` pops the smallest pending node and pushes its right subtree's left spine; each
+  node is pushed and popped once.
+
 **Solution:** Keep the left spine of the remaining traversal in a stack. next pops its smallest pending node, then pushes the left spine of that node's right subtree. Every node is pushed and popped once across the entire iteration.
 
-**Complexity:** Constructor O(h); next O(1) amortized, O(h) worst case; hasNext O(1); O(h) space.
+**Complexity:**
+
+**Time complexity:** Constructor: `O(h)`; `next`: `O(1)` amortized, `O(h)` worst case;
+`hasNext`: `O(1)`.
+
+**Space complexity:** `O(h)` persistent traversal stack for tree height `h`.
 
 **Java:** [BSTIterator](./java/08-BSTIterator.java) — BSTIterator design class; assumes no concurrent tree mutation.
 
@@ -164,9 +244,19 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Every subtree needs both a validity summary and numeric extrema before its parent can be judged.
 
+**Talking points:**
+
+- I'd summarize each subtree with whether it is a BST, its minimum, maximum, and sum.
+- Postorder combines valid children when their bounds fit the current value; the iterative
+  traversal also handles deep trees.
+
 **Solution:** Process nodes postorder. A subtree is a BST iff both children are BSTs and leftMax<node<rightMin. Store valid/min/max/sum for each subtree and maximize valid sums. Empty selection is allowed, so initialize best to zero. An explicit traversal avoids deep Java recursion.
 
-**Complexity:** O(n) expected time; O(n) auxiliary storage for summaries and traversal.
+**Complexity:**
+
+**Time complexity:** `O(n)` expected for `n` nodes.
+
+**Space complexity:** `O(n)` auxiliary summary-map and traversal storage.
 
 **Java:** [MaximumSumBSTSubtree](./java/09-MaximumSumBSTSubtree.java) — Solution iterative postorder; general-tree input, BST-subtree objective.
 
@@ -181,9 +271,21 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 **Recognize it:** Keep left/right insertion orders while freely interleaving the two groups.
 
+**Talking points:**
+
+- The first value fixes the root, while the left and right groups must keep valid internal
+  reorderings.
+- I'd multiply both subtree counts by the number of ways to interleave the groups, then exclude
+  the original ordering.
+
 **Solution:** The first value fixes the root. Partition remaining values into left and right groups. Their relative internal orders must each produce the same subtree; choose which L of the L+R positions belong to the left, multiplying a binomial coefficient by recursive subtree counts. Subtract the original ordering at the end.
 
-**Complexity:** O(n²) time and O(n²) space for binomial coefficients and worst-case retained partitions; recursion depth O(h).
+**Complexity:**
+
+**Time complexity:** `O(n^2)` for `n` values.
+
+**Space complexity:** `O(n^2)` auxiliary binomial table and retained partitions, including an
+`O(h)` stack.
 
 **Java:** [ReorderToSameBST](./java/10-ReorderToSameBST.java) — Solution; modular combinatorics stretch, input preserved.
 

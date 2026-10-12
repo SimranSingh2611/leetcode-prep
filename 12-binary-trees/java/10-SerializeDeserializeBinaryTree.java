@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd serialize nodes in BFS order with explicit markers for missing children.
+ * - The decoder consumes child pairs for queued parents, so both shape and values are
+ *   reconstructed unambiguously.
+ * Time complexity: O(n) per operation for n nodes with fixed-width integer values.
+ * Space complexity: Serialization: O(w) queue plus O(n) text/buffer; deserialization: O(n)
+ *   tokens and O(w) queue, excluding O(n) reconstructed nodes.
+ */
+
 // 297. Serialize and Deserialize Binary Tree
 // https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
 // Codec design class; supports empty trees and negative values.

@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd remove previous values no greater than the current value from the stack.
+ * - The surviving top is the nearest strictly greater predecessor, then I'd push the current
+ *   index.
+ * Time complexity: O(n) amortized overall for n values.
+ * Space complexity: O(n) auxiliary stack, plus O(n) output indices.
+ */
+
 // Previous Greater — standalone template exercise (no LeetCode problem ID).
 // https://leetcode.com/discuss/post/2347639/a-comprehensive-guide-and-template-for-m-irii/
 // Guide template 2: pop <=; strictly decreasing values from bottom to top.

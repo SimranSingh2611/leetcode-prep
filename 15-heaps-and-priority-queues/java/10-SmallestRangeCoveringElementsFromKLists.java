@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd keep one current element per list in a min-heap and track their maximum.
+ * - The current minimum and maximum define a covering range; advancing the minimum's list is
+ *   the only move that can raise the lower endpoint.
+ * Time complexity: O(N log(k + 1)) for N total elements across k lists.
+ * Space complexity: O(k) auxiliary heap space.
+ */
+
 // 632. Smallest Range Covering Elements from K Lists
 // https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/
 // Solution compares widths as long and breaks equal-width ties by smaller left endpoint; lists are

@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd keep the best count of each color for paths ending at every vertex.
+ * - Topological propagation updates those 26 counts, and an incomplete processed count detects
+ *   a cycle anywhere in the graph.
+ * Time complexity: O(26(V + E)) = O(V + E) for a fixed 26-color alphabet.
+ * Space complexity: O(26V + E) = O(V + E) auxiliary graph/color-table/queue space.
+ */
+
 // 1857. Largest Color Value in a Directed Graph
 // https://leetcode.com/problems/largest-color-value-in-a-directed-graph/
 // Solution is a topological-sort + vector-DP stretch problem. Each color's best count may come from

@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd compare the window length minus its most frequent character count with the replacement
+ *   budget.
+ * - A running maximum frequency supports the longest-length calculation even when that maximum
+ *   becomes stale during shrinking.
+ * Time complexity: O(n) for string length n.
+ * Space complexity: O(1) for 26 uppercase-letter counters.
+ */
+
 // O(n) time and O(1) space for uppercase English letters.
 class Solution {
     public int characterReplacement(String s, int k) {

@@ -1,3 +1,13 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd pop previous values at least as large as the current value.
+ * - The surviving top is the nearest strictly smaller predecessor, preserving a strictly
+ *   increasing stack.
+ * Time complexity: O(n) amortized overall for n values.
+ * Space complexity: O(n) auxiliary stack, plus O(n) output indices.
+ */
+
 // Previous Smaller — standalone template exercise (no LeetCode problem ID).
 // https://leetcode.com/discuss/post/2347639/a-comprehensive-guide-and-template-for-m-irii/
 // Guide template 5: pop >=; strictly increasing values from bottom to top.

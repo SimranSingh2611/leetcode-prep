@@ -1,3 +1,14 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd choose the most frequent available character from a max-heap.
+ * - Holding the previous character outside the heap for one step prevents adjacent duplicates;
+ *   leftover held copies with no alternative mean failure.
+ * Time complexity: O(n log(U + 1)) for length n and U distinct characters; O(n) with U <= 26.
+ * Space complexity: O(U) auxiliary heap/counts, plus O(n) output buffer; auxiliary space is
+ *   O(1) for 26 letters.
+ */
+
 // 767. Reorganize String
 // https://leetcode.com/problems/reorganize-string/
 // Solution returns any valid arrangement or an empty string. Heap entries are mutated only after
