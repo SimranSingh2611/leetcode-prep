@@ -1,0 +1,35 @@
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+// Recommended: O(n) expected time and O(min(n, k)) space.
+class Solution {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        Set<Integer> window = new HashSet<>();
+        for (int right = 0; right < nums.length; right++) {
+            if (right > k) {
+                window.remove(nums[right - k - 1]);
+            }
+            if (!window.add(nums[right])) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+// Follow-up: O(n) space but directly exposes the matching index distance.
+class LastIndexSolution {
+    public boolean containsNearbyDuplicate(int[] nums, int k) {
+        Map<Integer, Integer> lastIndex = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            Integer previous = lastIndex.put(nums[i], i);
+            if (previous != null && i - previous <= k) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+

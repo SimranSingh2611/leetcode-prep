@@ -1,0 +1,23 @@
+// 153. Find Minimum in Rotated Sorted Array
+// https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+/*
+ * TYPE: MINIMIZATION -- first index with nums[i] <= fixed last value.
+ * BOUNDS: lo=-1 (false), hi=n-1 (true); return nums[hi].
+ */
+// O(log(n + 1)) time, O(1) auxiliary space. Does not mutate nums.
+class Solution {
+    public int findMin(int[] nums) {
+        int lo = -1;
+        int hi = nums.length - 1; // A real, known-true endpoint.
+        int last = nums[nums.length - 1];
+        while (lo + 1 < hi) {
+            int mid = lo + (int) (((long) hi - lo) / 2);
+            if (nums[mid] <= last) {
+                hi = mid;
+            } else {
+                lo = mid;
+            }
+        }
+        return nums[hi]; // The judge requests the value, not its index.
+    }
+}

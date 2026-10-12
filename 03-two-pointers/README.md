@@ -1,0 +1,186 @@
+# 03 — Two Pointers
+
+Two-pointer solutions coordinate indices so that one comparison eliminates many
+possibilities. Common forms are pointers moving inward, pointers moving in the
+same direction, and expansion around a center. Always be able to justify why a
+particular pointer movement cannot discard a valid answer.
+
+## How to recognize this pattern
+
+**Keywords / hints:** “sorted,” “pair with target,” “palindrome,” “in place,” “merge two ordered sequences,” “remove duplicates,” or a safe boundary-elimination rule.
+
+**Structural test:** Can one comparison prove that an entire group of candidates can be discarded by moving one pointer without ever moving it back? State the proof separately for inward, read/write, fast/slow, and center-expansion variants.
+
+**Invariant / mental model:** The answer remains among the unprocessed candidates; the processed output region is already correct. Sorted pair search discards an endpoint only when all pairs using it are provably too small or too large.
+
+**When not to use it:** Two indices alone are not an algorithm. Unsorted pair sums lack the sorted-order elimination proof; use hashing or sort when allowed. A contiguous range with maintained aggregate state is more specifically sliding window.
+
+**Prerequisites:** Array indexing and sorted-order reasoning. Fast/slow pointer applications return in 10 linked lists.
+
+Keywords are clues, not guarantees. Prove the structural condition before choosing a template.
+
+[All-pattern recognition guide](../PATTERN_RECOGNITION.md) · [Full roadmap](../README.md)
+
+**Difficulty mix:** 3 Easy / 5 Medium / 2 Hard
+
+**Java implementations:** [Open the solution index](./java/README.md)
+
+## 1. [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) — Easy
+
+**Source:** Blind 75 + NeetCode 150
+
+**Solution:** Place pointers at both ends. Skip non-alphanumeric characters,
+compare the remaining characters case-insensitively, and move both pointers
+inward after a match. A mismatch proves the normalized string is not a palindrome.
+
+**Complexity:** `O(n)` time and `O(1)` space.
+
+**Potential interviewer follow-ups:**
+
+- Avoid constructing a cleaned copy of the string.
+- How would Unicode normalization or accented characters change the requirements?
+
+## 2. [Reverse String](https://leetcode.com/problems/reverse-string/) — Easy
+
+**Source:** Supplemental
+
+**Solution:** Put one pointer at each end of the character array. Swap their
+values and move them toward each other until they cross. This is the simplest
+example of an in-place converging-pointer invariant.
+
+**Complexity:** `O(n)` time and `O(1)` space.
+
+**Potential interviewer follow-ups:**
+
+- Reverse the words while preserving the characters within each word.
+- How would you reverse a linked list where random indexing is unavailable?
+
+## 3. [Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/) — Easy
+
+**Source:** Supplemental
+
+**Solution:** The largest remaining square must come from one of the two ends,
+because absolute values grow away from zero. Compare the endpoint magnitudes,
+write the larger square into the result from right to left, and advance that
+endpoint. This avoids sorting the squared values.
+
+**Complexity:** `O(n)` time and `O(n)` output space.
+
+**Potential interviewer follow-ups:**
+
+- Can the output be produced in nondecreasing order without filling it backward?
+- What integer-overflow issues arise when squaring values?
+
+## 4. [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) — Medium
+
+**Source:** NeetCode 150
+
+**Solution:** Start at the smallest and largest values. If their sum is too
+small, incrementing the left pointer is the only move that can increase it; if
+too large, decrement the right pointer. Sorted order is the property that makes
+discarding an entire row or column of candidate pairs safe.
+
+**Complexity:** `O(n)` time and `O(1)` space.
+
+**Potential interviewer follow-ups:**
+
+- Prove why each pointer movement cannot skip the answer.
+- How would the solution change if every unique matching pair were required?
+
+## 5. [3Sum](https://leetcode.com/problems/3sum/) — Medium
+
+**Source:** Blind 75 + NeetCode 150
+
+**Solution:** Sort the array, fix each first value, and run a two-sum two-pointer
+search over the suffix. Skip equal fixed values and skip equal endpoint values
+after recording a triple so the result contains no duplicates. Early bounds can
+stop iterations whose smallest or largest possible totals cannot reach zero.
+
+**Complexity:** `O(n^2)` time and `O(1)` auxiliary space excluding the output
+and language-dependent sorting space.
+
+**Potential interviewer follow-ups:**
+
+- Explain precisely where duplicate skipping is safe.
+- Generalize the approach to `k`-sum.
+
+## 6. [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) — Medium
+
+**Source:** Blind 75 + NeetCode 150
+
+**Solution:** Evaluate the area between the two endpoints. Width always shrinks,
+so only moving the shorter line can possibly find a taller limiting boundary and
+improve the area; moving the taller line while retaining the shorter one cannot.
+Update the best area before advancing the limiting side.
+
+**Complexity:** `O(n)` time and `O(1)` space.
+
+**Potential interviewer follow-ups:**
+
+- Give a proof for moving the shorter side.
+- What changes if the x-coordinates are not uniformly spaced?
+
+## 7. [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/) — Medium
+
+**Source:** Blind 75 + NeetCode 150
+
+**Solution:** Treat each character and each gap between characters as a center.
+Expand left and right while the characters match, counting every valid expansion.
+Separate odd and even centers, or encode both in one loop over `2n - 1` centers.
+
+**Complexity:** `O(n^2)` time and `O(1)` space.
+
+**Potential interviewer follow-ups:**
+
+- Return the longest palindromic substring rather than the count.
+- Can you improve the worst-case time using Manacher's algorithm?
+
+## 8. [4Sum](https://leetcode.com/problems/4sum/) — Medium
+
+**Source:** Supplemental
+
+**Solution:** Sort, fix the first two indices, and use inward-moving pointers for
+the remaining pair. Skip duplicates at every level and use a wider integer type
+for the sum. Lower and upper bounds based on the smallest and largest remaining
+values can prune impossible branches.
+
+**Complexity:** `O(n^3)` time and `O(1)` auxiliary space excluding the output.
+
+**Potential interviewer follow-ups:**
+
+- Turn the solution into a reusable recursive `kSum` routine.
+- What pruning bounds improve performance without changing the worst case?
+
+## 9. [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) — Hard
+
+**Source:** NeetCode 150
+
+**Solution:** Track `leftMax` and `rightMax` while moving pointers inward. When
+the left height is no greater than the right height, the left side's water is
+already determined by `leftMax`; process it and move left. Otherwise process the
+right side symmetrically. The opposite boundary is guaranteed to be high enough
+for the side being processed.
+
+**Complexity:** `O(n)` time and `O(1)` space.
+
+**Potential interviewer follow-ups:**
+
+- Derive the prefix-max/suffix-max and monotonic-stack alternatives.
+- Why is it safe to finalize one side before knowing every interior height?
+
+## 10. [Minimum Number of Moves to Make Palindrome](https://leetcode.com/problems/minimum-number-of-moves-to-make-palindrome/) — Hard
+
+**Source:** Supplemental
+
+**Solution:** Match the leftmost character by searching backward from the right.
+If found, bubble that match to the right boundary using adjacent swaps, count the
+swaps, and move both boundaries inward. If no match exists, the left character
+must be the unique middle character, so swap it one step toward the center and
+retry. This greedy choice fixes an outer pair with the minimum local swaps.
+
+**Complexity:** `O(n^2)` time and `O(1)` extra space with a mutable character array.
+
+**Potential interviewer follow-ups:**
+
+- Prove that greedily fixing the outermost pair is optimal.
+- Can you count the required moves in `O(n log n)` using inversion counting?
