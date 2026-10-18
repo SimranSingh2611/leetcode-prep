@@ -1,23 +1,28 @@
-// Local checks for LeetCode 57.
+// Local checks for LeetCode 252: compare with all-pairs conflict detection.
 import java.util.*;
 class Case {
     public static int run() {
         Solution s=new Solution();
-        Checks.eq(new int[][]{{1,5},{6,9}},s.insert(new int[][]{{1,3},{6,9}},new int[]{2,5}));
-        Checks.eq(new int[][]{{1,2},{3,10},{12,16}},s.insert(new int[][]{{1,2},{3,5},{6,7},{8,10},{12,16}},new int[]{4,8}));
-        Checks.eq(new int[][]{{2,3}},s.insert(new int[][]{},new int[]{2,3}));
-        Checks.eq(new int[][]{{1,7}},s.insert(new int[][]{{1,2},{3,4},{6,7}},new int[]{2,6}));
-        Checks.eq(new int[][]{{1,8}},s.insert(new int[][]{{1,8}},new int[]{2,3}));
-        Checks.eq(new int[][]{{0,0},{2,3}},s.insert(new int[][]{{2,3}},new int[]{0,0}));
-        int[][] original={{1,2},{5,7}}; int[] added={2,6};
-        int[][] merged=s.insert(original,added);
-        Checks.eq(new int[][]{{1,2},{5,7}},original);
-        Checks.eq(new int[]{2,6},added);
-        merged[0][1]=99;
-        Checks.eq(new int[][]{{1,2},{5,7}},original);
-        Checks.eq(new int[]{2,6},added);
-        int[][] a={{1,2}}; int[] b={3,4}; int[][] out=s.insert(a,b); out[0][0]=99;
-        Checks.eq(1,a[0][0]); Checks.eq(new int[]{3,4},b);
+        Checks.eq(false,s.canAttendMeetings(new int[][]{{0,30},{5,10},{15,20}}));
+        Checks.eq(true,s.canAttendMeetings(new int[][]{{7,10},{2,4}}));
+        Checks.eq(true,s.canAttendMeetings(new int[][]{{2,3},{1,2},{3,4}}));
+        Checks.eq(false,s.canAttendMeetings(new int[][]{{1,10},{2,3}}));
+        Checks.eq(false,s.canAttendMeetings(new int[][]{{1,2},{1,2}}));
+        Checks.eq(true,s.canAttendMeetings(new int[0][]));
+        Checks.eq(true,s.canAttendMeetings(new int[][]{{1,2}}));
+        Checks.eq(true,s.canAttendMeetings(new int[][]{{0,Integer.MAX_VALUE},{Integer.MIN_VALUE,0}}));
+        int[][] original={{5,8},{1,3}};
+        Checks.eq(true,s.canAttendMeetings(original));
+        Checks.eq(new int[][]{{5,8},{1,3}},original);
+        Random rng=new Random(252);
+        for(int t=0;t<150;t++) {
+            int[][] a=new int[rng.nextInt(12)][2];
+            for(int[] row:a) {row[0]=rng.nextInt(20);row[1]=row[0]+1+rng.nextInt(8);}
+            boolean possible=true;
+            for(int i=0;i<a.length;i++) for(int j=i+1;j<a.length;j++)
+                if(a[i][0]<a[j][1] && a[j][0]<a[i][1]) possible=false;
+            Checks.eq(possible,s.canAttendMeetings(a));
+        }
         return Checks.count;
     }
 }

@@ -1,6 +1,6 @@
 {
   "verifiedOn": "2026-09-09",
-  "scope": "166 exercise selections (164 unique problems) in 08–21, with graph step 18 split into 18a BFS and 18b DFS. Original 01–07 checked for duplicates, not comprehensively re-audited. Binary-tree additions 11–20 were checked against linked LeetCode statements on 2026-09-12; their per-problem verifiedOn overrides the original snapshot date. Monotonic-stack guide additions checked on 2026-09-23; problem 42 intentionally also appears in 03 as a two-pointer exercise. Four standalone monotonic-stack template exercises are recorded separately in templates; they have no LeetCode IDs or difficulty ratings. The six Intervals selections at 21 follow the user screenshot; four free statements and both meeting-room Premium gates checked on 2026-10-09. Meeting-room difficulty follows the screenshot. Four problems intentionally repeat earlier sections.",
+  "scope": "170 exercise selections (168 unique problems) in 08–21, with graph step 18 split into 18a BFS and 18b DFS. Original 01–07 checked for duplicates, not comprehensively re-audited. Binary-tree additions 11–20 were checked against linked LeetCode statements on 2026-09-12; their per-problem verifiedOn overrides the original snapshot date. Monotonic-stack guide additions checked on 2026-09-23; problem 42 intentionally also appears in 03 as a two-pointer exercise. Four standalone monotonic-stack template exercises are recorded separately in templates; they have no LeetCode IDs or difficulty ratings. The six core Intervals selections at 21 come from the user screenshot; four free statements and both meeting-room Premium gates checked on 2026-10-09. Meeting-room difficulty follows the screenshot. Four problems intentionally repeat earlier sections. My Calendar I, II, and III are user-requested supplemental Intervals practice; their linked free statements and metadata were checked on 2026-10-17. Meeting Rooms III is also user-requested supplemental practice; its free statement and metadata were checked on 2026-10-17. All ten Intervals exercises are ordered Easy, Medium, Hard, with a recommended study order within each band.",
   "sources": {
     "leetcode": "https://leetcode.com/api/problems/all/",
     "neetcode150": "https://neetcode.io/practice/practice/neetcode150",
@@ -2030,16 +2030,16 @@
     {
       "folder": "21-intervals",
       "order": 1,
-      "id": 57,
-      "title": "Insert Interval",
-      "slug": "insert-interval",
-      "url": "https://leetcode.com/problems/insert-interval/",
-      "difficulty": "Medium",
-      "premium": false,
-      "source": "Blind 75 + NeetCode 150",
-      "java": "01-InsertInterval.java",
+      "id": 252,
+      "title": "Meeting Rooms",
+      "slug": "meeting-rooms",
+      "url": "https://leetcode.com/problems/meeting-rooms/",
+      "difficulty": "Easy",
+      "premium": true,
+      "source": "NeetCode 150",
+      "java": "01-MeetingRooms.java",
       "verifiedOn": "2026-10-09",
-      "selection": "User Intervals screenshot; same order"
+      "selection": "User Intervals screenshot; ordered by difficulty for practice"
     },
     {
       "folder": "21-intervals",
@@ -2053,11 +2053,25 @@
       "source": "Blind 75 + NeetCode 150",
       "java": "02-MergeIntervals.java",
       "verifiedOn": "2026-10-09",
-      "selection": "User Intervals screenshot; same order"
+      "selection": "User Intervals screenshot; ordered by difficulty for practice"
     },
     {
       "folder": "21-intervals",
       "order": 3,
+      "id": 57,
+      "title": "Insert Interval",
+      "slug": "insert-interval",
+      "url": "https://leetcode.com/problems/insert-interval/",
+      "difficulty": "Medium",
+      "premium": false,
+      "source": "Blind 75 + NeetCode 150",
+      "java": "03-InsertInterval.java",
+      "verifiedOn": "2026-10-09",
+      "selection": "User Intervals screenshot; ordered by difficulty for practice"
+    },
+    {
+      "folder": "21-intervals",
+      "order": 4,
       "id": 435,
       "title": "Non-overlapping Intervals",
       "slug": "non-overlapping-intervals",
@@ -2065,23 +2079,9 @@
       "difficulty": "Medium",
       "premium": false,
       "source": "Blind 75 + NeetCode 150",
-      "java": "03-NonOverlappingIntervals.java",
+      "java": "04-NonOverlappingIntervals.java",
       "verifiedOn": "2026-10-09",
-      "selection": "User Intervals screenshot; same order"
-    },
-    {
-      "folder": "21-intervals",
-      "order": 4,
-      "id": 252,
-      "title": "Meeting Rooms",
-      "slug": "meeting-rooms",
-      "url": "https://leetcode.com/problems/meeting-rooms/",
-      "difficulty": "Easy",
-      "premium": true,
-      "source": "NeetCode 150",
-      "java": "04-MeetingRooms.java",
-      "verifiedOn": "2026-10-09",
-      "selection": "User Intervals screenshot; same order"
+      "selection": "User Intervals screenshot; ordered by difficulty for practice"
     },
     {
       "folder": "21-intervals",
@@ -2095,11 +2095,39 @@
       "source": "NeetCode 150",
       "java": "05-MeetingRoomsII.java",
       "verifiedOn": "2026-10-09",
-      "selection": "User Intervals screenshot; same order"
+      "selection": "User Intervals screenshot; ordered by difficulty for practice"
     },
     {
       "folder": "21-intervals",
       "order": 6,
+      "id": 729,
+      "title": "My Calendar I",
+      "slug": "my-calendar-i",
+      "url": "https://leetcode.com/problems/my-calendar-i/",
+      "difficulty": "Medium",
+      "premium": false,
+      "source": "Supplemental",
+      "java": "06-MyCalendarI.java",
+      "verifiedOn": "2026-10-17",
+      "selection": "User-requested calendar series; ordered by difficulty for practice"
+    },
+    {
+      "folder": "21-intervals",
+      "order": 7,
+      "id": 731,
+      "title": "My Calendar II",
+      "slug": "my-calendar-ii",
+      "url": "https://leetcode.com/problems/my-calendar-ii/",
+      "difficulty": "Medium",
+      "premium": false,
+      "source": "Supplemental",
+      "java": "07-MyCalendarII.java",
+      "verifiedOn": "2026-10-17",
+      "selection": "User-requested calendar series; ordered by difficulty for practice"
+    },
+    {
+      "folder": "21-intervals",
+      "order": 8,
       "id": 1851,
       "title": "Minimum Interval to Include Each Query",
       "slug": "minimum-interval-to-include-each-query",
@@ -2107,9 +2135,37 @@
       "difficulty": "Hard",
       "premium": false,
       "source": "NeetCode 150",
-      "java": "06-MinimumIntervalToIncludeEachQuery.java",
+      "java": "08-MinimumIntervalToIncludeEachQuery.java",
       "verifiedOn": "2026-10-09",
-      "selection": "User Intervals screenshot; same order"
+      "selection": "User Intervals screenshot; ordered by difficulty for practice"
+    },
+    {
+      "folder": "21-intervals",
+      "order": 9,
+      "id": 732,
+      "title": "My Calendar III",
+      "slug": "my-calendar-iii",
+      "url": "https://leetcode.com/problems/my-calendar-iii/",
+      "difficulty": "Hard",
+      "premium": false,
+      "source": "Supplemental",
+      "java": "09-MyCalendarIII.java",
+      "verifiedOn": "2026-10-17",
+      "selection": "User-requested calendar series; ordered by difficulty for practice"
+    },
+    {
+      "folder": "21-intervals",
+      "order": 10,
+      "id": 2402,
+      "title": "Meeting Rooms III",
+      "slug": "meeting-rooms-iii",
+      "url": "https://leetcode.com/problems/meeting-rooms-iii/",
+      "difficulty": "Hard",
+      "premium": false,
+      "source": "Supplemental",
+      "java": "10-MeetingRoomsIII.java",
+      "verifiedOn": "2026-10-17",
+      "selection": "User-requested Meeting Rooms III; supplemental Hard scheduling follow-up"
     }
   ],
   "graphReverifiedOn": "2026-09-12",

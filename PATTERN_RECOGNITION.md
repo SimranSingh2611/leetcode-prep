@@ -31,7 +31,7 @@ move cannot discard a valid answer. A problem can combine several patterns.
 | [18b — Graphs: DFS](./18b-graphs-dfs/README.md) | Components, islands, enclosed regions, all paths | Is visitation global, path-local, or a memoized subproblem? |
 | [19 — Topological Sort](./19-topological-sort/README.md) | Prerequisites, dependencies, strict-increase DAG | Must every predecessor be finalized before a node is processed? |
 | [20 — Union-Find](./20-union-find/README.md) | Equivalence, merge groups, incremental connectivity | Do undirected relationships only merge components? |
-| [21 — Intervals](./21-intervals/README.md) | Merge ranges, minimum removals, meeting rooms, point coverage | Does ordering expose overlaps, compatible choices, or active candidates? |
+| [21 — Intervals](./21-intervals/README.md) | Merge ranges, minimum removals, meeting rooms, point coverage, calendar bookings, delayed scheduling | Does ordering expose overlaps, compatible choices, or active candidates? |
 
 ## A practical decision process
 
@@ -221,8 +221,15 @@ may instead need a heap ordered by interval length.
 
 Check the statement's endpoint rule before writing comparisons: touching closed
 ranges merge in Merge/Insert, while a meeting can reuse a room exactly when
-another ends. The [Intervals guide](./21-intervals/README.md) compares all six
-questions and their endpoint conventions.
+another ends. Calendar bookings also use half-open `[start, end)` ranges. For
+My Calendar I, disjoint accepted bookings allow ordered-map neighbor checks.
+My Calendar II/III instead sweep endpoint deltas: the running prefix sum is
+current concurrency. Calendar II rolls back any booking that exceeds two;
+Calendar III accepts every booking and returns the maximum. Meeting Rooms III
+instead simulates a fixed set of rooms: a heap of free IDs chooses the lowest
+available room, while a heap ordered by finish time and ID determines delays.
+The [Intervals guide](./21-intervals/README.md) compares all ten questions and
+their endpoint conventions.
 
 ## What to say before coding
 

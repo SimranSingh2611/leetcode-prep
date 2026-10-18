@@ -1,9 +1,9 @@
 # LeetCode Pattern Roadmap
 
 Start with the foundational exercises in numeric order, then revisit the harder hybrids.
-There are **22 pattern sections and 237 distinct problems (246 exercise entries, including 4 standalone templates)**: 76 in 01–07 (the original 70 plus six binary-search additions),
-plus 170 entries in 08–21. Step 18 is split into **18a BFS** and **18b DFS**, so steps 19
-and 20 keep their existing names. Step 21 collects the six Intervals questions.
+There are **22 pattern sections and 241 distinct problems (250 exercise entries, including 4 standalone templates)**: 76 in 01–07 (the original 70 plus six binary-search additions),
+plus 174 entries in 08–21. Step 18 is split into **18a BFS** and **18b DFS**, so steps 19
+and 20 keep their existing names. Step 21 collects the six Intervals questions, My Calendar I/II/III, and Meeting Rooms III.
 The old combined graph directory is a navigation page.
 
 Each pattern folder contains a recognition guide and a numbered problem list; its
@@ -50,15 +50,15 @@ and `V`/`E` are graph vertex/edge counts.
 | 18b | [Graphs: DFS](./18b-graphs-dfs/README.md) | 14 | 2 Easy / 11 Medium / 1 Hard |
 | 19 | [Topological Sort](./19-topological-sort/README.md) | 10 | 6 Medium / 4 Hard |
 | 20 | [Union-Find](./20-union-find/README.md) | 10 | 1 Easy / 7 Medium / 2 Hard |
-| 21 | [Intervals](./21-intervals/README.md) | 6 | 1 Easy / 4 Medium / 1 Hard |
+| 21 | [Intervals](./21-intervals/README.md) | 10 | 1 Easy / 6 Medium / 3 Hard |
 
 The earlier 3 Easy / 5 Medium / 2 Hard mix remains in 01–05 and 07. Binary search
 retains its original ten and adds the six missing screenshot problems. In 08–21, genuine
 pattern fit takes priority over that quota, as requested. Recursion has eight
 focused problems; binary trees has twenty; tries and topological sort start at Medium. BFS and DFS each
 have fourteen problems. Monotonic stacks has fourteen problems and four template
-exercises. Intervals has the six questions from your screenshot, in screenshot
-order. The remaining new folders have ten problems each. Ordering within one difficulty band is a learning
+exercises. Intervals has the six questions from your screenshot, three
+supplemental calendar problems, and Meeting Rooms III, arranged Easy → Medium → Hard. The remaining new folders have ten problems each. Ordering within one difficulty band is a learning
 recommendation, not an official fine-grained LeetCode ranking.
 
 ## What builds on what
@@ -80,7 +80,10 @@ recommendation, not an official fine-grained LeetCode ranking.
   directed dependencies from undirected equivalence/connectivity.
 - **21 intervals:** review sorted-range scans, earliest-finish selection, and
   heap sweeps using the six-question Intervals category. Four questions revisit
-  earlier exercises from 05/16; the two meeting-room questions are new.
+  earlier exercises from 05/16; the two meeting-room questions are new. Then use
+  My Calendar I/II/III to practice ordered maps, prefix sums over endpoint changes,
+  and maintaining booking state between calls. Meeting Rooms III adds room assignment
+  and delayed scheduling with two heaps.
 
 You do not need to finish every Hard problem before advancing. Several early
 stretch exercises already use later tools (for example, the monotonic deque in
@@ -126,12 +129,18 @@ three existing BST solutions. This completes that category before supplemental p
 
 The [new-problem catalog snapshot](./tests/catalog.json) records the checked
 metadata. Trapping Rain Water intentionally appears in both two pointers and monotonic stacks to teach both approaches.
-The six [Intervals selections](./21-intervals/README.md) follow your screenshot;
+The six core [Intervals selections](./21-intervals/README.md) come from your screenshot;
 the four free statements and both meeting-room Premium gates were checked on
 **2026-10-09**. Meeting-room difficulty follows the screenshot. Insert Interval,
 Merge Intervals, Non-overlapping Intervals, and Minimum Interval intentionally
 repeat earlier exercises to keep this category together. Meeting Rooms and
 Meeting Rooms II require LeetCode Premium.
+My Calendar I, II, and III were added as user-requested supplemental Intervals
+practice; their free statements, difficulty, class names, and booking rules were
+checked on **2026-10-17**. The primary solutions use ordered-map neighbor checks
+for I and endpoint sweeps for II/III; segment trees are an optional follow-up.
+Meeting Rooms III was checked on **2026-10-17** and added as supplemental Hard
+practice with a two-heap scheduling simulation and `long` finishing times.
 This update does not change the separate HackerRank collection.
 
 ## How to use the Java solutions
@@ -161,13 +170,13 @@ Java stack on highly skewed inputs even when their algorithmic complexity is goo
 Run the local checks from the workspace root:
 
 ```bash
-ruby -EUTF-8 Leetcode/tests/check_catalog.rb
-bash Leetcode/tests/verify.sh
+ruby -EUTF-8 leetcode-prep/tests/check_catalog.rb
+bash leetcode-prep/tests/verify.sh
 ```
 
-The Java suite covers 186 files (06 and 08–21) with deterministic examples, edge
+The Java suite covers 190 files (06 and 08–21) with deterministic examples, edge
 cases, selected randomized/brute-force comparisons, and selected deep-structure
-tests. Run only binary search with `bash Leetcode/tests/verify.sh 06-binary-search`.
+tests. Run only binary search with `bash leetcode-prep/tests/verify.sh 06-binary-search`.
 These are local checks, not a claim that the files have been submitted to or
 accepted by LeetCode's hidden judge.
 

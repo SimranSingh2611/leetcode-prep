@@ -1,29 +1,47 @@
-// Local checks for LeetCode 1851.
+// Local checks for LeetCode 729: online acceptance against direct interval intersections.
 import java.util.*;
 class Case {
     public static int run() {
-        Solution s=new Solution();
-        Checks.eq(new int[]{3,3,1,4},s.minInterval(new int[][]{{1,4},{2,4},{3,6},{4,4}},new int[]{2,3,4,5}));
-        Checks.eq(new int[]{2,-1,4,6},s.minInterval(new int[][]{{2,3},{2,5},{1,8},{20,25}},new int[]{2,19,5,22}));
-        Checks.eq(new int[]{-1,1,3,1,1},s.minInterval(new int[][]{{1,1},{1,3},{2,2}},new int[]{4,2,3,2,1}));
-        // The length-1 top expires first, followed later by a length-2 interval below it.
-        Checks.eq(new int[]{1,10,-1},s.minInterval(new int[][]{{1,1},{1,2},{1,10}},new int[]{1,3,11}));
-        int[][] original={{20,25},{1,8},{2,3}}; int[] orderedQueries={22,2,22,30};
-        Checks.eq(new int[]{6,2,6,-1},s.minInterval(original,orderedQueries));
-        Checks.eq(new int[][]{{20,25},{1,8},{2,3}},original);
-        Checks.eq(new int[]{22,2,22,30},orderedQueries);
-        Random rng=new Random(1851);
-        for (int t=0;t<100;t++) {
-            int[][] a=new int[1+rng.nextInt(12)][2];
-            for (int[] row:a) { row[0]=rng.nextInt(20); row[1]=row[0]+rng.nextInt(10); }
-            int[] queries=new int[20],expected=new int[20];
-            for (int i=0;i<20;i++) {
-                queries[i]=rng.nextInt(35); int best=Integer.MAX_VALUE;
-                for (int[] row:a) if (row[0]<=queries[i] && queries[i]<=row[1]) best=Math.min(best,row[1]-row[0]+1);
-                expected[i]=best==Integer.MAX_VALUE ? -1 : best;
+        MyCalendar calendar=new MyCalendar();
+        Checks.eq(true,calendar.book(10,20));
+        Checks.eq(false,calendar.book(15,25));
+        Checks.eq(true,calendar.book(20,30));
+        Checks.eq(false,calendar.book(10,20));
+        Checks.eq(false,calendar.book(12,18));
+        Checks.eq(false,calendar.book(5,35));
+        Checks.eq(true,calendar.book(0,10));
+        Checks.eq(true,calendar.book(30,40));
+
+        MyCalendar gaps=new MyCalendar();
+        Checks.eq(true,gaps.book(20,30));
+        Checks.eq(true,gaps.book(0,10));
+        Checks.eq(false,gaps.book(15,25)); // Successor conflict; rejection must preserve the gap.
+        Checks.eq(false,gaps.book(5,15));  // Predecessor conflict.
+        Checks.eq(true,gaps.book(10,20));
+
+        MyCalendar limits=new MyCalendar();
+        Checks.eq(true,limits.book(999999999,1000000000));
+        Checks.eq(true,limits.book(0,999999999));
+        Checks.eq(false,limits.book(0,1000000000));
+        Checks.eq(true,new MyCalendar().book(0,1000000000)); // Instances are independent.
+
+        Random rng=new Random(729);
+        for(int trial=0;trial<100;trial++) {
+            MyCalendar actual=new MyCalendar();
+            List<int[]> accepted=new ArrayList<>();
+            for(int call=0;call<100;call++) {
+                int start=rng.nextInt(40),end=start+1+rng.nextInt(12);
+                boolean expected=true;
+                for(int[] booking:accepted) {
+                    if(start<booking[1] && booking[0]<end) {expected=false;break;}
+                }
+                Checks.eq(expected,actual.book(start,end));
+                if(expected) accepted.add(new int[]{start,end});
             }
-            Checks.eq(expected,s.minInterval(a,queries));
         }
+
+        MyCalendar many=new MyCalendar();
+        for(int i=0;i<1000;i++) Checks.eq(true,many.book(i,i+1));
         return Checks.count;
     }
 }

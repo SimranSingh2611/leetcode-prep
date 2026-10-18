@@ -34,7 +34,7 @@ folders.each do |folder|
   elsif folder.match?(/\A18[ab]-/)
     14
   elsif folder.start_with?('21-')
-    6
+    10
   else
     10
   end
@@ -87,7 +87,7 @@ folders.each do |folder|
         else
           errors << "#{file}: missing correct ID/link" unless java.include?("// #{meta['id']}. ") && java.include?(url)
         end
-        errors << "#{file}: no submission class" unless java.match?(/class (Solution|MinStack|FreqStack|StockSpanner|LRUCache|LFUCache|Codec|BSTIterator|KthLargest|Twitter|MedianFinder|Trie|MapSum|WordDictionary|WordFilter)\b/)
+        errors << "#{file}: no submission class" unless java.match?(/class (Solution|MinStack|FreqStack|StockSpanner|LRUCache|LFUCache|Codec|BSTIterator|KthLargest|Twitter|MedianFinder|Trie|MapSum|WordDictionary|WordFilter|MyCalendar|MyCalendarTwo|MyCalendarThree)\b/)
       end
       test = File.join(root,'tests','cases',"#{folder.split("-",2).first}-#{format('%02d',i+1)}.java")
       errors << "#{folder}/#{number}: missing test case" unless File.file?(test)
@@ -107,15 +107,15 @@ folders.each do |folder|
   end
   total += entries.length
 end
-errors << "Expected 246 exercise entries, found #{total}" unless total == 246
+errors << "Expected 250 exercise entries, found #{total}" unless total == 250
 errors << "Expected 4 standalone templates, found #{template_total}" unless template_total == 4
 templates = catalog.fetch('templates', [])
 expected_templates = [[1, 'Next Greater'], [2, 'Previous Greater'], [3, 'Next Smaller'], [4, 'Previous Smaller']]
 errors << 'Incorrect standalone template catalog/order' unless templates.map { |t| [t['order'], t['title']] } == expected_templates && templates.all? { |t| t['folder'] == '09-monotonic-stacks' }
-errors << "Expected 166 catalog entries, found #{new_total}" unless new_total == 166
-errors << 'Catalog must have exactly 166 entries / 164 unique IDs' unless catalog['problems'].length == 166 && catalog['problems'].map { |p| p['id'] }.uniq.length == 164
+errors << "Expected 170 catalog entries, found #{new_total}" unless new_total == 170
+errors << 'Catalog must have exactly 170 entries / 168 unique IDs' unless catalog['problems'].length == 170 && catalog['problems'].map { |p| p['id'] }.uniq.length == 168
 errors << 'Catalog folder/order mappings must be unique' unless catalog['problems'].map { |p| [p['folder'], p['order']] }.uniq.length == catalog['problems'].length
-errors << "Expected 237 unique problems, found #{seen.length}" unless seen.length == 237
+errors << "Expected 241 unique problems, found #{seen.length}" unless seen.length == 241
 links = 0
 Dir.glob(File.join(root,'**','*.md')).each do |file|
   text = File.read(file, encoding: 'UTF-8')
@@ -129,7 +129,7 @@ Dir.glob(File.join(root,'**','*.md')).each do |file|
   end
 end
 if errors.empty?
-  puts "PASS: 22 pattern sections; 246 entries / 237 unique problems; 166 problem + 4 template catalog/Java/test mappings; #{links} local links."
+  puts "PASS: 22 pattern sections; 250 entries / 241 unique problems; 170 problem + 4 template catalog/Java/test mappings; #{links} local links."
 else
   warn errors.join("\n")
   abort "#{errors.length} static validation error(s)"
