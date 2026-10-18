@@ -9,6 +9,9 @@
  * Space complexity: O(1) for 26 uppercase-letter counters.
  */
 
+// 424. Longest Repeating Character Replacement
+// https://leetcode.com/problems/longest-repeating-character-replacement/
+// NeetCode 150: https://neetcode.io/problems/longest-repeating-substring-with-replacement/question?list=neetcode150
 // O(n) time and O(1) space for uppercase English letters.
 class Solution {
     public int characterReplacement(String s, int k) {

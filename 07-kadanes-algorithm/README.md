@@ -27,6 +27,8 @@ Keywords are clues, not guarantees. Prove the structural condition before choosi
 
 ## 1. [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) — Easy
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/buy-and-sell-crypto/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150
 
 **Talking points:**
@@ -104,6 +106,8 @@ candidate minimum comes only from earlier positions.
 
 ## 4. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/maximum-subarray/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150
 
 **Talking points:**
@@ -129,6 +133,8 @@ the optimal ending-here subarray should restart now.
 - Derive the equivalent solution using the minimum prefix sum seen so far.
 
 ## 5. [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/maximum-product-subarray/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150
 

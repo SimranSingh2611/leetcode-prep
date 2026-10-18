@@ -10,6 +10,7 @@
 
 // 994. Rotting Oranges
 // https://leetcode.com/problems/rotting-oranges/
+// NeetCode 150: https://neetcode.io/problems/rotting-fruit/question?list=neetcode150
 // Solution mutates grid by changing newly rotten oranges from 1 to 2.
 import java.util.*;
 

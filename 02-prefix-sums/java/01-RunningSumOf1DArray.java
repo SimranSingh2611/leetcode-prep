@@ -7,6 +7,8 @@
  * Space complexity: O(1) auxiliary space; the input becomes the result.
  */
 
+// 1480. Running Sum of 1d Array
+// https://leetcode.com/problems/running-sum-of-1d-array/
 // O(n) time and O(1) extra space; mutates nums.
 class Solution {
     public int[] runningSum(int[] nums) {

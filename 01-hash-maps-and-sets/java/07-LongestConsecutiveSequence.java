@@ -8,6 +8,9 @@
  * Space complexity: O(n) auxiliary set space.
  */
 
+// 128. Longest Consecutive Sequence
+// https://leetcode.com/problems/longest-consecutive-sequence/
+// NeetCode 150: https://neetcode.io/problems/longest-consecutive-sequence/question?list=neetcode150
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;

@@ -9,6 +9,9 @@
  *   A distinct characters.
  */
 
+// 3. Longest Substring Without Repeating Characters
+// https://leetcode.com/problems/longest-substring-without-repeating-characters/
+// NeetCode 150: https://neetcode.io/problems/longest-substring-without-duplicates/question?list=neetcode150
 import java.util.Arrays;
 
 // O(n) time and O(1) space for the problem's ASCII character set.

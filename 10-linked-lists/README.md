@@ -24,6 +24,8 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 ## 1. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) — Easy
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/reverse-a-linked-list/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Reverse links in place while keeping access to the remaining suffix.
@@ -51,6 +53,8 @@ stack.
 
 ## 2. [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) — Easy
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/merge-two-sorted-linked-lists/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Two sorted chains can be merged by repeatedly linking their smaller current head.
@@ -76,6 +80,8 @@ stack.
 - How does merging k lists differ? Use a heap or divide-and-conquer; your existing folder 05 has that exercise.
 
 ## 3. [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) — Easy
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/linked-list-cycle-detection/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
@@ -105,6 +111,8 @@ alternative uses `O(n)`.
 
 ## 4. [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/remove-node-from-end-of-linked-list/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Maintain a fixed gap so one pointer reaches the end when another reaches the removal predecessor.
@@ -130,6 +138,8 @@ alternative uses `O(n)`.
 - What if n could be invalid? Validate fast-pointer advancement explicitly.
 
 ## 5. [Reorder List](https://leetcode.com/problems/reorder-list/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/reorder-linked-list/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
@@ -158,6 +168,8 @@ alternative uses `O(n)`.
 
 ## 6. [Add Two Numbers](https://leetcode.com/problems/add-two-numbers/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/add-two-numbers/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Digits arrive least-significant first as linked nodes, requiring a carry across positions.
@@ -183,6 +195,8 @@ alternative uses `O(n)`.
 - If output must reuse nodes? Track ownership and be explicit about input mutation.
 
 ## 7. [Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/copy-linked-list-with-random-pointer/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
@@ -212,6 +226,8 @@ alternative uses `O(n)`.
 
 ## 8. [LRU Cache](https://leetcode.com/problems/lru-cache/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/lru-cache/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** O(1) lookup plus moving/removing known keys in recency order.
@@ -237,6 +253,8 @@ alternative uses `O(n)`.
 - Can LinkedHashMap simplify implementation? Yes, with access-order enabled and controlled eviction.
 
 ## 9. [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) — Hard
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/reverse-nodes-in-k-group/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 

@@ -102,6 +102,8 @@ for ranges beginning at index zero.
 
 ## 4. [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/products-of-array-discluding-self/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150
 
 **Talking points:**

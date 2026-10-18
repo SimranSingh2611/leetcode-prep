@@ -9,6 +9,7 @@
 
 // 56. Merge Intervals
 // https://leetcode.com/problems/merge-intervals/
+// NeetCode 150: https://neetcode.io/problems/merge-intervals/question?list=neetcode150
 // O(n log n) time; O(n) auxiliary space plus output. Preserves input and copies output rows.
 import java.util.ArrayList;
 import java.util.Arrays;

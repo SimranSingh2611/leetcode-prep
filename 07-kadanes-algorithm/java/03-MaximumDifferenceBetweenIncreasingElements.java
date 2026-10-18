@@ -8,6 +8,8 @@
  * Space complexity: O(1) auxiliary space.
  */
 
+// 2016. Maximum Difference Between Increasing Elements
+// https://leetcode.com/problems/maximum-difference-between-increasing-elements/
 // O(n) time and O(1) space.
 class Solution {
     public int maximumDifference(int[] nums) {

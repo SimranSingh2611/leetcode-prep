@@ -12,6 +12,7 @@
 
 // 1851. Minimum Interval to Include Each Query
 // https://leetcode.com/problems/minimum-interval-to-include-each-query/
+// NeetCode 150: https://neetcode.io/problems/minimum-interval-including-query/question?list=neetcode150
 // Solution clones the interval outer array, never edits its rows, and preserves query order in the
 // returned answers. Requires heaps from 15.
 import java.util.*;

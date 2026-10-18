@@ -12,6 +12,7 @@
 
 // 329. Longest Increasing Path in a Matrix
 // https://leetcode.com/problems/longest-increasing-path-in-a-matrix/
+// NeetCode 150: https://neetcode.io/problems/longest-increasing-path-in-matrix/question?list=neetcode150
 // Solution is iterative and preserves matrix; strict inequality is essential for acyclicity.
 import java.util.*;
 

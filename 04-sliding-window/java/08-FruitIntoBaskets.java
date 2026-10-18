@@ -7,6 +7,8 @@
  * Space complexity: O(1) auxiliary space; at most three types are tracked during adjustment.
  */
 
+// 904. Fruit Into Baskets
+// https://leetcode.com/problems/fruit-into-baskets/
 import java.util.HashMap;
 import java.util.Map;
 

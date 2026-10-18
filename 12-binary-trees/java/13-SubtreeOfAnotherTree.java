@@ -10,6 +10,7 @@
 
 // 572. Subtree of Another Tree
 // https://leetcode.com/problems/subtree-of-another-tree/
+// NeetCode 150: https://neetcode.io/problems/subtree-of-a-binary-tree/question?list=neetcode150
 // O(n*m) worst-case time, O(hRoot + hSubRoot) stack. Inputs preserved.
 class Solution {
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {

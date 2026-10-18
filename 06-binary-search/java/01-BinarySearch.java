@@ -9,6 +9,7 @@
 
 // 704. Binary Search
 // https://leetcode.com/problems/binary-search/
+// NeetCode 150: https://neetcode.io/problems/binary-search/question?list=neetcode150
 /*
  * TYPE: MINIMIZATION -- first index with nums[i] >= target.
  * BOUNDS: lo=-1 (false), hi=n (virtual true); sentinels stay unread.

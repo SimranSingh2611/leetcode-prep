@@ -8,6 +8,9 @@
  * Space complexity: O(1) auxiliary space.
  */
 
+// 152. Maximum Product Subarray
+// https://leetcode.com/problems/maximum-product-subarray/
+// NeetCode 150: https://neetcode.io/problems/maximum-product-subarray/question?list=neetcode150
 // Recommended: O(n) time and O(1) space with max/min ending states.
 class Solution {
     public int maxProduct(int[] nums) {

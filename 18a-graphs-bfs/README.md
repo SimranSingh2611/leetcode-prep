@@ -120,6 +120,8 @@ auxiliary space.
 
 ## 3. [Clone Graph](https://leetcode.com/problems/clone-graph/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/clone-graph/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
 **Selection:** NeetCode 150 priority
@@ -150,6 +152,8 @@ auxiliary space.
 - How would you clone a disconnected graph? Accept a collection of starting nodes and reuse the same original-to-copy map across component traversals.
 
 ## 4. [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/valid-tree/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
@@ -244,6 +248,8 @@ auxiliary space.
 
 ## 7. [Walls and Gates](https://leetcode.com/problems/walls-and-gates/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/islands-and-treasure/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Selection:** NeetCode 150 priority; also screenshot 1
@@ -275,6 +281,8 @@ place.
 - Why is the first assigned distance final? The multi-source queue explores every smaller distance before any larger distance.
 
 ## 8. [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/rotting-fruit/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
@@ -429,6 +437,8 @@ place.
 - Can a tree DP avoid parent storage? A postorder computation can combine subtree heights and distance to the infected node, but deep recursion needs care.
 
 ## 13. [Word Ladder](https://leetcode.com/problems/word-ladder/) — Hard
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/word-ladder/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 

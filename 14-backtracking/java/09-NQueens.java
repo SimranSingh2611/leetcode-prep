@@ -10,6 +10,7 @@
 
 // 51. N-Queens
 // https://leetcode.com/problems/n-queens/
+// NeetCode 150: https://neetcode.io/problems/n-queens/question?list=neetcode150
 // Solution stores column choices and materializes boards only at leaves.
 import java.util.*;
 

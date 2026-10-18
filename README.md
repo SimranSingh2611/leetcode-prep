@@ -143,6 +143,16 @@ Meeting Rooms III was checked on **2026-10-17** and added as supplemental Hard
 practice with a two-heap scheduling simulation and `long` finishing times.
 This update does not change the separate HackerRank collection.
 
+Practice links were audited across all 22 pattern folders on **2026-10-17**.
+Each LeetCode exercise has its problem URL in the Java header and Java index.
+NeetCode 150 matches also have direct practice links in their Java headers,
+indexes, and folder guides. LeetCode URLs were checked against the
+[public problem catalog](https://leetcode.com/api/problems/all/); NeetCode 150
+membership and practice URLs were checked against NeetCode's
+[official repository metadata](https://raw.githubusercontent.com/neetcode-gh/leetcode/main/.problemSiteData.json)
+and [published site data](https://neetcode.io/main.e881a04d25e3264a.js).
+The four standalone stack templates retain their guide links.
+
 ## How to use the Java solutions
 
 Open the problem's `java/` index. Each file is independent: repeated `Solution`

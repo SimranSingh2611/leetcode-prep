@@ -145,6 +145,8 @@ Binary Search checks nums[2]==7, finds it false, and returns -1.
 
 ## 1. [Binary Search](https://leetcode.com/problems/binary-search/) — Easy
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/binary-search/question?list=neetcode150)
+
 **Source:** NeetCode 150
 
 **Search space:** Array indices 0…n−1.
@@ -246,6 +248,8 @@ Binary Search checks nums[2]==7, finds it false, and returns -1.
 
 ## 4. [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/search-2d-matrix/question?list=neetcode150)
+
 **Source:** NeetCode 150
 
 **Search space:** Flat indices 0…rows·cols−1.
@@ -280,6 +284,8 @@ Binary Search checks nums[2]==7, finds it false, and returns -1.
 
 ## 5. [Koko Eating Bananas](https://leetcode.com/problems/koko-eating-bananas/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/eating-bananas/question?list=neetcode150)
+
 **Source:** NeetCode 150
 
 **Search space:** Integer speeds 1…M, M=max(piles).
@@ -312,6 +318,8 @@ Binary Search checks nums[2]==7, finds it false, and returns -1.
 - Why is h < number of piles impossible under these eating rules? Each nonempty pile still takes at least one hour, regardless of speed.
 
 ## 6. [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/find-minimum-in-rotated-sorted-array/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150
 
@@ -347,6 +355,8 @@ Binary Search checks nums[2]==7, finds it false, and returns -1.
 
 ## 7. [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/find-target-in-rotated-sorted-array/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150
 
 **Search space:** First pivot indices; then one sorted segment [start,endExclusive).
@@ -380,6 +390,8 @@ Binary Search checks nums[2]==7, finds it false, and returns -1.
 - What is traded against the original one-pass solution? This version repeats a logarithmic search but uses the same boundary invariant in both phases; asymptotic complexity is unchanged.
 
 ## 8. [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/time-based-key-value-store/question?list=neetcode150)
 
 **Source:** NeetCode 150
 
@@ -416,6 +428,8 @@ characters; `O(1)` search state.
 - Is the TreeMap alternative more optimized? It supports a different requirement, but sacrifices constant-amortized appends and has larger node overhead.
 
 ## 9. [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) — Hard
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/median-of-two-sorted-arrays/question?list=neetcode150)
 
 **Source:** NeetCode 150
 

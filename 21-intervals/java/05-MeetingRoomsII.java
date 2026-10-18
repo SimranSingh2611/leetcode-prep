@@ -10,6 +10,7 @@
 
 // 253. Meeting Rooms II
 // https://leetcode.com/problems/meeting-rooms-ii/
+// NeetCode 150: https://neetcode.io/problems/meeting-schedule-ii/question?list=neetcode150
 // LeetCode Premium. O(n log n) time; O(n) auxiliary space. Preserves input.
 import java.util.Arrays;
 import java.util.PriorityQueue;

@@ -9,6 +9,7 @@
 
 // 42. Trapping Rain Water
 // https://leetcode.com/problems/trapping-rain-water/
+// NeetCode 150: https://neetcode.io/problems/trapping-rain-water/question?list=neetcode150
 // Guide template 3, merged greater boundaries: pop <=; strictly decreasing heights.
 // O(n) time and O(n) auxiliary space; input preserved.
 import java.util.*;

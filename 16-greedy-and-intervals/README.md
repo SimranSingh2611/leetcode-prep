@@ -107,6 +107,8 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 ## 4. [Jump Game](https://leetcode.com/problems/jump-game/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/jump-game/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Reachability in an array where each reachable position extends a forward range.
@@ -133,6 +135,8 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 - What if jumps must be exactly nums[i]? Reachability need not be a contiguous prefix, so graph traversal or another state representation is needed.
 
 ## 5. [Jump Game II](https://leetcode.com/problems/jump-game-ii/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/jump-game-ii/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
@@ -161,6 +165,8 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 ## 6. [Gas Station](https://leetcode.com/problems/gas-station/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/gas-station/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Choose a circular starting point; a negative running balance eliminates a whole block of candidate starts.
@@ -188,6 +194,8 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 ## 7. [Partition Labels](https://leetcode.com/problems/partition-labels/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/partition-labels/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Split into as many contiguous pieces as possible while each character appears in only one piece.
@@ -214,6 +222,8 @@ partition lengths.
 - What changes for arbitrary tokens instead of letters? Replace the fixed last-position array with a map.
 
 ## 8. [Insert Interval](https://leetcode.com/problems/insert-interval/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/insert-new-interval/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
@@ -269,6 +279,8 @@ partition lengths.
 - Can space be reduced to O(1)? Count ascending and descending run lengths, add triangular sums, and count the shared peak only once using the larger required peak height.
 
 ## 10. [Minimum Interval to Include Each Query](https://leetcode.com/problems/minimum-interval-to-include-each-query/) — Hard
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/minimum-interval-including-query/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 

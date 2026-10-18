@@ -10,6 +10,7 @@
 
 // 1448. Count Good Nodes in Binary Tree
 // https://leetcode.com/problems/count-good-nodes-in-binary-tree/
+// NeetCode 150: https://neetcode.io/problems/count-good-nodes-in-binary-tree/question?list=neetcode150
 // Solution; input preserved.
 import java.util.*;
 

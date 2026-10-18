@@ -9,6 +9,7 @@
 
 // 1046. Last Stone Weight
 // https://leetcode.com/problems/last-stone-weight/
+// NeetCode 150: https://neetcode.io/problems/last-stone-weight/question?list=neetcode150
 // Solution uses reverseOrder rather than subtraction in its comparator and preserves stones.
 import java.util.*;
 

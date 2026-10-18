@@ -9,6 +9,7 @@
 
 // 50. Pow(x, n)
 // https://leetcode.com/problems/powx-n/
+// NeetCode 150: https://neetcode.io/problems/pow-x-n/question?list=neetcode150
 // Solution recursive; IterativeSolution optimized for stack space.
 import java.util.*;
 

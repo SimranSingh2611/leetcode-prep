@@ -10,6 +10,7 @@
 
 // 45. Jump Game II
 // https://leetcode.com/problems/jump-game-ii/
+// NeetCode 150: https://neetcode.io/problems/jump-game-ii/question?list=neetcode150
 // Solution assumes LeetCode's guarantee that the last index is reachable.
 import java.util.*;
 

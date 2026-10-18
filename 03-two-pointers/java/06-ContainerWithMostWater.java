@@ -8,6 +8,9 @@
  * Space complexity: O(1) auxiliary space.
  */
 
+// 11. Container With Most Water
+// https://leetcode.com/problems/container-with-most-water/
+// NeetCode 150: https://neetcode.io/problems/max-water-container/question?list=neetcode150
 // O(n) time and O(1) space.
 class Solution {
     public int maxArea(int[] height) {

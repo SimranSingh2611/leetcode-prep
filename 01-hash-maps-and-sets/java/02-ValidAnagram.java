@@ -9,6 +9,9 @@
  *   characters.
  */
 
+// 242. Valid Anagram
+// https://leetcode.com/problems/valid-anagram/
+// NeetCode 150: https://neetcode.io/problems/is-anagram/question?list=neetcode150
 import java.util.HashMap;
 import java.util.Map;
 

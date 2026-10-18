@@ -9,6 +9,8 @@
  *   stack.
  */
 
+// 327. Count of Range Sum
+// https://leetcode.com/problems/count-of-range-sum/
 // O(n log n) time and O(n) space using prefix sums plus merge-sort counting.
 class Solution {
     private long[] buffer;

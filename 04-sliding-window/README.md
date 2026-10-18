@@ -105,6 +105,8 @@ contains preceding elements; for zero every answer is zero.
 
 ## 4. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/longest-substring-without-duplicates/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150
 
 **Talking points:**
@@ -131,6 +133,8 @@ after adjustment contains unique characters.
 - Find the longest substring in which every character appears at most twice.
 
 ## 5. [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/longest-repeating-substring-with-replacement/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150
 
@@ -159,6 +163,8 @@ for finding the maximum length.
 - Return the replacement character and the actual window.
 
 ## 6. [Permutation in String](https://leetcode.com/problems/permutation-in-string/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/permutation-string/question?list=neetcode150)
 
 **Source:** NeetCode 150
 
@@ -237,6 +243,8 @@ Update the best length for each valid window.
 
 ## 9. [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) — Hard
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/minimum-window-with-characters/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150
 
 **Talking points:**
@@ -265,6 +273,8 @@ returned substring storage; a generalized map uses `O(A)` counters.
 - Adapt the requirement from a multiset of characters to a sequence that must appear in order.
 
 ## 10. [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) — Hard
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/sliding-window-maximum/question?list=neetcode150)
 
 **Source:** NeetCode 150
 

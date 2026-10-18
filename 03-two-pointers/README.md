@@ -27,6 +27,8 @@ Keywords are clues, not guarantees. Prove the structural condition before choosi
 
 ## 1. [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) — Easy
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/is-palindrome/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150
 
 **Talking points:**
@@ -100,6 +102,8 @@ endpoint. This avoids sorting the squared values.
 
 ## 4. [Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/two-integer-sum-ii/question?list=neetcode150)
+
 **Source:** NeetCode 150
 
 **Talking points:**
@@ -124,6 +128,8 @@ discarding an entire row or column of candidate pairs safe.
 - How would the solution change if every unique matching pair were required?
 
 ## 5. [3Sum](https://leetcode.com/problems/3sum/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/three-integer-sum/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150
 
@@ -151,6 +157,8 @@ triples; a conservative Java auxiliary bound including sorting is `O(n)`.
 
 ## 6. [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/max-water-container/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150
 
 **Talking points:**
@@ -176,6 +184,8 @@ Update the best area before advancing the limiting side.
 - What changes if the x-coordinates are not uniformly spaced?
 
 ## 7. [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/palindromic-substrings/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150
 
@@ -226,6 +236,8 @@ quadruples; a conservative Java auxiliary bound including sorting is `O(n)`.
 - What pruning bounds improve performance without changing the worst case?
 
 ## 9. [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) — Hard
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/trapping-rain-water/question?list=neetcode150)
 
 **Source:** NeetCode 150
 

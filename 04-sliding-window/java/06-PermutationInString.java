@@ -8,6 +8,9 @@
  * Space complexity: O(1) for fixed lowercase-letter counters.
  */
 
+// 567. Permutation in String
+// https://leetcode.com/problems/permutation-in-string/
+// NeetCode 150: https://neetcode.io/problems/permutation-string/question?list=neetcode150
 // O(|s1| + |s2|) time and O(1) space for lowercase English letters.
 class Solution {
     public boolean checkInclusion(String s1, String s2) {

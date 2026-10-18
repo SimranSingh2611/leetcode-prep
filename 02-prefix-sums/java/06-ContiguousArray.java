@@ -8,6 +8,8 @@
  * Space complexity: O(n) auxiliary earliest-index map space.
  */
 
+// 525. Contiguous Array
+// https://leetcode.com/problems/contiguous-array/
 import java.util.HashMap;
 import java.util.Map;
 

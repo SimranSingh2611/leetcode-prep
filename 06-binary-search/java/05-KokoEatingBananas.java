@@ -10,6 +10,7 @@
 
 // 875. Koko Eating Bananas
 // https://leetcode.com/problems/koko-eating-bananas/
+// NeetCode 150: https://neetcode.io/problems/eating-bananas/question?list=neetcode150
 /*
  * TYPE: MINIMIZATION -- smallest speed finishing within h hours.
  * BOUNDS: lo=0 (infeasible), hi=max(piles) (feasible); return hi.

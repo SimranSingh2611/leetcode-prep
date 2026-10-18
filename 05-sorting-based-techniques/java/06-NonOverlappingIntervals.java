@@ -9,6 +9,9 @@
  *   state.
  */
 
+// 435. Non-overlapping Intervals
+// https://leetcode.com/problems/non-overlapping-intervals/
+// NeetCode 150: https://neetcode.io/problems/non-overlapping-intervals/question?list=neetcode150
 import java.util.Arrays;
 
 // O(n log n) time and O(1) auxiliary space, excluding sorting internals.

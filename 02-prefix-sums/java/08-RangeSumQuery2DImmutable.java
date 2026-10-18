@@ -8,6 +8,8 @@
  * Space complexity: O(RC) persistent table space; O(1) additional query space.
  */
 
+// 304. Range Sum Query 2D - Immutable
+// https://leetcode.com/problems/range-sum-query-2d-immutable/
 // LeetCode's required class. O(rows * cols) construction and O(1) query.
 class NumMatrix {
     private final long[][] prefix;

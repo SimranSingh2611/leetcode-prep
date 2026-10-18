@@ -107,6 +107,8 @@ fixed-word operations.
 
 ## 4. [Pow(x, n)](https://leetcode.com/problems/powx-n/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/pow-x-n/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Exponentiation can halve the exponent instead of performing n multiplications.

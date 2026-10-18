@@ -8,6 +8,9 @@
  * Space complexity: O(1) auxiliary space.
  */
 
+// 121. Best Time to Buy and Sell Stock
+// https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+// NeetCode 150: https://neetcode.io/problems/buy-and-sell-crypto/question?list=neetcode150
 // O(n) time and O(1) space.
 class Solution {
     public int maxProfit(int[] prices) {

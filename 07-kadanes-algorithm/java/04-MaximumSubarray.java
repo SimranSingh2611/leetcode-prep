@@ -8,6 +8,9 @@
  * Space complexity: O(1) auxiliary space.
  */
 
+// 53. Maximum Subarray
+// https://leetcode.com/problems/maximum-subarray/
+// NeetCode 150: https://neetcode.io/problems/maximum-subarray/question?list=neetcode150
 // Recommended Kadane recurrence: O(n) time and O(1) space.
 class Solution {
     public int maxSubArray(int[] nums) {

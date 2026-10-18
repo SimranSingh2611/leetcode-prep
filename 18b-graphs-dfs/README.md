@@ -112,6 +112,8 @@ auxiliary space.
 
 ## 3. [Number of Connected Components in an Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/count-connected-components/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
 **Selection:** NeetCode 150 priority
@@ -142,6 +144,8 @@ auxiliary space.
 - Why isn't a single DFS enough? It explores only its starting component; the outer vertex loop accounts for disconnected components and isolated nodes.
 
 ## 4. [Number of Islands](https://leetcode.com/problems/number-of-islands/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/count-number-of-islands/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
@@ -174,6 +178,8 @@ markers.
 - What if diagonal cells are connected too? Change the neighbor set to eight directions; the component traversal stays the same.
 
 ## 5. [Max Area of Island](https://leetcode.com/problems/max-area-of-island/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/max-area-of-island/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
@@ -235,6 +241,8 @@ markers.
 - What if deeper values receive smaller weights? First determine the relevant maximum integer depth or use a level-based accumulation strategy; the weighting rule changes.
 
 ## 7. [Surrounded Regions](https://leetcode.com/problems/surrounded-regions/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/surrounded-regions/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
@@ -357,6 +365,8 @@ markers.
 - Must you label components in grid1? No; adjacency plus every grid2 cell being land already proves containment in one connected grid1 island.
 
 ## 11. [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/pacific-atlantic-water-flow/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 

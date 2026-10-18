@@ -11,6 +11,7 @@
 
 // 4. Median of Two Sorted Arrays
 // https://leetcode.com/problems/median-of-two-sorted-arrays/
+// NeetCode 150: https://neetcode.io/problems/median-of-two-sorted-arrays/question?list=neetcode150
 /*
  * TYPE: MINIMIZATION -- first cut with B-left <= A-right.
  * BOUNDS: lo=-1 (virtual false), hi=m (true); use hi to calculate the median.

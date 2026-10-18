@@ -10,6 +10,7 @@
 
 // 210. Course Schedule II
 // https://leetcode.com/problems/course-schedule-ii/
+// NeetCode 150: https://neetcode.io/problems/course-schedule-ii/question?list=neetcode150
 // Solution returns any valid order and leaves input unchanged.
 import java.util.*;
 

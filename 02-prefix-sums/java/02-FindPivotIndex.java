@@ -8,6 +8,8 @@
  * Space complexity: O(1) auxiliary space.
  */
 
+// 724. Find Pivot Index
+// https://leetcode.com/problems/find-pivot-index/
 // O(n) time and O(1) space.
 class Solution {
     public int pivotIndex(int[] nums) {

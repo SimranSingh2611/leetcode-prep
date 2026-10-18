@@ -11,6 +11,7 @@
 
 // 131. Palindrome Partitioning
 // https://leetcode.com/problems/palindrome-partitioning/
+// NeetCode 150: https://neetcode.io/problems/palindrome-partitioning/question?list=neetcode150
 // Solution uses a precomputed palindrome table; substring objects are copied into saved partitions.
 import java.util.*;
 

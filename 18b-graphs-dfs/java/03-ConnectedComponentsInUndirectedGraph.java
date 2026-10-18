@@ -10,6 +10,7 @@
 
 // 323. Number of Connected Components in an Undirected Graph
 // https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/
+// NeetCode 150: https://neetcode.io/problems/count-connected-components/question?list=neetcode150
 // Solution preserves edges. Premium NeetCode 150 selection; vertices with no edges still count.
 import java.util.*;
 

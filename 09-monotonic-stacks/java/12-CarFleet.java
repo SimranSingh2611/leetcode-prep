@@ -10,6 +10,7 @@
 
 // 853. Car Fleet
 // https://leetcode.com/problems/car-fleet/
+// NeetCode 150: https://neetcode.io/problems/car-fleet/question?list=neetcode150
 // Guide template 1, next >= adaptation on arrival times: pop <=, then push index.
 // Sort farthest-to-nearest first; stack times are strictly decreasing bottom-to-top.
 // O(n log n) time and O(n) auxiliary space; inputs preserved.

@@ -10,6 +10,7 @@
 
 // 110. Balanced Binary Tree
 // https://leetcode.com/problems/balanced-binary-tree/
+// NeetCode 150: https://neetcode.io/problems/balanced-binary-tree/question?list=neetcode150
 // O(n) time, O(h) recursion stack. Input preserved.
 class Solution {
     public boolean isBalanced(TreeNode root) {

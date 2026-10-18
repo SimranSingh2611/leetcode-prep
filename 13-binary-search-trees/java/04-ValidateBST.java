@@ -10,6 +10,7 @@
 
 // 98. Validate Binary Search Tree
 // https://leetcode.com/problems/validate-binary-search-tree/
+// NeetCode 150: https://neetcode.io/problems/valid-binary-search-tree/question?list=neetcode150
 // Solution iterative; no mutation.
 import java.util.*;
 

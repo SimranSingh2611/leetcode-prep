@@ -24,6 +24,8 @@ Solve in numbered order. 7 Medium / 3 Hard. The mix reflects genuine pattern fit
 
 ## 1. [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/implement-prefix-tree/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Support repeated insertion, exact-word lookup, and prefix lookup over the same dictionary.
@@ -163,6 +165,8 @@ references.
 
 ## 6. [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/design-word-search-data-structure/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Dictionary membership with '.' matching any single character; only wildcard positions branch.
@@ -216,6 +220,8 @@ references.
 - What changes for signed numbers or a different width? Define whether XOR results are compared signed or unsigned and adjust the bit range and comparison objective.
 
 ## 8. [Word Search II](https://leetcode.com/problems/word-search-ii/) — Hard
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/search-for-word-ii/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 

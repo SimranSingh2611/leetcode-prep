@@ -8,6 +8,9 @@
  * Space complexity: O(1) auxiliary space.
  */
 
+// 167. Two Sum II - Input Array Is Sorted
+// https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+// NeetCode 150: https://neetcode.io/problems/two-integer-sum-ii/question?list=neetcode150
 // O(n) time and O(1) space.
 class Solution {
     public int[] twoSum(int[] numbers, int target) {

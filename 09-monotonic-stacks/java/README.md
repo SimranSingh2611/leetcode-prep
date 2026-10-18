@@ -20,20 +20,20 @@ for the reasoning behind the order.
 2. [Previous Greater](02-PreviousGreater.java) — Template 2; `<=`; return predecessor indices after while.
 3. [Next Smaller](03-NextSmaller.java) — Template 4; `>`; resolve successor indices inside while.
 4. [Previous Smaller](04-PreviousSmaller.java) — Template 5; `>=`; return predecessor indices after while.
-5. [Next Greater Element I](05-NextGreaterElementI.java) — Template 1; `<`; indices on the stack, distinct-value map for answers.
-6. [Final Prices With a Special Discount in a Shop](06-FinalPrices.java) — Template 4 with `>=`; equal prices qualify for the discount.
-7. [Daily Temperatures](07-DailyTemperatures.java) — Template 1; `<`; record distance inside while.
-8. [Buildings With an Ocean View](08-BuildingsWithOceanView.java) — Template 1 with `<=`; survivors have ocean views. **Premium.**
-9. [Online Stock Span](09-OnlineStockSpan.java) — Template 2; `<=`; stream `{price, day}` pairs and subtract previous-greater index.
-10. [Next Greater Element II](10-NextGreaterElementII.java) — Template 1; `<`; circular scan, push only on the first pass.
-11. [Remove K Digits](11-RemoveKDigits.java) — Template 4 with `>` and a deletion budget; store digits for reconstruction.
-12. [Car Fleet](12-CarFleet.java) — Template 1 with `<=` on sorted arrival times; alternative compresses stack state.
-13. [Largest Rectangle in Histogram](13-LargestRectangleHistogram.java) — Template 6 with `>`; compute area on pop and flush with a virtual zero.
-14. [Trapping Rain Water](14-TrappingRainWater.java) — Template 3; `<=`; compute water layers between the two walls.
-15. [Number of Visible People in a Queue](15-NumberOfVisiblePeopleInQueue.java) — Template 3; `<=`; count visibility inside and after while; distinct heights.
-16. [Sum of Subarray Minimums](16-SumSubarrayMinimums.java) — Template 6; `>=`; next smaller-or-equal plus previous strictly smaller.
-17. [132 Pattern](17-Find132Pattern.java) — Template 2; `<=`; query previous greater after while, then test prefix minimum.
-18. [Maximal Rectangle](18-MaximalRectangle.java) — Template 6 with `>` for each row’s histogram; compute area on pop.
+5. [Next Greater Element I](05-NextGreaterElementI.java) · [LeetCode](https://leetcode.com/problems/next-greater-element-i/) — Template 1; `<`; indices on the stack, distinct-value map for answers.
+6. [Final Prices With a Special Discount in a Shop](06-FinalPrices.java) · [LeetCode](https://leetcode.com/problems/final-prices-with-a-special-discount-in-a-shop/) — Template 4 with `>=`; equal prices qualify for the discount.
+7. [Daily Temperatures](07-DailyTemperatures.java) · [LeetCode](https://leetcode.com/problems/daily-temperatures/) · [NeetCode 150](https://neetcode.io/problems/daily-temperatures/question?list=neetcode150) — Template 1; `<`; record distance inside while.
+8. [Buildings With an Ocean View](08-BuildingsWithOceanView.java) · [LeetCode](https://leetcode.com/problems/buildings-with-an-ocean-view/) — Template 1 with `<=`; survivors have ocean views. **Premium.**
+9. [Online Stock Span](09-OnlineStockSpan.java) · [LeetCode](https://leetcode.com/problems/online-stock-span/) — Template 2; `<=`; stream `{price, day}` pairs and subtract previous-greater index.
+10. [Next Greater Element II](10-NextGreaterElementII.java) · [LeetCode](https://leetcode.com/problems/next-greater-element-ii/) — Template 1; `<`; circular scan, push only on the first pass.
+11. [Remove K Digits](11-RemoveKDigits.java) · [LeetCode](https://leetcode.com/problems/remove-k-digits/) — Template 4 with `>` and a deletion budget; store digits for reconstruction.
+12. [Car Fleet](12-CarFleet.java) · [LeetCode](https://leetcode.com/problems/car-fleet/) · [NeetCode 150](https://neetcode.io/problems/car-fleet/question?list=neetcode150) — Template 1 with `<=` on sorted arrival times; alternative compresses stack state.
+13. [Largest Rectangle in Histogram](13-LargestRectangleHistogram.java) · [LeetCode](https://leetcode.com/problems/largest-rectangle-in-histogram/) · [NeetCode 150](https://neetcode.io/problems/largest-rectangle-in-histogram/question?list=neetcode150) — Template 6 with `>`; compute area on pop and flush with a virtual zero.
+14. [Trapping Rain Water](14-TrappingRainWater.java) · [LeetCode](https://leetcode.com/problems/trapping-rain-water/) · [NeetCode 150](https://neetcode.io/problems/trapping-rain-water/question?list=neetcode150) — Template 3; `<=`; compute water layers between the two walls.
+15. [Number of Visible People in a Queue](15-NumberOfVisiblePeopleInQueue.java) · [LeetCode](https://leetcode.com/problems/number-of-visible-people-in-a-queue/) — Template 3; `<=`; count visibility inside and after while; distinct heights.
+16. [Sum of Subarray Minimums](16-SumSubarrayMinimums.java) · [LeetCode](https://leetcode.com/problems/sum-of-subarray-minimums/) — Template 6; `>=`; next smaller-or-equal plus previous strictly smaller.
+17. [132 Pattern](17-Find132Pattern.java) · [LeetCode](https://leetcode.com/problems/132-pattern/) — Template 2; `<=`; query previous greater after while, then test prefix minimum.
+18. [Maximal Rectangle](18-MaximalRectangle.java) · [LeetCode](https://leetcode.com/problems/maximal-rectangle/) — Template 6 with `>` for each row’s histogram; compute area on pop.
 
 ## Template reference
 

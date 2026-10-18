@@ -10,6 +10,7 @@
 
 // 57. Insert Interval
 // https://leetcode.com/problems/insert-interval/
+// NeetCode 150: https://neetcode.io/problems/insert-new-interval/question?list=neetcode150
 // Solution does not mutate either input and copies emitted intervals to avoid output/input
 // aliasing.
 import java.util.*;

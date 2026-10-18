@@ -7,6 +7,9 @@
  * Space complexity: O(1) auxiliary space, plus O(n) output.
  */
 
+// 238. Product of Array Except Self
+// https://leetcode.com/problems/product-of-array-except-self/
+// NeetCode 150: https://neetcode.io/problems/products-of-array-discluding-self/question?list=neetcode150
 // Recommended: O(n) time and O(1) auxiliary space, excluding the result.
 class Solution {
     public int[] productExceptSelf(int[] nums) {

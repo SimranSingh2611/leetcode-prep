@@ -13,6 +13,7 @@
 
 // 621. Task Scheduler
 // https://leetcode.com/problems/task-scheduler/
+// NeetCode 150: https://neetcode.io/problems/task-scheduling/question?list=neetcode150
 // Solution demonstrates heap scheduling. FormulaSolution is a simpler counting follow-up, not an
 // asymptotic improvement under a fixed 26-letter alphabet.
 import java.util.*;

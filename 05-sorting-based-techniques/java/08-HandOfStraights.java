@@ -8,6 +8,9 @@
  * Space complexity: O(n) auxiliary ordered-map space.
  */
 
+// 846. Hand of Straights
+// https://leetcode.com/problems/hand-of-straights/
+// NeetCode 150: https://neetcode.io/problems/hand-of-straights/question?list=neetcode150
 import java.util.TreeMap;
 
 // O(n log n) time and O(n) space.

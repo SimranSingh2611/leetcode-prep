@@ -7,6 +7,8 @@
  * Space complexity: O(1) auxiliary pointer state, plus O(n) output.
  */
 
+// 977. Squares of a Sorted Array
+// https://leetcode.com/problems/squares-of-a-sorted-array/
 // O(n) time and O(n) output space.
 class Solution {
     public int[] sortedSquares(int[] nums) {

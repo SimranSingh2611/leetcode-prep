@@ -77,6 +77,8 @@ the inverse Ackermann function.
 
 ## 3. [Redundant Connection](https://leetcode.com/problems/redundant-connection/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/redundant-connection/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** An edge joins vertices already connected by earlier edges, so it closes an undirected cycle.
@@ -242,6 +244,8 @@ base length `B`.
 - Why is comparing all stone pairs unnecessary? Sharing a representative for each row and column connects the same groups using only O(n) union attempts.
 
 ## 9. [Swim in Rising Water](https://leetcode.com/problems/swim-in-rising-water/) — Hard
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/swim-in-rising-water/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 

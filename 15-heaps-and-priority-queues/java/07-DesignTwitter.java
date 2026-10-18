@@ -12,6 +12,7 @@
 
 // 355. Design Twitter
 // https://leetcode.com/problems/design-twitter/
+// NeetCode 150: https://neetcode.io/problems/design-twitter-feed/question?list=neetcode150
 // Twitter is the design class. Self-follow is ignored to avoid duplicate feed entries; historical
 // tweets are retained.
 import java.util.*;

@@ -10,6 +10,7 @@
 
 // 235. Lowest Common Ancestor of a Binary Search Tree
 // https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+// NeetCode 150: https://neetcode.io/problems/lowest-common-ancestor-in-binary-search-tree/question?list=neetcode150
 // Solution; distinct target nodes are guaranteed present.
 import java.util.*;
 

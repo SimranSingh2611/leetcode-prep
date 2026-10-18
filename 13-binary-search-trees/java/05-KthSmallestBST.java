@@ -10,6 +10,7 @@
 
 // 230. Kth Smallest Element in a BST
 // https://leetcode.com/problems/kth-smallest-element-in-a-bst/
+// NeetCode 150: https://neetcode.io/problems/kth-smallest-integer-in-bst/question?list=neetcode150
 // Solution; k is valid; no mutation.
 import java.util.*;
 

@@ -8,6 +8,9 @@
  * Space complexity: O(1) auxiliary space; the boundary-array alternative uses O(n).
  */
 
+// 42. Trapping Rain Water
+// https://leetcode.com/problems/trapping-rain-water/
+// NeetCode 150: https://neetcode.io/problems/trapping-rain-water/question?list=neetcode150
 // Recommended: O(n) time and O(1) space.
 class Solution {
     public int trap(int[] height) {

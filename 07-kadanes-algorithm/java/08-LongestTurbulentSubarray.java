@@ -8,6 +8,8 @@
  * Space complexity: O(1) auxiliary space.
  */
 
+// 978. Longest Turbulent Subarray
+// https://leetcode.com/problems/longest-turbulent-subarray/
 // O(n) time and O(1) space.
 class Solution {
     public int maxTurbulenceSize(int[] arr) {

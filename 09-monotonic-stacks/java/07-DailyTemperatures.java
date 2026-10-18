@@ -9,6 +9,7 @@
 
 // 739. Daily Temperatures
 // https://leetcode.com/problems/daily-temperatures/
+// NeetCode 150: https://neetcode.io/problems/daily-temperatures/question?list=neetcode150
 // Guide template 1, next strictly greater: pop <; non-increasing temperatures.
 // O(n) time and O(n) auxiliary space; input preserved.
 import java.util.*;

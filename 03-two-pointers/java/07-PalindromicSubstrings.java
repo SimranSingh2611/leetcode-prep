@@ -7,6 +7,9 @@
  * Space complexity: O(1) auxiliary space.
  */
 
+// 647. Palindromic Substrings
+// https://leetcode.com/problems/palindromic-substrings/
+// NeetCode 150: https://neetcode.io/problems/palindromic-substrings/question?list=neetcode150
 // O(n^2) time and O(1) space.
 class Solution {
     public int countSubstrings(String s) {

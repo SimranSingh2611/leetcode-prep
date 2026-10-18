@@ -8,6 +8,9 @@
  * Space complexity: O(n) worst-case object-sort workspace, plus O(k) output references.
  */
 
+// 973. K Closest Points to Origin
+// https://leetcode.com/problems/k-closest-points-to-origin/
+// NeetCode 150: https://neetcode.io/problems/k-closest-points-to-origin/question?list=neetcode150
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 

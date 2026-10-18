@@ -10,6 +10,7 @@
 
 // 684. Redundant Connection
 // https://leetcode.com/problems/redundant-connection/
+// NeetCode 150: https://neetcode.io/problems/redundant-connection/question?list=neetcode150
 // Solution returns a cloned edge and preserves input; labels are 1-based.
 import java.util.*;
 

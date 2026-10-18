@@ -10,6 +10,7 @@
 
 // 19. Remove Nth Node From End of List
 // https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+// NeetCode 150: https://neetcode.io/problems/remove-node-from-end-of-linked-list/question?list=neetcode150
 // Solution mutates one link; n is valid per the statement.
 import java.util.*;
 

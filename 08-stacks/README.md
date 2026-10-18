@@ -24,6 +24,8 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 ## 1. [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) — Easy
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/validate-parentheses/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Closing delimiters must match the most recent unclosed opening delimiter.
@@ -105,6 +107,8 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 ## 4. [Min Stack](https://leetcode.com/problems/min-stack/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/minimum-stack/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** A stack must also return its minimum after arbitrary pops.
@@ -132,6 +136,8 @@ alternative changes entry size, not the bound.
 - Why long differences? Subtracting two valid int values can overflow int.
 
 ## 5. [Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/evaluate-reverse-polish-notation/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 

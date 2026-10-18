@@ -10,6 +10,7 @@
 
 // 543. Diameter of Binary Tree
 // https://leetcode.com/problems/diameter-of-binary-tree/
+// NeetCode 150: https://neetcode.io/problems/binary-tree-diameter/question?list=neetcode150
 // O(n) time, O(h) recursion stack. Input preserved; state resets per call.
 class Solution {
     private int diameter;

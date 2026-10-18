@@ -10,6 +10,7 @@
 
 // 55. Jump Game
 // https://leetcode.com/problems/jump-game/
+// NeetCode 150: https://neetcode.io/problems/jump-game/question?list=neetcode150
 // Solution leaves nums unchanged; the problem's bounds keep index sums within int.
 import java.util.*;
 

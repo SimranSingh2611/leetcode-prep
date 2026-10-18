@@ -10,6 +10,7 @@
 
 // 84. Largest Rectangle in Histogram
 // https://leetcode.com/problems/largest-rectangle-in-histogram/
+// NeetCode 150: https://neetcode.io/problems/largest-rectangle-in-histogram/question?list=neetcode150
 // Guide template 6, merged smaller boundaries: pop >; non-decreasing heights.
 // Fused adaptation: compute area at pop time instead of saving boundary arrays.
 // O(n) time and O(n) auxiliary space; input preserved.

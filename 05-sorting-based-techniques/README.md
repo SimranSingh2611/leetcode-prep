@@ -132,6 +132,8 @@ value has not yet been classified.
 
 ## 5. [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/merge-intervals/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150
 
 **Talking points:**
@@ -156,6 +158,8 @@ current merged interval from the left.
 - How would you maintain merged intervals under online insertions?
 
 ## 6. [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/non-overlapping-intervals/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150
 
@@ -184,6 +188,8 @@ state.
 
 ## 7. [K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/k-closest-points-to-origin/question?list=neetcode150)
+
 **Source:** NeetCode 150
 
 **Talking points:**
@@ -209,6 +215,8 @@ This is the clean baseline; a size-`k` heap or quickselect is preferable when
 - How would you process an unbounded stream of points?
 
 ## 8. [Hand of Straights](https://leetcode.com/problems/hand-of-straights/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/hand-of-straights/question?list=neetcode150)
 
 **Source:** NeetCode 150
 
@@ -236,6 +244,8 @@ dead keys.
 - Implement it with a min-heap and discuss stale entries.
 
 ## 9. [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) — Hard
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/merge-k-sorted-linked-lists/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150
 

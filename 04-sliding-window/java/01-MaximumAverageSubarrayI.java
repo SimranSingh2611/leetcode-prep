@@ -8,6 +8,8 @@
  * Space complexity: O(1) auxiliary space.
  */
 
+// 643. Maximum Average Subarray I
+// https://leetcode.com/problems/maximum-average-subarray-i/
 // O(n) time and O(1) space.
 class Solution {
     public double findMaxAverage(int[] nums, int k) {

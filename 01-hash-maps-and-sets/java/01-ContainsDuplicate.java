@@ -7,6 +7,9 @@
  * Space complexity: O(n) auxiliary space for the set.
  */
 
+// 217. Contains Duplicate
+// https://leetcode.com/problems/contains-duplicate/
+// NeetCode 150: https://neetcode.io/problems/duplicate-integer/question?list=neetcode150
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;

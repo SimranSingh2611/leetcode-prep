@@ -10,6 +10,7 @@
 
 // 207. Course Schedule
 // https://leetcode.com/problems/course-schedule/
+// NeetCode 150: https://neetcode.io/problems/course-schedule/question?list=neetcode150
 // Solution preserves prerequisites. Pay attention to the pair direction; later Course Schedule
 // variants use a different pair convention.
 import java.util.*;

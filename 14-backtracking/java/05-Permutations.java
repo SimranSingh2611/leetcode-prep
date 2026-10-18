@@ -10,6 +10,7 @@
 
 // 46. Permutations
 // https://leetcode.com/problems/permutations/
+// NeetCode 150: https://neetcode.io/problems/permutations/question?list=neetcode150
 // Solution uses a used-index array and does not mutate nums.
 import java.util.*;
 

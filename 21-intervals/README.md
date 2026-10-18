@@ -51,6 +51,8 @@ For Calendar II, tentatively add the booking and undo both changes if the maximu
 
 ## 1. [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/) — Easy
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/meeting-schedule/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Access:** LeetCode Premium
@@ -79,6 +81,8 @@ For Calendar II, tentatively add the booking and undo both changes if the maximu
 - What if travel time is needed between meetings? Include the transition time in the compatibility check; use long arithmetic if endpoint sums could overflow.
 
 ## 2. [Merge Intervals](https://leetcode.com/problems/merge-intervals/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/merge-intervals/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
@@ -109,6 +113,8 @@ output.
 
 ## 3. [Insert Interval](https://leetcode.com/problems/insert-interval/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/insert-new-interval/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
 **Access:** Free problem
@@ -136,6 +142,8 @@ output.
 - Does finding the insertion point with binary search make the whole operation O(log n)? No; producing a new array still takes O(n) in the worst case.
 
 ## 4. [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/non-overlapping-intervals/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
@@ -166,6 +174,8 @@ state.
 - What if intervals have different values or removal costs? Earliest finish alone no longer optimizes value; consider weighted interval scheduling with dynamic programming and predecessor searches.
 
 ## 5. [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/meeting-schedule-ii/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
@@ -251,6 +261,8 @@ state.
 - What changes for capacity `k` or much larger call counts? Replace the rejection threshold with `k`. For faster updates, use an augmented ordered tree storing subtree sums/maximum prefixes, or a dynamic segment tree with range increments and a maximum.
 
 ## 8. [Minimum Interval to Include Each Query](https://leetcode.com/problems/minimum-interval-to-include-each-query/) — Hard
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/minimum-interval-including-query/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 

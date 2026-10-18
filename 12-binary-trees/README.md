@@ -48,6 +48,8 @@ The additions' LeetCode IDs, titles, and difficulties were checked against their
 
 ## 1. [Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/) — Easy
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/invert-a-binary-tree/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Apply the same left/right transformation to every subtree.
@@ -73,6 +75,8 @@ The additions' LeetCode IDs, titles, and difficulties were checked against their
 - How would you preserve input? Allocate a mirrored copy rather than rewiring original nodes.
 
 ## 2. [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) — Easy
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/depth-of-binary-tree/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
@@ -101,6 +105,8 @@ actual level width `w`.
 
 ## 3. [Same Tree](https://leetcode.com/problems/same-tree/) — Easy
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/same-binary-tree/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Both structure and corresponding values must match.
@@ -126,6 +132,8 @@ actual level width `w`.
 - How would you compare iteratively? Queue pairs of corresponding nodes, preserving null-position checks.
 
 ## 4. [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/level-order-traversal-of-binary-tree/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
@@ -153,6 +161,8 @@ actual level width `w`.
 
 ## 5. [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/binary-tree-right-side-view/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Only the rightmost visible node at each depth is needed.
@@ -179,6 +189,8 @@ actual level width `w`.
 - What changes for the left view? Reverse the child visitation priority.
 
 ## 6. [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/binary-tree-from-preorder-and-inorder-traversal/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
@@ -235,6 +247,8 @@ nodes.
 
 ## 8. [Count Good Nodes in Binary Tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/count-good-nodes-in-binary-tree/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Each node is compared with the maximum along its own root-to-node path.
@@ -262,6 +276,8 @@ nodes.
 
 ## 9. [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) — Hard
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/binary-tree-maximum-path-sum/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** A best complete path may join two branches, but a path extended to the parent cannot branch.
@@ -288,6 +304,8 @@ nodes.
 - How would you recover the actual path? Retain chosen branch information when updating the winning split.
 
 ## 10. [Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) — Hard
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/serialize-and-deserialize-binary-tree/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
@@ -317,6 +335,8 @@ nodes.
 
 ## 11. [Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/) — Easy
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/binary-tree-diameter/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Find the longest path between any two nodes, measured in edges; it need not pass through the root.
@@ -344,6 +364,8 @@ nodes.
 
 ## 12. [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) — Easy
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/balanced-binary-tree/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** The two child heights must differ by at most one at every node.
@@ -370,6 +392,8 @@ nodes.
 - What is the cost of recomputing heights at every node? O(n²) in the worst case; the sentinel helper reuses each returned height.
 
 ## 13. [Subtree of Another Tree](https://leetcode.com/problems/subtree-of-another-tree/) — Easy
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/subtree-of-a-binary-tree/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 

@@ -10,6 +10,7 @@
 
 // 435. Non-overlapping Intervals
 // https://leetcode.com/problems/non-overlapping-intervals/
+// NeetCode 150: https://neetcode.io/problems/non-overlapping-intervals/question?list=neetcode150
 // O(n log n) time; O(n) auxiliary space for the copy/sort. Preserves input.
 import java.util.Arrays;
 

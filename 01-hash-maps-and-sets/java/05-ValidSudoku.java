@@ -8,6 +8,9 @@
  * Space complexity: O(1) for the fixed board; O(n^2) for generalized tracking sets.
  */
 
+// 36. Valid Sudoku
+// https://leetcode.com/problems/valid-sudoku/
+// NeetCode 150: https://neetcode.io/problems/valid-sudoku/question?list=neetcode150
 // O(81) time and O(81) space for the fixed 9-by-9 board.
 class Solution {
     public boolean isValidSudoku(char[][] board) {

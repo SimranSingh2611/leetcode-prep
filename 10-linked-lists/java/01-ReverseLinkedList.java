@@ -9,6 +9,7 @@
 
 // 206. Reverse Linked List
 // https://leetcode.com/problems/reverse-linked-list/
+// NeetCode 150: https://neetcode.io/problems/reverse-a-linked-list/question?list=neetcode150
 // Solution iterative; RecursiveSolution alternative. Both mutate links.
 import java.util.*;
 

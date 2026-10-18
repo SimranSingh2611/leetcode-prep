@@ -10,6 +10,7 @@
 
 // 763. Partition Labels
 // https://leetcode.com/problems/partition-labels/
+// NeetCode 150: https://neetcode.io/problems/partition-labels/question?list=neetcode150
 // Solution preserves s and returns partition lengths.
 import java.util.*;
 

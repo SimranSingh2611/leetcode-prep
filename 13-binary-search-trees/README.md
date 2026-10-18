@@ -104,6 +104,8 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 ## 4. [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/valid-binary-search-tree/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Every node must satisfy all ancestor bounds; checking only its children is insufficient.
@@ -131,6 +133,8 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 ## 5. [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/kth-smallest-integer-in-bst/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Inorder visits BST values in rank order, so you can stop after k visits.
@@ -157,6 +161,8 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 - Why doesn't a plain BST guarantee O(log n) selection? Its height may be linear.
 
 ## 6. [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/lowest-common-ancestor-in-binary-search-tree/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 

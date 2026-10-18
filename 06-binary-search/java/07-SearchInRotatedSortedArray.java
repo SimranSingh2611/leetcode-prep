@@ -10,6 +10,7 @@
 
 // 33. Search in Rotated Sorted Array
 // https://leetcode.com/problems/search-in-rotated-sorted-array/
+// NeetCode 150: https://neetcode.io/problems/find-target-in-rotated-sorted-array/question?list=neetcode150
 /*
  * TYPE: MINIMIZATION twice -- pivot, then lower bound in its sorted segment.
  * PIVOT: nums[i] <= last; lo=-1, hi=n-1.

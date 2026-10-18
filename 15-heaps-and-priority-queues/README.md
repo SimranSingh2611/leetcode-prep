@@ -24,6 +24,8 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 
 ## 1. [Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/) — Easy
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/kth-largest-integer-in-a-stream/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Repeated insertions followed by the kth-largest query; only the k largest values matter.
@@ -50,6 +52,8 @@ Solve in numbered order. 3 Easy / 5 Medium / 2 Hard. The mix reflects genuine pa
 - Why a min-heap for a largest-elements problem? It exposes the smallest retained candidate, which is the next one to evict.
 
 ## 2. [Last Stone Weight](https://leetcode.com/problems/last-stone-weight/) — Easy
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/last-stone-weight/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
@@ -103,6 +107,8 @@ characters.
 - What if only the top three matter? Keep a size-three min-heap, reducing retained ranking state to O(1).
 
 ## 4. [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/kth-largest-element-in-an-array/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
@@ -161,6 +167,8 @@ lengths are `n`, `m`.
 
 ## 6. [Task Scheduler](https://leetcode.com/problems/task-scheduler/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/task-scheduling/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Repeatedly schedule the most frequent currently eligible task under a cooldown constraint.
@@ -190,6 +198,8 @@ alternative takes `O(N + U)`. Both are `O(N)` when `U <= 26`.
 - Would the formula survive task-specific cooldowns? No; the uniform-cooldown frame argument no longer applies.
 
 ## 7. [Design Twitter](https://leetcode.com/problems/design-twitter/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/design-twitter-feed/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
@@ -248,6 +258,8 @@ is `O(1)` for 26 letters.
 - Can fixed-alphabet counting avoid the heap? Place the most frequent letter at even indices, then fill the remaining positions, after checking feasibility.
 
 ## 9. [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/) — Hard
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/find-median-in-a-data-stream/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 

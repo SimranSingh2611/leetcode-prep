@@ -8,6 +8,8 @@
  * Space complexity: O(1) auxiliary space.
  */
 
+// 1749. Maximum Absolute Sum of Any Subarray
+// https://leetcode.com/problems/maximum-absolute-sum-of-any-subarray/
 // O(n) time and O(1) space using prefix extrema.
 class Solution {
     public int maxAbsoluteSum(int[] nums) {

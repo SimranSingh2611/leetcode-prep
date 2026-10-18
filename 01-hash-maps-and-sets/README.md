@@ -26,6 +26,8 @@ Keywords are clues, not guarantees. Prove the structural condition before choosi
 
 ## 1. [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) — Easy
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/duplicate-integer/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150
 
 **Talking points:**
@@ -50,6 +52,8 @@ is needed.
 - What changes if memory is constrained but modifying or sorting the input is allowed?
 
 ## 2. [Valid Anagram](https://leetcode.com/problems/valid-anagram/) — Easy
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/is-anagram/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150
 
@@ -78,6 +82,8 @@ distinct characters.
 
 ## 3. [Two Sum](https://leetcode.com/problems/two-sum/) — Easy
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/two-integer-sum/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150
 
 **Talking points:**
@@ -101,6 +107,8 @@ used twice. This converts the brute-force search over every pair into one pass.
 - How would you return every unique pair or count the number of valid pairs?
 
 ## 4. [Group Anagrams](https://leetcode.com/problems/group-anagrams/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/anagram-groups/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150
 
@@ -127,6 +135,8 @@ strings are referenced, not copied.
 - How would the signature change for a large or unknown character set?
 
 ## 5. [Valid Sudoku](https://leetcode.com/problems/valid-sudoku/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/valid-sudoku/question?list=neetcode150)
 
 **Source:** NeetCode 150
 
@@ -155,6 +165,8 @@ generalization.
 
 ## 6. [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/top-k-elements-in-list/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150
 
 **Talking points:**
@@ -181,6 +193,8 @@ avoids the `O(n log n)` cost of sorting all entries.
 
 ## 7. [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/longest-consecutive-sequence/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150
 
 **Talking points:**
@@ -206,6 +220,8 @@ sequence, keeping the total work linear.
 - Could you solve the problem with sorting, or dynamically with Union-Find?
 
 ## 8. [Encode and Decode Strings](https://leetcode.com/problems/encode-and-decode-strings/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/string-encode-and-decode/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150
 

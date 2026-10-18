@@ -9,6 +9,8 @@
  * Space complexity: O(b) auxiliary compressed-array and ordered-set space.
  */
 
+// 363. Max Sum of Rectangle No Larger Than K
+// https://leetcode.com/problems/max-sum-of-rectangle-no-larger-than-k/
 import java.util.TreeSet;
 
 // O(min(m,n)^2 * max(m,n) * log(max(m,n))) time and O(max(m,n)) space.

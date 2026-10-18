@@ -10,6 +10,7 @@
 
 // 25. Reverse Nodes in k-Group
 // https://leetcode.com/problems/reverse-nodes-in-k-group/
+// NeetCode 150: https://neetcode.io/problems/reverse-nodes-in-k-group/question?list=neetcode150
 // Solution mutates links, not node values.
 import java.util.*;
 

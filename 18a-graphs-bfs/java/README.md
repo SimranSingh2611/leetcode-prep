@@ -4,17 +4,17 @@ Each file is an independent LeetCode submission. Most classes are named `Solutio
 
 LeetCode supplies `TreeNode`, the problem-specific `Node`, or `NestedInteger`. Read each file's notes: graph `Node.neighbors`, N-ary `Node.children`, and next-pointer-tree `Node.left/right/next` are different judge types. Local test models are not submission code. Java 8-compatible solutions; JDK 11+ for local tests.
 
-1. [N-ary Tree Level Order Traversal](01-NaryTreeLevelOrderTraversal.java) — Solution preserves the N-ary tree. LeetCode supplies Node with val and children.
-2. [Populating Next Right Pointers in Each Node](02-PopulateNextRightPointers.java) — Both mutate next pointers, not left/right child links. Judge Node has val, left, right, next.
-3. [Clone Graph](03-CloneGraph.java) — Solution uses IdentityHashMap to make object identity explicit. LeetCode supplies Node with val and neighbors; input is unchanged.
-4. [Graph Valid Tree](04-GraphValidTree.java) — Premium. Solution preserves edges. This Premium NeetCode 150 exercise uses an undirected graph.
-5. [Shortest Path to Get Food](05-ShortestPathToGetFood.java) — Premium. Solution preserves grid using a separate visited matrix. Premium screenshot selection.
-6. [Shortest Path in Binary Matrix](06-ShortestPathInBinaryMatrix.java) — Solution preserves grid. A one-cell open grid returns 1.
-7. [Walls and Gates](07-WallsAndGates.java) — Premium. Solution updates rooms in place. Premium NeetCode 150 and screenshot selection.
-8. [Rotting Oranges](08-RottingOranges.java) — Solution mutates grid by changing newly rotten oranges from 1 to 2.
-9. [01 Matrix](09-ZeroOneMatrix.java) — Solution preserves mat and returns a new matrix.
-10. [As Far from Land as Possible](10-AsFarFromLandAsPossible.java) — Solution preserves grid using a separate visited matrix.
-11. [All Nodes Distance K in Binary Tree](11-AllNodesDistanceKInBinaryTree.java) — Solution preserves the tree and uses the actual target node reference, not just its value.
-12. [Amount of Time for Binary Tree to Be Infected](12-TimeForBinaryTreeToBeInfected.java) — Solution preserves the tree. The problem guarantees unique values and that start exists.
-13. [Word Ladder](13-WordLadder.java) — Solution copies wordList into a set and leaves the input list unchanged.
-14. [Shortest Path in a Grid with Obstacles Elimination](14-ShortestPathWithObstacleElimination.java) — Both preserve grid. DominanceSolution optimizes visited storage; neither changes the distance objective. The start and destination are guaranteed empty.
+1. [N-ary Tree Level Order Traversal](01-NaryTreeLevelOrderTraversal.java) · [LeetCode](https://leetcode.com/problems/n-ary-tree-level-order-traversal/) — Solution preserves the N-ary tree. LeetCode supplies Node with val and children.
+2. [Populating Next Right Pointers in Each Node](02-PopulateNextRightPointers.java) · [LeetCode](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/) — Both mutate next pointers, not left/right child links. Judge Node has val, left, right, next.
+3. [Clone Graph](03-CloneGraph.java) · [LeetCode](https://leetcode.com/problems/clone-graph/) · [NeetCode 150](https://neetcode.io/problems/clone-graph/question?list=neetcode150) — Solution uses IdentityHashMap to make object identity explicit. LeetCode supplies Node with val and neighbors; input is unchanged.
+4. [Graph Valid Tree](04-GraphValidTree.java) · [LeetCode](https://leetcode.com/problems/graph-valid-tree/) · [NeetCode 150](https://neetcode.io/problems/valid-tree/question?list=neetcode150) — Premium. Solution preserves edges. This Premium NeetCode 150 exercise uses an undirected graph.
+5. [Shortest Path to Get Food](05-ShortestPathToGetFood.java) · [LeetCode](https://leetcode.com/problems/shortest-path-to-get-food/) — Premium. Solution preserves grid using a separate visited matrix. Premium screenshot selection.
+6. [Shortest Path in Binary Matrix](06-ShortestPathInBinaryMatrix.java) · [LeetCode](https://leetcode.com/problems/shortest-path-in-binary-matrix/) — Solution preserves grid. A one-cell open grid returns 1.
+7. [Walls and Gates](07-WallsAndGates.java) · [LeetCode](https://leetcode.com/problems/walls-and-gates/) · [NeetCode 150](https://neetcode.io/problems/islands-and-treasure/question?list=neetcode150) — Premium. Solution updates rooms in place. Premium NeetCode 150 and screenshot selection.
+8. [Rotting Oranges](08-RottingOranges.java) · [LeetCode](https://leetcode.com/problems/rotting-oranges/) · [NeetCode 150](https://neetcode.io/problems/rotting-fruit/question?list=neetcode150) — Solution mutates grid by changing newly rotten oranges from 1 to 2.
+9. [01 Matrix](09-ZeroOneMatrix.java) · [LeetCode](https://leetcode.com/problems/01-matrix/) — Solution preserves mat and returns a new matrix.
+10. [As Far from Land as Possible](10-AsFarFromLandAsPossible.java) · [LeetCode](https://leetcode.com/problems/as-far-from-land-as-possible/) — Solution preserves grid using a separate visited matrix.
+11. [All Nodes Distance K in Binary Tree](11-AllNodesDistanceKInBinaryTree.java) · [LeetCode](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/) — Solution preserves the tree and uses the actual target node reference, not just its value.
+12. [Amount of Time for Binary Tree to Be Infected](12-TimeForBinaryTreeToBeInfected.java) · [LeetCode](https://leetcode.com/problems/amount-of-time-for-binary-tree-to-be-infected/) — Solution preserves the tree. The problem guarantees unique values and that start exists.
+13. [Word Ladder](13-WordLadder.java) · [LeetCode](https://leetcode.com/problems/word-ladder/) · [NeetCode 150](https://neetcode.io/problems/word-ladder/question?list=neetcode150) — Solution copies wordList into a set and leaves the input list unchanged.
+14. [Shortest Path in a Grid with Obstacles Elimination](14-ShortestPathWithObstacleElimination.java) · [LeetCode](https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/) — Both preserve grid. DominanceSolution optimizes visited storage; neither changes the distance objective. The start and destination are guaranteed empty.

@@ -4,25 +4,25 @@ Compile/submit each file independently: most use LeetCode's `Solution` class; de
 
 `TreeNode`, `ListNode`, and problem-specific `Node` types are supplied by LeetCode. Local equivalents exist only in `../../tests/Models.java`; do not paste those into the judge. All examples use Java 8-compatible language/library features. Read each problem's input-mutation and auxiliary-space notes. Recursion space includes the call stack; skewed structures can exhaust Java's stack.
 
-1. [Invert Binary Tree](01-InvertBinaryTree.java) — Solution mutates the tree.
-2. [Maximum Depth of Binary Tree](02-MaximumDepthBinaryTree.java) — Solution recursive; BreadthFirstSolution avoids stack-depth risk, not always less memory.
-3. [Same Tree](03-SameTree.java) — Solution; input preserved.
-4. [Binary Tree Level Order Traversal](04-BinaryTreeLevelOrder.java) — Solution; input preserved.
-5. [Binary Tree Right Side View](05-BinaryTreeRightSideView.java) — Solution; input preserved.
-6. [Construct Binary Tree from Preorder and Inorder Traversal](06-BuildTreePreorderInorder.java) — Solution; inputs preserved.
-7. [Lowest Common Ancestor of a Binary Tree](07-LowestCommonAncestorBinaryTree.java) — Solution; compare node references, not values.
-8. [Count Good Nodes in Binary Tree](08-CountGoodNodes.java) — Solution; input preserved.
-9. [Binary Tree Maximum Path Sum](09-BinaryTreeMaximumPathSum.java) — Solution resets state on every call; tree/Kadane-style hybrid.
-10. [Serialize and Deserialize Binary Tree](10-SerializeDeserializeBinaryTree.java) — Codec design class; supports empty trees and negative values.
-11. [Diameter of Binary Tree](11-DiameterBinaryTree.java) — Solution preserves input and resets state on every call.
-12. [Balanced Binary Tree](12-BalancedBinaryTree.java) — Solution; input preserved.
-13. [Subtree of Another Tree](13-SubtreeOfAnotherTree.java) — Solution; both inputs preserved.
-14. [Symmetric Tree](14-SymmetricTree.java) — Solution; input preserved.
-15. [Path Sum](15-PathSum.java) — Solution; only root-to-leaf paths qualify; input preserved.
-16. [Binary Tree Zigzag Level Order Traversal](16-BinaryTreeZigzagLevelOrder.java) — Solution; input preserved; alternating output placement.
-17. [Path Sum II](17-PathSumII.java) — Solution; input preserved; copies each matching path.
-18. [Path Sum III](18-PathSumIII.java) — Solution; long prefix sums and ancestor-only frequencies; input preserved.
-19. [Flatten Binary Tree to Linked List](19-FlattenBinaryTree.java) — Solution rewires original nodes in place with O(1) auxiliary space.
-20. [Maximum Width of Binary Tree](20-MaximumWidthBinaryTree.java) — Solution; normalized long indices; input preserved.
+1. [Invert Binary Tree](01-InvertBinaryTree.java) · [LeetCode](https://leetcode.com/problems/invert-binary-tree/) · [NeetCode 150](https://neetcode.io/problems/invert-a-binary-tree/question?list=neetcode150) — Solution mutates the tree.
+2. [Maximum Depth of Binary Tree](02-MaximumDepthBinaryTree.java) · [LeetCode](https://leetcode.com/problems/maximum-depth-of-binary-tree/) · [NeetCode 150](https://neetcode.io/problems/depth-of-binary-tree/question?list=neetcode150) — Solution recursive; BreadthFirstSolution avoids stack-depth risk, not always less memory.
+3. [Same Tree](03-SameTree.java) · [LeetCode](https://leetcode.com/problems/same-tree/) · [NeetCode 150](https://neetcode.io/problems/same-binary-tree/question?list=neetcode150) — Solution; input preserved.
+4. [Binary Tree Level Order Traversal](04-BinaryTreeLevelOrder.java) · [LeetCode](https://leetcode.com/problems/binary-tree-level-order-traversal/) · [NeetCode 150](https://neetcode.io/problems/level-order-traversal-of-binary-tree/question?list=neetcode150) — Solution; input preserved.
+5. [Binary Tree Right Side View](05-BinaryTreeRightSideView.java) · [LeetCode](https://leetcode.com/problems/binary-tree-right-side-view/) · [NeetCode 150](https://neetcode.io/problems/binary-tree-right-side-view/question?list=neetcode150) — Solution; input preserved.
+6. [Construct Binary Tree from Preorder and Inorder Traversal](06-BuildTreePreorderInorder.java) · [LeetCode](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) · [NeetCode 150](https://neetcode.io/problems/binary-tree-from-preorder-and-inorder-traversal/question?list=neetcode150) — Solution; inputs preserved.
+7. [Lowest Common Ancestor of a Binary Tree](07-LowestCommonAncestorBinaryTree.java) · [LeetCode](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) — Solution; compare node references, not values.
+8. [Count Good Nodes in Binary Tree](08-CountGoodNodes.java) · [LeetCode](https://leetcode.com/problems/count-good-nodes-in-binary-tree/) · [NeetCode 150](https://neetcode.io/problems/count-good-nodes-in-binary-tree/question?list=neetcode150) — Solution; input preserved.
+9. [Binary Tree Maximum Path Sum](09-BinaryTreeMaximumPathSum.java) · [LeetCode](https://leetcode.com/problems/binary-tree-maximum-path-sum/) · [NeetCode 150](https://neetcode.io/problems/binary-tree-maximum-path-sum/question?list=neetcode150) — Solution resets state on every call; tree/Kadane-style hybrid.
+10. [Serialize and Deserialize Binary Tree](10-SerializeDeserializeBinaryTree.java) · [LeetCode](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/) · [NeetCode 150](https://neetcode.io/problems/serialize-and-deserialize-binary-tree/question?list=neetcode150) — Codec design class; supports empty trees and negative values.
+11. [Diameter of Binary Tree](11-DiameterBinaryTree.java) · [LeetCode](https://leetcode.com/problems/diameter-of-binary-tree/) · [NeetCode 150](https://neetcode.io/problems/binary-tree-diameter/question?list=neetcode150) — Solution preserves input and resets state on every call.
+12. [Balanced Binary Tree](12-BalancedBinaryTree.java) · [LeetCode](https://leetcode.com/problems/balanced-binary-tree/) · [NeetCode 150](https://neetcode.io/problems/balanced-binary-tree/question?list=neetcode150) — Solution; input preserved.
+13. [Subtree of Another Tree](13-SubtreeOfAnotherTree.java) · [LeetCode](https://leetcode.com/problems/subtree-of-another-tree/) · [NeetCode 150](https://neetcode.io/problems/subtree-of-a-binary-tree/question?list=neetcode150) — Solution; both inputs preserved.
+14. [Symmetric Tree](14-SymmetricTree.java) · [LeetCode](https://leetcode.com/problems/symmetric-tree/) — Solution; input preserved.
+15. [Path Sum](15-PathSum.java) · [LeetCode](https://leetcode.com/problems/path-sum/) — Solution; only root-to-leaf paths qualify; input preserved.
+16. [Binary Tree Zigzag Level Order Traversal](16-BinaryTreeZigzagLevelOrder.java) · [LeetCode](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/) — Solution; input preserved; alternating output placement.
+17. [Path Sum II](17-PathSumII.java) · [LeetCode](https://leetcode.com/problems/path-sum-ii/) — Solution; input preserved; copies each matching path.
+18. [Path Sum III](18-PathSumIII.java) · [LeetCode](https://leetcode.com/problems/path-sum-iii/) — Solution; long prefix sums and ancestor-only frequencies; input preserved.
+19. [Flatten Binary Tree to Linked List](19-FlattenBinaryTree.java) · [LeetCode](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/) — Solution rewires original nodes in place with O(1) auxiliary space.
+20. [Maximum Width of Binary Tree](20-MaximumWidthBinaryTree.java) · [LeetCode](https://leetcode.com/problems/maximum-width-of-binary-tree/) — Solution; normalized long indices; input preserved.
 
 [NeetCode 150 coverage and practice order](../README.md#neetcode-150-coverage-first)

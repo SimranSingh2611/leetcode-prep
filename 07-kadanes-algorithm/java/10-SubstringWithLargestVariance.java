@@ -9,6 +9,8 @@
  * Space complexity: O(A) frequency storage; O(1) for lowercase English letters.
  */
 
+// 2272. Substring With Largest Variance
+// https://leetcode.com/problems/substring-with-largest-variance/
 // O(A^2 * n) time and O(A) space; A = 26 for lowercase English letters.
 class Solution {
     public int largestVariance(String s) {

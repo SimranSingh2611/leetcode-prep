@@ -10,6 +10,7 @@
 
 // 153. Find Minimum in Rotated Sorted Array
 // https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+// NeetCode 150: https://neetcode.io/problems/find-minimum-in-rotated-sorted-array/question?list=neetcode150
 /*
  * TYPE: MINIMIZATION -- first index with nums[i] <= fixed last value.
  * BOUNDS: lo=-1 (false), hi=n-1 (true); return nums[hi].

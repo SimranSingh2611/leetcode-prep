@@ -9,6 +9,7 @@
 
 // 21. Merge Two Sorted Lists
 // https://leetcode.com/problems/merge-two-sorted-lists/
+// NeetCode 150: https://neetcode.io/problems/merge-two-sorted-linked-lists/question?list=neetcode150
 // Solution reuses and relinks input nodes.
 import java.util.*;
 

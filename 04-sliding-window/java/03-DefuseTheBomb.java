@@ -7,6 +7,8 @@
  * Space complexity: O(1) auxiliary state, plus O(n) output.
  */
 
+// 1652. Defuse the Bomb
+// https://leetcode.com/problems/defuse-the-bomb/
 // O(n) time and O(n) output space. The problem guarantees |k| < n.
 class Solution {
     public int[] decrypt(int[] code, int k) {

@@ -24,6 +24,8 @@ Solve in numbered order. 6 Medium / 4 Hard. The mix reflects genuine pattern fit
 
 ## 1. [Course Schedule](https://leetcode.com/problems/course-schedule/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/course-schedule/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Determine whether all directed prerequisite constraints can be satisfied; a cycle makes completion impossible.
@@ -50,6 +52,8 @@ Solve in numbered order. 6 Medium / 4 Hard. The mix reflects genuine pattern fit
 - Can DFS detect the same issue? Use unseen/active/finished states; an edge to an active vertex is a directed back edge.
 
 ## 2. [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/course-schedule-ii/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
@@ -190,6 +194,8 @@ output.
 - When would repeated reverse BFS be simpler? For small graphs or only a few queried vertices; full all-ancestor output benefits from shared propagation.
 
 ## 7. [Longest Increasing Path in a Matrix](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) — Hard
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/longest-increasing-path-in-matrix/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 

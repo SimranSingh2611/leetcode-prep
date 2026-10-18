@@ -8,6 +8,8 @@
  * Space complexity: O(n) persistent prefix storage; O(1) additional space per query.
  */
 
+// 303. Range Sum Query - Immutable
+// https://leetcode.com/problems/range-sum-query-immutable/
 // LeetCode's required class. O(n) construction, O(1) query, O(n) space.
 class NumArray {
     private final long[] prefix;

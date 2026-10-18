@@ -106,6 +106,8 @@ character length `P`, plus `O(Z)` output.
 
 ## 4. [Subsets](https://leetcode.com/problems/subsets/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/subsets/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** All subsets of distinct elements: order within a subset should not create separate answers.
@@ -133,6 +135,8 @@ character length `P`, plus `O(Z)` output.
 
 ## 5. [Permutations](https://leetcode.com/problems/permutations/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/permutations/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Order matters, but each input element must be used exactly once.
@@ -159,6 +163,8 @@ character length `P`, plus `O(Z)` output.
 - How do duplicate values change the algorithm? Sort and skip an equal value when its preceding equal value has not been used on the current path.
 
 ## 6. [Combination Sum](https://leetcode.com/problems/combination-sum/) — Medium
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/combination-target-sum/question?list=neetcode150)
 
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
@@ -189,6 +195,8 @@ a loose bound is `O(n log(n + 1) + n^(D + 1) + Z)`.
 
 ## 7. [Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/palindrome-partitioning/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Choose cut positions so every resulting substring is a palindrome; return every valid partition.
@@ -217,6 +225,8 @@ output.
 
 ## 8. [Word Search](https://leetcode.com/problems/word-search/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/search-for-word/question?list=neetcode150)
+
 **Source:** Blind 75 + NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Find a word by adjacent grid moves, but a cell cannot be reused within the current path.
@@ -244,6 +254,8 @@ length `L`; the first step allows four directions.
 - What changes when searching for many words? A trie shares prefix exploration across words; see Word Search II in 17.
 
 ## 9. [N-Queens](https://leetcode.com/problems/n-queens/) — Hard
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/n-queens/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 

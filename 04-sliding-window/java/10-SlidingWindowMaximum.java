@@ -8,6 +8,9 @@
  * Space complexity: O(k) auxiliary deque space, plus O(n - k + 1) output.
  */
 
+// 239. Sliding Window Maximum
+// https://leetcode.com/problems/sliding-window-maximum/
+// NeetCode 150: https://neetcode.io/problems/sliding-window-maximum/question?list=neetcode150
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.TreeMap;

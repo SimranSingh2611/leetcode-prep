@@ -217,6 +217,8 @@ right (after sorting for Car Fleet); comments name the guide template used.
 
 ## 7. [Daily Temperatures](https://leetcode.com/problems/daily-temperatures/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/daily-temperatures/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Selection:** Included in the guide; placed here in the learning progression.
@@ -357,6 +359,8 @@ prices.
 
 ## 12. [Car Fleet](https://leetcode.com/problems/car-fleet/) — Medium
 
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/car-fleet/question?list=neetcode150)
+
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
 **Recognize it:** Cars cannot pass; a later car with an earlier arrival time merges into a fleet ahead.
@@ -383,6 +387,8 @@ alternative uses `O(1)` scan state after `O(n)` sorting storage.
 - Why sort farthest first in the primary solution? A slower car ahead can absorb several faster fleets already on the stack.
 
 ## 13. [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/) — Hard
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/largest-rectangle-in-histogram/question?list=neetcode150)
 
 **Source:** NeetCode 150 · **Practice role:** Core list selection
 
@@ -412,6 +418,8 @@ alternative uses `O(1)` scan state after `O(n)` sorting storage.
 - How can you return rectangle coordinates? Save the winning height and computed boundaries.
 
 ## 14. [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) — Hard
+
+**NeetCode 150:** [Practice problem](https://neetcode.io/problems/trapping-rain-water/question?list=neetcode150)
 
 **Source:** Monotonic-stack guide · **Practice role:** Advanced stretch
 
