@@ -16,32 +16,53 @@ import java.util.*;
 
 class Solution {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
-        List<List<Integer>> graph = new ArrayList<>();
-        for (int i = 0; i < numCourses; i++) {
-            graph.add(new ArrayList<>());
+        // Topological sort
+        Map<Integer, Integer> indegree = new HashMap<>();
+        Map<Integer, List<Integer>> adj = new HashMap<>();
+
+        for(int i=0; i<numCourses; i++) {
+            indegree.put(i, 0);
+            adj.put(i , new ArrayList<Integer>());
         }
-        int[] degree = new int[numCourses];
-        for (int[] edge : prerequisites) {
-            graph.get(edge[1]).add(edge[0]);
-            degree[edge[0]]++;
+
+        // prereq -> course
+        for(int[] pair : prerequisites) {
+            int course = pair[0];
+            int prereq = pair[1];
+
+            indegree.put(course, indegree.getOrDefault(course, 0)+1);
+            adj.get(prereq).add(course);
         }
-        ArrayDeque<Integer> queue = new ArrayDeque<>();
-        for (int i = 0; i < numCourses; i++) {
-            if (degree[i] == 0) {
-                queue.offer(i);
+
+
+        Queue<Integer> q = new LinkedList<>();
+         // Step 2. Add nodes with 0 indegree to the queue.
+        for(int i=0; i<numCourses; i++) {
+            if (indegree.get(i) == 0)
+                q.add(i);
+        }
+        // Step 3. Traverse the queue and reduce indegree by 1 for each of its children. When indegree reaches 0, add it to the q. 
+        // NOTE: Whenever the indegree is 0, always add it to the q. 
+        int[] out = new int[numCourses];
+        int index = 0;
+        while(!q.isEmpty()) {
+            int node = q.poll();
+            
+            out[index] = node;
+            index++;
+
+            for(int neighbor : adj.get(node)) {
+                indegree.put(neighbor, indegree.get(neighbor)-1);
+
+                if (indegree.get(neighbor) == 0)
+                    q.add(neighbor);
             }
         }
-        int[] order = new int[numCourses];
-        int used = 0;
-        while (!queue.isEmpty()) {
-            int u = queue.poll();
-            order[used++] = u;
-            for (int v : graph.get(u)) {
-                if (--degree[v] == 0) {
-                    queue.offer(v);
-                }
-            }
-        }
-        return used == numCourses ? order : new int[0];
+
+        // For cycle detection.
+        if (index < numCourses)
+            return new int[]{};
+        
+        return out;
     }
-}
+it c}
