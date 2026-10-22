@@ -5,7 +5,7 @@
  * - The first elevation connecting the two endpoints is the minimum water level; unique
  *   elevations allow direct indexing instead of sorting.
  * Time complexity: O(n^2 alpha(n^2)) amortized for an n by n grid.
- * Space complexity: O(n^2) auxiliary position/active/DSU storage.
+ * Space complexity: O(n^2) auxiliary position/active/UnionFind storage.
  */
 
 // 778. Swim in Rising Water
@@ -23,7 +23,7 @@ class Solution {
                 position[grid[r][c]] = r * n + c;
             }
         }
-        DSU dsu = new DSU(total);
+        UnionFind uf = new UnionFind(total);
         boolean[] active = new boolean[total];
         int[] dr = {1, -1, 0, 0}, dc = {0, 0, 1, -1};
         for (int level = 0; level < total; level++) {
@@ -32,53 +32,68 @@ class Solution {
             for (int d = 0; d < 4; d++) {
                 int nr = r + dr[d], nc = c + dc[d];
                 if (nr >= 0 && nc >= 0 && nr < n && nc < n && active[nr * n + nc]) {
-                    dsu.union(id, nr * n + nc);
+                    uf.union(id, nr * n + nc);
                 }
             }
-            if (active[0] && active[total - 1] && dsu.find(0) == dsu.find(total - 1)) {
+            if (active[0] && active[total - 1] && uf.isConnected(0, total - 1)) {
                 return level;
             }
         }
         throw new IllegalStateException("The full grid must connect");
     }
 
-    private static class DSU {
-        int[] parent, size;
-        int components;
+    private static class UnionFind {
+        private int[] parent;
+        private int[] rank;
+        private int components;
 
-        DSU(int n) {
+        UnionFind(int n) {
             parent = new int[n];
-            size = new int[n];
-            components = n;
+            rank = new int[n];
+
             for (int i = 0; i < n; i++) {
                 parent[i] = i;
-                size[i] = 1;
+                rank[i] = 1;
             }
+
+            components = n;
         }
 
-        int find(int x) {
-            while (x != parent[x]) {
-                parent[x] = parent[parent[x]];
-                x = parent[x];
-            }
-            return x;
-        }
+        public boolean union(int x, int y) {
+            int parX = find(x);
+            int parY = find(y);
 
-        boolean union(int a, int b) {
-            a = find(a);
-            b = find(b);
-            if (a == b) {
+            if (parX == parY) {
                 return false;
             }
-            if (size[a] < size[b]) {
-                int t = a;
-                a = b;
-                b = t;
+
+            if (rank[parX] > rank[parY]) {
+                parent[parY] = parX;
+            } else if (rank[parX] < rank[parY]) {
+                parent[parX] = parY;
+            } else {
+                parent[parY] = parX;
+                rank[parX] += 1;
             }
-            parent[b] = a;
-            size[a] += size[b];
+
             components--;
             return true;
+        }
+
+        public int find(int x) {
+            if (x == parent[x]) {
+                return x;
+            }
+
+            return parent[x] = find(parent[x]);
+        }
+
+        public int numOfComponents() {
+            return components;
+        }
+
+        public boolean isConnected(int x, int y) {
+            return find(x) == find(y);
         }
     }
 }

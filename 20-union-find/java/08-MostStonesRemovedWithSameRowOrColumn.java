@@ -5,7 +5,7 @@
  * - Each connected group can lose all but one stone, so the answer is the stone count minus the
  *   component count.
  * Time complexity: O(n alpha(n)) expected amortized for n stones.
- * Space complexity: O(n) auxiliary DSU and row/column maps.
+ * Space complexity: O(n) auxiliary UnionFind and row/column maps.
  */
 
 // 947. Most Stones Removed with Same Row or Column
@@ -15,58 +15,73 @@ import java.util.*;
 
 class Solution {
     public int removeStones(int[][] stones) {
-        DSU dsu = new DSU(stones.length);
+        UnionFind uf = new UnionFind(stones.length);
         Map<Integer, Integer> rows = new HashMap<>(), cols = new HashMap<>();
         for (int i = 0; i < stones.length; i++) {
             Integer row = rows.putIfAbsent(stones[i][0], i),
                     col = cols.putIfAbsent(stones[i][1], i);
             if (row != null) {
-                dsu.union(i, row);
+                uf.union(i, row);
             }
             if (col != null) {
-                dsu.union(i, col);
+                uf.union(i, col);
             }
         }
-        return stones.length - dsu.components;
+        return stones.length - uf.numOfComponents();
     }
 
-    private static class DSU {
-        int[] parent, size;
-        int components;
+    private static class UnionFind {
+        private int[] parent;
+        private int[] rank;
+        private int components;
 
-        DSU(int n) {
+        UnionFind(int n) {
             parent = new int[n];
-            size = new int[n];
-            components = n;
+            rank = new int[n];
+
             for (int i = 0; i < n; i++) {
                 parent[i] = i;
-                size[i] = 1;
+                rank[i] = 1;
             }
+
+            components = n;
         }
 
-        int find(int x) {
-            while (x != parent[x]) {
-                parent[x] = parent[parent[x]];
-                x = parent[x];
-            }
-            return x;
-        }
+        public boolean union(int x, int y) {
+            int parX = find(x);
+            int parY = find(y);
 
-        boolean union(int a, int b) {
-            a = find(a);
-            b = find(b);
-            if (a == b) {
+            if (parX == parY) {
                 return false;
             }
-            if (size[a] < size[b]) {
-                int t = a;
-                a = b;
-                b = t;
+
+            if (rank[parX] > rank[parY]) {
+                parent[parY] = parX;
+            } else if (rank[parX] < rank[parY]) {
+                parent[parX] = parY;
+            } else {
+                parent[parY] = parX;
+                rank[parX] += 1;
             }
-            parent[b] = a;
-            size[a] += size[b];
+
             components--;
             return true;
+        }
+
+        public int find(int x) {
+            if (x == parent[x]) {
+                return x;
+            }
+
+            return parent[x] = find(parent[x]);
+        }
+
+        public int numOfComponents() {
+            return components;
+        }
+
+        public boolean isConnected(int x, int y) {
+            return find(x) == find(y);
         }
     }
 }

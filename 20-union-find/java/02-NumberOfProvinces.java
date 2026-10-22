@@ -3,8 +3,8 @@
  * Talking points:
  * - I'd scan connected pairs above the symmetric matrix's diagonal and union their cities.
  * - A successful merge reduces the component count; the remaining components are the provinces.
- * Time complexity: O(n^2 alpha(n)) conservative amortized DSU bound for n cities.
- * Space complexity: O(n) auxiliary DSU arrays; excludes the input matrix.
+ * Time complexity: O(n^2 alpha(n)) conservative amortized UnionFind bound for n cities.
+ * Space complexity: O(n) auxiliary UnionFind arrays; excludes the input matrix.
  */
 
 // 547. Number of Provinces
@@ -14,54 +14,69 @@ import java.util.*;
 
 class Solution {
     public int findCircleNum(int[][] isConnected) {
-        DSU dsu = new DSU(isConnected.length);
+        UnionFind uf = new UnionFind(isConnected.length);
         for (int i = 0; i < isConnected.length; i++) {
             for (int j = i + 1; j < isConnected.length; j++) {
                 if (isConnected[i][j] == 1) {
-                    dsu.union(i, j);
+                    uf.union(i, j);
                 }
             }
         }
-        return dsu.components;
+        return uf.numOfComponents();
     }
 
-    private static class DSU {
-        int[] parent, size;
-        int components;
+    private static class UnionFind {
+        private int[] parent;
+        private int[] rank;
+        private int components;
 
-        DSU(int n) {
+        UnionFind(int n) {
             parent = new int[n];
-            size = new int[n];
-            components = n;
+            rank = new int[n];
+
             for (int i = 0; i < n; i++) {
                 parent[i] = i;
-                size[i] = 1;
+                rank[i] = 1;
             }
+
+            components = n;
         }
 
-        int find(int x) {
-            while (x != parent[x]) {
-                parent[x] = parent[parent[x]];
-                x = parent[x];
-            }
-            return x;
-        }
+        public boolean union(int x, int y) {
+            int parX = find(x);
+            int parY = find(y);
 
-        boolean union(int a, int b) {
-            a = find(a);
-            b = find(b);
-            if (a == b) {
+            if (parX == parY) {
                 return false;
             }
-            if (size[a] < size[b]) {
-                int t = a;
-                a = b;
-                b = t;
+
+            if (rank[parX] > rank[parY]) {
+                parent[parY] = parX;
+            } else if (rank[parX] < rank[parY]) {
+                parent[parX] = parY;
+            } else {
+                parent[parY] = parX;
+                rank[parX] += 1;
             }
-            parent[b] = a;
-            size[a] += size[b];
+
             components--;
             return true;
+        }
+
+        public int find(int x) {
+            if (x == parent[x]) {
+                return x;
+            }
+
+            return parent[x] = find(parent[x]);
+        }
+
+        public int numOfComponents() {
+            return components;
+        }
+
+        public boolean isConnected(int x, int y) {
+            return find(x) == find(y);
         }
     }
 }

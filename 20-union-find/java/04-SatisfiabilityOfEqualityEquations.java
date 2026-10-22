@@ -6,7 +6,7 @@
  *   a later equality chain.
  * Time complexity: O(E alpha(26) + 26) = O(E + 1) for E equations over fixed lowercase
  *   variables.
- * Space complexity: O(26) = O(1) auxiliary DSU space.
+ * Space complexity: O(26) = O(1) auxiliary UnionFind space.
  */
 
 // 990. Satisfiability of Equality Equations
@@ -16,57 +16,72 @@ import java.util.*;
 
 class Solution {
     public boolean equationsPossible(String[] equations) {
-        DSU dsu = new DSU(26);
+        UnionFind uf = new UnionFind(26);
         for (String e : equations) {
             if (e.charAt(1) == '=') {
-                dsu.union(e.charAt(0) - 'a', e.charAt(3) - 'a');
+                uf.union(e.charAt(0) - 'a', e.charAt(3) - 'a');
             }
         }
         for (String e : equations) {
-            if (e.charAt(1) == '!' && dsu.find(e.charAt(0) - 'a') == dsu.find(e.charAt(3) - 'a')) {
+            if (e.charAt(1) == '!' && uf.isConnected(e.charAt(0) - 'a', e.charAt(3) - 'a')) {
                 return false;
             }
         }
         return true;
     }
 
-    private static class DSU {
-        int[] parent, size;
-        int components;
+    private static class UnionFind {
+        private int[] parent;
+        private int[] rank;
+        private int components;
 
-        DSU(int n) {
+        UnionFind(int n) {
             parent = new int[n];
-            size = new int[n];
-            components = n;
+            rank = new int[n];
+
             for (int i = 0; i < n; i++) {
                 parent[i] = i;
-                size[i] = 1;
+                rank[i] = 1;
             }
+
+            components = n;
         }
 
-        int find(int x) {
-            while (x != parent[x]) {
-                parent[x] = parent[parent[x]];
-                x = parent[x];
-            }
-            return x;
-        }
+        public boolean union(int x, int y) {
+            int parX = find(x);
+            int parY = find(y);
 
-        boolean union(int a, int b) {
-            a = find(a);
-            b = find(b);
-            if (a == b) {
+            if (parX == parY) {
                 return false;
             }
-            if (size[a] < size[b]) {
-                int t = a;
-                a = b;
-                b = t;
+
+            if (rank[parX] > rank[parY]) {
+                parent[parY] = parX;
+            } else if (rank[parX] < rank[parY]) {
+                parent[parX] = parY;
+            } else {
+                parent[parY] = parX;
+                rank[parX] += 1;
             }
-            parent[b] = a;
-            size[a] += size[b];
+
             components--;
             return true;
+        }
+
+        public int find(int x) {
+            if (x == parent[x]) {
+                return x;
+            }
+
+            return parent[x] = find(parent[x]);
+        }
+
+        public int numOfComponents() {
+            return components;
+        }
+
+        public boolean isConnected(int x, int y) {
+            return find(x) == find(y);
         }
     }
 }

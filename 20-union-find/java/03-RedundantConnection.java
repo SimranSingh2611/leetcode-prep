@@ -5,7 +5,7 @@
  * - The first failed union closes the unique cycle and identifies the required redundant edge
  *   under the tree-plus-one-edge guarantee.
  * Time complexity: O(n alpha(n)) amortized for n edges/vertices.
- * Space complexity: O(n) auxiliary DSU arrays.
+ * Space complexity: O(n) auxiliary UnionFind arrays.
  */
 
 // 684. Redundant Connection
@@ -16,52 +16,67 @@ import java.util.*;
 
 class Solution {
     public int[] findRedundantConnection(int[][] edges) {
-        DSU dsu = new DSU(edges.length + 1);
+        UnionFind uf = new UnionFind(edges.length + 1);
         for (int[] e : edges) {
-            if (!dsu.union(e[0], e[1])) {
+            if (!uf.union(e[0], e[1])) {
                 return e.clone();
             }
         }
         return new int[0];
     }
 
-    private static class DSU {
-        int[] parent, size;
-        int components;
+    private static class UnionFind {
+        private int[] parent;
+        private int[] rank;
+        private int components;
 
-        DSU(int n) {
+        UnionFind(int n) {
             parent = new int[n];
-            size = new int[n];
-            components = n;
+            rank = new int[n];
+
             for (int i = 0; i < n; i++) {
                 parent[i] = i;
-                size[i] = 1;
+                rank[i] = 1;
             }
+
+            components = n;
         }
 
-        int find(int x) {
-            while (x != parent[x]) {
-                parent[x] = parent[parent[x]];
-                x = parent[x];
-            }
-            return x;
-        }
+        public boolean union(int x, int y) {
+            int parX = find(x);
+            int parY = find(y);
 
-        boolean union(int a, int b) {
-            a = find(a);
-            b = find(b);
-            if (a == b) {
+            if (parX == parY) {
                 return false;
             }
-            if (size[a] < size[b]) {
-                int t = a;
-                a = b;
-                b = t;
+
+            if (rank[parX] > rank[parY]) {
+                parent[parY] = parX;
+            } else if (rank[parX] < rank[parY]) {
+                parent[parX] = parY;
+            } else {
+                parent[parY] = parX;
+                rank[parX] += 1;
             }
-            parent[b] = a;
-            size[a] += size[b];
+
             components--;
             return true;
+        }
+
+        public int find(int x) {
+            if (x == parent[x]) {
+                return x;
+            }
+
+            return parent[x] = find(parent[x]);
+        }
+
+        public int numOfComponents() {
+            return components;
+        }
+
+        public boolean isConnected(int x, int y) {
+            return find(x) == find(y);
         }
     }
 }
