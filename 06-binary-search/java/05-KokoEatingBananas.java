@@ -24,7 +24,7 @@ class Solution {
             hi = Math.max(hi, pile);
         }
         while (lo + 1 < hi) {
-            int mid = lo + (int) (((long) hi - lo) / 2);
+            int mid = lo + (hi - lo) / 2;
             if (canFinish(piles, h, mid)) {
                 hi = mid;
             } else {

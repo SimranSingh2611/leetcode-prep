@@ -42,7 +42,7 @@ choose lo, hi, and condition for the particular problem.
 ```java
 // First true: false ... false | true ... true
 while (lo + 1 < hi) {
-    int mid = lo + (int) (((long) hi - lo) / 2);
+    int mid = lo + (hi - lo) / 2;
     if (condition(mid)) hi = mid;
     else lo = mid;
 }
@@ -52,18 +52,22 @@ return hi;
 ```java
 // Last true: true ... true | false ... false
 while (lo + 1 < hi) {
-    int mid = lo + (int) (((long) hi - lo) / 2);
+    int mid = lo + (hi - lo) / 2;
     if (condition(mid)) lo = mid;
     else hi = mid;
 }
 return lo;
 ```
 
-The same structure uses a long midpoint when the search bounds are long.
-The int snippets promote before subtracting: with lo=-1 and a large positive hi,
-even hi-lo can overflow int. A midpoint always lies strictly between nonadjacent
-endpoints, so assigning either endpoint to it makes progress without mid+1/mid-1
-updates.
+The int-bound solutions use `int mid = lo + (hi - lo) / 2`. This assumes the
+nonnegative difference `hi - lo` fits in int; with lo=-1 and hi=n, that requires
+n<Integer.MAX_VALUE, as the array/list size limits in these exercises ensure.
+When adapting the template to a wider range, use long bounds and a long midpoint.
+The matrix, split-array, and coin solutions already use long arithmetic for their
+larger ranges or intermediate calculations.
+
+A midpoint always lies strictly between nonadjacent endpoints, so assigning
+either endpoint to it makes progress without mid+1/mid-1 updates.
 
 ## Choosing lo and hi correctly
 

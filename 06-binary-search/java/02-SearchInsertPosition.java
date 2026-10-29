@@ -20,7 +20,7 @@ class Solution {
         int lo = -1;
         int hi = nums.length;
         while (lo + 1 < hi) {
-            int mid = lo + (int) (((long) hi - lo) / 2);
+            int mid = lo + (hi - lo) / 2;
             if (nums[mid] >= target) {
                 hi = mid;
             } else {

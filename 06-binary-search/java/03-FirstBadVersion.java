@@ -21,7 +21,7 @@ class Solution extends VersionControl {
         int lo = 0;
         int hi = n;
         while (lo + 1 < hi) {
-            int mid = lo + (int) (((long) hi - lo) / 2);
+            int mid = lo + (hi - lo) / 2;
             if (isBadVersion(mid)) {
                 hi = mid;
             } else {

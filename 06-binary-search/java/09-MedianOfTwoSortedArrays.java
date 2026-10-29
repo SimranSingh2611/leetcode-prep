@@ -31,7 +31,7 @@ class Solution {
         int lo = -1;
         int hi = m; // Taking all of A leaves A-right empty, hence known true.
         while (lo + 1 < hi) {
-            int mid = lo + (int) (((long) hi - lo) / 2);
+            int mid = lo + (hi - lo) / 2;
             int j = leftSize - mid;
             // Do NOT test both partition inequalities here: that is not monotonic.
             if (j == 0 || nums2[j - 1] <= nums1[mid]) {

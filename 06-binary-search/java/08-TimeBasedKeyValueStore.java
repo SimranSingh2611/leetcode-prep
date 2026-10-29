@@ -52,7 +52,7 @@ class TimeMap {
         int lo = -1; // Virtual true endpoint: no qualifying write yet.
         int hi = entries.size(); // Virtual false endpoint, never read.
         while (lo + 1 < hi) {
-            int mid = lo + (int) (((long) hi - lo) / 2);
+            int mid = lo + (hi - lo) / 2;
             if (entries.get(mid).timestamp <= timestamp) {
                 lo = mid;
             } else {

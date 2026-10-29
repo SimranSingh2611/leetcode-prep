@@ -22,7 +22,7 @@ class Solution {
         int hi = nums.length - 1; // A real, known-true endpoint.
         int last = nums[nums.length - 1];
         while (lo + 1 < hi) {
-            int mid = lo + (int) (((long) hi - lo) / 2);
+            int mid = lo + (hi - lo) / 2;
             if (nums[mid] <= last) {
                 hi = mid;
             } else {
