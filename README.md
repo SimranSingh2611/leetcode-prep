@@ -1,10 +1,14 @@
 # LeetCode Pattern Roadmap
 
 Start with the foundational exercises in numeric order, then revisit the harder hybrids.
-There are **22 pattern sections and 241 distinct problems (250 exercise entries, including 4 standalone templates)**: 76 in 01–07 (the original 70 plus six binary-search additions),
+The core roadmap contains **22 pattern sections and 241 distinct problems (250 exercise entries, including 4 standalone templates)**: 76 in 01–07 (the original 70 plus six binary-search additions),
 plus 174 entries in 08–21. Step 18 is split into **18a BFS** and **18b DFS**, so steps 19
 and 20 keep their existing names. Step 21 collects the six Intervals questions, My Calendar I/II/III, and Meeting Rooms III.
 The old combined graph directory is a navigation page.
+
+After step 02, the supplemental [02a — Prefix Sum with HashMap](./02a-prefix-sum-with-hashmap/README.md)
+collects all seven problems from your pasted pattern guide, with templates for counting,
+maximum length, and existence. This focused set is separate from the core counts above.
 
 Each pattern folder contains a recognition guide and a numbered problem list; its
 `java/` folder contains a solution index and one independent file per problem.
