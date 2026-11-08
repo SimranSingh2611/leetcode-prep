@@ -1,5 +1,9 @@
 # 09 — Monotonic Stacks
 
+For reverse-scan previous-element templates and explicit two-pass boundaries, see
+the [custom-template version](../09a-monotonic-stacks-custom-template/README.md)
+of these same 18 exercises.
+
 A monotonic stack is a stack with an ordering invariant. Learn unresolved next-element queries first, then span aggregation and contribution counting. Sorting is an explicit prerequisite for Car Fleet.
 
 ## How to recognize this pattern

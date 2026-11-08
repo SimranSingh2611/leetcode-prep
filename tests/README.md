@@ -1,6 +1,8 @@
 # Local validation
 
-The Java suite covers **190 Java files: 16 in 06 and 174 in 08–21 (including 4 standalone templates)**.
+The Java suite covers **208 Java files: 16 in 06, 174 in 08–21 (including 4 standalone templates),
+and 18 alternate implementations in 09a**. The 09a variant shares 09's metadata
+and behavioral cases; the core roadmap's exercise and unique-problem counts stay the same.
 Folders 01–05 and 07 are not part of the compilation/sample suite; the static
 inventory still checks all 22 pattern sections for problem counts, recognition sections,
 and unexpected duplicate URLs. The metadata snapshot covers only 08–21.
@@ -97,6 +99,12 @@ claim acceptance by LeetCode's hidden judge. Do not submit the local model/test
 classes to LeetCode.
 
 Run the 18 monotonic-stack exercises with `bash leetcode-prep/tests/verify.sh 09-monotonic-stacks`. The guide additions have metadata check dates of 2026-09-23. Tests include exhaustive small 132-pattern arrays and seeded brute-force comparisons for ocean views, trapped water, visible people, and car fleets.
+
+Run the 18 custom-template implementations with
+`bash leetcode-prep/tests/verify.sh 09a-monotonic-stacks-custom-template`.
+The full suite runs both versions independently against the same cases. Maximal
+Rectangle additionally checks empty matrices, repeated heights, zero-row resets,
+input preservation, and seeded comparisons against direct rectangle enumeration.
 
 Next Greater, Previous Greater, Next Smaller, and Previous Smaller have separate template metadata (no invented LeetCode IDs). Their tests compare nearest qualifying indices against direct scans over exhaustive small arrays, including duplicates, empty input, and integer extremes.
 

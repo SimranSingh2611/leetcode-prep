@@ -14,7 +14,7 @@ class Verify {
         List<Path> folders;
         try(Stream<Path> paths=Files.list(root)){
             folders=paths.filter(Files::isDirectory)
-                .filter(p->p.getFileName().toString().matches("(06|0[89]|1[0-7]|18[ab]|19|20|21)-.*"))
+                .filter(p->p.getFileName().toString().matches("(06|08|09a?|1[0-7]|18[ab]|19|20|21)-.*"))
                 .filter(p->args.length<3 || p.getFileName().toString().equals(args[2]))
                 .sorted().collect(Collectors.toList());
         }
@@ -28,7 +28,11 @@ class Verify {
             for(Path file:files) {
                 String key=folder.getFileName().toString().split("-",2)[0]+"-"+file.getFileName().toString().substring(0,2);
                 Path target=build.resolve(key);Files.createDirectories(target);
-                Path test=root.resolve("tests/cases/"+key+".java");
+                // The custom-template variant reuses 09's behavioral cases while
+                // keeping its own build directory and isolated class loader.
+                String testKey=folder.getFileName().toString().equals("09a-monotonic-stacks-custom-template")
+                        ? "09-"+file.getFileName().toString().substring(0,2) : key;
+                Path test=root.resolve("tests/cases/"+testKey+".java");
                 ByteArrayOutputStream errors=new ByteArrayOutputStream();
                 int status=compiler.run(null,null,errors,"--release","8","-encoding","UTF-8","-d",target.toString(),
                         file.toString(),root.resolve("tests/Models.java").toString(),test.toString());

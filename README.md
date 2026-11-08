@@ -42,6 +42,7 @@ and `V`/`E` are graph vertex/edge counts.
 | 7 | [Kadane's Algorithm](./07-kadanes-algorithm/README.md) | 10 | 3 Easy / 5 Medium / 2 Hard |
 | 8 | [Stacks](./08-stacks/README.md) | 10 | 3 Easy / 5 Medium / 2 Hard |
 | 9 | [Monotonic Stacks](./09-monotonic-stacks/README.md) | 18 | 2 Easy / 8 Medium / 4 Hard + 4 templates |
+| 9a (alternate) | [Monotonic Stacks — Custom Template](./09a-monotonic-stacks-custom-template/README.md) | Same 18 | Reverse-scan previous queries and explicit boundary passes |
 | 10 | [Linked Lists](./10-linked-lists/README.md) | 10 | 3 Easy / 5 Medium / 2 Hard |
 | 11 | [Recursion](./11-recursion/README.md) | 8 | 3 Easy / 5 Medium |
 | 12 | [Binary Trees](./12-binary-trees/README.md) | 20 | 8 Easy / 10 Medium / 2 Hard |
@@ -188,7 +189,8 @@ ruby -EUTF-8 leetcode-prep/tests/check_catalog.rb
 bash leetcode-prep/tests/verify.sh
 ```
 
-The Java suite covers 190 files (06 and 08–21) with deterministic examples, edge
+The Java suite covers 208 files (190 in 06 and 08–21, plus 18 alternate implementations
+in 09a) with deterministic examples, edge
 cases, selected randomized/brute-force comparisons, and selected deep-structure
 tests. Run only binary search with `bash leetcode-prep/tests/verify.sh 06-binary-search`.
 These are local checks, not a claim that the files have been submitted to or

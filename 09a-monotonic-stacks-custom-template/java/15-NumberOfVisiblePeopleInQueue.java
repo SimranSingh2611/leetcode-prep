@@ -1,0 +1,35 @@
+/*
+ * Interview quick notes — primary solution:
+ * Talking points:
+ * - I'd keep a decreasing-height stack while scanning people from left to right.
+ * - Each popped person sees the new person, and the nearest taller survivor sees them too while
+ *   blocking everyone behind it.
+ * Time complexity: O(n) amortized overall for n people.
+ * Space complexity: O(n) auxiliary stack, plus O(n) output counts.
+ */
+
+// 1944. Number of Visible People in a Queue
+// https://leetcode.com/problems/number-of-visible-people-in-a-queue/
+// Visibility-counting adaptation: count popped people AND the surviving taller blocker.
+// Relies on the problem's distinct heights. O(n) time/space; input preserved.
+import java.util.*;
+
+class Solution {
+    public int[] canSeePersonsCount(int[] heights) {
+        int[] answer = new int[heights.length];
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i < heights.length; i++) {
+            while (!stack.isEmpty() && heights[stack.peek()] <= heights[i]) {
+                // Each popped person sees i as their final (taller) visible person.
+                answer[stack.pop()]++;
+            }
+            if (!stack.isEmpty()) {
+                // Only the nearest remaining taller person sees i; that person
+                // blocks i from everyone farther left still on the stack.
+                answer[stack.peek()]++;
+            }
+            stack.push(i);
+        }
+        return answer;
+    }
+}
