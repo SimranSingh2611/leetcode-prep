@@ -17,7 +17,7 @@ import java.util.*;
 class Solution {
     public boolean find132pattern(int[] nums) {
         int[] prefixMin = new int[nums.length];
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < nums.length; i++) {
             prefixMin[i] = i == 0 ? nums[i] : Math.min(prefixMin[i - 1], nums[i]);
             while (!stack.isEmpty() && nums[stack.peek()] <= nums[i]) {

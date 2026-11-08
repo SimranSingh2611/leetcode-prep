@@ -39,11 +39,11 @@ for the reasoning behind the order.
 
 Scan left to right and store indices. Choose a comparison, pop invalid candidates,
 process resolved answers during popping, optionally inspect the surviving top,
-then push the current index. Stack order below is **bottom to top**; with
-`ArrayDeque`, use `push`, `peek`, and `pop` consistently at the same end.
+then push the current index. Stack order below is **bottom to top**; use
+`Stack` with `push`, `peek`, and `pop` to operate on the top.
 
 ```java
-Deque<Integer> stack = new ArrayDeque<>();
+Stack<Integer> stack = new Stack<>();
 for (int i = 0; i < values.length; i++) {
     while (!stack.isEmpty() && values[stack.peek()] < values[i]) {
         int resolved = stack.pop();

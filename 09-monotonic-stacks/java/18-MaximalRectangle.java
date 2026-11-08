@@ -26,7 +26,7 @@ class Solution {
             for (int c = 0; c < h.length; c++) {
                 h[c] = row[c] == '1' ? h[c] + 1 : 0;
             }
-            Deque<Integer> stack = new ArrayDeque<>();
+            Stack<Integer> stack = new Stack<>();
             for (int i = 0; i <= h.length; i++) {
                 int current = i == h.length ? 0 : h[i];
                 while (!stack.isEmpty() && h[stack.peek()] > current) {

@@ -19,7 +19,7 @@ class Solution {
     public int[] nextGreaterIndexes(int[] nums) {
         int[] answer = new int[nums.length];
         Arrays.fill(answer, -1);
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < nums.length; i++) {
             while (!stack.isEmpty() && nums[stack.peek()] < nums[i]) {
                 // Resolve INSIDE while: i is the first strictly greater index to the right.

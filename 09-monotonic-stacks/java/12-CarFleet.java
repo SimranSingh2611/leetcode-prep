@@ -24,7 +24,7 @@ class Solution {
         }
         Arrays.sort(cars, (a, b) -> Integer.compare(a[0], b[0]));
         double[] times = new double[cars.length];
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < cars.length; i++) {
             times[i] = (double) (target - cars[i][0]) / cars[i][1];
             while (!stack.isEmpty() && times[stack.peek()] <= times[i]) {

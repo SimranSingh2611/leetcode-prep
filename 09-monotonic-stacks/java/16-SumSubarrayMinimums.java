@@ -21,7 +21,7 @@ class Solution {
         int n = arr.length;
         int[] left = new int[n], right = new int[n];
         Arrays.fill(right, n);
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < n; i++) {
             while (!stack.isEmpty() && arr[stack.peek()] >= arr[i]) {
                 // INSIDE while: i is the popped index's next smaller-or-equal.

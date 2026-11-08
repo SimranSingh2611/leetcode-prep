@@ -17,7 +17,7 @@ import java.util.*;
 class Solution {
     public int[] canSeePersonsCount(int[] heights) {
         int[] answer = new int[heights.length];
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < heights.length; i++) {
             while (!stack.isEmpty() && heights[stack.peek()] <= heights[i]) {
                 // Each popped person sees i as their final (taller) visible person.

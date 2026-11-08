@@ -16,7 +16,7 @@ import java.util.*;
 
 class Solution {
     public int trap(int[] height) {
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
         int water = 0;
         for (int i = 0; i < height.length; i++) {
             while (!stack.isEmpty() && height[stack.peek()] <= height[i]) {

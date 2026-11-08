@@ -19,7 +19,7 @@ class Solution {
     public int[] previousSmallerIndexes(int[] values) {
         int[] answer = new int[values.length];
         Arrays.fill(answer, -1);
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < values.length; i++) {
             while (!stack.isEmpty() && values[stack.peek()] >= values[i]) {
                 // Remove candidates that cannot be the strictly qualifying predecessor.

@@ -20,7 +20,7 @@ class Solution {
         int n = nums.length;
         int[] out = new int[n];
         Arrays.fill(out, -1);
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < 2 * n; i++) {
             int index = i % n;
             while (!stack.isEmpty() && nums[stack.peek()] < nums[index]) {

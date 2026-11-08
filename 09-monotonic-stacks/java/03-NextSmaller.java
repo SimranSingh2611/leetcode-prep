@@ -19,7 +19,7 @@ class Solution {
     public int[] nextSmallerIndexes(int[] values) {
         int[] answer = new int[values.length];
         Arrays.fill(answer, -1);
-        Deque<Integer> stack = new ArrayDeque<>();
+        Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < values.length; i++) {
             while (!stack.isEmpty() && values[stack.peek()] > values[i]) {
                 // Resolve INSIDE while: i is the first strictly smaller index to the right.
