@@ -16,17 +16,25 @@ import java.util.Arrays;
 
 class Solution {
     public int eraseOverlapIntervals(int[][] intervals) {
-        int[][] sorted = intervals.clone();
-        Arrays.sort(sorted, (a, b) -> Integer.compare(a[1], b[1]));
-        int removals = 0;
-        int previousEnd = Integer.MIN_VALUE;
-        for (int[] interval : sorted) {
-            if (interval[0] >= previousEnd) {
-                previousEnd = interval[1];
+        if (intervals == null || intervals.length == 1)
+            return 0;
+
+        Arrays.sort(intervals, (a, b) -> (a[0] - b[0]));
+
+        int ctr = 0;
+        int prevEnd = intervals[0][1];
+        for(int i=1; i<intervals.length; i++) {
+            int currStart = intervals[i][0];
+            int currEnd = intervals[i][1];
+
+            if (currStart < prevEnd) {
+                // intervals are overlapping.
+                ctr++;
+                prevEnd = Math.min(prevEnd, currEnd);
             } else {
-                removals++;
+                prevEnd = currEnd;
             }
         }
-        return removals;
+        return ctr;
     }
 }

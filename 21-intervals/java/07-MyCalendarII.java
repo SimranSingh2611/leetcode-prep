@@ -15,35 +15,34 @@
 import java.util.TreeMap;
 
 class MyCalendarTwo {
-    private final TreeMap<Integer, Integer> changes = new TreeMap<>();
 
-    public MyCalendarTwo() {}
-
-    public boolean book(int startTime, int endTime) {
-        addChange(startTime, 1);
-        addChange(endTime, -1);
-
-        int active = 0;
-        int maximum = 0;
-        for (int change : changes.values()) {
-            active += change;
-            maximum = Math.max(maximum, active);
+    Map<Integer, Integer> tm;
+    public MyCalendarTwo() {
+        tm = new TreeMap<>();
+    }
+    
+    public boolean book(int start, int end) {
+        
+        tm.put(start, tm.getOrDefault(start,0)+1);
+        tm.put(end, tm.getOrDefault(end, 0)-1);
+        
+        int max=0, sum=0;
+        for(int val : tm.values()) {
+            sum += val;
+            max = Math.max(max, sum);
+            if(max > 2) {
+                tm.put(start, tm.getOrDefault(start,0)-1);
+                tm.put(end, tm.getOrDefault(end,0)+1);
+                return false;
+            }
         }
-
-        if (maximum > 2) {
-            addChange(startTime, -1);
-            addChange(endTime, 1);
-            return false;
-        }
+        
         return true;
     }
-
-    private void addChange(int time, int change) {
-        int updated = changes.getOrDefault(time, 0) + change;
-        if (updated == 0) {
-            changes.remove(time);
-        } else {
-            changes.put(time, updated);
-        }
-    }
 }
+
+/**
+ * Your MyCalendarTwo object will be instantiated and called as such:
+ * MyCalendarTwo obj = new MyCalendarTwo();
+ * boolean param_1 = obj.book(start,end);
+ */

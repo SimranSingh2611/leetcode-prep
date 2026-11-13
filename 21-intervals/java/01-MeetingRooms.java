@@ -16,14 +16,18 @@ import java.util.Arrays;
 
 class Solution {
     public boolean canAttendMeetings(int[][] intervals) {
-        int[][] sorted = intervals.clone();
-        Arrays.sort(sorted, (a, b) -> Integer.compare(a[0], b[0]));
-        for (int i = 1; i < sorted.length; i++) {
-            // A room is available at the previous meeting's end time.
-            if (sorted[i][0] < sorted[i - 1][1]) {
+        if (intervals == null)
+            return false;
+
+        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+        for(int i=1; i<intervals.length; i++) {
+            int currStart = intervals[i][0];
+            int prevEnd = intervals[i-1][1];
+
+            if (currStart < prevEnd)
                 return false;
-            }
         }
+
         return true;
     }
 }

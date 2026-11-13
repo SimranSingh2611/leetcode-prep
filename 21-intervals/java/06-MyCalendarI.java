@@ -16,22 +16,33 @@ import java.util.Map;
 import java.util.TreeMap;
 
 class MyCalendar {
-    private final TreeMap<Integer, Integer> bookings = new TreeMap<>();
-
-    public MyCalendar() {}
-
-    public boolean book(int startTime, int endTime) {
-        Map.Entry<Integer, Integer> previous = bookings.floorEntry(startTime);
-        if (previous != null && previous.getValue() > startTime) {
-            return false;
+    Map<Integer, Integer> tm;
+    
+    public MyCalendar() {
+        tm = new TreeMap<>();
+    }
+    
+    public boolean book(int start, int end) {
+        
+        tm.put(start, tm.getOrDefault(start,0)+1);
+        tm.put(end, tm.getOrDefault(end,0)-1);
+        int sum=0,k=0;
+        for(int val : tm.values()) {
+            sum+=val;
+            k = Math.max(k, sum);
+            if(k > 1) {
+                tm.put(start, tm.getOrDefault(start,0)-1);
+                tm.put(end, tm.getOrDefault(end,0)+1);
+                return false;
+            }
         }
-
-        Map.Entry<Integer, Integer> next = bookings.ceilingEntry(startTime);
-        if (next != null && next.getKey() < endTime) {
-            return false;
-        }
-
-        bookings.put(startTime, endTime);
+        
         return true;
     }
 }
+
+/**
+ * Your MyCalendar object will be instantiated and called as such:
+ * MyCalendar obj = new MyCalendar();
+ * boolean param_1 = obj.book(start,end);
+ */

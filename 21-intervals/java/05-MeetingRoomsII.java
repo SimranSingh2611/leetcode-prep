@@ -17,17 +17,25 @@ import java.util.PriorityQueue;
 
 class Solution {
     public int minMeetingRooms(int[][] intervals) {
-        int[][] sorted = intervals.clone();
-        Arrays.sort(sorted, (a, b) -> Integer.compare(a[0], b[0]));
-        PriorityQueue<Integer> activeEnds = new PriorityQueue<>();
-        int rooms = 0;
-        for (int[] meeting : sorted) {
-            while (!activeEnds.isEmpty() && activeEnds.peek() <= meeting[0]) {
-                activeEnds.poll();
-            }
-            activeEnds.offer(meeting[1]);
-            rooms = Math.max(rooms, activeEnds.size());
+        if (intervals == null || intervals.length == 0)
+            return 0;
+        
+        Arrays.sort(intervals, (a, b) -> ( (a[0] == b[0]) ? a[1] - b[1] : a[0] - b[0]));
+
+        // Create a min Heap to store only the end times
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+
+        minHeap.add(intervals[0][1]);
+
+        for(int i=1; i<intervals.length; i++) {
+            int currStart = intervals[i][0];
+            // Checking if the current interval is not overlapping with the latest meeting in the heap. Then we can remove that particular meeting from the queue.
+            if (currStart >= minHeap.peek())
+                minHeap.poll();
+            
+            // Add the current interval end to the heap
+            minHeap.add(intervals[i][1]);
         }
-        return rooms;
+        return minHeap.size();
     }
 }
