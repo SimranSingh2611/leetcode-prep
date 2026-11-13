@@ -47,7 +47,7 @@ class Solution {
             }
         }
         
-        return right];
+        return right;
     }
 
     private int binarySearch(int[] nums, int start, int end, int target) {
