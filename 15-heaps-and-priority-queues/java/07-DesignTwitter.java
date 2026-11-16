@@ -18,59 +18,83 @@
 import java.util.*;
 
 class Twitter {
-    private static class Tweet {
-        int id;
-        long time;
-        Tweet next;
 
-        Tweet(int id, long time, Tweet next) {
-            this.id = id;
-            this.time = time;
-            this.next = next;
-        }
+    Map<Integer, List<Integer>> userIdToFollowerId;
+    Map<Integer, List<Pair<Integer, Integer>>> userIdToTweet;
+    int tweetNumber;
+
+    public Twitter() {
+        userIdToFollowerId = new HashMap<>();
+        userIdToTweet = new HashMap<>();
+        tweetNumber = 0;
     }
 
-    private long clock = 0;
-    private final Map<Integer, Tweet> tweets = new HashMap<>();
-    private final Map<Integer, Set<Integer>> follows = new HashMap<>();
-
-    public Twitter() {}
-
     public void postTweet(int userId, int tweetId) {
-        tweets.put(userId, new Tweet(tweetId, clock++, tweets.get(userId)));
+        tweetNumber += 1;
+
+        Pair<Integer, Integer> tweet = new Pair<>(tweetId, tweetNumber);
+
+        userIdToTweet.putIfAbsent(userId, new ArrayList<>());
+        userIdToTweet.get(userId).add(tweet);
     }
 
     public List<Integer> getNewsFeed(int userId) {
-        PriorityQueue<Tweet> heap = new PriorityQueue<>((a, b) -> Long.compare(b.time, a.time));
-        if (tweets.containsKey(userId)) {
-            heap.offer(tweets.get(userId));
+
+        // Max-heap: Most recent tweet at the top
+        PriorityQueue<Pair<Integer, Integer>> maxHeap = new PriorityQueue<>((a, b) -> Integer.compare(b.tweetNumber, a.tweetNumber));
+
+        // Add user's own tweets
+        for (Pair<Integer, Integer> tweet : userIdToTweet.getOrDefault(userId, Collections.emptyList())) {
+            maxHeap.add(tweet);
         }
-        for (int id : follows.getOrDefault(userId, Collections.emptySet())) {
-            if (tweets.containsKey(id)) {
-                heap.offer(tweets.get(id));
+
+        // Add tweets from all users being followed
+        for (int followeeId : userIdToFollowerId.getOrDefault(userId, Collections.emptyList())) {
+            for (Pair<Integer, Integer> tweet : userIdToTweet.getOrDefault(followeeId, Collections.emptyList())) {
+                maxHeap.add(tweet);
             }
         }
-        List<Integer> out = new ArrayList<>();
-        while (out.size() < 10 && !heap.isEmpty()) {
-            Tweet t = heap.poll();
-            out.add(t.id);
-            if (t.next != null) {
-                heap.offer(t.next);
-            }
+
+        // Extract 10 most recent tweets
+        List<Integer> newsFeed = new ArrayList<>();
+
+        while (!maxHeap.isEmpty() && newsFeed.size() < 10) {
+            newsFeed.add(maxHeap.poll().tweetId);
         }
-        return out;
+
+        return newsFeed;
     }
 
     public void follow(int followerId, int followeeId) {
-        if (followerId != followeeId) {
-            follows.computeIfAbsent(followerId, k -> new HashSet<>()).add(followeeId);
-        }
+
+        // Cannot follow yourself
+        if (followerId == followeeId)
+            return;
+
+        userIdToFollowerId.putIfAbsent(followerId, new ArrayList<>());
+
+        List<Integer> followees = userIdToFollowerId.get(followerId);
+
+        // Avoid duplicate followees
+        if (!followees.contains(followeeId))
+            followees.add(followeeId);
     }
 
     public void unfollow(int followerId, int followeeId) {
-        Set<Integer> set = follows.get(followerId);
-        if (set != null) {
-            set.remove(followeeId);
+
+        if (userIdToFollowerId.containsKey(followerId)) {
+            userIdToFollowerId.get(followerId)
+                .remove(Integer.valueOf(followeeId));
+        }
+    }
+
+    class Pair<K, V> {
+        K tweetId;
+        V tweetNumber;
+
+        Pair(K tweetId, V tweetNumber) {
+            this.tweetId = tweetId;
+            this.tweetNumber = tweetNumber;
         }
     }
 }

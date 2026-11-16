@@ -12,20 +12,21 @@
 // O(n) time and O(n) output space.
 class Solution {
     public int[] sortedSquares(int[] nums) {
-        int[] result = new int[nums.length];
-        int left = 0;
-        int right = nums.length - 1;
+        int left = 0, right = nums.length - 1;
+        int[] out = new int[nums.length];
 
-        for (int write = nums.length - 1; write >= 0; write--) {
-            if (Math.abs((long) nums[left]) > Math.abs((long) nums[right])) {
-                result[write] = nums[left] * nums[left];
+        for(int i=nums.length-1; i>=0; i--) {
+            int val;
+            if (Math.abs(nums[left]) > Math.abs(nums[right])) {
+                val = nums[left];
                 left++;
             } else {
-                result[write] = nums[right] * nums[right];
+                val = nums[right];
                 right--;
             }
+            out[i] = val * val;
         }
-        return result;
+
+        return out;
     }
 }
-
